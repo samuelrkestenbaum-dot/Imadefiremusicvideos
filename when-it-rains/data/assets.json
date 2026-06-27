@@ -1,0 +1,1095 @@
+{
+  "project": "When It Rains",
+  "target_runtime_sec": 276,
+  "target_runtime": "4:36",
+  "aspect_ratio": "16:9",
+  "generator": "Higgsfield",
+  "models": {
+    "stills": "nano_banana_2 / nano_banana_flash",
+    "animation": "kling3_0 (std, silent, 5s, start-frame)"
+  },
+  "references": {
+    "man_selfies": [
+      "fd3902a2-34d6-41a8-92c4-cb1082cb633d",
+      "81d923ee-cc81-41ea-9dc0-39d40b3d8cd4",
+      "bb1fa35c-6c75-42ad-93f5-48de485e35b6"
+    ],
+    "note": "Man stills were generated against these uploaded selfies. Woman is described per-prompt (one brunette woman, long dark wavy hair)."
+  },
+  "counts": {
+    "clips": 26,
+    "stills": 42,
+    "edl_cuts": 76
+  },
+  "clips": [
+    {
+      "clip_key": "C01",
+      "job_id": "5cdf4041-0f97-49d0-8711-8b726587caa2",
+      "source_still": "d2848b0e",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_233736_5cdf4041-0f97-49d0-8711-8b726587caa2.mp4",
+      "motion": "Band wide; singer leans to mic; cymbal shimmers; lamp flickers"
+    },
+    {
+      "clip_key": "C02",
+      "job_id": "229bbbc3-52d9-4886-b5fc-57161427509f",
+      "source_still": "43498158",
+      "section": "performance",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+      "motion": "Singer CU; lifts eyes to lens; parts lips to sing"
+    },
+    {
+      "clip_key": "C03",
+      "job_id": "74079fe6-bb4e-44ba-aff2-21aa172c0d83",
+      "source_still": "f92d8e71",
+      "section": "insert",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234033_74079fe6-bb4e-44ba-aff2-21aa172c0d83.mp4",
+      "motion": "Rain runs/merges down dark glass; warm bokeh beyond"
+    },
+    {
+      "clip_key": "C04",
+      "job_id": "79124e78-8499-4a5a-8395-b71dd73db0bf",
+      "source_still": "845dd9a1",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234036_79124e78-8499-4a5a-8395-b71dd73db0bf.mp4",
+      "motion": "Turns as if touched; reflection forms then dissolves"
+    },
+    {
+      "clip_key": "C05",
+      "job_id": "a1e237a3-5814-4014-8f42-05f088b0f38a",
+      "source_still": "ccc75620",
+      "section": "insert",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234010_a1e237a3-5814-4014-8f42-05f088b0f38a.mp4",
+      "motion": "Mist drifts over bending river; surface shifts"
+    },
+    {
+      "clip_key": "C06",
+      "job_id": "3d48b24c-30cc-4cb0-a028-817a26132cf5",
+      "source_still": "29218e14",
+      "section": "insert",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234011_3d48b24c-30cc-4cb0-a028-817a26132cf5.mp4",
+      "motion": "Grey ocean heaves slowly under rain"
+    },
+    {
+      "clip_key": "C07",
+      "job_id": "8f850d70-5244-4914-ae5d-d77f0256dac1",
+      "source_still": "d45125d9",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234038_8f850d70-5244-4914-ae5d-d77f0256dac1.mp4",
+      "motion": "Woman reflection surfaces behind shoulder; raindrop breaks it; empty room"
+    },
+    {
+      "clip_key": "C08",
+      "job_id": "b36d8f7e-a070-42f1-963a-eaac7e079504",
+      "source_still": "aa6784bc",
+      "section": "insert",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234015_b36d8f7e-a070-42f1-963a-eaac7e079504.mp4",
+      "motion": "Curtains breathe inward; trees sway in storm"
+    },
+    {
+      "clip_key": "C09",
+      "job_id": "adb501a3-dc3c-46dd-91b7-150e743e0083",
+      "source_still": "8fd9fce9",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234017_adb501a3-dc3c-46dd-91b7-150e743e0083.mp4",
+      "motion": "Band gains intensity; drummer enters; push-in"
+    },
+    {
+      "clip_key": "C10",
+      "job_id": "da567b26-5aed-4863-a1e1-b710dc30c0bd",
+      "source_still": "749d8aeb",
+      "section": "insert",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234056_da567b26-5aed-4863-a1e1-b710dc30c0bd.mp4",
+      "motion": "Puddle ripples; reflection trembles; thunder flicker"
+    },
+    {
+      "clip_key": "C11",
+      "job_id": "f057574f-dd16-44e8-ad2d-ccdfb6151d96",
+      "source_still": "1143614b",
+      "section": "memory",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234058_f057574f-dd16-44e8-ad2d-ccdfb6151d96.mp4",
+      "motion": "Woman in rain turns away; fades into haze"
+    },
+    {
+      "clip_key": "C12",
+      "job_id": "3bb65d56-bdeb-4897-8ce1-d7b930791440",
+      "source_still": "9dc2c514",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234100_3bb65d56-bdeb-4897-8ce1-d7b930791440.mp4",
+      "motion": "Full band release; singer opens up; cymbal hit"
+    },
+    {
+      "clip_key": "C13",
+      "job_id": "3d829f3d-5b12-4582-8948-149d105e210d",
+      "source_still": "8e1033a4",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234102_3d829f3d-5b12-4582-8948-149d105e210d.mp4",
+      "motion": "Turns toward window at thunder; lightning; nothing"
+    },
+    {
+      "clip_key": "C14",
+      "job_id": "3a3f4f74-c141-4e84-ae23-7e5ec79c37f5",
+      "source_still": "06808897",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234105_3a3f4f74-c141-4e84-ae23-7e5ec79c37f5.mp4",
+      "motion": "Hand opens drawer; rainlight flickers on old photo"
+    },
+    {
+      "clip_key": "C15",
+      "job_id": "db20c845-d015-4eaa-a0e1-c4d2647cb2be",
+      "source_still": "76f40277",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234107_db20c845-d015-4eaa-a0e1-c4d2647cb2be.mp4",
+      "motion": "Woman face forms in misted mirror; he reaches; dissolves"
+    },
+    {
+      "clip_key": "C16",
+      "job_id": "310513e6-473a-4497-a725-67494a5505c2",
+      "source_still": "e6d61b52",
+      "section": "memory",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234109_310513e6-473a-4497-a725-67494a5505c2.mp4",
+      "motion": "Woman face softly forms in fogged glass then fades"
+    },
+    {
+      "clip_key": "C17",
+      "job_id": "ad3d0086-ca15-4aa3-94f0-9b49293956c1",
+      "source_still": "99cf778f",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234111_ad3d0086-ca15-4aa3-94f0-9b49293956c1.mp4",
+      "motion": "Lifts eyes to storm sky; stops fighting"
+    },
+    {
+      "clip_key": "C18",
+      "job_id": "f6484ae3-c098-41e8-82dc-ac95248b6962",
+      "source_still": "e5978420",
+      "section": "insert",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234126_f6484ae3-c098-41e8-82dc-ac95248b6962.mp4",
+      "motion": "Storm clouds churn and drift"
+    },
+    {
+      "clip_key": "C19",
+      "job_id": "3de61b10-8ebd-410a-9f9b-b88586f6f9b8",
+      "source_still": "d3db8eb8",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234128_3de61b10-8ebd-410a-9f9b-b88586f6f9b8.mp4",
+      "motion": "Lightning splits sky behind him; rain on skin"
+    },
+    {
+      "clip_key": "C20",
+      "job_id": "e6670604-3ac6-4183-af4e-caaf11f70587",
+      "source_still": "5cc8239a",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234130_e6670604-3ac6-4183-af4e-caaf11f70587.mp4",
+      "motion": "Band at peak; urgent; almost angry"
+    },
+    {
+      "clip_key": "C21",
+      "job_id": "7826073a-b52d-4740-93b2-aed813a60484",
+      "source_still": "76054c72",
+      "section": "memory",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234132_7826073a-b52d-4740-93b2-aed813a60484.mp4",
+      "motion": "Distant memory woman half-turns; dissolves into light"
+    },
+    {
+      "clip_key": "C22",
+      "job_id": "5365b84b-c8a3-46fe-bec7-ac783213e7a4",
+      "source_still": "8d9620d1",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234135_5365b84b-c8a3-46fe-bec7-ac783213e7a4.mp4",
+      "motion": "Rainwater spreads on floor; drawer creaks open; thunder"
+    },
+    {
+      "clip_key": "C23",
+      "job_id": "534543f1-9884-46e5-b749-1739661db4c0",
+      "source_still": "12a29611",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234137_534543f1-9884-46e5-b749-1739661db4c0.mp4",
+      "motion": "Alone by window; turns eyes to camera; unresolved"
+    },
+    {
+      "clip_key": "C24",
+      "job_id": "d797ba35-3d41-430f-8e8f-e325efe09bdf",
+      "source_still": "8de0efa8",
+      "section": "performance",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234139_d797ba35-3d41-430f-8e8f-e325efe09bdf.mp4",
+      "motion": "Near-still CU; quiet haunted gaze; slow blink"
+    },
+    {
+      "clip_key": "EX1",
+      "job_id": "a303faab-5926-4f89-a269-584f26f9eb4c",
+      "source_still": "prior",
+      "section": "insert",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_200846_a303faab-5926-4f89-a269-584f26f9eb4c.mp4",
+      "motion": "Man gazes at grey rain-swept ocean through glass"
+    },
+    {
+      "clip_key": "EX2",
+      "job_id": "c1cb27a8-fd89-470a-bbeb-1feb29a80605",
+      "source_still": "prior",
+      "section": "story",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_220349_c1cb27a8-fd89-470a-bbeb-1feb29a80605.mp4",
+      "motion": "Man in rain looks up; lightning flashes on his face"
+    }
+  ],
+  "stills": [
+    {
+      "still_id": "8c62ae67-6997-496a-8832-f76564d22d8f",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_185322_8c62ae67-6997-496a-8832-f76564d22d8f.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones. A full live band playing tog"
+    },
+    {
+      "still_id": "845dd9a1-79f4-442f-ada1-08150fe014cc",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_185444_845dd9a1-79f4-442f-ada1-08150fe014cc.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted earthy tones. The red-haired bearded man f"
+    },
+    {
+      "still_id": "22e02845-b29b-447e-bfde-5cca76976e9f",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_185727_22e02845-b29b-447e-bfde-5cca76976e9f.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted earthy tones. The man from the reference p"
+    },
+    {
+      "still_id": "ccc75620-a4d3-4f7c-9858-1002c659f4b8",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_185920_ccc75620-a4d3-4f7c-9858-1002c659f4b8.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones fading to cool. A wide atmosp"
+    },
+    {
+      "still_id": "b0f3fd47-9ad5-4a0e-85c1-b111a458b02f",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_190630_b0f3fd47-9ad5-4a0e-85c1-b111a458b02f.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones. Intimate emotional close-up "
+    },
+    {
+      "still_id": "8ddf51e6-de3d-4006-9898-b1675264e8e2",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_190810_8ddf51e6-de3d-4006-9898-b1675264e8e2.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones. A full live band playing tog"
+    },
+    {
+      "still_id": "26443c5f-dfa8-4895-8a5f-e1dda38c2313",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_191114_26443c5f-dfa8-4895-8a5f-e1dda38c2313.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool stormy tones. The exact man from the reference i"
+    },
+    {
+      "still_id": "ff3797c3-c255-48a3-a962-7418a0f2f712",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_191244_ff3797c3-c255-48a3-a962-7418a0f2f712.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted earthy tones. The exact man from the refer"
+    },
+    {
+      "still_id": "43498158-4557-4f17-b038-0e4d14a00136",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_191729_43498158-4557-4f17-b038-0e4d14a00136.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones. Intimate emotional close-up "
+    },
+    {
+      "still_id": "d3db8eb8-3cc8-4158-b5b7-f23ea73c420d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_192417_d3db8eb8-3cc8-4158-b5b7-f23ea73c420d.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool desaturated steel-blue tones. The exact same man"
+    },
+    {
+      "still_id": "76f40277-2eeb-4986-b745-826a701d4633",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_192900_76f40277-2eeb-4986-b745-826a701d4633.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool desaturated steel-blue tones. The exact same man"
+    },
+    {
+      "still_id": "c6ed4392-b7db-4a96-b643-7803db9d5c96",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_192950_c6ed4392-b7db-4a96-b643-7803db9d5c96.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted tones. The exact same man from the referen"
+    },
+    {
+      "still_id": "d86cb27e-9ed1-4fc5-bef2-699f7012271d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_193118_d86cb27e-9ed1-4fc5-bef2-699f7012271d.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool desaturated steel-blue tones. The exact same man"
+    },
+    {
+      "still_id": "d45125d9-b393-4714-a3a5-51b473cab791",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_193303_d45125d9-b393-4714-a3a5-51b473cab791.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool desaturated steel-blue tones. The exact same man"
+    },
+    {
+      "still_id": "27145e7a-c839-4665-bcf5-a4df8170a1fb",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_193314_27145e7a-c839-4665-bcf5-a4df8170a1fb.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool desaturated steel-blue tones. The exact same man"
+    },
+    {
+      "still_id": "8e1033a4-062c-4ece-8288-88fe294b9beb",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_193344_8e1033a4-062c-4ece-8288-88fe294b9beb.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted nighttime tones. The exact same man from t"
+    },
+    {
+      "still_id": "29218e14-4586-472a-b1a5-5329af875e8d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_193439_29218e14-4586-472a-b1a5-5329af875e8d.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted blue-grey tones. A vast empty ocean horizo"
+    },
+    {
+      "still_id": "8de0efa8-602c-4ab4-98d1-da88927ccd61",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_195758_8de0efa8-602c-4ab4-98d1-da88927ccd61.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool desaturated steel-blue tones. Photorealistic por"
+    },
+    {
+      "still_id": "6ff1cd32-1848-4c2b-a8e1-9241fdba126b",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_195952_6ff1cd32-1848-4c2b-a8e1-9241fdba126b.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted nighttime tones. Photorealistic portrait o"
+    },
+    {
+      "still_id": "c775bc73-fcb8-4a9f-8f81-ac13c8175fe7",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_200007_c775bc73-fcb8-4a9f-8f81-ac13c8175fe7.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted blue-grey tones. Photorealistic portrait o"
+    },
+    {
+      "still_id": "d2848b0e-a22b-439f-92af-3b4d72607f3c",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_221913_d2848b0e-a22b-439f-92af-3b4d72607f3c.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm amber/brown wood-paneled room. A full band perfo"
+    },
+    {
+      "still_id": "8fd9fce9-605b-4dc9-86cb-838c48d2629e",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_221952_8fd9fce9-605b-4dc9-86cb-838c48d2629e.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm amber/brown wood-paneled room. A full band perfo"
+    },
+    {
+      "still_id": "9dc2c514-f02d-4a6e-8a74-3aa0acaff3d6",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222005_9dc2c514-f02d-4a6e-8a74-3aa0acaff3d6.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm amber/brown wood-paneled room. A full band perfo"
+    },
+    {
+      "still_id": "5cc8239a-37b4-48a3-a830-413f56ce0657",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222020_5cc8239a-37b4-48a3-a830-413f56ce0657.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm amber/brown wood-paneled room. A full band perfo"
+    },
+    {
+      "still_id": "7d1bdb78-eac5-4bd4-a3fa-20544a5ced3c",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222042_7d1bdb78-eac5-4bd4-a3fa-20544a5ced3c.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm amber/brown wood-paneled room. A full band perfo"
+    },
+    {
+      "still_id": "06808897-4ef0-4a23-b9e5-a6849bfb84d4",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222318_06808897-4ef0-4a23-b9e5-a6849bfb84d4.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool blue-grey rainlight. Intimate close-up of a man'"
+    },
+    {
+      "still_id": "99cf778f-d437-4bc0-87df-a892a3bf53f5",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222359_99cf778f-d437-4bc0-87df-a892a3bf53f5.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool blue-grey rain palette. THE EXACT SAME MAN as in"
+    },
+    {
+      "still_id": "8d9620d1-cc6d-4f0c-a7f5-8491f0488a65",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222433_8d9620d1-cc6d-4f0c-a7f5-8491f0488a65.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain. A dim apartment during a heavy storm; blue-grey rainl"
+    },
+    {
+      "still_id": "12a29611-b005-425f-b637-ab0c8aeacbe5",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222459_12a29611-b005-425f-b637-ab0c8aeacbe5.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain. THE EXACT SAME MAN as in the reference selfies \u2014 fa"
+    },
+    {
+      "still_id": "1143614b-7b6d-4137-b618-f0e0c2b1ea68",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_222702_1143614b-7b6d-4137-b618-f0e0c2b1ea68.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool blue-grey rain palette. ONE brunette woman with "
+    },
+    {
+      "still_id": "f27adc4e-b1f9-4b8c-a794-2a7950159088",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_223254_f27adc4e-b1f9-4b8c-a794-2a7950159088.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm natural daylight. THE EXACT SAME MAN as in the r"
+    },
+    {
+      "still_id": "024f8e37-f341-49b4-a683-b19845d8b292",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_223346_024f8e37-f341-49b4-a683-b19845d8b292.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm cozy evening lamplight. THE EXACT SAME MAN as in"
+    },
+    {
+      "still_id": "55391605-d9e8-4df3-97e9-2a045f6fd7d1",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_223418_55391605-d9e8-4df3-97e9-2a045f6fd7d1.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; soft overcast daylight. THE EXACT SAME MAN as in the "
+    },
+    {
+      "still_id": "5a42f130-fc89-471a-871b-56180ca0c3c2",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_223506_5a42f130-fc89-471a-871b-56180ca0c3c2.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; soft warm daylight. THE EXACT SAME MAN as in the refe"
+    },
+    {
+      "still_id": "76054c72-3dd5-4132-91eb-97549aaceb41",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_224417_76054c72-3dd5-4132-91eb-97549aaceb41.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; soft warm daylight. The EXACT SAME brunette woman as "
+    },
+    {
+      "still_id": "b5987690-84bf-46e2-ace0-6ffa08866e99",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_225142_b5987690-84bf-46e2-ace0-6ffa08866e99.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm natural daylight. THE EXACT SAME MAN as in the r"
+    },
+    {
+      "still_id": "4a737109-8073-49c5-9185-f059b79e58d8",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_225558_4a737109-8073-49c5-9185-f059b79e58d8.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; soft warm golden light; gentle daylight. ONE brunette"
+    },
+    {
+      "still_id": "e6d61b52-4192-4645-aef1-cc70c1cb36ef",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_225814_e6d61b52-4192-4645-aef1-cc70c1cb36ef.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; soft warm light. Close-up of a misted; fogged-up bath"
+    },
+    {
+      "still_id": "f92d8e71-f22a-41ba-898d-7df9b485ff79",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_233729_f92d8e71-f22a-41ba-898d-7df9b485ff79.png",
+      "prompt_summary": "INSERT rain on dark windowpane at night; warm bokeh beyond"
+    },
+    {
+      "still_id": "e5978420-dd99-4bb9-96e5-a173325a5db4",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_233730_e5978420-dd99-4bb9-96e5-a173325a5db4.png",
+      "prompt_summary": "INSERT moving storm sky at dusk; churning clouds"
+    },
+    {
+      "still_id": "aa6784bc-e7b6-4289-a3ab-24fc41338b68",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_233732_aa6784bc-e7b6-4289-a3ab-24fc41338b68.png",
+      "prompt_summary": "INSERT sheer curtains breathing inward; trees in rain"
+    },
+    {
+      "still_id": "749d8aeb-8b9a-45b0-9592-e931228e4b0d",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_233734_749d8aeb-8b9a-45b0-9592-e931228e4b0d.png",
+      "prompt_summary": "INSERT rainwater puddle; trembling reflection; streetlight"
+    }
+  ],
+  "edl": [
+    {
+      "index": "1",
+      "clip_key": "C03",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "INTRO",
+      "note": "rain on glass (open)"
+    },
+    {
+      "index": "2",
+      "clip_key": "C01",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "INTRO",
+      "note": "band room wakes"
+    },
+    {
+      "index": "3",
+      "clip_key": "C02",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "INTRO",
+      "note": "singer close-up"
+    },
+    {
+      "index": "4",
+      "clip_key": "C04",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "INTRO",
+      "note": "man alone by window"
+    },
+    {
+      "index": "5",
+      "clip_key": "C03",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "INTRO",
+      "note": "rain hold into verse"
+    },
+    {
+      "index": "6",
+      "clip_key": "C02",
+      "in_point": "0.5",
+      "duration": "4.0",
+      "section": "V1",
+      "note": "sings opening line"
+    },
+    {
+      "index": "7",
+      "clip_key": "C04",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V1",
+      "note": "turns as if touched; reflection dissolves"
+    },
+    {
+      "index": "8",
+      "clip_key": "C01",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "V1",
+      "note": "restrained band"
+    },
+    {
+      "index": "9",
+      "clip_key": "C06",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V1",
+      "note": "grey ocean"
+    },
+    {
+      "index": "10",
+      "clip_key": "EX1",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V1",
+      "note": "gazes at ocean through glass"
+    },
+    {
+      "index": "11",
+      "clip_key": "C05",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V1",
+      "note": "river bend"
+    },
+    {
+      "index": "12",
+      "clip_key": "C02",
+      "in_point": "2.0",
+      "duration": "3.0",
+      "section": "V1",
+      "note": "singer"
+    },
+    {
+      "index": "13",
+      "clip_key": "C04",
+      "in_point": "1.5",
+      "duration": "3.0",
+      "section": "V1",
+      "note": "window"
+    },
+    {
+      "index": "14",
+      "clip_key": "C07",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V2",
+      "note": "over shoulder; her reflection surfaces"
+    },
+    {
+      "index": "15",
+      "clip_key": "C02",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "V2",
+      "note": "face-on singing"
+    },
+    {
+      "index": "16",
+      "clip_key": "C03",
+      "in_point": "0.5",
+      "duration": "3.0",
+      "section": "V2",
+      "note": "rain behind him"
+    },
+    {
+      "index": "17",
+      "clip_key": "C07",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V2",
+      "note": "raindrop breaks reflection; empty room"
+    },
+    {
+      "index": "18",
+      "clip_key": "C09",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "V2",
+      "note": "band fragments"
+    },
+    {
+      "index": "19",
+      "clip_key": "C02",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "V2",
+      "note": "more direct"
+    },
+    {
+      "index": "20",
+      "clip_key": "C04",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V2",
+      "note": "window"
+    },
+    {
+      "index": "21",
+      "clip_key": "C07",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V2",
+      "note": "reflection again",
+      "null": [
+        " gone"
+      ]
+    },
+    {
+      "index": "22",
+      "clip_key": "C08",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "PRE1",
+      "note": "curtains breathe; trees move"
+    },
+    {
+      "index": "23",
+      "clip_key": "C13",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "PRE1",
+      "note": "almost turns toward a sound"
+    },
+    {
+      "index": "24",
+      "clip_key": "C09",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "PRE1",
+      "note": "drummer enters",
+      "null": [
+        " build"
+      ]
+    },
+    {
+      "index": "25",
+      "clip_key": "C02",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "PRE1",
+      "note": "it's like you never left"
+    },
+    {
+      "index": "26",
+      "clip_key": "C08",
+      "in_point": "1.0",
+      "duration": "4.0",
+      "section": "PRE1",
+      "note": "trees move"
+    },
+    {
+      "index": "27",
+      "clip_key": "C09",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "PRE1",
+      "note": "push-in",
+      "null": [
+        " intensity rising"
+      ]
+    },
+    {
+      "index": "28",
+      "clip_key": "C12",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "CH1",
+      "note": "band release"
+    },
+    {
+      "index": "29",
+      "clip_key": "C10",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH1",
+      "note": "puddle reflection trembles"
+    },
+    {
+      "index": "30",
+      "clip_key": "C19",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH1",
+      "note": "thunder flash"
+    },
+    {
+      "index": "31",
+      "clip_key": "C11",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH1",
+      "note": "woman from behind",
+      "null": [
+        " gone"
+      ]
+    },
+    {
+      "index": "32",
+      "clip_key": "C12",
+      "in_point": "1.5",
+      "duration": "3.0",
+      "section": "CH1",
+      "note": "band"
+    },
+    {
+      "index": "33",
+      "clip_key": "C02",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH1",
+      "note": "chorus with force"
+    },
+    {
+      "index": "34",
+      "clip_key": "C10",
+      "in_point": "1.5",
+      "duration": "3.0",
+      "section": "CH1",
+      "note": "water again"
+    },
+    {
+      "index": "35",
+      "clip_key": "C12",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH1",
+      "note": "band"
+    },
+    {
+      "index": "36",
+      "clip_key": "C13",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V3",
+      "note": "turns toward window at thunder"
+    },
+    {
+      "index": "37",
+      "clip_key": "C18",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "V3",
+      "note": "storm clouds"
+    },
+    {
+      "index": "38",
+      "clip_key": "C09",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "V3",
+      "note": "band warmer",
+      "null": [
+        " urgent"
+      ]
+    },
+    {
+      "index": "39",
+      "clip_key": "C13",
+      "in_point": "1.0",
+      "duration": "4.0",
+      "section": "V3",
+      "note": "turns",
+      "null": [
+        " nothing"
+      ]
+    },
+    {
+      "index": "40",
+      "clip_key": "C11",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "V3",
+      "note": "distant woman",
+      "null": [
+        " one shot"
+      ]
+    },
+    {
+      "index": "41",
+      "clip_key": "C02",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V3",
+      "note": "singer less controlled"
+    },
+    {
+      "index": "42",
+      "clip_key": "C12",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V3",
+      "note": "drummer harder"
+    },
+    {
+      "index": "43",
+      "clip_key": "C13",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V3",
+      "note": "listening",
+      "null": [
+        " haunted"
+      ]
+    },
+    {
+      "index": "44",
+      "clip_key": "C14",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V4",
+      "note": "opens drawer",
+      "null": [
+        " hides memory"
+      ]
+    },
+    {
+      "index": "45",
+      "clip_key": "C15",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V4",
+      "note": "her face in misted mirror"
+    },
+    {
+      "index": "46",
+      "clip_key": "C02",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "V4",
+      "note": "CU; band swallowed by story"
+    },
+    {
+      "index": "47",
+      "clip_key": "C16",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "V4",
+      "note": "face forms in fog"
+    },
+    {
+      "index": "48",
+      "clip_key": "C15",
+      "in_point": "1.0",
+      "duration": "4.0",
+      "section": "V4",
+      "note": "he reaches; dissolves to his reflection"
+    },
+    {
+      "index": "49",
+      "clip_key": "C14",
+      "in_point": "1.0",
+      "duration": "4.0",
+      "section": "V4",
+      "note": "drawer closes"
+    },
+    {
+      "index": "50",
+      "clip_key": "C09",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "V4",
+      "note": "shadowy band"
+    },
+    {
+      "index": "51",
+      "clip_key": "C17",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "PRE2",
+      "note": "looks up into storm sky"
+    },
+    {
+      "index": "52",
+      "clip_key": "C18",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "PRE2",
+      "note": "clouds move"
+    },
+    {
+      "index": "53",
+      "clip_key": "C12",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "PRE2",
+      "note": "band carries the confession"
+    },
+    {
+      "index": "54",
+      "clip_key": "C02",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "PRE2",
+      "note": "I still want you"
+    },
+    {
+      "index": "55",
+      "clip_key": "C17",
+      "in_point": "1.0",
+      "duration": "4.0",
+      "section": "PRE2",
+      "note": "stops fighting it"
+    },
+    {
+      "index": "56",
+      "clip_key": "C20",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "PRE2",
+      "note": "band rises"
+    },
+    {
+      "index": "57",
+      "clip_key": "C20",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH2",
+      "note": "band"
+    },
+    {
+      "index": "58",
+      "clip_key": "C10",
+      "in_point": "0.0",
+      "duration": "2.5",
+      "section": "CH2",
+      "note": "water"
+    },
+    {
+      "index": "59",
+      "clip_key": "C19",
+      "in_point": "0.0",
+      "duration": "2.5",
+      "section": "CH2",
+      "note": "thunder"
+    },
+    {
+      "index": "60",
+      "clip_key": "C15",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH2",
+      "note": "mirror"
+    },
+    {
+      "index": "61",
+      "clip_key": "C07",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH2",
+      "note": "window reflection"
+    },
+    {
+      "index": "62",
+      "clip_key": "C21",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "CH2",
+      "note": "clean memory shot",
+      "null": [
+        " turns away"
+      ]
+    },
+    {
+      "index": "63",
+      "clip_key": "C20",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "CH2",
+      "note": "band"
+    },
+    {
+      "index": "64",
+      "clip_key": "C02",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "CH2",
+      "note": "almost angry at himself"
+    },
+    {
+      "index": "65",
+      "clip_key": "C22",
+      "in_point": "0.0",
+      "duration": "5.0",
+      "section": "BRIDGE",
+      "note": "rainwater spreads across floor"
+    },
+    {
+      "index": "66",
+      "clip_key": "C16",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "BRIDGE",
+      "note": "mirror fogs"
+    },
+    {
+      "index": "67",
+      "clip_key": "C11",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "BRIDGE",
+      "note": "she turns away"
+    },
+    {
+      "index": "68",
+      "clip_key": "C20",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "BRIDGE",
+      "note": "band at peak"
+    },
+    {
+      "index": "69",
+      "clip_key": "C22",
+      "in_point": "2.0",
+      "duration": "3.0",
+      "section": "BRIDGE",
+      "note": "drawer creaks open"
+    },
+    {
+      "index": "70",
+      "clip_key": "C21",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "BRIDGE",
+      "note": "she vanishes"
+    },
+    {
+      "index": "71",
+      "clip_key": "C15",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "BRIDGE",
+      "note": "he reaches for the mirror"
+    },
+    {
+      "index": "72",
+      "clip_key": "C20",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "FINAL",
+      "note": "final chorus",
+      "null": [
+        " band plays out"
+      ]
+    },
+    {
+      "index": "73",
+      "clip_key": "C24",
+      "in_point": "0.0",
+      "duration": "3.0",
+      "section": "FINAL",
+      "note": "singer direct",
+      "null": [
+        " almost still"
+      ]
+    },
+    {
+      "index": "74",
+      "clip_key": "C23",
+      "in_point": "0.0",
+      "duration": "4.0",
+      "section": "FINAL",
+      "note": "alone by the window"
+    },
+    {
+      "index": "75",
+      "clip_key": "C03",
+      "in_point": "0.0",
+      "duration": "2.0",
+      "section": "FINAL",
+      "note": "rain continues"
+    },
+    {
+      "index": "76",
+      "clip_key": "C23",
+      "in_point": "1.0",
+      "duration": "3.0",
+      "section": "FINAL",
+      "note": "looks to camera",
+      "null": [
+        " unresolved (end)"
+      ]
+    }
+  ]
+}

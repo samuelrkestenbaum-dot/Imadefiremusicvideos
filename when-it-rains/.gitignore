@@ -1,0 +1,8 @@
+# Local assembly artifacts — downloaded/produced on your machine, not committed.
+clips/
+stills/
+build/
+song.wav
+*.mp4
+*.mov
+*.wav
