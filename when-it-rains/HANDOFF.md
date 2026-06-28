@@ -1,6 +1,25 @@
 # HANDOFF — resume context for a new session
 
-Read this first, then `README.md` → `REVIEW.md` → `EDIT_MAP.md` → `data/assets.json`.
+Read this first, then `FOOTAGE_AUDIT.md` (newest, most important) → `README.md` →
+`REVIEW.md` → `EDIT_MAP.md` → `data/assets.json`.
+
+> **Branch note:** active work is now on `claude/when-it-rains-music-video-0qzesv`
+> (a fresh clone may land on a different default branch — check `git branch`).
+
+## ⭐ Newest result — footage audit done WITHOUT a render (this session)
+All 26 clips were inspected via Higgsfield server-side `video_analysis` (free,
+~16s each, bypasses the CDN block — no download). Findings in `FOOTAGE_AUDIT.md`
++ `data/footage_findings.json`. Two things you must know:
+- **The male lead is rendered BALD/SHAVED in the cool story clips** (C01 buzz,
+  C04, C07, C13, C15, C19, C23, EX2 bald/shaved) — on-model only in the warm
+  performance clips (C02/C09/C12/C17/C20). **22 of 76 cuts** show an off-model
+  lead. The prior claim that the on-model likeness was "used everywhere" was wrong.
+- **4 hard content failures:** C07 (woman-reflection beat never renders), C06
+  (two people, not an empty ocean), C22 (unwanted man), C23 (final shot missing
+  its turn-to-camera). C16's woman drifts auburn.
+- **Decision pending from the user:** regenerate scope (P1 content failures only,
+  or P1+P2 bald-lead clips too). The regen→re-analyze→verify loop is closed and
+  free, so a new session can execute and self-check once scope is confirmed.
 
 ## Where the project stands
 - **Concept/edit locked.** 1970s rain drama: warm band-performance world intercut
@@ -22,14 +41,24 @@ Read this first, then `README.md` → `REVIEW.md` → `EDIT_MAP.md` → `data/as
   the source of truth is the Higgsfield account.
 
 ## Open threads (next actions, in order)
-1. **User renders + reviews** the rough cut, flags failures by timecode (REVIEW.md).
-2. **User confirms mid-song section times** (V2/PRE1/CH1, V4/PRE2 are ambiguous from
+1. **Regenerate the off-model lead + content failures** (`FOOTAGE_AUDIT.md` §5).
+   This now outranks everything else — a bald lead in ~29% of cuts is worse than
+   any pacing issue. Order: **P1** content failures (C07, C23, C06, C22) → **P2**
+   bald story clips (C04, C13, C15, C19, ±C01) → **P3** polish (C16 auburn→brunette,
+   C24 world-look, C10 pedestrian). Root-cause fix: lock the lead with a reference
+   from a clean performance frame (C02/C12/C20), add "not bald/shaved/buzzed,
+   visible hair + receding hairline" to every non-performance **still**, regen the
+   still first → re-animate → re-run `video_analysis` to verify before accepting.
+2. **User confirms mid-song section times** (V2/PRE1/CH1, V4/PRE2 ambiguous from
    energy). On their word → regenerate `data/edl.csv` to snap cuts to the beat grid.
-3. **Band-coverage batch (REVIEW.md §7)** — ~8 clips (drummer CU, guitar hands, keys,
-   bass, push-in, singer profile, 2nd front CU, detail inserts). Staged, NOT generated.
-   Fire only after the rough cut confirms thinness (C02 is overused 11×).
-4. **Do NOT yet:** upscale (do last), or regenerate the brunette (only if she reads
-   as multiple women on playback).
+   Also trim ~2s from the FINAL section: the EDL is 276s but the mix targets 274s,
+   so the ending currently gets hard-truncated (`FOOTAGE_AUDIT.md` §6).
+3. **User renders + reviews** the rough cut on their Mac (still needed for true
+   timing feel + a final human eye on the regenerated clips).
+4. **Band-coverage batch (REVIEW.md §7)** — ~8 clips. Lower priority than the
+   likeness fix; fire after the lead is locked. (C02 is overused 11× but is itself
+   on-model, so this is pacing, not quality.)
+5. **Do NOT yet:** upscale (do last, after the cut is emotionally locked).
 
 ## Higgsfield working context (for regeneration)
 - Account: private workspace, ultra plan, ~2,600 credits left at last check.

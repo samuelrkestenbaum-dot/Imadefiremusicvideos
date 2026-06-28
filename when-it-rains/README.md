@@ -16,6 +16,8 @@ the long silent tail).
 
 | File | What it is |
 |------|------------|
+| `FOOTAGE_AUDIT.md` | **Per-clip audit of the actual footage** (via Higgsfield `video_analysis`): which clips are off-model / failed, with a ranked regeneration plan. Read this first. |
+| `data/footage_findings.json` | Machine-readable version of the audit (per-clip flags + man/woman consistency verdicts). |
 | `EDIT_MAP.md` | The shot-by-shot edit: every section, timecode, which clip, and the one narrative motion it carries. This is the assembly bible. |
 | `data/assets.json` | Machine-readable catalog of every Higgsfield asset (reference uploads, stills, animated clips) with IDs and URLs. |
 | `data/edl.csv` | The Edit Decision List the assembly script reads: `index, clip_key, in_point, duration, section, note`. Edit this to re-time the cut. |
@@ -84,10 +86,14 @@ which reads as AI wallpaper.
 
 ## Status
 
-- ✅ Reference identity locked (man selfies uploaded; likeness dialed in on stills).
 - ✅ Still library covering every beat (band, story, woman-as-memory, water/sky inserts).
 - ✅ Animated clip backbone generated (one narrative motion per clip, silent so the song lays on top).
 - ✅ Edit map + EDL + local assembly kit.
-- ⏳ Final song-synced cut + selective 2K/4K upscale of hero clips — to be done on your machine (see above).
+- ✅ **Footage audit complete (`FOOTAGE_AUDIT.md`)** — every clip inspected via Higgsfield `video_analysis`.
+- ⚠️ **Reference identity NOT actually locked.** The audit found the lead renders
+  **bald/shaved in the cool story clips** (on-model only in the warm performance
+  clips) — ~22 of 76 cuts. Plus 4 content failures (C06/C07/C22/C23). **A
+  regeneration pass on the lead is the top open item** — see `FOOTAGE_AUDIT.md` §5.
+- ⏳ Regenerate off-model/failed clips → beat-lock the EDL → final song-synced cut → selective 2K/4K upscale.
 
-See `EDIT_MAP.md` for the full breakdown.
+See `FOOTAGE_AUDIT.md` for the failure list and `EDIT_MAP.md` for the full edit breakdown.

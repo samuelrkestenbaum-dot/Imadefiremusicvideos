@@ -1,9 +1,19 @@
 # Pre-Render Edit Review — "When It Rains" (4:36)
 
+> **⚠️ SUPERSEDED IN PART — read `FOOTAGE_AUDIT.md` first.** The "verify-on-playback"
+> items below (§4 woman consistency, §5 likeness drift, weak-clip calls) have since
+> been **resolved by actually analyzing every clip** (Higgsfield server-side
+> `video_analysis`, no render needed). Key correction: the male lead is rendered
+> **bald/shaved in the cool story clips** (22 of 76 cuts), and four clips
+> (C06/C07/C22/C23) have hard content failures. See `FOOTAGE_AUDIT.md`.
+
 **Method & honesty note.** This is a *structural* review computed from the 76-cut
-EDL + asset metadata — **not** a viewing. I could not render or watch the cut in
-the cloud session (the Higgsfield CDN and the song WAV are both unreachable here,
-and ffmpeg won't install). So findings split into two kinds:
+EDL + asset metadata — **not** a viewing. At the time it was written I could not
+watch the actual footage. (Correction: the Higgsfield CDN *is* egress-blocked here
+and the song MP3 is absent, but **ffmpeg installs fine via `apt-get`** in this
+environment, and the clips can be inspected server-side via Higgsfield
+`video_analysis` without downloading — that's how `FOOTAGE_AUDIT.md` was produced.)
+The original findings split into two kinds:
 
 - **STRUCTURAL** — provable from the edit data (usage counts, ratios, pacing).
   Trust these now.
@@ -80,7 +90,13 @@ without overusing them — this is the highest-leverage next generation batch.
   cutting can *sag* energetically. Watch whether it feels like a climax or a
   slow-down. Likely fix: add 1–2 band-at-peak cuts here (drummer-hard CU is ideal).
 
-## 4. Woman-consistency risk zones  ·  VERIFY-ON-PLAYBACK
+## 4. Woman-consistency risk zones  ·  ✅ RESOLVED in FOOTAGE_AUDIT.md
+
+> Outcome: she reads as **one** woman across C11/C15/C21 + C04's reflection; only
+> **C16** drifts (auburn). The "bridge, 4 faces" alarm was overstated — **C07 has
+> no woman at all** (its reflection beat failed to render). Original analysis kept
+> below for reference.
+
 
 She's generated from **4 different source stills** that were never locked to one
 face, so the risk is concentrated where those sources sit *back-to-back*. If at
@@ -97,7 +113,13 @@ lock a Soul/Element and regenerate just those.
 If only one zone reads wrong, fix only that zone. The distant/turning shots
 (C11, C21) are lower risk than the face-forward mirror shots (C15, C16).
 
-## 5. Likeness-drift watch points (the man)  ·  VERIFY-ON-PLAYBACK
+## 5. Likeness-drift watch points (the man)  ·  ⚠️ CONFIRMED — worse than feared
+
+> Outcome: the lead is rendered **bald/shaved in the cool story clips** (C04, C07,
+> C13, C15, C19, C23, EX2) and buzz-cut in C01 — on-model only in the warm
+> performance clips. **22 of 76 cuts** show an off-model lead. C02 (the 11× hero)
+> *is* on-model. Full breakdown + regeneration plan in `FOOTAGE_AUDIT.md`.
+
 
 His face comes from two still families — the **band stills** (warm, one set) and
 the **story stills** (cool, another set). Drift shows worst where the two families

@@ -1,0 +1,343 @@
+{
+  "method": "Higgsfield server-side video_analysis of each 5s clip (free, ~16s/clip); judged vs intended motion + creative rules; cross-clip consistency panels. No human viewing / no render.",
+  "headline": "Male lead is rendered BALD/SHAVED in cool-toned story clips while on-model in warm performance clips. Plus 4 content failures (C06,C07,C22,C23) and 1 woman drift (C16).",
+  "man_consistency": {
+    "consistent": false,
+    "confidence": "high",
+    "off_model_clips": [
+      "C01",
+      "C04",
+      "C07",
+      "C13",
+      "C15",
+      "C19",
+      "C23",
+      "EX2"
+    ],
+    "younger_age_drift": [
+      "C23",
+      "C24",
+      "EX1"
+    ],
+    "on_model_anchors": [
+      "C02",
+      "C09",
+      "C12",
+      "C17",
+      "C20"
+    ],
+    "pattern": "Warm wood-paneled PERFORMANCE clips render hair correctly; cool RAIN/WINDOW/MIRROR/LIGHTNING clips render him bald/shaved. The model generates two different men by lighting context.",
+    "off_model_edl_exposure_cuts": 22
+  },
+  "woman_consistency": {
+    "reads_as_same_woman": true,
+    "confidence": "medium",
+    "canonical": [
+      "C11",
+      "C15",
+      "C21"
+    ],
+    "divergent": [
+      "C16"
+    ],
+    "note": "C07 has NO woman at all (reflection failed), so it is a content failure, not a woman-consistency issue. C04's reflection is correct brunette.",
+    "recommendation": "Lock a reference Element/Soul from C15's fogged mirror-face; regenerate only C16 from auburn to dark brunette (or increase steam occlusion)."
+  },
+  "regeneration_priority": {
+    "P1_content_failures": [
+      "C07",
+      "C23",
+      "C06",
+      "C22"
+    ],
+    "P2_bald_lead_story": [
+      "C04",
+      "C13",
+      "C15",
+      "C19",
+      "C01"
+    ],
+    "P3_polish": [
+      "C16",
+      "C24",
+      "C10"
+    ],
+    "ignore": [
+      "EX2 (unused)"
+    ]
+  },
+  "root_cause_fix": "Lock the lead with ONE character reference from a clean performance frame (C02/C12/C20) showing the short, receding-but-present red-blonde hairline; add negative guidance 'not bald, not shaved, not buzzed; visible hair on top with receding hairline' to every non-performance STILL (the start-frame still defines appearance); pin age 'late 30s'. Regenerate the STILL first, then re-animate (kling3_0), then re-run video_analysis to verify on-model before accepting.",
+  "edl_duration_note": "EDL sums to 276.0s but this mix targets 274s (4:34); the assembler's audio cap currently hard-truncates the final C23 hold ~2s early. Trim ~2s upstream in the beat-lock pass so the ending lands on the music resolve (~4:33.8).",
+  "clips": {
+    "C01": {
+      "world": "PERF",
+      "man": "off-model: BUZZ CUT",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [
+        "man hair reads buzz-cut (band wide, lower visibility)"
+      ],
+      "action": "regen-P2",
+      "edl_uses": 2
+    },
+    "C02": {
+      "world": "PERF",
+      "man": "on-model",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 11
+    },
+    "C03": {
+      "world": "INSERT",
+      "man": "none",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 4
+    },
+    "C04": {
+      "world": "STORY",
+      "man": "off-model: BALD",
+      "content": "woman-reflection OK",
+      "motion": "head-turn missing",
+      "fails": [
+        "man bald",
+        "intended shoulder-touch head-turn not shown"
+      ],
+      "action": "regen-P2",
+      "edl_uses": 4
+    },
+    "C05": {
+      "world": "INSERT",
+      "man": "none",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 1
+    },
+    "C06": {
+      "world": "INSERT",
+      "man": "off-model: BALD",
+      "content": "WRONG: 2 people, not empty ocean",
+      "motion": "wrong",
+      "fails": [
+        "two people in a no-people insert",
+        "man bald",
+        "wrong content: window/character shot not heaving ocean"
+      ],
+      "action": "regen-P1",
+      "edl_uses": 1
+    },
+    "C07": {
+      "world": "STORY",
+      "man": "off-model: SHAVED",
+      "content": "WRONG: woman reflection ABSENT",
+      "motion": "beats missing",
+      "fails": [
+        "woman's faint reflection never appears (only the man's own face)",
+        "raindrop-break + empty-room beats missing",
+        "man shaved"
+      ],
+      "action": "regen-P1",
+      "edl_uses": 4
+    },
+    "C08": {
+      "world": "INSERT",
+      "man": "none",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 2
+    },
+    "C09": {
+      "world": "PERF",
+      "man": "on-model",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 5
+    },
+    "C10": {
+      "world": "INSERT",
+      "man": "none",
+      "content": "extra pedestrian",
+      "motion": "ok",
+      "fails": [
+        "a solid background pedestrian crosses behind the puddle"
+      ],
+      "action": "polish-opt",
+      "edl_uses": 3
+    },
+    "C11": {
+      "world": "MEMORY",
+      "man": "none",
+      "content": "ok (canonical brunette)",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 3
+    },
+    "C12": {
+      "world": "PERF",
+      "man": "on-model",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 5
+    },
+    "C13": {
+      "world": "STORY",
+      "man": "off-model: SHAVED/BALD",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [
+        "man bald/shaved",
+        "warm lamp slightly contaminates cool palette"
+      ],
+      "action": "regen-P2",
+      "edl_uses": 4
+    },
+    "C14": {
+      "world": "STORY",
+      "man": "none (hand only)",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 2
+    },
+    "C15": {
+      "world": "STORY",
+      "man": "off-model: BALD",
+      "content": "woman mirror-face OK",
+      "motion": "dissolve wrong",
+      "fails": [
+        "man bald",
+        "dissolve is a digital ripple, not condensation to his reflection"
+      ],
+      "action": "regen-P2",
+      "edl_uses": 4
+    },
+    "C16": {
+      "world": "MEMORY",
+      "man": "none",
+      "content": "woman hair AUBURN not brunette",
+      "motion": "ok",
+      "fails": [
+        "woman reads auburn/reddish-brown (divergent from the dark-brunette memory)"
+      ],
+      "action": "regen-P3",
+      "edl_uses": 2
+    },
+    "C17": {
+      "world": "STORY",
+      "man": "on-model (hair present in rain)",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 2
+    },
+    "C18": {
+      "world": "INSERT",
+      "man": "none",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 2
+    },
+    "C19": {
+      "world": "STORY",
+      "man": "off-model: SHAVED",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [
+        "man shaved/bald (brief lightning shot, lower exposure)"
+      ],
+      "action": "regen-P2",
+      "edl_uses": 2
+    },
+    "C20": {
+      "world": "PERF",
+      "man": "on-model (receding hairline visible)",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 5
+    },
+    "C21": {
+      "world": "MEMORY",
+      "man": "none",
+      "content": "ok (canonical brunette, warm memory)",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 2
+    },
+    "C22": {
+      "world": "STORY",
+      "man": "off-model present",
+      "content": "WRONG: man in a no-person clip; atmosphere beats absent",
+      "motion": "wrong",
+      "fails": [
+        "a solid man appears in a clip that must show NO person",
+        "no rainwater-on-floor / creaking-drawer / glowing-mirror beats"
+      ],
+      "action": "regen-P1",
+      "edl_uses": 2
+    },
+    "C23": {
+      "world": "STORY",
+      "man": "off-model: SHAVED top",
+      "content": "ok",
+      "motion": "turn-to-camera missing",
+      "fails": [
+        "man shaved on top",
+        "intended eyes-from-window-to-camera turn not shown \u2014 THIS IS THE FINAL SHOT",
+        "mixed palette"
+      ],
+      "action": "regen-P1",
+      "edl_uses": 2
+    },
+    "C24": {
+      "world": "PERF",
+      "man": "on-model",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [
+        "world-look mismatch: PERFORMANCE clip rendered in cool STORY palette"
+      ],
+      "action": "polish-P3",
+      "edl_uses": 1
+    },
+    "EX1": {
+      "world": "STORY",
+      "man": "on-model",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [],
+      "action": "keep",
+      "edl_uses": 1
+    },
+    "EX2": {
+      "world": "STORY",
+      "man": "off-model: BALD",
+      "content": "ok",
+      "motion": "ok",
+      "fails": [
+        "man bald \u2014 but EX2 is UNUSED in the EDL, so ignore"
+      ],
+      "action": "ignore-unused",
+      "edl_uses": 0
+    }
+  }
+}
