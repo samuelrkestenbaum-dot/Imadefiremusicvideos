@@ -347,6 +347,9 @@
     "reference_used": "5cc8239a (C20)",
     "new_clip": "9255cfb3-0f7b-407e-96c1-3d022d299707",
     "still_cost_credits": 1.5,
-    "status": "clip rendering; will re-analyze to confirm hair restored"
+    "status": "VERIFIED \u2014 re-analysis reports 'short-cropped ginger hair' (on-model), cool-blue+warm-lamp grade correct. Bald bug fixed by attaching reference 5cc8239a.",
+    "verify_analysis_id": "14dc6cf1-3ae6-4603-ae44-9cc40af2051f",
+    "total_cost_credits": 9,
+    "per_clip_cost_estimate_credits": "~9 (1.5 still + 7.5 clip; analysis free)"
   }
 }
