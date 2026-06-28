@@ -111,16 +111,28 @@ inserts **C03, C05, C08, C14, C18** (correct, no people). C11 / C21 (woman) good
 
 ## 5. Regeneration plan (ranked by severity × exposure)
 
-Root cause is the same for most of it, so fix it once:
+**Root cause found (the actual bug).** Inspecting the still-generation recipes
+(`show_generations type:image`): **every man-still was generated with
+`nano_banana_2` and ZERO reference images attached** — pure text-to-image. The
+prompts even say *"THE EXACT SAME MAN as in the reference,"* but **no reference
+image was ever wired in.** So the model re-invented the man from words on every
+still, and under cool/dark prompts the words "short cropped red-blonde hair,
+receding hairline" collapsed to *bald/shaved*. The selfies named in the handoff
+were never actually used. (The warm performance stills survived only because the
+lighting happened to keep hair; it was luck, not a lock.)
 
-> **Lock the lead.** Pull one character reference from a clean performance frame
-> (C02 / C12 / C20) that shows the short, *receding-but-present* red-blonde
-> hairline. Add to every **non-performance still**: *"visible short red-blonde
-> hair on top with a receding hairline — NOT bald, NOT shaved, NOT buzzed."* Pin
-> age **"late 30s."** Because these are start-frame animations, **regenerate the
-> STILL first** (`nano_banana_2`), then re-animate (`kling3_0`, the existing
-> recipe), then **re-run `video_analysis` to verify on-model before accepting** —
-> the audit loop is closed and free.
+> **Fix: attach a reference.** `nano_banana_2` is image-to-image — it takes a
+> `medias:[{role:"image", value:<job_id>}]`. Anchor every regenerated man-still to
+> a confirmed on-model frame — **`5cc8239a` (C20's still)** is the best match to
+> the *receding-hairline* spec — and keep the explicit *"NOT bald, NOT shaved,
+> NOT buzzed; visible hair on top + receding hairline"* line. For a 25-clip
+> character the more robust option is to **train a reusable Soul** from the
+> selfies + best on-model frames and generate every man-still from it (perfect
+> consistency, reusable for future videos) — vs. cheaper per-clip one-off refs.
+> Then re-animate (`kling3_0`, the existing recipe) and **re-run `video_analysis`
+> to verify on-model before accepting** — the audit loop is closed and free.
+> For dark/night scenes pass `declined_preset_id:"24bae836-2c4a-48e0-89b6-49fcc0b21612"`
+> ("IN THE DARK") so it renders literally.
 
 - **P1 — broken content (do first):** **C07** (woman beat + bald), **C23**
   (ending motion + shaved), **C06** (wrong content), **C22** (unwanted man).

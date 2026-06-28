@@ -66,7 +66,7 @@
       "EX2 (unused)"
     ]
   },
-  "root_cause_fix": "Lock the lead with ONE character reference from a clean performance frame (C02/C12/C20) showing the short, receding-but-present red-blonde hairline; add negative guidance 'not bald, not shaved, not buzzed; visible hair on top with receding hairline' to every non-performance STILL (the start-frame still defines appearance); pin age 'late 30s'. Regenerate the STILL first, then re-animate (kling3_0), then re-run video_analysis to verify on-model before accepting.",
+  "root_cause_fix": "nano_banana_2 is image-to-image: attach medias:[{role:'image', value:<job_id>}]. Anchor every regenerated man-still to a confirmed on-model frame (5cc8239a / C20 best matches the receding-hairline spec) + keep 'NOT bald/shaved/buzzed; visible hair + receding hairline'; pin age 'late 30s'. More robust for a 25-clip character: train a reusable Soul from selfies + best on-model frames. Re-animate (kling3_0, sound off, std, 5s, decline 'IN THE DARK' preset for night), then re-run video_analysis to verify on-model before accepting.",
   "edl_duration_note": "EDL sums to 276.0s but this mix targets 274s (4:34); the assembler's audio cap currently hard-truncates the final C23 hold ~2s early. Trim ~2s upstream in the beat-lock pass so the ending lands on the music resolve (~4:33.8).",
   "clips": {
     "C01": {
@@ -339,5 +339,14 @@
       "action": "ignore-unused",
       "edl_uses": 0
     }
+  },
+  "root_cause_bug": "Every man-still was generated with nano_banana_2 and ZERO reference images attached (pure text-to-image); the prompts say 'THE EXACT SAME MAN as in the reference' but no reference image was ever wired in. So the man was re-invented from words each time and drifted bald/shaved under cool/dark prompts. The handoff's selfie IDs were never actually used.",
+  "canary": {
+    "clip": "C13",
+    "new_still": "94430bdf-22eb-46e2-a01a-4c8b645e58fa",
+    "reference_used": "5cc8239a (C20)",
+    "new_clip": "9255cfb3-0f7b-407e-96c1-3d022d299707",
+    "still_cost_credits": 1.5,
+    "status": "clip rendering; will re-analyze to confirm hair restored"
   }
 }
