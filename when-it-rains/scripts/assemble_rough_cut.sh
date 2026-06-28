@@ -17,7 +17,14 @@ cd "$(dirname "$0")/.."
 command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: ffmpeg not found. Install it first."; exit 1; }
 [ -d clips ] || { echo "ERROR: clips/ missing. Run scripts/fetch_assets.sh first."; exit 1; }
 
-W=1280; H=720; FPS=24; TOTAL=276   # 4:36
+# Optional 1st arg = EDL file to use (default data/edl.csv). Lets you test variants.
+EDL="${1:-data/edl.csv}"
+[ -s "$EDL" ] || { echo "ERROR: EDL '$EDL' not found."; exit 1; }
+
+# Find the song: song.wav / song.mp3 / song.m4a / song.flac (first match wins).
+SONG=""; for c in song.wav song.mp3 song.m4a song.flac; do [ -s "$c" ] && { SONG="$c"; break; }; done
+
+W=1280; H=720; FPS=24; TOTAL=274   # 4:34 — music in the Jun-27 mix resolves ~4:33.8 (file is 4:44)
 BUILD=build
 rm -rf "$BUILD"; mkdir -p "$BUILD"
 : > "$BUILD/concat.txt"
@@ -40,23 +47,23 @@ while IFS=, read -r index clip_key in_point duration rest; do
   echo "file '$(basename "$out")'" >> "$BUILD/concat.txt"
   printf "  cut %02d  %-4s  in=%s  dur=%s\n" "$index" "$clip_key" "$in_point" "$duration"
   n=$((n+1))
-done < data/edl.csv
+done < "$EDL"
 
 [ "$n" -gt 0 ] || { echo "No segments built — is data/edl.csv populated?"; exit 1; }
 
 echo "== Concatenating $n segments =="
 ( cd "$BUILD" && ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i concat.txt -c copy video_silent.mp4 )
 
-if [ -s song.wav ]; then
-  echo "== Muxing song.wav (cap ${TOTAL}s) =="
-  ffmpeg -nostdin -y -loglevel error -i "$BUILD/video_silent.mp4" -i song.wav \
+if [ -n "$SONG" ]; then
+  echo "== Muxing $SONG (cap ${TOTAL}s) =="
+  ffmpeg -nostdin -y -loglevel error -i "$BUILD/video_silent.mp4" -i "$SONG" \
     -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 320k -t "$TOTAL" \
     when_it_rains_roughcut.mp4
-  echo "Wrote when_it_rains_roughcut.mp4 (with song)."
+  echo "Wrote when_it_rains_roughcut.mp4 (with $SONG)."
 else
-  echo "== No song.wav found — writing silent cut =="
+  echo "== No song.(wav|mp3|m4a|flac) found — writing silent cut =="
   cp "$BUILD/video_silent.mp4" when_it_rains_roughcut.mp4
-  echo "Wrote when_it_rains_roughcut.mp4 (SILENT). Add song.wav and re-run to lay the track."
+  echo "Wrote when_it_rains_roughcut.mp4 (SILENT). Drop the song in as song.mp3 and re-run."
 fi
 
 dur=$(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 when_it_rains_roughcut.mp4 2>/dev/null || echo "?")

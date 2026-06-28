@@ -3,6 +3,13 @@ clips/
 stills/
 build/
 song.wav
+song.mp3
+song.m4a
+song.flac
 *.mp4
 *.mov
 *.wav
+*.mp3
+*.m4a
+*.flac
+analysis/*.npy

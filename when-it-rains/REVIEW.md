@@ -21,8 +21,8 @@ Do the render first (below), then watch with this open.
 cd when-it-rains
 brew install ffmpeg            # or: sudo apt-get install ffmpeg
 bash scripts/fetch_assets.sh   # downloads 26 clips + 42 stills
-cp /path/to/when_it_rains.wav song.wav
-bash scripts/assemble_rough_cut.sh   # -> when_it_rains_roughcut.mp4
+cp /path/to/When_It_Rains__Jun_27_mix.mp3 song.mp3   # mp3/wav/m4a/flac all accepted
+bash scripts/assemble_rough_cut.sh   # -> when_it_rains_roughcut.mp4 (capped at 4:34)
 ```
 
 ---
@@ -144,6 +144,26 @@ add #1 (drummer) into the BRIDGE at ~4:09.
 - ❌ No upscale until the cut is emotionally locked.
 - ❌ No brunette re-gen unless §4 reads as multiple women on playback.
 - ❌ No broad new generation — only the targeted §7 batch, and only after the render.
+
+## 9. Song timing — measured from the Jun-27 mix  ·  STRUCTURAL
+
+Analyzed the actual MP3 (`analysis/analyze_song.py`, plot in
+`analysis/song_structure.png`):
+
+- **File length 4:44.4**, but the **music resolves ≈ 4:33.8** then a ~10s tail.
+  The original 4:36 target was for the longer 4:54 WAV — for *this* mix the cut
+  should land at **~4:34**. The assembler now caps at 274s automatically.
+- **Tempo ≈ 61.5 BPM** (beat ≈ 0.98s; feel it as ~123 double-time). Current cut
+  durations (3/4/5s) already sit near 3/4/5-beat lengths, so the pacing is roughly
+  beat-scaled. For true beat-locked cuts we'd snap boundaries to the 0.98s grid.
+- **Sustained high-energy (chorus/climax) windows:** ~1:22–1:40, ~2:43–3:04,
+  ~3:48–4:27. The big finish builds from ~3:48 to the end.
+- **Section boundaries:** energy transitions line up well with the *current* EDL
+  at V1 (~0:19), V3 (~2:10), CH2 (~3:31), BRIDGE (~3:56), FINAL (~4:16). The
+  **mid-song splits (V2 / PRE1 / CH1 and V4 / PRE2) are ambiguous from energy
+  alone** — these need your ear. Send me the real section start-times (or confirm
+  the green lines in the plot) and I'll snap every cut onto them; until then the
+  EDL uses the assumed grid, which is close but not music-locked in that stretch.
 
 ---
 
