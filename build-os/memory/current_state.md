@@ -21,15 +21,19 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-001 — Install Build OS + seed memory** (qa GREEN,
-  reviewer PASS; receipt `build-os/receipts/P-001.md`). Build OS engine + real
-  project memory are now installed and committed locally (not pushed).
-- **Now:** no active build packet — **awaiting a human-eye render review** of the
-  regenerated footage. Next real work is off-machine + user-driven.
-- **Next:** user renders the rough cut on their Mac + reviews it → confirms the
-  ambiguous mid-song section times (V2/PRE1/CH1, V4/PRE2) → on their word,
-  regenerate `data/edl.csv` to snap cuts to the beat grid and trim ~2s from the
-  FINAL section.
+- **Last closed packet:** **P-002 — Render-Review Checklist
+  (`when-it-rains/RENDER_REVIEW.md`)** (qa GREEN 8/8, reviewer PASS; receipt
+  `build-os/receipts/P-002.md`). A timecode-keyed, playback-ordered render-review
+  checklist for all 76 EDL cuts now exists, committed locally (not pushed).
+  (P-001 — Install Build OS + seed memory — closed before it.)
+- **Now:** no active build packet — **awaiting the user's human-eye render
+  review** using `when-it-rains/RENDER_REVIEW.md`. Next real work is off-machine +
+  user-driven.
+- **Next:** on the user's marked-up RENDER_REVIEW.md results → **beat-lock the
+  EDL** (snap cuts to the beat grid after the user confirms the ambiguous mid-song
+  section times V2/PRE1/CH1, V4/PRE2) **+ trim ~2s from FINAL** so the 276s EDL
+  resolves on the 274s mix end; and/or targeted regen refinement; optional
+  band-coverage batch (lower priority).
 
 ## Stable facts (slow-changing)
 
@@ -52,6 +56,8 @@
   `data/clips_original_backup.csv`). Spend ~106.5 credits; ~2,505 left.
 - **Verification caveat:** the fixes were confirmed by **automated re-analysis,
   NOT a human eye** (canary on C13) — a real render is the final confidence check.
+  `when-it-rains/RENDER_REVIEW.md` (P-002) is the structured instrument for that
+  still-pending human review.
 - **Creative invariants:** the man = fair freckled skin, reddish beard, short
   cropped red-blonde hair with a receding hairline (NOT bald/shaved/buzzed); the
   woman = one brunette, long dark wavy hair, only ever memory/reflection. Look =
@@ -61,4 +67,4 @@
 ---
 _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 `FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29. P-001 closed
-2026-06-29._
+2026-06-29; P-002 closed 2026-06-29._

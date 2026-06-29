@@ -8,20 +8,26 @@
 - **Packet id:** —
 - **Title:** —
 
-> **P-001 (Install Build OS + seed memory) is CLOSED** — qa GREEN, reviewer PASS,
-> receipt at `build-os/receipts/P-001.md` (closed 2026-06-29).
+> **P-002 (Render-Review Checklist — `when-it-rains/RENDER_REVIEW.md`) is CLOSED**
+> — qa GREEN 8/8, reviewer PASS, receipt at `build-os/receipts/P-002.md` (closed
+> 2026-06-29). **P-002 CLOSED → next packet awaits the user's RENDER_REVIEW.md
+> results.** (P-001 — Install Build OS + seed memory — also CLOSED, receipt
+> `build-os/receipts/P-001.md`.)
 >
-> The footage audit + regeneration is DONE. The true next step is **off-machine**:
-> the user must render and eyeball the rough cut on their Mac (the cloud session
-> cannot render — Higgsfield CDN egress-blocked, no system ffmpeg). So there is no
-> cloud-buildable packet in flight until that review returns. Candidates below,
-> in HANDOFF "Open threads" order — do not start one without confirming scope.
+> The footage audit + regeneration is DONE and the render-review checklist now
+> exists. The true next step is **off-machine**: the user renders the rough cut on
+> their Mac and walks `when-it-rains/RENDER_REVIEW.md` (the cloud session cannot
+> render — Higgsfield CDN egress-blocked, no system ffmpeg). So there is no
+> cloud-buildable packet in flight until that marked-up review returns. Candidates
+> below, in HANDOFF "Open threads" order — do not start one without confirming
+> scope.
 
 ## Next-packet candidates (from `when-it-rains/HANDOFF.md`)
 
 1. **User renders + reviews the rough cut** (off-machine, user's Mac):
-   `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`. This is the final
-   human-eye confirmation of the 11 regenerated clips. Blocks the packets below.
+   `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`, walking
+   `when-it-rains/RENDER_REVIEW.md`. This is the final human-eye confirmation of
+   the 11 regenerated clips. Blocks the packets below.
 2. **Beat-lock the EDL** — once the user confirms the ambiguous mid-song section
    times (V2/PRE1/CH1, V4/PRE2), regenerate `data/edl.csv` to snap cuts to the
    beat grid **and** trim ~2s so the 276s EDL resolves on the 274s mix end
@@ -48,5 +54,5 @@
 2. **Commit 2 (optional, same packet):** _to be defined when a packet is cut._
 
 ---
-_No packet in flight (P-001 closed 2026-06-29). Define/confirm one here before
+_No packet in flight (P-002 closed 2026-06-29). Define/confirm one here before
 delegating to builder._

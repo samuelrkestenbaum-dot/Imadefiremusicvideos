@@ -33,7 +33,7 @@
   (`video_analysis`, with a canary on C13), NOT by a human watching a real
   playback. A render is the final confidence check. Two known-open items even
   after the fix: C04's head-turn is still absent, and the lead's exact face still
-  varies slightly clip-to-clip (anchored, not a trained Soul).
+  varies slightly clip-to-clip (anchored, not a trained Soul). **`when-it-rains/RENDER_REVIEW.md`** (P-002, closed 2026-06-29) now exists as the structured timecode-keyed capture instrument for this still-pending human render review — but the gap itself stays open until the user actually renders + reviews.
 
 ## Open boundaries (awaiting explicit go)
 
@@ -44,4 +44,4 @@
 
 ---
 _Append-only working notes. Seeded from `when-it-rains/HANDOFF.md` +
-`FOOTAGE_AUDIT.md` on 2026-06-29._
+`FOOTAGE_AUDIT.md` on 2026-06-29. P-002 note appended 2026-06-29._
