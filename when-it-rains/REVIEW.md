@@ -144,6 +144,9 @@ cut against each other on his face:
 
 ## 7. HELD — band-coverage generation plan (not run yet)
 
+> Concrete add-cuts spec for the dragging PRE2/CH1 sections lives in
+> [`BAND_COVERAGE_PLAN.md`](BAND_COVERAGE_PLAN.md) (P-005 — 10 cuts C25–C34, recipes, gates).
+
 Fire this **only after** the rough cut confirms the §1/§2 thinness (it will). All
 animate from new stills built on the man's locked selfies / existing band stills;
 silent 5s, one motion each — same recipe as the current library. ~8 clips ≈ 60
