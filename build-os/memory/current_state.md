@@ -21,19 +21,24 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-002 — Render-Review Checklist
-  (`when-it-rains/RENDER_REVIEW.md`)** (qa GREEN 8/8, reviewer PASS; receipt
-  `build-os/receipts/P-002.md`). A timecode-keyed, playback-ordered render-review
-  checklist for all 76 EDL cuts now exists, committed locally (not pushed).
-  (P-001 — Install Build OS + seed memory — closed before it.)
-- **Now:** no active build packet — **awaiting the user's human-eye render
-  review** using `when-it-rains/RENDER_REVIEW.md`. Next real work is off-machine +
-  user-driven.
-- **Next:** on the user's marked-up RENDER_REVIEW.md results → **beat-lock the
-  EDL** (snap cuts to the beat grid after the user confirms the ambiguous mid-song
-  section times V2/PRE1/CH1, V4/PRE2) **+ trim ~2s from FINAL** so the 276s EDL
-  resolves on the 274s mix end; and/or targeted regen refinement; optional
-  band-coverage batch (lower priority).
+- **Last closed packet:** **P-003 — Section-Time Proposal
+  (`when-it-rains/SECTION_TIMES.md`)** (qa GREEN 9/9, reviewer PASS; receipt
+  `build-os/receipts/P-003.md`). A data-driven confirm/correct worksheet now
+  exists proposing the song's section starts — **6 KEEP** (INTRO, V1, V3, CH2,
+  BRIDGE, FINAL) + **5 SUGGESTED** (V2 → 0:41, PRE1 → 1:10, CH1 → 1:29 [or 1:51],
+  V4 → 2:24.5, PRE2 → 2:53); committed locally (`39f84d7`, not pushed). It feeds
+  the future beat-lock packet but does NOT change the edit. (P-002 — Render-Review
+  Checklist `when-it-rains/RENDER_REVIEW.md` — closed before it; P-001 — Install
+  Build OS + seed memory — before that.)
+- **Now:** no active build packet — **awaiting the user's confirm/correct of the
+  section times** in `when-it-rains/SECTION_TIMES.md`. Key open question: the
+  **CH1 chorus downbeat — 1:29 vs 1:51** — which also settles **PRE1**. (Also
+  still open: the user's human-eye render review via `RENDER_REVIEW.md`, P-002.)
+- **Next:** on the user's confirmed section times → **build the beat-lock script +
+  apply it to `data/edl.csv`** — snap the 76 cuts to the **0.97524s** beat grid
+  (61.5234375 BPM) **+ trim ~2s from FINAL** so the 276s EDL resolves on the 274s
+  mix end; and/or targeted regen refinement; optional band-coverage batch (lower
+  priority).
 
 ## Stable facts (slow-changing)
 
@@ -44,6 +49,11 @@
 - **Edit kit:** `data/edl.csv` = **76 cuts ≈ 4:34 runtime** (sums to 276s; the
   Jun-27 mix targets 274s, so the FINAL hold is currently truncated ~2s — fix in
   the beat-lock pass).
+- **Song analysis (reproducible in-session):** `analyze_song.py` / `song.json` —
+  `music_end 273.75`, `duration 284.4`, `tempo 61.5234375` BPM (→ **0.97524s**
+  per beat), 12 transitions. The song MP3 has been **re-attached + staged**
+  (gitignored) and the analysis re-verified reproducible this session; `numpy` +
+  `imageio-ffmpeg` are installed. (The MP3 itself will NOT survive a new session.)
 - **Footage audit + regeneration: DONE.** All 26 clips were inspected via
   Higgsfield server-side `video_analysis` (free, bypasses the CDN block). It
   found the lead rendered **bald/shaved in 22 of 76 cuts** (cool story clips) +
@@ -67,4 +77,4 @@
 ---
 _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 `FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29. P-001 closed
-2026-06-29; P-002 closed 2026-06-29._
+2026-06-29; P-002 closed 2026-06-29; P-003 closed 2026-06-29._
