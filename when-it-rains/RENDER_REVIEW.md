@@ -130,3 +130,80 @@ on your word the EDL gets regenerated to snap every cut onto the 0.98s beat grid
 
 If a confirmed time differs from the EDL-assumed start, note the offset so the
 beat-lock pass can shift the affected cuts.
+
+---
+
+## Targeted watch-points (known risk-spots — scrutinize these)
+
+These are the specific things to confirm with a human eye. Everything here was
+verified by automated analysis only (Higgsfield `video_analysis`, not a render),
+so this render is the **final confidence check**. Sources named per item.
+
+### A. Regenerated clips — confirm the fix actually landed
+
+All 11 were regenerated reference-anchored and re-analyzed, then `data/clips.csv`
+was swapped to the new jobs (originals in `data/clips_original_backup.csv`).
+Derived from `FOOTAGE_AUDIT.md` §8 + `data/footage_findings.json`
+(`regeneration_done`) and confirmed by the clips.csv↔backup job-id diff. For each,
+confirm the listed check at the timecode(s) where the clip appears in the cut.
+
+| Clip | Specific check (what the fix was) | Appears at (in–out) |
+|------|-----------------------------------|---------------------|
+| **C07** | Does the **woman's reflection now actually appear** behind his shoulder, raindrop break it, leave an empty room? (Was: woman absent + man shaved.) **P1, narratively central.** | 0:48–0:53 · 0:59–1:03 · 1:13–1:18 · 3:45–3:48 |
+| **C23** | Does the **turn-to-camera land** — eyes from window to lens — and is hair present? **This is the film's final shot.** (Was: shaved top + no turn.) | 4:27–4:31 · 4:33–4:36 |
+| **C06** | Is it now an **empty grey ocean, no people**? (Was: a bald man at a window + a second figure.) | 0:30–0:34 |
+| **C22** | Is the room **empty** with the atmosphere beats (rainwater spreading, drawer creaks)? (Was: an unwanted man, no beats.) | 3:58–4:03 · 4:12–4:15 |
+| **C04** | Hair present + reflection kept? **Known partial: the head-turn "as if touched" is still absent** — confirm whether the static read is acceptable. | 0:11–0:15 · 0:22–0:27 · 0:45–0:48 · 1:09–1:13 |
+| **C13** | Is the lead's **hair present** (not bald/shaved) in this story clip? | 1:23–1:27 · 2:08–2:13 · 2:19–2:23 · 2:34–2:39 |
+| **C15** | Hair present **and** does the dissolve read as **condensation** to his reflection (not a digital ripple)? Woman mirror-face still good? | 2:44–2:49 · 2:56–3:00 · 3:42–3:45 · 4:18–4:21 |
+| **C19** | Hair present in the lightning flash? (Was: shaved.) Brief, lower exposure. | 1:50–1:53 · 3:39.5–3:42 |
+| **C01** | Cropped ginger hair, not a buzz cut? (Band-wide, lower visibility.) | 0:04–0:08 · 0:27–0:30 |
+| **C16** | Is the woman now **dark brunette** (not auburn/reddish-brown)? Hair colour is the identity anchor. | 2:52–2:56 · 4:03–4:06 |
+| **C24** | **Warm** performance palette (not cool story grade) + hair on-model? | 4:24–4:27 |
+
+> If any clip still reads off (e.g. C04's missing head-turn, or a face that drifts
+> bald), that's a regen refinement for the next batch — see `FOOTAGE_AUDIT.md` §5/§8.
+
+### B. C02 overuse — does the repeat become visible?
+
+The single singer close-up **C02 runs 11×** (37s, ~13% of the video) — source:
+`REVIEW.md` §1. Watch these placements in order and judge: **does it start to read
+as repetitive?** Flag the ones that feel recycled (candidates to swap for new band
+coverage later).
+
+`0:08 · 0:18 · 0:42 · 0:53 · 1:06 · 1:31 · 1:59 · 2:26 · 2:49 · 3:22 · 3:54`
+
+### C. The ~2s FINAL truncation — does the ending resolve cleanly?
+
+The EDL sums to **276.0s** but the mix caps audio at **274s**, so the final
+**C23 hold (cut 76, 4:33–4:36)** is **hard-truncated ~2s early** — the
+"looks to camera, unresolved" beat can get clipped mid-shot. Source:
+`FOOTAGE_AUDIT.md` §6. **Watch the very end: does it land on the music resolve
+(~4:33.8), or does the last shot get cut off?** This routes straight into the
+2s upstream trim in the beat-lock pass.
+
+### D. Likeness face-match seams — identity continuity at adjacent cuts
+
+The lead's face comes from two still families (warm band / cool story); the risk
+is at the cuts where they meet. Source: `REVIEW.md` §5. Scrutinize whether it
+reads as **the same man** across each seam:
+
+- **INTRO/V1:** `0:04 C01 → 0:08 C02 → 0:11 C04` (band-face → singer-face → story-face).
+- **FINAL:** `4:24 C24 → 4:27 C23` — the **last impression of him**; the worst place
+  for a mismatch. (And since C02 repeats 11×, confirm C02's likeness is your best
+  singer take — any error there repeats all 11 times.)
+
+---
+
+## What happens next (where this checklist routes)
+
+| Checklist output | Feeds into |
+|------------------|------------|
+| **Confirmed mid-song section times** (the V2/PRE1/CH1, V4/PRE2 block) | **Beat-lock EDL** — regenerate `data/edl.csv` to snap every cut onto the 0.98s beat grid (`HANDOFF.md` Open threads #2, `REVIEW.md` §9). |
+| **Ending-resolution verdict** (watch-point C) | The **~2s FINAL trim** — trim ~2s upstream so the last shot lands on the music resolve, folded into the beat-lock pass (`FOOTAGE_AUDIT.md` §6). |
+| **Regenerated-clip confirmations / any remaining off-model reads** (watch-points A, D) | Optional **regen refinement** (e.g. C04 head-turn, or train a Soul for a perfect face-lock) — `FOOTAGE_AUDIT.md` §5/§8. |
+| **C02-repetition + pacing flags** (watch-point B; §3 montage-risk in `REVIEW.md`) | The optional **band-coverage batch** (~8 clips) to break the C02 monotony — fire only after the lead is locked (`REVIEW.md` §7, `HANDOFF.md` Open threads #4). |
+
+Cross-references: `FOOTAGE_AUDIT.md` (§5 likeness, §6 the 2s truncation, §8
+regeneration-done) and `REVIEW.md` (§1 C02 overuse, §5 likeness seams, §9 song
+timing / section boundaries).
