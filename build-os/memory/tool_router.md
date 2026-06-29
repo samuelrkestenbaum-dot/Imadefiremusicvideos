@@ -55,6 +55,22 @@ new, **verify the exact package/repo first**; ecosystem names are easy to mistyp
 | Design / UI polish | design skills (UI/UX, Taste, design-system) | builder (design-ui) | frontend only |
 | Media generation | Higgsfield / Glif / Remotion | builder (marketing-media) | marketing/media packets only |
 
+### Connected this session (honest inventory — verified live)
+
+These MCP servers are actually connected in this session. The two that matter for
+"When It Rains" get explicit rows; the rest are connected but **unused for this
+project**.
+
+| Task type | MCP (live) | Used by | Gate / stop |
+|---|---|---|---|
+| Media / image / video / audio generation | **Higgsfield** (`mcp__Higgsfield__*`) — `generate_image`, `generate_video`, `generate_audio`, `upscale_*`, etc. | builder under **marketing-media** authority | **marketing/media packets only.** Generation spends **credits = external mutation = STOP** unless inside a confirmed media packet **with explicit go**. (This project's whole asset library was built here; `video_analysis` reads are free.) |
+| Repo read / PR / push | **github** (`mcp__github__*`) | reviewer reads; **build-orchestrator gates** | Repo **reads** are normal budget. Any **write / push / merge / PR** = **STOP** — needs explicit go (this repo has no trunk; never push to the working branch without go). |
+
+**Also connected this session but UNUSED for this project** (no routes fabricated):
+Supabase, Hugging Face, Otter.ai, Gmail, Slack, Notion, HubSpot, Stripe, Netlify,
+Cloudflare, Docusign, Zapier. Treat each as read-only/normal if ever genuinely
+needed; **any write/send/deploy/charge = STOP** for explicit go.
+
 ### Auto-detect connected MCPs
 
 The SessionStart hook lists configured MCP servers (read from `.mcp.json`,
