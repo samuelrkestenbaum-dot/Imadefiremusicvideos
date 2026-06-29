@@ -21,9 +21,11 @@
 
 ## Where we are
 
-- **Last closed packet:** none (memory just seeded).
+- **Last closed packet:** **P-001 — Install Build OS + seed memory** (qa GREEN,
+  reviewer PASS; receipt `build-os/receipts/P-001.md`). Build OS engine + real
+  project memory are now installed and committed locally (not pushed).
 - **Now:** no active build packet — **awaiting a human-eye render review** of the
-  regenerated footage.
+  regenerated footage. Next real work is off-machine + user-driven.
 - **Next:** user renders the rough cut on their Mac + reviews it → confirms the
   ambiguous mid-song section times (V2/PRE1/CH1, V4/PRE2) → on their word,
   regenerate `data/edl.csv` to snap cuts to the beat grid and trim ~2s from the
@@ -58,4 +60,5 @@
 
 ---
 _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
-`FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29._
+`FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29. P-001 closed
+2026-06-29._

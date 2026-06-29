@@ -8,6 +8,9 @@
 - **Packet id:** —
 - **Title:** —
 
+> **P-001 (Install Build OS + seed memory) is CLOSED** — qa GREEN, reviewer PASS,
+> receipt at `build-os/receipts/P-001.md` (closed 2026-06-29).
+>
 > The footage audit + regeneration is DONE. The true next step is **off-machine**:
 > the user must render and eyeball the rough cut on their Mac (the cloud session
 > cannot render — Higgsfield CDN egress-blocked, no system ffmpeg). So there is no
@@ -45,4 +48,5 @@
 2. **Commit 2 (optional, same packet):** _to be defined when a packet is cut._
 
 ---
-_No packet in flight. Define/confirm one here before delegating to builder._
+_No packet in flight (P-001 closed 2026-06-29). Define/confirm one here before
+delegating to builder._
