@@ -90,10 +90,11 @@ which reads as AI wallpaper.
 - ✅ Animated clip backbone generated (one narrative motion per clip, silent so the song lays on top).
 - ✅ Edit map + EDL + local assembly kit.
 - ✅ **Footage audit complete (`FOOTAGE_AUDIT.md`)** — every clip inspected via Higgsfield `video_analysis`.
-- ⚠️ **Reference identity NOT actually locked.** The audit found the lead renders
-  **bald/shaved in the cool story clips** (on-model only in the warm performance
-  clips) — ~22 of 76 cuts. Plus 4 content failures (C06/C07/C22/C23). **A
-  regeneration pass on the lead is the top open item** — see `FOOTAGE_AUDIT.md` §5.
-- ⏳ Regenerate off-model/failed clips → beat-lock the EDL → final song-synced cut → selective 2K/4K upscale.
+- ✅ **Off-model lead + failures regenerated & verified** — all 11 bad clips
+  (bald lead in the cool story shots + 4 content failures + auburn woman) were
+  regenerated reference-anchored and re-analyzed on-model; `data/clips.csv` now
+  points at the fixed clips (originals in `data/clips_original_backup.csv`). See
+  `FOOTAGE_AUDIT.md` §8.
+- ⏳ Render & eyeball on your Mac → beat-lock the EDL (needs the MP3 + section times) → trim the 2s overhang → final cut → selective 2K/4K upscale.
 
 See `FOOTAGE_AUDIT.md` for the failure list and `EDIT_MAP.md` for the full edit breakdown.

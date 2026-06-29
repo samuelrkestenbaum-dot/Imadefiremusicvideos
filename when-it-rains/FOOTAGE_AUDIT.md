@@ -1,5 +1,15 @@
 # Footage Audit — "When It Rains" (actual clips, not the EDL)
 
+> ## ✅ UPDATE: the failures below have been REGENERATED & verified (this session)
+> All 11 flagged clips were regenerated with an on-model reference anchored
+> (`5cc8239a` for the man, `1143614b` for the woman), re-animated, and **re-analyzed
+> to confirm the fix**. **10 fully accepted** (C01, C06, C07, C13, C15, C16, C19,
+> C22, C23, C24 — lead now has hair / inserts have no people / woman is brunette /
+> C07's reflection now renders). **C04** adopted a partial (hair fixed + reflection
+> kept; head-turn still absent — no regression). `data/clips.csv` now points at the
+> fixed clips; originals are in `data/clips_original_backup.csv`. Details in §8 and
+> `data/footage_findings.json`. The sections below document what was *found*.
+
 **This is the "capture failures" step — done without a render.** The previous
 `REVIEW.md` was *structural* (computed from the EDL + metadata) and explicitly
 deferred likeness / woman-consistency / weak-clip calls to "verify-on-playback."
@@ -166,3 +176,39 @@ instead of being cut off.
   the repetition is a pacing issue, not a quality one.
 - The §7 band-coverage batch is still valid, but **fixing the lead's hair
   outranks it** — thin coverage is cosmetic; a bald lead in half the film is not.
+
+---
+
+## 8. Regeneration — DONE (this session)
+
+Each flagged clip was regenerated reference-anchored, re-animated, and
+**re-analyzed to verify before acceptance** (the same `video_analysis` path used
+to find the problems). Total spend: **106.5 credits** (~9/clip; analysis free).
+`data/clips.csv` was swapped to the new clips; **originals preserved** in
+`data/clips_original_backup.csv` (revert = restore that file).
+
+| Clip | Fix | New clip job id | Verified |
+|---|---|---|---|
+| C01 | buzz → cropped ginger hair (band) | `c2b90eb1` | ✅ hair + band + warm |
+| C04 | bald → hair; reflection kept | `297449bf` | ⚠️ hair+reflection ✅, head-turn still absent |
+| C06 | 2 people → **empty ocean** | `148ef95e` | ✅ no people |
+| C07 | shaved + **missing woman** → hair + **reflection renders** | `d0c0e4d4` | ✅ both |
+| C13 | bald → ginger hair (canary) | `9255cfb3` | ✅ hair |
+| C15 | bald → hair; condensation dissolve | `42b95398` | ✅ hair + brunette + soft dissolve |
+| C16 | auburn → **dark brunette** | `c31ab9e6` | ✅ brunette, no man |
+| C19 | shaved → receding red hair | `075c6af2` | ✅ hair + lightning |
+| C22 | unwanted man → **empty room** beats | `f0b1f137` | ✅ no person |
+| C23 | shaved + no turn → hair + **turn-to-camera** | `94e1d8b1` | ✅ both (the final shot) |
+| C24 | cool palette → **warm** + hair | `e77cd5b3` | ✅ warm + hair |
+
+**Anchor used:** `5cc8239a` (C20 still — best receding-hairline match) for the man;
+`1143614b` (C11 still) for the woman. All re-animated with the existing recipe
+(`kling3_0`, std, sound off, 5s; night scenes declined the "IN THE DARK" preset).
+
+**Caveats (still verify-on-a-real-render):** verification is the automated
+re-analysis, not a human eye — the proxy blocks the CDN so no clip could be
+eyeballed here. Two known open items: **C04's head-turn** (optional refinement),
+and the lead's exact face still varies slightly clip-to-clip (anchored, not a
+trained Soul). For perfect lock, train a Soul from the selfies + best frames and
+regenerate from it. **Not yet done:** beat-lock (needs the MP3 + section times),
+the 2s FINAL trim (§6), band-coverage (§7), and upscale (last).

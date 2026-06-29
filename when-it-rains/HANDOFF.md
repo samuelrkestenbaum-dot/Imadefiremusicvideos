@@ -6,20 +6,23 @@ Read this first, then `FOOTAGE_AUDIT.md` (newest, most important) → `README.md
 > **Branch note:** active work is now on `claude/when-it-rains-music-video-0qzesv`
 > (a fresh clone may land on a different default branch — check `git branch`).
 
-## ⭐ Newest result — footage audit done WITHOUT a render (this session)
+## ⭐ Newest result — audit AND regeneration done (this session)
 All 26 clips were inspected via Higgsfield server-side `video_analysis` (free,
-~16s each, bypasses the CDN block — no download). Findings in `FOOTAGE_AUDIT.md`
-+ `data/footage_findings.json`. Two things you must know:
-- **The male lead is rendered BALD/SHAVED in the cool story clips** (C01 buzz,
-  C04, C07, C13, C15, C19, C23, EX2 bald/shaved) — on-model only in the warm
-  performance clips (C02/C09/C12/C17/C20). **22 of 76 cuts** show an off-model
-  lead. The prior claim that the on-model likeness was "used everywhere" was wrong.
-- **4 hard content failures:** C07 (woman-reflection beat never renders), C06
-  (two people, not an empty ocean), C22 (unwanted man), C23 (final shot missing
-  its turn-to-camera). C16's woman drifts auburn.
-- **Decision pending from the user:** regenerate scope (P1 content failures only,
-  or P1+P2 bald-lead clips too). The regen→re-analyze→verify loop is closed and
-  free, so a new session can execute and self-check once scope is confirmed.
+~16s each, bypasses the CDN block — no download). It found the lead rendered
+**bald/shaved in 22 of 76 cuts** (cool story clips) + 4 content failures (C06,
+C07, C22, C23) + an auburn woman (C16). **Root cause:** the man-stills were
+generated with **no reference image attached** (pure text), so he drifted bald.
+
+**Then all 11 flagged clips were REGENERATED** reference-anchored (`5cc8239a`
+man / `1143614b` woman) → re-animated → **re-analyzed to verify**. 10 fully
+accepted; C04 partial (hair+reflection fixed, head-turn still absent).
+`data/clips.csv` now points at the FIXED clips (originals in
+`data/clips_original_backup.csv`). Spend: 106.5 credits; ~2,505 left. Full
+breakdown in `FOOTAGE_AUDIT.md` §8 + `data/footage_findings.json`.
+
+**Caveat:** verification was the automated re-analysis, not a human eye (CDN is
+egress-blocked here). A real render is the final confidence check. For a perfect
+face-lock, train a Soul from the selfies + best frames and regen from it.
 
 ## Where the project stands
 - **Concept/edit locked.** 1970s rain drama: warm band-performance world intercut
@@ -41,14 +44,11 @@ All 26 clips were inspected via Higgsfield server-side `video_analysis` (free,
   the source of truth is the Higgsfield account.
 
 ## Open threads (next actions, in order)
-1. **Regenerate the off-model lead + content failures** (`FOOTAGE_AUDIT.md` §5).
-   This now outranks everything else — a bald lead in ~29% of cuts is worse than
-   any pacing issue. Order: **P1** content failures (C07, C23, C06, C22) → **P2**
-   bald story clips (C04, C13, C15, C19, ±C01) → **P3** polish (C16 auburn→brunette,
-   C24 world-look, C10 pedestrian). Root-cause fix: lock the lead with a reference
-   from a clean performance frame (C02/C12/C20), add "not bald/shaved/buzzed,
-   visible hair + receding hairline" to every non-performance **still**, regen the
-   still first → re-animate → re-run `video_analysis` to verify before accepting.
+1. **Render the rough cut & eyeball the regenerated clips** (`scripts/fetch_assets.sh`
+   then `assemble_rough_cut.sh`, on the user's Mac). The 11 fixes were verified by
+   automated re-analysis, not human eyes — a render is the final confidence check.
+   If C04's head-turn or any face still reads off, see §8/§5 for the refinement
+   path (or train a Soul from the selfies + best frames for a perfect face-lock).
 2. **User confirms mid-song section times** (V2/PRE1/CH1, V4/PRE2 ambiguous from
    energy). On their word → regenerate `data/edl.csv` to snap cuts to the beat grid.
    Also trim ~2s from the FINAL section: the EDL is 276s but the mix targets 274s,

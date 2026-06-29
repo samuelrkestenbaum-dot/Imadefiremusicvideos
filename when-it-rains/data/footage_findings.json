@@ -351,5 +351,28 @@
     "verify_analysis_id": "14dc6cf1-3ae6-4603-ae44-9cc40af2051f",
     "total_cost_credits": 9,
     "per_clip_cost_estimate_credits": "~9 (1.5 still + 7.5 clip; analysis free)"
+  },
+  "regeneration_done": {
+    "method": "reference-anchored regen (nano_banana_2 image-to-image, anchor 5cc8239a for man / 1143614b for woman) -> kling3_0 -> re-analyzed each to verify; clips.csv swapped, originals in data/clips_original_backup.csv",
+    "accepted_swapped": [
+      "C01",
+      "C06",
+      "C07",
+      "C13",
+      "C15",
+      "C16",
+      "C19",
+      "C22",
+      "C23",
+      "C24"
+    ],
+    "partial": {
+      "C04": "adopted attempt-1 clip 297449bf \u2014 hair FIXED + woman reflection kept, but head-turn motion still absent (no regression vs original, which was bald + no turn). Optional future refinement: lower motion strength + explicitly forbid any literal hand to land hair+reflection+turn together."
+    },
+    "skipped_minor": [
+      "C10 (stray background pedestrian \u2014 cosmetic, left as-is)"
+    ],
+    "credits_spent_total_session": 106.5,
+    "verification": "each new clip re-analyzed via Higgsfield video_analysis; man clips confirmed VISIBLE HAIR (not bald), insert clips confirmed NO people, woman confirmed dark brunette."
   }
 }
