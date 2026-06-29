@@ -8,53 +8,49 @@
 - **Packet id:** —
 - **Title:** —
 
-> **P-004 (EDL section-sync to confirmed times — `when-it-rains/data/edl.csv`
-> rewrite) is CLOSED** — qa GREEN 10/10 + Commit-1 isolation, reviewer PASS, receipt
-> at `build-os/receipts/P-004.md` (closed 2026-06-29; commits `0ac19d2` script +
-> `72dff55` artifacts, base `bbcc36f`, not pushed). **P-004 CLOSED → the next packet
-> awaits the user's render-judgment of the section-synced cut** on their Mac.
-> Candidate follow-ups: **added cuts for the ballooned CH1 / PRE2** (band-coverage
-> batch — those sections were stretched ×1.55 / ×1.64 and may drag), and an
-> **optional sub-beat beat-grid quantization** (still deferred — needs a rigorous
-> downbeat phase reference). (P-003 — SECTION_TIMES.md — CLOSED, receipt
-> `build-os/receipts/P-003.md`; P-002 — RENDER_REVIEW.md — CLOSED, receipt
-> `build-os/receipts/P-002.md`; P-001 — Install Build OS + seed memory — CLOSED,
-> receipt `build-os/receipts/P-001.md`.)
+> **P-005 CLOSED → next = P-006 generation (GATED: credits) then P-007 edl
+> insert/re-time (GATED). Plan in `when-it-rains/BAND_COVERAGE_PLAN.md`.**
 >
-> The user has now CONFIRMED the section times (CH1 = 1:29 etc.) and the EDL is
-> section-synced to them (cumulative starts exact, total 274s; original backed up
-> byte-exact at `data/edl_original_backup.csv`). The remaining user-driven inputs:
-> (a) the user's render-judgment of the re-timed cut, and (b) the broader human-eye
-> render review via `RENDER_REVIEW.md` — both off-machine on the user's Mac (the
-> cloud session cannot render: CDN egress-blocked, no system ffmpeg). Do not start a
-> packet without confirming scope.
+> **P-005 (Band-coverage add-cuts plan — `when-it-rains/BAND_COVERAGE_PLAN.md`,
+> spec only) is CLOSED** — qa GREEN 10/10 + Commit-1 isolation, reviewer PASS
+> (Codex second-eyes unavailable — single-reviewer), receipt at
+> `build-os/receipts/P-005.md` (closed 2026-06-29; commits `cff6043` plan +
+> `bbd952a` REVIEW §7 pointer, base `5d61a89`, not pushed). It specifies 10 new
+> band-only cuts (C25–C30 PRE2, C31–C34 CH1), each fully recipe'd, to break the long
+> PRE2 / CH1 holds. **No generation, no edl edit** — both deferred to the gated
+> packets below. (P-004 — EDL section-sync — CLOSED, receipt
+> `build-os/receipts/P-004.md`; P-003 — SECTION_TIMES.md — CLOSED; P-002 —
+> RENDER_REVIEW.md — CLOSED; P-001 — Install Build OS + seed memory — CLOSED.)
 
-## Next-packet candidates (HANDOFF + P-004 residue)
+## Next-packet candidates (P-005 residue)
 
-1. **User renders + judges the section-synced cut** (off-machine, user's Mac):
+1. **P-006 — generate the 10 staged clips on Higgsfield (GATED).** Generate
+   C25–C34 per the recipes in `when-it-rains/BAND_COVERAGE_PLAN.md`. **Marketing/media
+   authority — generation = credits = external mutation = STOP** unless inside a
+   confirmed media packet with the user's explicit go.
+2. **P-007 — insert the 10 clips into `data/edl.csv` + re-time PRE2 / CH1 (GATED).**
+   After P-006 lands the clips, splice them into the EDL and re-time PRE2 / CH1 to
+   ~3.3s avg per cut. **Edit authority — needs explicit go** (and follows P-006).
+   At generation/insert time, mind the 2 non-blocking notes: (a) make C26 (full-band
+   push-in) read distinct from existing C09 (also a push-in); (b) the plan's relative
+   `data/edl.csv` path is correct from `when-it-rains/` — from repo root use
+   `when-it-rains/data/edl.csv`.
+3. **User renders + judges the section-synced cut** (off-machine, user's Mac):
    `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`, walking
-   `when-it-rains/RENDER_REVIEW.md`. This is the human-eye confirmation of both the
-   11 regenerated clips AND the new section-sync timing. Blocks the follow-ups below.
-2. **Added-cuts packet for ballooned CH1 / PRE2 (conditional)** — fire only **if**
-   the user reports CH1 (×1.55, cuts now ~5–6.5s) and/or PRE2 (×1.64) DRAG on
-   playback. The fix is **added cuts** (band-coverage batch, `RENDER_REVIEW.md` §7),
-   NOT stretched holds. **Marketing/media authority — generation = credits = STOP**
-   unless inside a confirmed media packet with explicit go.
-3. **Sub-beat beat-grid quantization (optional, deferred)** — snap the 76 cuts to
+   `when-it-rains/RENDER_REVIEW.md` — still-open human-eye confirmation of the 11
+   regenerated clips AND the P-004 section-sync timing.
+4. **Sub-beat beat-grid quantization (optional, deferred)** — snap the 76 cuts to
    the **0.97524s** beat grid (61.5234375 BPM) on top of the section-sync. Needs a
-   rigorous downbeat phase reference + the MP3 re-attached (staged this session, will
-   not survive a new one). Section-sync (P-004) was the coarser confirmed-times pass.
-4. **Band-coverage batch (optional, lower priority)** — ~8 clips to reduce C02's 11×
-   overuse (a pacing issue; C02 is itself on-model); overlaps with candidate 2. Fire
-   only after the lead is locked. **Media authority — credits = STOP** without go.
+   rigorous downbeat phase reference + the MP3 re-attached (won't survive a new
+   session). Section-sync (P-004) was the coarser confirmed-times pass.
 
 ## Out of scope (explicit)
 
 - Any Higgsfield generation / upscale (credits = external mutation → media packet
-  + explicit go only). Upscale is explicitly LAST, after the cut is locked.
-- Further editing `data/edl.csv`, `clips.csv`, or other `when-it-rains/**` product
-  files without a confirmed packet and the user's render-judgment of the current
-  section-synced cut.
+  + explicit go only). P-006 generation is GATED. Upscale is explicitly LAST, after
+  the cut is locked.
+- Editing `data/edl.csv`, `clips.csv`, or other `when-it-rains/**` product files
+  (incl. the P-007 insert/re-time) without a confirmed packet and explicit go.
 
 ## Branch base
 
@@ -66,5 +62,5 @@
 2. **Commit 2 (optional, same packet):** _to be defined when a packet is cut._
 
 ---
-_No packet in flight (P-004 closed 2026-06-29). Define/confirm one here before
+_No packet in flight (P-005 closed 2026-06-29). Define/confirm one here before
 delegating to builder._

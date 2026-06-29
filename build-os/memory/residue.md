@@ -6,13 +6,25 @@
 
 ## Deferred (follow-up packets)
 
-- **Added cuts for the ballooned CH1 / PRE2 (P-004 follow-up, conditional).** The
-  section-sync stretched **CH1 ×1.55** and **PRE2 ×1.64**, so their cuts now hold
-  **~5–6.5s and may DRAG** on playback. The likely fix is **added cuts**
-  (band-coverage batch, `RENDER_REVIEW.md` §7) — **NOT** stretched holds. This
-  ballooning caveat currently lives **only in `scripts/resync_edl.py` stdout**, not
-  in any committed artifact — surfaced here for visibility. Fire only **after** the
-  user's render-judgment confirms the drag (media authority — credits = STOP w/o go).
+- **PRE2 / CH1 drag — now has a STAGED remediation (P-005 spec'd it).** The
+  section-sync stretched **CH1 ×1.55** and **PRE2 ×1.64**, so their cuts hold
+  **~5–6.5s and may DRAG**. P-005 turned the fix into a concrete plan:
+  `when-it-rains/BAND_COVERAGE_PLAN.md` specifies **10 new band-only add-cuts**
+  (C25–C30 PRE2 → 12 cuts @ 3.42s; C31–C34 CH1 → 12 cuts @ 3.23s), each fully
+  recipe'd. Two gated packets remain to actually land them:
+  - **P-006 — generate the 10 staged clips on Higgsfield (GATED = credits / external
+    mutation).** Generate C25–C34 per the plan's recipes. STOP without the user's
+    explicit go inside a confirmed media packet.
+  - **P-007 — insert the 10 clips into `data/edl.csv` + re-time PRE2 / CH1 to ~3.3s
+    avg (GATED edit).** Follows P-006. Needs explicit go.
+  Fire P-006 only **after** the user's GO to generate (and ideally after the
+  render-judgment confirms the drag). The added cuts are the fix — **NOT** stretched
+  holds.
+- **P-005 non-blocking generation-time notes (carry into P-006 / P-007):**
+  1. At generation, ensure **C26 (full-band push-in)** reads visually **distinct**
+     from existing **C09 (also a push-in)** — avoid a near-duplicate shot.
+  2. The plan's relative `data/edl.csv` path is correct **from `when-it-rains/`**;
+     whoever runs P-007 **from repo root** must use `when-it-rains/data/edl.csv`.
 - **Verify the fast V3 cuts on render (P-004 follow-up).** The section-sync
   compressed **V3 ×0.53**, so its cuts are now **~1.6–2.7s (fast)** — confirm on the
   render they read as energetic, not rushed.
@@ -22,10 +34,6 @@
   session, won't survive a new one — see risks). P-004 delivered the coarser
   **section-sync** (cuts re-timed to confirmed section spans; cumulative starts exact,
   total 274s), NOT this finer beat quantization.
-- **Band-coverage batch (~8 clips)** — lower priority; reduces C02's 11× overuse
-  (pacing, not quality); overlaps with the added-cuts follow-up above. Marketing/media
-  authority; fire only after the lead is locked. Generation = credits = STOP without a
-  confirmed media packet + go.
 - **Selective 2K/4K upscale** — explicitly LAST, only after the cut is emotionally
   locked.
 
@@ -70,9 +78,11 @@
 - **No push / merge / PR** on `claude/when-it-rains-music-video-fetr0z` (repo has
   no trunk) — local commits only without explicit go.
 - **No Higgsfield generation / upscale** — spends credits = external mutation;
-  STOP unless inside a confirmed media packet with go.
+  STOP unless inside a confirmed media packet with go. **P-006 (generate C25–C34)
+  is GATED on this**; **P-007 (edl insert + re-time) is the gated edit that follows.**
 
 ---
 _Append-only working notes. Seeded from `when-it-rains/HANDOFF.md` +
 `FOOTAGE_AUDIT.md` on 2026-06-29. P-002 note appended 2026-06-29; P-003 note
-appended 2026-06-29; P-004 note appended 2026-06-29._
+appended 2026-06-29; P-004 note appended 2026-06-29; P-005 note appended
+2026-06-29._

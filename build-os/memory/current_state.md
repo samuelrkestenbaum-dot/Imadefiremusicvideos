@@ -21,30 +21,34 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-004 — EDL section-sync to confirmed times**
-  (`when-it-rains/data/edl.csv` rewrite) (qa GREEN 10/10 + Commit-1 isolation,
-  reviewer PASS; receipt `build-os/receipts/P-004.md`; commits `0ac19d2` script +
-  `72dff55` artifacts, base `bbcc36f`, not pushed). The user **CONFIRMED** the
-  P-003 section times ("those look good, keep going") — **CH1 downbeat = 1:29
-  (89.25s)**, PRE1 (settling) = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173; the 5
-  anchored sections unchanged. The new deterministic/idempotent
-  `scripts/resync_edl.py` re-timed the 76 cuts so each section's cuts sum to its
-  confirmed span; **cumulative section starts now land exactly on the confirmed
-  times, total = 274.0s**. The original EDL is backed up byte-exact at
-  `data/edl_original_backup.csv` (fully reversible). (P-003 — SECTION_TIMES.md —
-  closed before it; P-002 — RENDER_REVIEW.md; P-001 — Install Build OS + seed
-  memory — earlier.)
-- **Now:** no active build packet — **the section times are CONFIRMED** (CH1 = 1:29
-  etc.; the 1:29-vs-1:51 question is settled) and the EDL is **section-synced** to
-  them. **Awaiting the user's render-judgment** of the re-timed cut on their Mac
-  (`scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`). (Also still open:
-  the broader human-eye render review via `RENDER_REVIEW.md`, P-002.)
-- **Next:** on the user's render-judgment → **if CH1 / PRE2 drag on playback** (they
-  were stretched ×1.55 / ×1.64, so their cuts now hold ~5–6.5s), an **added-cuts
-  packet** (band-coverage batch, `RENDER_REVIEW.md` §7) — add cuts rather than hold
-  stretched. **Optionally**, sub-beat **beat-grid quantization** (snap to the
-  0.97524s grid) — but that needs a rigorous downbeat phase reference and stays
-  deferred. Section-sync is reversible via `data/edl_original_backup.csv`.
+- **Last closed packet:** **P-005 — Band-coverage add-cuts plan
+  (`when-it-rains/BAND_COVERAGE_PLAN.md`)** — a **spec-only** marketing-media
+  planning artifact (qa GREEN 10/10 + Commit-1 isolation, reviewer PASS w/ Codex
+  unavailable; receipt `build-os/receipts/P-005.md`; commits `cff6043` plan +
+  `bbd952a` REVIEW §7 pointer, base `5d61a89`, not pushed). It specifies **10 new
+  band-coverage cuts** (C25–C30 for PRE2, C31–C34 for CH1), each fully specified
+  (band-only shot, reference-anchored `nano_banana_2` still recipe, `kling3_0/std/
+  off/5s` clip recipe, draft prompt, EDL slot, target duration). qa independently
+  re-derived the pacing math (PRE2 span 41.00 → +6 → 12 cuts @ 3.417s; CH1 span
+  38.75 → +4 → 12 cuts @ 3.229s), confirmed all 4 recipe-UUIDs char-for-char vs
+  HANDOFF/FOOTAGE_AUDIT (anchor `5cc8239a`, preset `24bae836…`), no C25–C34 clip-id
+  collision, **no generation**, and all `data/*` blobs byte-unchanged. (P-004 — EDL
+  section-sync — closed before it; P-003 — SECTION_TIMES.md; P-002 — RENDER_REVIEW.md;
+  P-001 — Install Build OS + seed memory — earlier. P-004's confirmed times stand:
+  CH1 = 1:29 (89.25s), PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173; EDL
+  section-synced, total 274.0s, reversible via `data/edl_original_backup.csv`.)
+- **Now:** no active build packet — **the band-coverage batch is SPEC'd** (10 cuts
+  C25–C34) to fix the PRE2 / CH1 drag (those sections were stretched ×1.64 / ×1.55
+  in P-004 and hold ~5–6.5s). The plan lives at `when-it-rains/BAND_COVERAGE_PLAN.md`.
+  **Awaiting the user's GO to GENERATE** (credits). (Also still open from before: the
+  user's render-judgment of the section-synced cut + the broader human-eye render
+  review via `RENDER_REVIEW.md`, P-002 — both off-machine on the user's Mac.)
+- **Next:** **P-006 — generate the 10 staged clips on Higgsfield** (GATED — credits /
+  external mutation; needs explicit go) → then **P-007 — insert them into
+  `data/edl.csv` + re-time PRE2 / CH1 to ~3.3s avg** (GATED edit; needs explicit go).
+  (Still deferred, optional: sub-beat **beat-grid quantization** to the 0.97524s grid
+  — needs a rigorous downbeat phase reference. Section-sync remains reversible via
+  `data/edl_original_backup.csv`.)
 
 ## Stable facts (slow-changing)
 
@@ -59,6 +63,11 @@
   (deterministic / idempotent). Cut durations span ~1.6–8.2s
   (assembler-compatible). Note: the section-sync is coarse — it matches section
   spans, NOT a sub-beat beat grid (that quantization is still deferred).
+- **Band-coverage plan (P-005, spec only):** `when-it-rains/BAND_COVERAGE_PLAN.md`
+  specifies 10 new band-only cuts (C25–C30 PRE2, C31–C34 CH1) to break the long PRE2
+  / CH1 holds — each with a reference-anchored still recipe + Kling clip recipe +
+  draft prompt + EDL slot + target duration. NOT yet generated (P-006, credits) and
+  NOT yet inserted/re-timed (P-007, edit) — both gated.
 - **Song analysis (reproducible in-session):** `analyze_song.py` / `song.json` —
   `music_end 273.75`, `duration 284.4`, `tempo 61.5234375` BPM (→ **0.97524s**
   per beat), 12 transitions. The song MP3 has been **re-attached + staged**
@@ -88,4 +97,4 @@
 _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 `FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29. P-001 closed
 2026-06-29; P-002 closed 2026-06-29; P-003 closed 2026-06-29; P-004 closed
-2026-06-29._
+2026-06-29; P-005 closed 2026-06-29._
