@@ -1,0 +1,77 @@
+index,clip_key,in_point,duration,section,note
+1,C03,0.0,4,INTRO,rain on glass (open)
+2,C01,0.0,4,INTRO,band room wakes
+3,C02,0.0,3,INTRO,singer close-up
+4,C04,0.0,4,INTRO,man alone by window
+5,C03,1.0,3,INTRO,rain hold into verse
+6,C02,0.5,3.1,V1,sings opening line
+7,C04,0.0,3.88,V1,turns as if touched; reflection dissolves
+8,C01,1.0,2.33,V1,restrained band
+9,C06,0.0,3.1,V1,grey ocean
+10,EX1,0.0,3.1,V1,gazes at ocean through glass
+11,C05,0.0,3.1,V1,river bend
+12,C02,2.0,2.33,V1,singer
+13,C04,1.5,2.31,V1,window
+14,C07,0.0,4.75,V2,over shoulder; her reflection surfaces
+15,C02,0.0,2.85,V2,face-on singing
+16,C03,0.5,2.85,V2,rain behind him
+17,C07,0.0,3.8,V2,raindrop breaks reflection; empty room
+18,C09,0.0,2.85,V2,band fragments
+19,C02,1.0,2.85,V2,more direct
+20,C04,0.0,3.8,V2,window
+21,C07,0.0,4.75,V2,reflection again, gone
+22,C08,0.0,3.9,PRE1,curtains breathe; trees move
+23,C13,0.0,3.12,PRE1,almost turns toward a sound
+24,C09,0.0,3.12,PRE1,drummer enters, build
+25,C02,0.0,2.34,PRE1,"it's like you never left"
+26,C08,1.0,3.12,PRE1,trees move
+27,C09,0.0,3.9,PRE1,push-in, intensity rising
+28,C12,0.0,6.2,CH1,band release
+29,C10,0.0,4.65,CH1,puddle reflection trembles
+30,C19,0.0,4.65,CH1,thunder flash
+31,C11,0.0,4.65,CH1,woman from behind, gone
+32,C12,1.5,4.65,CH1,band
+33,C02,0.0,4.65,CH1,chorus with force
+34,C10,1.5,4.65,CH1,water again
+35,C12,0.0,4.65,CH1,band
+36,C13,0.0,2.66,V3,turns toward window at thunder
+37,C18,0.0,1.6,V3,storm clouds
+38,C09,1.0,1.6,V3,band warmer, urgent
+39,C13,1.0,2.13,V3,turns, nothing
+40,C11,1.0,1.6,V3,distant woman, one shot
+41,C02,0.0,2.13,V3,singer less controlled
+42,C12,0.0,2.13,V3,drummer harder
+43,C13,0.0,2.65,V3,listening, haunted
+44,C14,0.0,4.75,V4,opens drawer, hides memory
+45,C15,0.0,4.75,V4,her face in misted mirror
+46,C02,1.0,2.85,V4,CU; band swallowed by story
+47,C16,0.0,3.8,V4,face forms in fog
+48,C15,1.0,3.8,V4,he reaches; dissolves to his reflection
+49,C14,1.0,3.8,V4,drawer closes
+50,C09,0.0,4.75,V4,shadowy band
+51,C17,0.0,8.2,PRE2,looks up into storm sky
+52,C18,0.0,6.56,PRE2,clouds move
+53,C12,0.0,6.56,PRE2,band carries the confession
+54,C02,0.0,6.56,PRE2,"I still want you"
+55,C17,1.0,6.56,PRE2,stops fighting it
+56,C20,0.0,6.56,PRE2,band rises
+57,C20,0.0,3,CH2,band
+58,C10,0.0,2.5,CH2,water
+59,C19,0.0,2.5,CH2,thunder
+60,C15,0.0,3,CH2,mirror
+61,C07,0.0,3,CH2,window reflection
+62,C21,0.0,3,CH2,clean memory shot, turns away
+63,C20,1.0,3,CH2,band
+64,C02,0.0,4,CH2,almost angry at himself
+65,C22,0.0,5,BRIDGE,rainwater spreads across floor
+66,C16,0.0,3,BRIDGE,mirror fogs
+67,C11,0.0,3,BRIDGE,she turns away
+68,C20,0.0,3,BRIDGE,band at peak
+69,C22,2.0,3,BRIDGE,drawer creaks open
+70,C21,0.0,3,BRIDGE,she vanishes
+71,C15,0.0,3,BRIDGE,he reaches for the mirror
+72,C20,0.0,2.6,FINAL,final chorus, band plays out
+73,C24,0.0,2.6,FINAL,singer direct, almost still
+74,C23,0.0,3.47,FINAL,alone by the window
+75,C03,0.0,1.73,FINAL,rain continues
+76,C23,1.0,2.6,FINAL,looks to camera, unresolved (end)
