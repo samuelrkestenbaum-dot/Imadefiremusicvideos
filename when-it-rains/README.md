@@ -6,9 +6,9 @@ world where every reflective surface, storm, and body of water seems to contain
 the same brunette woman — a memory he can't escape. Performance and memory
 intercut constantly until the bridge floods the two worlds together.
 
-**Target runtime: 4:36** (the WAV runs ~4:54.9, but the usable musical edit lives
-around 4:30–4:36 — build to 4:36 so the final *"and I still wonder"* lands before
-the long silent tail).
+**Target runtime: 4:34 (274.0s)** (the WAV runs ~4:54.9, but the usable musical
+edit lives around 4:30–4:34 — build to 4:34 so the final *"and I still wonder"*
+lands before the long silent tail).
 
 ---
 
@@ -21,10 +21,10 @@ the long silent tail).
 | `EDIT_MAP.md` | The shot-by-shot edit: every section, timecode, which clip, and the one narrative motion it carries. This is the assembly bible. |
 | `data/assets.json` | Machine-readable catalog of every Higgsfield asset (reference uploads, stills, animated clips) with IDs and URLs. |
 | `data/edl.csv` | The Edit Decision List the assembly script reads: `index, clip_key, in_point, duration, section, note`. Edit this to re-time the cut. |
-| `data/clips.csv` | Flat list of animated clips: `clip_key, job_id, source_still, mp4_url, section, motion`. |
-| `data/stills.csv` | Flat list of all stills: `still_id, url, beat, on_model, prompt_summary`. |
+| `data/clips.csv` | Flat list of animated clips: `clip_key, job_id, source_still, section, mp4_url, motion`. |
+| `data/stills.csv` | Flat list of all stills: `still_id, url, prompt_summary`. |
 | `scripts/fetch_assets.sh` | Run **on your machine** (no egress block there): downloads every clip + still into `clips/` and `stills/`. |
-| `scripts/assemble_rough_cut.sh` | Run **on your machine**: reads `edl.csv` + `clips/` + your `song.wav`, produces `when_it_rains_roughcut.mp4` cut to 4:36 with the song on top. Needs `ffmpeg`. |
+| `scripts/assemble_rough_cut.sh` | Run **on your machine**: reads `edl.csv` + `clips/` + your `song.wav`, produces `when_it_rains_roughcut.mp4` cut to 4:34 with the song on top. Needs `ffmpeg`. |
 
 ---
 
@@ -54,7 +54,7 @@ cd when-it-rains
 bash scripts/fetch_assets.sh
 # 2. Drop your song in as song.wav (any audio ffmpeg reads works; rename to song.wav)
 cp /path/to/when_it_rains.wav song.wav
-# 3. Build the 4:36 rough cut with the song on top
+# 3. Build the 4:34 rough cut with the song on top
 bash scripts/assemble_rough_cut.sh
 # -> when_it_rains_roughcut.mp4
 ```
@@ -95,6 +95,6 @@ which reads as AI wallpaper.
   regenerated reference-anchored and re-analyzed on-model; `data/clips.csv` now
   points at the fixed clips (originals in `data/clips_original_backup.csv`). See
   `FOOTAGE_AUDIT.md` §8.
-- ⏳ Render & eyeball on your Mac → beat-lock the EDL (needs the MP3 + section times) → trim the 2s overhang → final cut → selective 2K/4K upscale.
+- ⏳ Render & eyeball on your Mac → beat-lock the EDL (needs the MP3 + section times) → trim the ~0.25s overhang (EDL 274.0s vs music_end 273.75s) → final cut → selective 2K/4K upscale.
 
 See `FOOTAGE_AUDIT.md` for the failure list and `EDIT_MAP.md` for the full edit breakdown.
