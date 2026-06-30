@@ -6,6 +6,22 @@
 
 ## Deferred (follow-up packets)
 
+- **README + EDIT_MAP doc-drift — RESOLVED (P-013, from AUDIT-001).** The system
+  audit flagged two stale docs: **D4** (EDIT_MAP described the pre-band-coverage
+  state) and **D5-M1 / D5-M2** (README runtime 4:36/276 + wrong CSV schema lines).
+  **P-013 fixed both:** README runtime → 86/274/4:34, `clips.csv` schema column
+  order corrected to the real `mp4_url`/`section` header, `stills.csv` schema fixed
+  (phantom `beat`/`on_model` removed), overhang 2s→0.25s; EDIT_MAP → 274/4:34 with
+  an authority banner (`data/edl.csv` authoritative), the 11 confirmed section
+  starts, the C25–C34 registry, and EX2 marked unused. Commits `8981252` (README)
+  + `0c88c54` (EDIT_MAP), base `1f5211f`; qa GREEN 9/9 + Commit-1 isolation,
+  reviewer PASS (Codex unavailable). Both project docs are now coherent with the
+  86/274 edit. The doc-drift thread is **CLOSED**.
+- **System audit AUDIT-001 — system ALIGNED to canonical.** 6 read-only auditors
+  (D1–D6) vs a pinned canonical target found **zero structural / functional /
+  process defects** — all findings are non-functional doc / catalog drift. Receipt
+  `build-os/receipts/AUDIT-001.md`. The auto-fixable doc-coherence subset was closed
+  by P-013; the rest is gated / declined / deferred-by-design (below).
 - **`when-it-rains/RENDER_REVIEW.md` stale — RESOLVED (P-012).** It had still
   described the **pre-band-coverage 76-cut / 276.0s / 4:36** edit (predating the
   P-004 section-sync → 274s and the P-006/P-007 band coverage → 86 cuts). **P-012
@@ -47,19 +63,30 @@
   array rows / inline `edl` array), the manifest now **fully matches** the
   functional CSVs. The drift thread is **CLOSED** (non-functional all along — the
   render reads `clips.csv`, not `assets.json`).
-- **`source_still` ↔ `stills.csv` id-format gap — OPTIONAL / LOW-PRIORITY (P-010),
-  DECLINED by user.**
-  `clips.csv`'s `source_still` values are **8-char prefixes** that do **not**
-  resolve to `stills.csv`'s **full-UUID** keys — a **pre-existing id-format quirk
-  affecting all 36 clips both BEFORE and AFTER P-009** (NOT a P-009 defect, per the
-  reviewer). It is **non-functional**: the render reads each clip's `mp4_url` from
-  `clips.csv` directly, not via the still join. Additionally, **C04's**
-  `source_still` is a `regenA1` **placeholder** (known-incomplete from the earlier
-  C04 partial regen — hair/reflection fixed, head-turn still absent). A backfill
-  (**P-010**) would resolve the prefixes to full UUIDs and replace the C04
-  placeholder — but it **touches a source CSV + a count**, so it needs an **explicit
-  go**. Low priority; non-blocking for the render-review; user has declined it for
-  now.
+- **Stills-catalog backfill — OPTIONAL / NON-FUNCTIONAL (P-010), DECLINED by user;
+  RE-QUANTIFIED by AUDIT-001 (D5-M3 / D5-M4).** This is **NOT** a single
+  C04 / id-format gap — the prior "only the C04 `regenA1` gap" framing is
+  **SUPERSEDED**. The real picture: **13 / 36 clips' `source_still` do not resolve
+  to `stills.csv`**, driven by **10 reference-anchored regen stills generated on
+  Higgsfield but never written into `stills.csv` / `assets.json`** (plus EX1 / EX2
+  "prior" + the C04 `regenA1` placeholder). Additionally, **4 superseded off-model
+  stills** (`22e02845` / `b0f3fd47` / `26443c5f` / `ff3797c3`) **remain in the
+  catalog unflagged**. **ALL NON-FUNCTIONAL** — no script reads `source_still` or
+  the stills catalog for assembly (the render reads each clip's `mp4_url` from
+  `clips.csv` directly). A backfill (**P-010**) would write the 10 regen stills into
+  the catalog, replace the C04 placeholder, and flag the 4 stale rows — but it needs
+  the **10 regen UUIDs from Higgsfield** and touches a source catalog + a count, so
+  it needs an **explicit go**. Non-blocking for the render-review; **user has
+  declined** it.
+- **D1-01 (engine source wording) — LOW, OPEN / GATED (AUDIT-001).** The
+  ClaudeOrchestrator source `global-claude-md.md` says "(global) / user scope" even
+  for project-scope installs — wording-only, no functional impact. The fix would
+  edit the **source repo**, outside this project's `build-os/`-only authority →
+  **GATED** (needs a go in the source repo).
+- **D3-M1 (receipt wording) — LOW, OPEN (AUDIT-001).** Receipts say "not pushed"
+  but `origin` mirrors HEAD — a **wording imprecision**, NOT an ungated mutation
+  (the archivist never pushed; the mirror is an environment fact). Cosmetic; recorded
+  so future receipts can phrase it precisely.
 - **Sub-beat beat-grid quantization (still deferred / optional — POST-APPROVAL).**
   Snap the 86 cuts to the **0.97524s** beat grid (61.5234375 BPM) on top of the
   section-sync — but this needs a **rigorous downbeat phase reference** and the MP3
@@ -163,4 +190,9 @@ id-format gap re-characterized as optional P-010); P-011 note appended 2026-06-2
 STALE at 76-cut/276s, preview.html supersedes it for the live review, optional
 refresh to 86/274 needs go); P-012 note appended 2026-06-29 (RENDER_REVIEW.md stale
 RESOLVED — refreshed to 86/274; both review instruments now current; remaining open
-items all user/optional — render-review, post-approval polish, declined P-010)._
+items all user/optional — render-review, post-approval polish, declined P-010);
+P-013 note + AUDIT-001 appended 2026-06-29 (README + EDIT_MAP doc-drift D4/D5
+RESOLVED; system audit ALIGNED to canonical — zero structural/functional/process
+defects; P-010 framing CORRECTED — 13/36 source_still unresolved = 10 uncataloged
+regen stills + 4 stale off-model rows + EX1/EX2/C04, all non-functional, declined;
+D1-01 + D3-M1 recorded as LOW open items)._

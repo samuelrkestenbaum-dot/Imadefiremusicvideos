@@ -26,7 +26,33 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-012 — RENDER_REVIEW.md refreshed to 86/274** —
+- **Last closed packet:** **P-013 — audit doc-coherence fix** —
+  marketing-media (docs-consistency on `when-it-rains/README.md` +
+  `when-it-rains/EDIT_MAP.md`; **no generation, no source-CSV / functional
+  change**), route builder → reviewer → qa → archivist. Commits **`8981252`**
+  (README.md — runtime 4:36→4:34/274; clips.csv schema column order fixed to
+  the real `mp4_url`/`section` header; stills.csv schema fixed — phantom
+  `beat`/`on_model` removed; overhang 2s→0.25s; 8 ins / 8 del) +
+  **`0c88c54`** (EDIT_MAP.md — runtime→274/4:34; authority banner — `data/edl.csv`
+  authoritative; 11 confirmed section starts; C25–C34 registry added; EX2 marked
+  unused; 50 ins / 16 del), base **`1f5211f`**. **qa GREEN 9/9 + Commit-1
+  isolation** (both files at 86/274/4:34; the two schema lines match the actual
+  CSV headers byte-for-byte; section starts verified vs `edl.csv`; C25–C34 +
+  EX2-unused present; narrative preserved; safety clean). **reviewer PASS** —
+  every number verified vs live data; no overreach (the stills backfill was
+  correctly NOT done — declined-P-010 territory); **Codex UNAVAILABLE**
+  (single-reviewer). Receipt `build-os/receipts/P-013.md`. **Both project docs
+  (README + EDIT_MAP) are now coherent with the 86/274 edit.**
+- **System audit AUDIT-001 complete: ALIGNED to canonical** (zero structural /
+  functional / process defects; doc / catalog drift only). 6 parallel auditors
+  (D1–D6, read-only) vs a pinned canonical target — D1 engine fidelity ALIGNED
+  (vendored `.claude/` byte-identical to source), D2 source coherence ALIGNED,
+  D3 process fidelity PASS (all 11 closed packets have receipts; P-010 a proper
+  DECLINE; qa/reviewer gate every close), D4 creative ALIGNED, D5 data substantially
+  ALIGNED (counts agree everywhere, 0 functional EDL orphans), D6 music ALIGNED
+  (~0.25s tail). P-013 closed the auto-fixable doc-coherence findings. Receipt
+  `build-os/receipts/AUDIT-001.md`.
+- **Last closed packet (prior):** **P-012 — RENDER_REVIEW.md refreshed to 86/274** —
   marketing-media (docs-consistency on `when-it-rains/RENDER_REVIEW.md`; **no
   generation, no source-CSV / functional change**), route builder → reviewer → qa
   → archivist. Commit **`59baa8b`** (base **`25a6a7f`**): `RENDER_REVIEW.md`
@@ -105,7 +131,10 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-012 is CLOSED** — `when-it-rains/RENDER_REVIEW.md` is refreshed to
+- **Now:** **P-013 is CLOSED + AUDIT-001 recorded → the system is ALIGNED to
+  canonical** (zero structural / functional / process defects; doc / catalog drift
+  only). Both project docs (`README.md` + `EDIT_MAP.md`) are now coherent with the
+  86/274 edit. P-012 is also CLOSED — `when-it-rains/RENDER_REVIEW.md` is refreshed to
   the current **86-cut / 274.0s** edit (was STALE at 76/276/4:36). **Both review
   instruments are now current:** `preview.html` (P-011, silent in-browser pass) +
   `RENDER_REVIEW.md` (P-012, audio-render timecode checklist), both at **86 cuts /
@@ -212,4 +241,5 @@ _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 2026-06-29; P-002 closed 2026-06-29; P-003 closed 2026-06-29; P-004 closed
 2026-06-29; P-005 closed 2026-06-29; P-006 closed 2026-06-29; P-007 closed
 2026-06-29; P-008 closed 2026-06-29; P-009 closed 2026-06-29; P-011 closed
-2026-06-29; P-012 closed 2026-06-29._
+2026-06-29; P-012 closed 2026-06-29; P-013 closed 2026-06-29 (AUDIT-001
+recorded — system ALIGNED to canonical)._
