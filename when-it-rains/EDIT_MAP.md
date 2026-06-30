@@ -1,12 +1,21 @@
-# EDIT MAP — "When It Rains" (4:36)
+# EDIT MAP — "When It Rains" (4:34 / 274.0s)
+
+> **AUTHORITY:** `data/edl.csv` is the AUTHORITATIVE live edit — **86 cuts /
+> 274.0s (4:34)**, with sections at the P-003-confirmed times. **This EDIT_MAP is
+> the narrative / creative reference** (the section-by-section emotional map and
+> the creative rules). Where any specific timecode here conflicts with
+> `edl.csv`, **`edl.csv` wins.** The per-section START times below are updated to
+> the confirmed values; the per-cut sub-timings are illustrative — see
+> `data/edl.csv` and `RENDER_REVIEW.md` for the exact live cut list.
 
 Two intercut worlds: **PERFORMANCE** (warm amber band room) and **STORY** (cool
 blue-grey rain memory). Target ratio ≈ 45% performance / 45% story / 10% inserts.
 
 Every clip is a silent 5s Higgsfield render (Kling v3.0, start-frame animation).
 The EDL trims pieces out of those 5s and reuses clips across sections — that's how
-26 clips fill 4:36 with constant cutting. The machine-readable version of the
-table below is `data/edl.csv` (what the assembly script actually reads).
+35 distinct clips fill 4:34 with constant cutting (86 cuts total). The
+machine-readable version of the table below is `data/edl.csv` (what the assembly
+script actually reads).
 
 ---
 
@@ -42,7 +51,29 @@ Source still = the Higgsfield image job the clip was animated from.
 | C23 | 534543f1-9884-46e5-b749-1739661db4c0 | 12a29611 | Final | Alone by window; turns eyes to camera, unresolved |
 | C24 | d797ba35-3d41-430f-8e8f-e325efe09bdf | 8de0efa8 | Final | Near-still CU; quiet haunted gaze, slow blink |
 | EX1 | a303faab-5926-4f89-a269-584f26f9eb4c | (prior) | V1 / ocean | Man gazes at grey rain-swept ocean through glass |
-| EX2 | c1cb27a8-fd89-470a-bbeb-1feb29a80605 | (prior) | Prechorus2 / V3 | Man in rain looks up; lightning flashes on his face |
+| EX2 | c1cb27a8-fd89-470a-bbeb-1feb29a80605 | (prior) | Prechorus2 / V3 | Man in rain looks up; lightning flashes on his face **[NOT USED in the live cut]** |
+
+### Band-coverage clips (P-007) — C25–C34
+
+Added to break the C02/C10/C09/C12/C20 recycling and give PRE2 + CH1 their own
+band pacing (see `BAND_COVERAGE_PLAN.md`). C25–C30 = the PRE2 storm-build band;
+C31–C34 = the CH1 chorus-energy band. All are band-performance world only.
+
+| Key | Section | The one action |
+|-----|---------|----------------|
+| C25 | PRE2 / band | Drummer's hands & sticks accelerate a tom fill on the storm build |
+| C26 | PRE2 / band | Slow dolly push-in toward the full band leaning into the build |
+| C27 | PRE2 / band | Singer in profile lifts his chin into a rising vocal |
+| C28 | PRE2 / band | Backlit bassist drives the strings, slow forward sway |
+| C29 | PRE2 / band | Hands drive hard chords on the keys as the build climbs |
+| C30 | PRE2 / band | Full-band wide rises together at the peak of the build |
+| C31 | CH1 / band | Drummer hard CU strikes the backbeat, cymbal shimmer |
+| C32 | CH1 / band | Guitar hands strum / move along the fretboard, chorus rhythm |
+| C33 | CH1 / band | Second front-singer CU sings the chorus with force into the mic |
+| C34 | CH1 / band | Keys CU — hands lift into the chorus under a warm lamp |
+
+**The live cut (`data/edl.csv`) uses 35 distinct clips** (C01–C34 + EX1). There
+are **36 clips in `data/clips.csv`** — **EX2 is unused** in the live edit.
 
 ---
 
@@ -50,7 +81,8 @@ Source still = the Higgsfield image job the clip was animated from.
 
 Times are `M:SS`. Each line is one cut: **clip — duration — what it does.**
 
-### 0:00–0:18 · INTRO — rain establishes the spell
+### 0:00 · INTRO — rain establishes the spell
+*(confirmed section starts: INTRO 0:00 → V1 0:18. Per-cut sub-timings below are illustrative; `data/edl.csv` is authoritative.)*
 Slow, two worlds introduced.
 - 0:00 · C03 · 4s · rain on the window, black-to-image
 - 0:04 · C01 · 4s · band room wakes, lamps, singer steps to mic
@@ -58,7 +90,7 @@ Slow, two worlds introduced.
 - 0:11 · C04 · 4s · the man alone by the window
 - 0:15 · C03 · 3s · rain, hold into the verse
 
-### 0:18–0:48 · V1 — "When it rains I think I feel you…"
+### 0:18 · V1 — "When it rains I think I feel you…"
 He feels her before he sees her.
 - 0:18 · C02 · 4s · sings the opening line
 - 0:22 · C04 · 5s · **turns as if touched; reflection almost forms, dissolves**
@@ -69,7 +101,7 @@ He feels her before he sees her.
 - 0:42 · C02 · 3s · singer
 - 0:45 · C04 · 3s · back to the window
 
-### 0:48–1:18 · V2 — "I still look for you beyond my shoulder…"
+### 0:41.25 · V2 — "I still look for you beyond my shoulder…"
 The memory becomes visual; he searches.
 - 0:48 · C07 · 5s · **over the shoulder; her reflection surfaces in the glass**
 - 0:53 · C02 · 3s · face-on singing
@@ -80,7 +112,7 @@ The memory becomes visual; he searches.
 - 1:09 · C04 · 4s · window
 - 1:13 · C07 · 5s · reflection again, gone
 
-### 1:18–1:43 · PRECHORUS 1 — "And I don't know if you still feel it…"
+### 1:09.75 · PRECHORUS 1 — "And I don't know if you still feel it…"
 The world moves like she's still there.
 - 1:18 · C08 · 5s · **curtains breathe; trees move outside**
 - 1:23 · C13 · 4s · he almost turns toward a sound
@@ -89,7 +121,7 @@ The world moves like she's still there.
 - 1:34 · C08 · 4s · trees move
 - 1:38 · C09 · 5s · slow push-in, intensity rising
 
-### 1:43–2:08 · CHORUS 1 — "When it rains you're in the water…"
+### 1:29.25 · CHORUS 1 — "When it rains you're in the water…"
 First true release. Water everywhere.
 - 1:43 · C12 · 4s · band release
 - 1:47 · C10 · 3s · **puddle; reflection trembles**
@@ -100,7 +132,7 @@ First true release. Water everywhere.
 - 2:02 · C10 · 3s · water again
 - 2:05 · C12 · 3s · band
 
-### 2:08–2:39 · V3 — "When it rains, I think I hear you…"
+### 2:08 · V3 — "When it rains, I think I hear you…"
 The memory becomes auditory.
 - 2:08 · C13 · 5s · **turns toward the window at thunder**
 - 2:13 · C18 · 3s · storm clouds
@@ -111,7 +143,7 @@ The memory becomes auditory.
 - 2:30 · C12 · 4s · drummer harder
 - 2:34 · C13 · 5s · listening, haunted
 
-### 2:39–3:09 · V4 — "Tried to hide your face in every mirror…"
+### 2:24.5 · V4 — "Tried to hide your face in every mirror…"
 He tries to put it away and fails.
 - 2:39 · C14 · 5s · **opens the drawer, hides the memory**
 - 2:44 · C15 · 5s · **her face in the misted mirror**
@@ -121,7 +153,7 @@ He tries to put it away and fails.
 - 3:00 · C14 · 4s · drawer closes
 - 3:04 · C09 · 5s · shadowy band
 
-### 3:09–3:34 · PRECHORUS 2 — "And I keep trying to forget…"
+### 2:53 · PRECHORUS 2 — "And I keep trying to forget…"
 The sky itself contains her; he stops resisting.
 - 3:09 · C17 · 5s · **looks up into the storm sky**
 - 3:14 · C18 · 4s · clouds move
@@ -130,7 +162,7 @@ The sky itself contains her; he stops resisting.
 - 3:26 · C17 · 4s · he stops fighting it
 - 3:30 · C20 · 4s · band rises
 
-### 3:34–3:58 · CHORUS 2 — bigger; worlds start colliding (faster cuts)
+### 3:34 · CHORUS 2 — bigger; worlds start colliding (faster cuts)
 - 3:34 · C20 · 3s · band
 - 3:37 · C10 · 2.5s · water
 - 3:39.5 · C19 · 2.5s · thunder
@@ -140,7 +172,7 @@ The sky itself contains her; he stops resisting.
 - 3:51 · C20 · 3s · band
 - 3:54 · C02 · 4s · almost angry at himself
 
-### 3:58–4:21 · BRIDGE — "Every drop knows where you landed…"
+### 3:58 · BRIDGE — "Every drop knows where you landed…"
 The emotional flood. Most visually active.
 - 3:58 · C22 · 5s · **rainwater spreads across the floor**
 - 4:03 · C16 · 3s · mirror fogs
@@ -150,7 +182,7 @@ The emotional flood. Most visually active.
 - 4:15 · C21 · 3s · she vanishes
 - 4:18 · C15 · 3s · he reaches for the mirror
 
-### 4:21–4:36 · FINAL — "And I still wonder"
+### 4:21 · FINAL — "And I still wonder"
 No resolution. End on him, not her.
 - 4:21 · C20 · 3s · final chorus, band plays out
 - 4:24 · C24 · 3s · singer, direct, almost still
@@ -158,7 +190,9 @@ No resolution. End on him, not her.
 - 4:31 · C03 · 2s · rain continues
 - 4:33 · C23 · 3s · **he looks to camera — unresolved.** End.
 
-**Total: 4:36.0**
+**Total: 274.0s (4:34)** — authoritative count in `data/edl.csv` (86 cuts). The
+per-cut sub-timings above are the illustrative narrative map; `edl.csv` is the
+live edit.
 
 ---
 
