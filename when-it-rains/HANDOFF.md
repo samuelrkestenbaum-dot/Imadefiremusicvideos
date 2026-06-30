@@ -11,7 +11,7 @@ The mid-song **section times are CONFIRMED and applied** (P-004 section-sync), a
 a **band-coverage batch was generated and inserted** (C25–C34) to fix the
 post-section-sync drag in PRE2/CH1.
 
-- **Assets now on Higgsfield:** **52 source stills + 36 animated clips** (was
+- **Assets now on Higgsfield:** **59 source stills + 36 animated clips** (was
   42 + 26). The 10 new clips are band/performance coverage **C25–C34** (drummer,
   bassist, keys, guitar hands, two singer-facing shots).
 - **Edit:** `data/edl.csv` is now **86 cuts = 4:34 / 274.0s** (was 76 cuts / 4:36).
@@ -45,7 +45,7 @@ face-lock, train a Soul from the selfies + best frames and regen from it.
 - **Concept/edit locked.** 1970s rain drama: warm band-performance world intercut
   with a cool blue-grey breakup-memory story; one brunette woman only, as
   memory/reflection. Target runtime **4:34** (this Jun-27 mix; music resolves ~4:33.8).
-- **Assets generated on Higgsfield:** **52 stills + 36 animated clips** (Kling v3.0,
+- **Assets generated on Higgsfield:** **59 stills + 36 animated clips** (Kling v3.0,
   silent 5s, start-frame, one motion each) covering every section, including the
   C25–C34 band coverage. IDs + CDN URLs are in `data/clips.csv`, `data/stills.csv`,
   `data/assets.json`.
