@@ -21,65 +21,68 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-006 — band-coverage clips generated (C25–C34)** —
-  marketing-media generation, executed from the main loop via the Higgsfield MCP
-  under the user's **explicit "all at once" go** (the previously-GATED credit
-  spend). Generated **10 reference-anchored stills** (`nano_banana_flash`, 16:9,
-  1k, all anchored on the C20 on-model frame `5cc8239a`; the 2 singer stills
-  C27/C33 also +3 man-selfies) and **animated each** with `kling3_0` (std, sound
-  off, 5s, `start_image`). The 6 PRE2 clips (C25–C30) carry
-  `declined_preset 24bae836-…` (storm/dark); the 4 CH1 clips (C31–C34) omit it
-  (warm). **~90 credits** spent (10 stills ×1.5 + 10 clips ×7.5); **balance ≈
-  2,415.5** (ultra plan). Full durable asset map (clip → still_id → job_id →
-  mp4_url → section → slot_after_row → target_dur) is in
-  `build-os/receipts/P-006.md` (+ non-durable `scratchpad/p006_assets.json`).
-  **Verification DEFERRED to the user's render-review:** automated `video_analysis`
-  on-model check ERRORED (it needs an imported video id, not a job id), so on-model
-  was not auto-confirmed; reference-anchoring (the proven bald-fix) IS confirmed on
-  all stills, and C27/C33 (the singer spot-check) were shown to the user. (Prior:
-  **P-005 — band-coverage add-cuts plan** `when-it-rains/BAND_COVERAGE_PLAN.md`,
-  spec-only, qa GREEN 10/10 + reviewer PASS, receipt `build-os/receipts/P-005.md`,
-  commits `cff6043` + `bbd952a`. P-004 — EDL section-sync; P-003 — SECTION_TIMES.md;
-  P-002 — RENDER_REVIEW.md; P-001 — Install Build OS — earlier. P-004's confirmed
-  times stand: CH1 = 1:29 (89.25s), PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5,
-  PRE2 = 173; EDL section-synced, total 274.0s, reversible via
-  `data/edl_original_backup.csv`.)
-- **Now:** the **10 band-coverage assets are GENERATED + recorded** (C25–C34 on
-  Higgsfield's CDN; ids/URLs durable in the P-006 receipt). They are **not yet in
-  git** — they enter `data/` only when P-007 splices them. The PRE2 / CH1 drag
-  (sections stretched ×1.64 / ×1.55 in P-004, holding ~5–6.5s) now has its footage
-  in hand. (Still open from before: the user's render-judgment of the section-synced
-  cut + the broader human-eye render review via `RENDER_REVIEW.md`, P-002 — both
-  off-machine on the user's Mac; and C27/C33 on-model confirmation at render.)
-- **Next:** **P-007 — insert C25–C34 into `data/edl.csv` (+ `clips.csv` /
-  `stills.csv`) + re-time PRE2 / CH1 to ~3.3s avg** — **in flight** (GATED edit;
-  needs explicit go). Carry the two P-005 notes: keep C26 distinct from C09;
-  from repo root use `when-it-rains/data/edl.csv`. (Still deferred, optional:
-  sub-beat **beat-grid quantization** to the 0.97524s grid — needs a rigorous
-  downbeat phase reference. Section-sync remains reversible via
-  `data/edl_original_backup.csv`.)
+- **Last closed packet:** **P-007 — band-coverage inserted + PRE2/CH1 re-timed** —
+  marketing-media (media-pipeline edit on `when-it-rains/**`), route builder →
+  reviewer → qa → archivist. Commit **`1969435`** (base `ed046b5`):
+  `scripts/insert_band_coverage.py` (deterministic / idempotent inserter)
+  regenerated `data/edl.csv` to **86 cuts**, added a new
+  `data/edl_pre_bandcoverage_backup.csv`, and wrote **+10 rows each** into
+  `clips.csv` / `stills.csv` (C25–C34). **PRE2 6→12 cuts** (8.2s lead + five
+  6.56s holds → ~3.4s avg, lead trimmed to 4.12s) spanning **41.00s**; **CH1
+  8→12 cuts** (6.2s lead + 4.65s holds → ~3.1–3.2s) spanning **38.75s**. Total
+  still **274.0s**, all 12 section starts unchanged, the C12/C10/C02 recycling
+  broken, no two new cuts back-to-back. **qa GREEN — 13/13 independently
+  re-derived** (scope = 5 files; backup byte-identical to pre-P-007 edl; 86 cuts
+  index 1..86; PRE2 41.00 / CH1 38.75 exact + other 9 sections unchanged;
+  cumulative starts unchanged; total 274.0; 62 non-PRE2/CH1 rows byte-identical;
+  insertion sequences exact; clips.csv +10 & stills.csv +10 matching the asset
+  map; durations 1.6–5.0 assembler-safe; deterministic/idempotent; safety grep
+  clean). **reviewer PASS** (logic sound + idempotent, fix lands, watchable mins
+  3.11/3.30s, fully reversible — `edl_original_backup.csv` NOT overwritten; **Codex
+  second-eyes UNAVAILABLE**, single-reviewer; no fixes). Receipt
+  `build-os/receipts/P-007.md`. (Prior: **P-006 — band-coverage clips generated
+  (C25–C34)** ~90 credits, balance ≈ 2,415.5, asset map in
+  `build-os/receipts/P-006.md`; **P-005** — add-cuts plan; **P-004** — EDL
+  section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
+  — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
+  PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
+- **Now:** the **edit is COMPLETE for this round** — `data/edl.csv` is **86 cuts,
+  274.0s**, PRE2/CH1 pacing fixed to **~3.3s avg**, band coverage **C25–C34 woven
+  in** (and now in git via `clips.csv` / `stills.csv`). The PRE2/CH1 drag from
+  P-004 (sections stretched ×1.64 / ×1.55, holding ~5–6.5s) is **RESOLVED**.
+  Awaiting the **user's render-review on their Mac**. Reversibility chain intact:
+  `edl_pre_bandcoverage_backup.csv` (pre-band) → `edl_original_backup.csv`
+  (pre-section-sync), neither overwritten.
+- **Next:** the **user renders + judges** the cut — `scripts/fetch_assets.sh` →
+  `scripts/assemble_rough_cut.sh`, walking `when-it-rains/RENDER_REVIEW.md`.
+  Includes the **C27 / C33 on-model spot-check** (~10-credit regen if off-model)
+  and an overall pacing judgment. Optional later: **sub-beat beat-grid
+  quantization** to the 0.97524s grid (needs a rigorous downbeat phase reference),
+  and **selective 2K/4K upscale** (explicitly LAST, after the cut is locked).
 
 ## Stable facts (slow-changing)
 
 - **Assets generated on Higgsfield:** **42 stills + 26 animated clips** (Kling
-  v3.0, silent 5s, start-frame, one motion each) covering every section, IDs +
-  CDN URLs in `when-it-rains/data/clips.csv` (26 clips), `stills.csv` (42 stills),
-  `assets.json`. **PLUS the P-006 band-coverage batch: 10 new stills + 10 new
-  clips (C25–C34)**, generated 2026-06-29 and recorded in
-  `build-os/receipts/P-006.md` — these are on the CDN but **not yet written into
-  `data/`** (that is P-007).
-- **Edit kit:** `data/edl.csv` = **76 cuts, now section-synced to the confirmed
-  section times, total 274.0s** (resolves on the Jun-27 mix end). The original
-  pre-sync EDL (sum 276s, FINAL truncated ~2s) is preserved byte-exact at
-  `data/edl_original_backup.csv`; the re-timer is `scripts/resync_edl.py`
-  (deterministic / idempotent). Cut durations span ~1.6–8.2s
-  (assembler-compatible). Note: the section-sync is coarse — it matches section
-  spans, NOT a sub-beat beat grid (that quantization is still deferred).
-- **Band-coverage plan (P-005, spec only):** `when-it-rains/BAND_COVERAGE_PLAN.md`
-  specifies 10 new band-only cuts (C25–C30 PRE2, C31–C34 CH1) to break the long PRE2
-  / CH1 holds — each with a reference-anchored still recipe + Kling clip recipe +
-  draft prompt + EDL slot + target duration. **Now GENERATED (P-006)**; **NOT yet
-  inserted/re-timed (P-007, gated edit, in flight).**
+  v3.0, silent 5s, start-frame, one motion each) covering every section, **PLUS
+  the P-006 band-coverage batch: 10 new stills + 10 new clips (C25–C34)**, now
+  **written into `data/`** by P-007. So `data/clips.csv` = 36 clip rows and
+  `data/stills.csv` = 52 still rows (IDs + CDN URLs; full P-006 map +
+  prompt/recipe in `build-os/receipts/P-006.md`).
+- **Edit kit:** `data/edl.csv` = **86 cuts, total 274.0s** (resolves on the
+  Jun-27 mix end). It is section-synced to the confirmed section times (P-004)
+  AND has the band-coverage inserted with PRE2/CH1 re-timed to ~3.3s avg (P-007:
+  PRE2 41.00s / 12 cuts, CH1 38.75s / 12 cuts). Cut durations span ~1.6–5.0s
+  (assembler-compatible; watchable mins 3.11/3.30s). **Reversibility chain:**
+  `data/edl_pre_bandcoverage_backup.csv` = byte-exact pre-P-007 (76-cut,
+  section-synced 274.0s) EDL; `data/edl_original_backup.csv` = byte-exact
+  pre-section-sync (pre-P-004) original 276s EDL — **neither overwritten**.
+  Re-timers `scripts/resync_edl.py` and inserter
+  `scripts/insert_band_coverage.py` are both deterministic / idempotent. Note:
+  the section-sync is coarse — it matches section spans, NOT a sub-beat beat grid
+  (that quantization is still deferred).
+- **Band-coverage plan (P-005, spec):** `when-it-rains/BAND_COVERAGE_PLAN.md`
+  specified the 10 new band-only cuts (C25–C30 PRE2, C31–C34 CH1). **GENERATED
+  (P-006)** + **INSERTED / re-timed (P-007)** — fully landed.
 - **Song analysis (reproducible in-session):** `analyze_song.py` / `song.json` —
   `music_end 273.75`, `duration 284.4`, `tempo 61.5234375` BPM (→ **0.97524s**
   per beat), 12 transitions. The song MP3 has been **re-attached + staged**
@@ -111,4 +114,5 @@
 _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 `FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29. P-001 closed
 2026-06-29; P-002 closed 2026-06-29; P-003 closed 2026-06-29; P-004 closed
-2026-06-29; P-005 closed 2026-06-29; P-006 closed 2026-06-29._
+2026-06-29; P-005 closed 2026-06-29; P-006 closed 2026-06-29; P-007 closed
+2026-06-29._
