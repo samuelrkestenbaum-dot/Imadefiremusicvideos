@@ -21,7 +21,8 @@
   (D1–D6) vs a pinned canonical target found **zero structural / functional /
   process defects** — all findings are non-functional doc / catalog drift. Receipt
   `build-os/receipts/AUDIT-001.md`. The auto-fixable doc-coherence subset was closed
-  by P-013; the rest is gated / declined / deferred-by-design (below).
+  by P-013, and the D5-M3 stills-catalog subset by P-014 (above); the rest is
+  gated (D1-01) or deferred-by-design (below).
 - **`when-it-rains/RENDER_REVIEW.md` stale — RESOLVED (P-012).** It had still
   described the **pre-band-coverage 76-cut / 276.0s / 4:36** edit (predating the
   P-004 section-sync → 274s and the P-006/P-007 band coverage → 86 cuts). **P-012
@@ -63,21 +64,31 @@
   array rows / inline `edl` array), the manifest now **fully matches** the
   functional CSVs. The drift thread is **CLOSED** (non-functional all along — the
   render reads `clips.csv`, not `assets.json`).
-- **Stills-catalog backfill — OPTIONAL / NON-FUNCTIONAL (P-010), DECLINED by user;
-  RE-QUANTIFIED by AUDIT-001 (D5-M3 / D5-M4).** This is **NOT** a single
-  C04 / id-format gap — the prior "only the C04 `regenA1` gap" framing is
-  **SUPERSEDED**. The real picture: **13 / 36 clips' `source_still` do not resolve
-  to `stills.csv`**, driven by **10 reference-anchored regen stills generated on
-  Higgsfield but never written into `stills.csv` / `assets.json`** (plus EX1 / EX2
-  "prior" + the C04 `regenA1` placeholder). Additionally, **4 superseded off-model
-  stills** (`22e02845` / `b0f3fd47` / `26443c5f` / `ff3797c3`) **remain in the
-  catalog unflagged**. **ALL NON-FUNCTIONAL** — no script reads `source_still` or
-  the stills catalog for assembly (the render reads each clip's `mp4_url` from
-  `clips.csv` directly). A backfill (**P-010**) would write the 10 regen stills into
-  the catalog, replace the C04 placeholder, and flag the 4 stale rows — but it needs
-  the **10 regen UUIDs from Higgsfield** and touches a source catalog + a count, so
-  it needs an **explicit go**. Non-blocking for the render-review; **user has
-  declined** it.
+- **Stills-catalog backfill (D5-M3 / former P-010) — RESOLVED (P-014).** This was
+  previously characterized as **declined / non-functional**; it is now **actually
+  fixed**. AUDIT-001 (D5-M3) had quantified it as **13 / 36 clips' `source_still`
+  not resolving to `stills.csv`**, driven by **10 reference-anchored regen stills
+  generated on Higgsfield but never cataloged** (+ EX1 / EX2 "prior" + C04's
+  `regenA1` placeholder), with **4 superseded off-model stills** (`22e02845` /
+  `b0f3fd47` / `26443c5f` / `ff3797c3`) lingering unflagged. **P-014 closed it
+  truthfully** (user authorized — "yes do it"): the **10 regen stills are now
+  cataloged** in `stills.csv` + `assets.json`, **C04's `source_still` is resolved**
+  from `regenA1` to its real still **`2d0ba697`** (CONFIRMED via the clip's
+  `start_image`, job `297449bf` `medias.start_image` == `2d0ba697`; still ts 012553
+  precedes clip ts 012654), and the **4 off-model stills are pruned** — net **+7 →
+  59 stills**, counts fixed (`assets.json` stills 52 → 59, `HANDOFF.md` 52 → 59).
+  UUIDs / URLs were retrieved **READ-ONLY from Higgsfield (no credits)**. Commits
+  `6005114` + `2223893`, base `00af4e3`; **qa GREEN 9/9 + Commit-1 isolation**
+  (stills.csv 59 rows, 11 present / 4 absent, clips.csv C04-only, assets.json valid
+  59 / parity 36 / edl 86, 34/36 resolve, HANDOFF 59, safety clean); **reviewer
+  PASS** (surgically exact, net +7, zero in-place mutations, C04 corroborated; Codex
+  unavailable; non-defect caveat — CloudFront URLs not live-hit, egress 403 expected,
+  source-derived). **Result: 34 / 36 clip `source_still`s resolve (all C01–C34).**
+  The catalog thread is **CLOSED**.
+- **EX1 / EX2 `'prior'` pointers — ACCEPTED (not an open gap).** The only two
+  remaining stills non-resolvers are EX1 / EX2's `'prior'` `source_still`s, which
+  point at a **prior project** — intentional / benign by design, **not** a defect or
+  open backfill item.
 - **D1-01 (engine source wording) — LOW, OPEN / GATED (AUDIT-001).** The
   ClaudeOrchestrator source `global-claude-md.md` says "(global) / user scope" even
   for project-scope installs — wording-only, no functional impact. The fix would
@@ -171,9 +182,10 @@
   **fresh go**.) The P-007 edit (the gated insert + re-time) is **done**; **P-008**
   (docs/manifest refresh) is **done**; **P-009** (manifest existing-row reconcile)
   is **done**; **P-011** (browser preview tool) is **done**; **P-012** (RENDER_REVIEW.md
-  refresh) is **done**. The only generation-touching follow-up left is **P-010**
-  (optional stills backfill — touches a source CSV + a count; **declined by user**),
-  which needs a **fresh go**.
+  refresh) is **done**; **P-014** (stills-catalog backfill — UUIDs retrieved
+  READ-ONLY, **no credits**) is **done** (D5-M3 RESOLVED). No
+  generation-touching follow-up remains open; any **new** Higgsfield generation
+  needs a **fresh go**.
 - **Post-approval polish is premature** — sub-beat beat-grid quantization and
   selective 2K/4K upscale are explicitly later, after the user approves the cut.
 
@@ -195,4 +207,10 @@ P-013 note + AUDIT-001 appended 2026-06-29 (README + EDIT_MAP doc-drift D4/D5
 RESOLVED; system audit ALIGNED to canonical — zero structural/functional/process
 defects; P-010 framing CORRECTED — 13/36 source_still unresolved = 10 uncataloged
 regen stills + 4 stale off-model rows + EX1/EX2/C04, all non-functional, declined;
-D1-01 + D3-M1 recorded as LOW open items)._
+D1-01 + D3-M1 recorded as LOW open items); P-014 note appended 2026-06-29
+(stills-catalog gap D5-M3 / former P-010 RESOLVED — 10 regen stills cataloged, C04
+`source_still` resolved regenA1 → 2d0ba697 [CONFIRMED via clip start_image], 4
+off-model stills pruned, stills 52 → 59, 34/36 source_stills resolve; UUIDs retrieved
+READ-ONLY from Higgsfield, no credits; the "declined P-010" framing is RETIRED. Only
+remaining stills non-resolvers = EX1/EX2 'prior' [a prior project — accepted/benign,
+not an open gap])._

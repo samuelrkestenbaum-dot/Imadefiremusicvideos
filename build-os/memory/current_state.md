@@ -26,7 +26,34 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-013 — audit doc-coherence fix** —
+- **Last closed packet:** **P-014 — stills-catalog backfill (manifest now
+  truthful)** — marketing-media (data / catalog edit on `when-it-rains/data/` +
+  the inline manifest; user explicitly authorized — "yes do it"), route
+  builder → reviewer → qa → archivist. Commits **`6005114`** (`stills.csv` **+11
+  regen stills / −4 off-model**, net **+7 → 59 rows**; `clips.csv` **C04
+  `source_still` `regenA1` → `2d0ba697`**, a single 1-line change with the other 35
+  clip rows byte-identical; `assets.json` stills **52 → 59** + C04 + `counts.stills`
+  59) + **`2223893`** (`HANDOFF.md` stills **52 → 59**), base **`00af4e3`**. The
+  audit (D5-M3) found 10 reference-anchored regen stills generated on Higgsfield but
+  never cataloged, C04's `source_still` a `regenA1` placeholder, and 4 superseded
+  off-model stills lingering. P-014 retrieved the 11 stills' UUIDs / URLs **READ-ONLY
+  from Higgsfield (no credits)**; **C04 → `2d0ba697` CONFIRMED** via the clip's
+  `start_image` (job `297449bf` `medias.start_image` == `2d0ba697`; still ts 012553
+  precedes clip ts 012654); added the 11 to `stills.csv` + `assets.json`; pruned the 4
+  off-model (`22e02845` / `b0f3fd47` / `26443c5f` / `ff3797c3`); fixed counts.
+  **Result: 34 / 36 clip `source_still`s now resolve (all C01–C34); only EX1 / EX2
+  `'prior'` remain intentionally unresolved (a prior project — benign).** **qa GREEN
+  9/9 + Commit-1 isolation** (stills.csv 59 rows × 3 cols clean; 11 present / 4 absent;
+  clips.csv C04-only 1-line change, 35 others byte-identical; assets.json valid, stills
+  59 / counts.stills 59 / C04 `2d0ba697` / parity all 36 / edl 86; 34/36 resolve;
+  HANDOFF 59; safety clean). **reviewer PASS** — surgically exact (net +7, zero in-place
+  mutations), C04 → `2d0ba697` corroborated, parity preserved, closes D5-M3 truthfully,
+  no overreach; **Codex UNAVAILABLE** (single-reviewer); non-defect caveat — CloudFront
+  URLs not live-hit (egress 403, expected — URLs came from the read-only Higgsfield
+  source with the UUID embedded). Receipt `build-os/receipts/P-014.md`. **The stills
+  catalog is now truthful — fully consistent with the live assets (59 stills; 34/36
+  source_stills resolve); AUDIT-001 D5-M3 RESOLVED.**
+- **Last closed packet (prior):** **P-013 — audit doc-coherence fix** —
   marketing-media (docs-consistency on `when-it-rains/README.md` +
   `when-it-rains/EDIT_MAP.md`; **no generation, no source-CSV / functional
   change**), route builder → reviewer → qa → archivist. Commits **`8981252`**
@@ -131,22 +158,22 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-013 is CLOSED + AUDIT-001 recorded → the system is ALIGNED to
-  canonical** (zero structural / functional / process defects; doc / catalog drift
-  only). Both project docs (`README.md` + `EDIT_MAP.md`) are now coherent with the
-  86/274 edit. P-012 is also CLOSED — `when-it-rains/RENDER_REVIEW.md` is refreshed to
-  the current **86-cut / 274.0s** edit (was STALE at 76/276/4:36). **Both review
-  instruments are now current:** `preview.html` (P-011, silent in-browser pass) +
+- **Now:** **P-014 is CLOSED → the stills catalog is now TRUTHFUL; AUDIT-001
+  D5-M3 RESOLVED.** The catalog is fully consistent with the live assets (**59
+  stills**; **34 / 36** clip `source_still`s resolve — all C01–C34); only EX1 / EX2
+  `'prior'` remain intentionally unresolved (a prior project — benign / accepted,
+  NOT an open gap). P-013 + AUDIT-001 stand: the **system is ALIGNED to canonical**
+  (zero structural / functional / process defects) and both project docs
+  (`README.md` + `EDIT_MAP.md`) are coherent with the 86/274 edit. **Both review
+  instruments are current:** `preview.html` (P-011, silent in-browser pass) +
   `RENDER_REVIEW.md` (P-012, audio-render timecode checklist), both at **86 cuts /
-  274.0s**. **The repo is fully coherent** — docs/manifests match the real
-  **86-cut / 274.0s** pipeline (**36 clips / 52 stills**; C27/C33 on-model CLOSED;
-  reversibility chain intact: `edl_pre_bandcoverage_backup.csv` →
+  274.0s**. **The repo is fully coherent** — docs / manifests / catalog match the
+  real **86-cut / 274.0s** pipeline (**36 clips / 59 stills**; C27/C33 on-model
+  CLOSED; reversibility chain intact: `edl_pre_bandcoverage_backup.csv` →
   `edl_original_backup.csv`, neither overwritten). **The ONLY open work is the
   user's render-review** — the interactive preview AND/OR a full Mac audio render.
   (Optional later, POST-APPROVAL only: sub-beat beat-grid quantization; selective
-  2K/4K upscale. **P-010** — stills backfill of the pre-existing 8-char-prefix ↔
-  full-UUID source_still gap — is non-functional, **declined by the user**, needs a
-  fresh go.)
+  2K/4K upscale.)
 - **Next:** the **user reviews + judges** the cut — either open
   `when-it-rains/preview.html` in a browser (silent, approximate-timing, streams
   from the CDN) and/or run the full Mac audio render (`scripts/fetch_assets.sh` →
@@ -155,8 +182,8 @@
   (C27/C33 on-model is resolved, no longer a spot-check item). Optional later,
   post-approval: **sub-beat beat-grid quantization** to the 0.97524s grid (needs a
   rigorous downbeat phase reference) and **selective 2K/4K upscale** (explicitly
-  LAST, after the cut is locked). **P-010** (stills backfill — pre-existing
-  id-format gap, non-functional, declined) needs a fresh go if revisited.
+  LAST, after the cut is locked). (The stills-catalog gap is no longer open —
+  **P-014 RESOLVED it**.)
 
 ## Stable facts (slow-changing)
 
@@ -164,17 +191,24 @@
   v3.0, silent 5s, start-frame, one motion each) covering every section, **PLUS
   the P-006 band-coverage batch: 10 new stills + 10 new clips (C25–C34)**, now
   **written into `data/`** by P-007. So `data/clips.csv` = 36 clip rows and
-  `data/stills.csv` = 52 still rows (IDs + CDN URLs; full P-006 map +
-  prompt/recipe in `build-os/receipts/P-006.md`). **P-008** reconciled the
+  `data/stills.csv` = **59 still rows** (52 after P-007; **P-014 backfilled +11
+  regen stills and pruned −4 off-model → net +7 = 59**; IDs + CDN URLs; full P-006
+  map + prompt/recipe in `build-os/receipts/P-006.md`). **P-008** reconciled the
   documentation / manifest layer to match: `data/assets.json` counts block =
-  **36 / 52 / 86**, runtime **274 / "4:34"**, clips & stills arrays carry C25–C34,
-  and its inline `edl` array == `data/edl.csv` row-for-row. **P-009** then
-  reconciled `assets.json`'s **pre-existing** clip entries for the 11
-  earlier-regenerated clips (job_id / source_still / mp4_url) to `clips.csv` —
-  so the manifest now **fully matches** the functional CSVs (the non-functional
-  drift is RESOLVED; the render reads the CSVs, not `assets.json`). Residual: the
-  `source_still`↔`stills.csv` id-format quirk (8-char prefixes vs full UUIDs,
-  pre-existing, non-functional) is now optional **P-010** (declined by user).
+  **36 / 52 / 86** at the time (**P-014 advanced stills 52 → 59**), runtime
+  **274 / "4:34"**, clips & stills arrays carry C25–C34, and its inline `edl` array
+  == `data/edl.csv` row-for-row. **P-009** then reconciled `assets.json`'s
+  **pre-existing** clip entries for the 11 earlier-regenerated clips (job_id /
+  source_still / mp4_url) to `clips.csv` — so the manifest fully matches the
+  functional CSVs (the render reads the CSVs, not `assets.json`). **P-014 then made
+  the stills catalog itself truthful** (AUDIT-001 D5-M3): the 10 reference-anchored
+  regen stills generated on Higgsfield but never cataloged are now in `stills.csv` +
+  `assets.json`, C04's `source_still` is resolved from the `regenA1` placeholder to
+  its real still `2d0ba697` (CONFIRMED via the clip's `start_image`, job
+  `297449bf`), and 4 superseded off-model stills (`22e02845` / `b0f3fd47` /
+  `26443c5f` / `ff3797c3`) are pruned. **34 / 36** clip `source_still`s now resolve
+  (all C01–C34); only **EX1 / EX2 `'prior'`** stay unresolved — they point at a
+  **prior project** (intentional / benign / accepted, NOT an open gap).
 - **Review instruments (both CURRENT at 86/274):**
   `when-it-rains/preview.html` (P-011, generated by `scripts/build_preview.py` from
   `edl.csv` + `clips.csv`) is a **self-contained** browser tool that plays all
@@ -242,4 +276,6 @@ _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 2026-06-29; P-005 closed 2026-06-29; P-006 closed 2026-06-29; P-007 closed
 2026-06-29; P-008 closed 2026-06-29; P-009 closed 2026-06-29; P-011 closed
 2026-06-29; P-012 closed 2026-06-29; P-013 closed 2026-06-29 (AUDIT-001
-recorded — system ALIGNED to canonical)._
+recorded — system ALIGNED to canonical); P-014 closed 2026-06-29 (stills-catalog
+backfill — manifest now truthful; AUDIT-001 D5-M3 RESOLVED — stills 52 → 59, 34/36
+source_stills resolve)._
