@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When It Rains — silent rough-cut preview (86 cuts)</title>
+<style>
+:root {
+  --bg: #0d0f13; --panel: #161a21; --panel2: #1d222b; --ink: #e8ecf1;
+  --muted: #97a1b0; --line: #2a313c; --accent: #5aa9ff; --new: #ffb454;
+  --onmodel: #ff5d9e; --pass: #3ddc84; --fail: #ff5a5a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.banner {
+  background: #2a1c00; color: #ffe7bd; border-bottom: 1px solid #5a3d00;
+  padding: 10px 16px; font-size: 13px;
+}
+.banner b { color: #ffd27a; }
+.banner code { background: #00000040; padding: 1px 5px; border-radius: 4px; }
+.wrap { display: flex; gap: 16px; align-items: flex-start; padding: 16px; flex-wrap: wrap; }
+.left { flex: 1 1 520px; min-width: 360px; }
+.right { flex: 1 1 380px; min-width: 320px; max-height: 86vh; overflow: auto; }
+.stage { position: relative; background: #000; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+video { width: 100%; display: block; background: #000; aspect-ratio: 16/9; }
+.overlay {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(transparent, #000000d0);
+  padding: 14px 14px 12px; pointer-events: none;
+}
+.ov-row1 { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.ov-n { font-weight: 700; font-size: 18px; }
+.ov-tc { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 600; }
+.ov-sec { color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px; }
+.ov-clip { color: var(--ink); font-weight: 600; }
+.ov-note { margin-top: 4px; color: #d7deea; }
+.badges { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 700; }
+.badge-new { background: var(--new); color: #2a1c00; }
+.badge-onmodel { background: var(--onmodel); color: #2a0014; }
+.badge-fail { background: #3a0000; color: #ffd0d0; border: 1px solid #6a0000; }
+.controls { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+button {
+  background: var(--panel2); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 12px; cursor: pointer; font-size: 13px;
+}
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: #04203f; border-color: var(--accent); font-weight: 700; }
+button.pass { background: #103a22; border-color: var(--pass); color: var(--pass); }
+button.pass.on { background: var(--pass); color: #04230f; }
+button.fail { background: #3a1010; border-color: var(--fail); color: var(--fail); }
+button.fail.on { background: var(--fail); color: #2a0000; }
+.meta { margin-top: 10px; color: var(--muted); font-size: 12px; }
+.review-line { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+.review-line input[type=text] {
+  flex: 1 1 240px; min-width: 180px; background: var(--panel); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font: inherit;
+}
+.right h2 { margin: 0 0 10px; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.list { width: 100%; border-collapse: collapse; }
+.list td { border-bottom: 1px solid var(--line); padding: 6px 6px; vertical-align: top; }
+.list tr { cursor: pointer; }
+.list tr:hover td { background: #1a1f28; }
+.list tr.cur td { background: #112033; }
+.list tr.cur td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.li-idx { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.li-tc { color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.li-sec { color: var(--muted); text-transform: uppercase; font-size: 11px; }
+.li-clip { font-weight: 600; white-space: nowrap; }
+.li-note { color: #cfd6e2; }
+.li-mark { white-space: nowrap; font-weight: 700; }
+.li-mark.PASS { color: var(--pass); }
+.li-mark.FAIL { color: var(--fail); }
+tr.row-new td { background: #211803; }
+tr.row-new.cur td { background: #2a2207; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+.dot-new { background: var(--new); }
+.dot-onmodel { background: var(--onmodel); }
+.export {
+  width: 100%; height: 160px; margin-top: 10px; background: var(--panel); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace;
+}
+.legend { color: var(--muted); font-size: 12px; margin: 4px 0 10px; }
+.fail-note { color: var(--fail); }
+</style>
+</head>
+<body>
+<div class="banner">
+  <b>SILENT visual preview.</b> No audio — the song MP3 is not on the CDN.
+  Timing is <b>approximate</b> (browser seek is not frame-accurate). This is a
+  pacing / content check only. The real, audio + beat-synced render is
+  <code>scripts/fetch_assets.sh</code> then <code>scripts/assemble_rough_cut.sh</code>
+  on your Mac. Clips stream from the Higgsfield CloudFront CDN, so this needs
+  <b>internet</b> and a browser that can reach CloudFront. If a clip fails to
+  load, its metadata still shows and the playlist auto-advances.
+</div>
+
+<div class="wrap">
+  <div class="left">
+    <div class="stage">
+      <video id="vid" playsinline preload="auto"></video>
+      <div class="overlay">
+        <div class="ov-row1">
+          <span class="ov-n" id="ovN">--/86</span>
+          <span class="ov-tc" id="ovTc">0:00</span>
+          <span class="ov-sec" id="ovSec">--</span>
+          <span class="ov-clip" id="ovClip">--</span>
+        </div>
+        <div class="ov-note" id="ovNote"></div>
+        <div class="badges" id="ovBadges"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="btnPlay" class="primary">Play</button>
+      <button id="btnPrev">&#8592; Prev</button>
+      <button id="btnNext">Next &#8594;</button>
+      <span class="meta" id="status"></span>
+    </div>
+
+    <div class="review-line">
+      <button id="btnPass" class="pass">PASS</button>
+      <button id="btnFail" class="fail">FAIL</button>
+      <input id="reviewNote" type="text" placeholder="note for this cut (optional)">
+    </div>
+    <div class="meta">
+      Marks persist in this browser (localStorage). Use <b>Copy results</b> to
+      export every marked cut as text you can paste back.
+    </div>
+    <div class="controls">
+      <button id="btnCopy">Copy results</button>
+      <button id="btnClear">Clear marks</button>
+    </div>
+    <textarea id="export" class="export" readonly placeholder="Marked cuts appear here after you Copy results."></textarea>
+  </div>
+
+  <div class="right">
+    <h2>All 86 cuts (click to jump)</h2>
+    <div class="legend">
+      <span class="dot dot-new"></span>new band coverage (C25&#8211;C34)
+      &nbsp;&nbsp;<span class="dot dot-onmodel"></span>on-model singer shot (C27 / C33)
+    </div>
+    <table class="list"><tbody id="cutList"></tbody></table>
+  </div>
+</div>
+
+<script>
+"use strict";
+// ---- Embedded EDL data (generated by build_preview.py, do not hand-edit) ----
+var CUTS = [
+  {
+    "i": 1,
+    "clip_key": "C03",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234033_74079fe6-bb4e-44ba-aff2-21aa172c0d83.mp4",
+    "in_point": 0.0,
+    "duration": 4.0,
+    "section": "INTRO",
+    "note": "rain on glass (open)",
+    "cum_start": 0.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 2,
+    "clip_key": "C01",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013154_c2b90eb1-a98c-4b59-8df7-61a6a456862c.mp4",
+    "in_point": 0.0,
+    "duration": 4.0,
+    "section": "INTRO",
+    "note": "band room wakes",
+    "cum_start": 4.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 3,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "INTRO",
+    "note": "singer close-up",
+    "cum_start": 8.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 4,
+    "clip_key": "C04",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012654_297449bf-74a9-46a3-aa53-bf028d9a5a81.mp4",
+    "in_point": 0.0,
+    "duration": 4.0,
+    "section": "INTRO",
+    "note": "man alone by window",
+    "cum_start": 11.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 5,
+    "clip_key": "C03",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234033_74079fe6-bb4e-44ba-aff2-21aa172c0d83.mp4",
+    "in_point": 1.0,
+    "duration": 3.0,
+    "section": "INTRO",
+    "note": "rain hold into verse",
+    "cum_start": 15.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 6,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.5,
+    "duration": 3.1,
+    "section": "V1",
+    "note": "sings opening line",
+    "cum_start": 18.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 7,
+    "clip_key": "C04",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012654_297449bf-74a9-46a3-aa53-bf028d9a5a81.mp4",
+    "in_point": 0.0,
+    "duration": 3.88,
+    "section": "V1",
+    "note": "turns as if touched; reflection dissolves",
+    "cum_start": 21.1,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 8,
+    "clip_key": "C01",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013154_c2b90eb1-a98c-4b59-8df7-61a6a456862c.mp4",
+    "in_point": 1.0,
+    "duration": 2.33,
+    "section": "V1",
+    "note": "restrained band",
+    "cum_start": 24.98,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 9,
+    "clip_key": "C06",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013219_148ef95e-d615-482b-ac92-187821b924bd.mp4",
+    "in_point": 0.0,
+    "duration": 3.1,
+    "section": "V1",
+    "note": "grey ocean",
+    "cum_start": 27.31,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 10,
+    "clip_key": "EX1",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_200846_a303faab-5926-4f89-a269-584f26f9eb4c.mp4",
+    "in_point": 0.0,
+    "duration": 3.1,
+    "section": "V1",
+    "note": "gazes at ocean through glass",
+    "cum_start": 30.41,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 11,
+    "clip_key": "C05",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234010_a1e237a3-5814-4014-8f42-05f088b0f38a.mp4",
+    "in_point": 0.0,
+    "duration": 3.1,
+    "section": "V1",
+    "note": "river bend",
+    "cum_start": 33.51,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 12,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 2.0,
+    "duration": 2.33,
+    "section": "V1",
+    "note": "singer",
+    "cum_start": 36.61,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 13,
+    "clip_key": "C04",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012654_297449bf-74a9-46a3-aa53-bf028d9a5a81.mp4",
+    "in_point": 1.5,
+    "duration": 2.31,
+    "section": "V1",
+    "note": "window",
+    "cum_start": 38.94,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 14,
+    "clip_key": "C07",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014340_d0c0e4d4-dcac-4732-b7f0-ede3507dce8f.mp4",
+    "in_point": 0.0,
+    "duration": 4.75,
+    "section": "V2",
+    "note": "over shoulder; her reflection surfaces",
+    "cum_start": 41.25,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 15,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.0,
+    "duration": 2.85,
+    "section": "V2",
+    "note": "face-on singing",
+    "cum_start": 46.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 16,
+    "clip_key": "C03",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234033_74079fe6-bb4e-44ba-aff2-21aa172c0d83.mp4",
+    "in_point": 0.5,
+    "duration": 2.85,
+    "section": "V2",
+    "note": "rain behind him",
+    "cum_start": 48.85,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 17,
+    "clip_key": "C07",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014340_d0c0e4d4-dcac-4732-b7f0-ede3507dce8f.mp4",
+    "in_point": 0.0,
+    "duration": 3.8,
+    "section": "V2",
+    "note": "raindrop breaks reflection; empty room",
+    "cum_start": 51.7,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 18,
+    "clip_key": "C09",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234017_adb501a3-dc3c-46dd-91b7-150e743e0083.mp4",
+    "in_point": 0.0,
+    "duration": 2.85,
+    "section": "V2",
+    "note": "band fragments",
+    "cum_start": 55.5,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 19,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 1.0,
+    "duration": 2.85,
+    "section": "V2",
+    "note": "more direct",
+    "cum_start": 58.35,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 20,
+    "clip_key": "C04",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012654_297449bf-74a9-46a3-aa53-bf028d9a5a81.mp4",
+    "in_point": 0.0,
+    "duration": 3.8,
+    "section": "V2",
+    "note": "window",
+    "cum_start": 61.2,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 21,
+    "clip_key": "C07",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014340_d0c0e4d4-dcac-4732-b7f0-ede3507dce8f.mp4",
+    "in_point": 0.0,
+    "duration": 4.75,
+    "section": "V2",
+    "note": "reflection again",
+    "cum_start": 65.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 22,
+    "clip_key": "C08",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234015_b36d8f7e-a070-42f1-963a-eaac7e079504.mp4",
+    "in_point": 0.0,
+    "duration": 3.9,
+    "section": "PRE1",
+    "note": "curtains breathe; trees move",
+    "cum_start": 69.75,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 23,
+    "clip_key": "C13",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260628_153325_9255cfb3-0f7b-407e-96c1-3d022d299707.mp4",
+    "in_point": 0.0,
+    "duration": 3.12,
+    "section": "PRE1",
+    "note": "almost turns toward a sound",
+    "cum_start": 73.65,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 24,
+    "clip_key": "C09",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234017_adb501a3-dc3c-46dd-91b7-150e743e0083.mp4",
+    "in_point": 0.0,
+    "duration": 3.12,
+    "section": "PRE1",
+    "note": "drummer enters",
+    "cum_start": 76.77,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 25,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.0,
+    "duration": 2.34,
+    "section": "PRE1",
+    "note": "it's like you never left",
+    "cum_start": 79.89,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 26,
+    "clip_key": "C08",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234015_b36d8f7e-a070-42f1-963a-eaac7e079504.mp4",
+    "in_point": 1.0,
+    "duration": 3.12,
+    "section": "PRE1",
+    "note": "trees move",
+    "cum_start": 82.23,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 27,
+    "clip_key": "C09",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234017_adb501a3-dc3c-46dd-91b7-150e743e0083.mp4",
+    "in_point": 0.0,
+    "duration": 3.9,
+    "section": "PRE1",
+    "note": "push-in",
+    "cum_start": 85.35,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 28,
+    "clip_key": "C12",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234100_3bb65d56-bdeb-4897-8ce1-d7b930791440.mp4",
+    "in_point": 0.0,
+    "duration": 4.15,
+    "section": "CH1",
+    "note": "band release",
+    "cum_start": 89.25,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 29,
+    "clip_key": "C10",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234056_da567b26-5aed-4863-a1e1-b710dc30c0bd.mp4",
+    "in_point": 0.0,
+    "duration": 3.11,
+    "section": "CH1",
+    "note": "puddle reflection trembles",
+    "cum_start": 93.4,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 30,
+    "clip_key": "C31",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041640_833e7ed9-943c-4ec1-a365-223b3a58737c.mp4",
+    "in_point": 0.0,
+    "duration": 3.2,
+    "section": "CH1",
+    "note": "drummer strikes the backbeat hard",
+    "cum_start": 96.51,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 31,
+    "clip_key": "C19",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012933_075c6af2-6581-488e-aa0c-2479a72e14cf.mp4",
+    "in_point": 0.0,
+    "duration": 3.11,
+    "section": "CH1",
+    "note": "thunder flash",
+    "cum_start": 99.71,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 32,
+    "clip_key": "C11",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234058_f057574f-dd16-44e8-ad2d-ccdfb6151d96.mp4",
+    "in_point": 0.0,
+    "duration": 3.11,
+    "section": "CH1",
+    "note": "woman from behind",
+    "cum_start": 102.82,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 33,
+    "clip_key": "C32",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041642_06390892-c1c8-4b89-b395-2a5e478281dd.mp4",
+    "in_point": 0.0,
+    "duration": 3.2,
+    "section": "CH1",
+    "note": "hands strum and move along the fretboard",
+    "cum_start": 105.93,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 34,
+    "clip_key": "C12",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234100_3bb65d56-bdeb-4897-8ce1-d7b930791440.mp4",
+    "in_point": 1.5,
+    "duration": 3.11,
+    "section": "CH1",
+    "note": "band",
+    "cum_start": 109.13,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 35,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.0,
+    "duration": 3.11,
+    "section": "CH1",
+    "note": "chorus with force",
+    "cum_start": 112.24,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 36,
+    "clip_key": "C33",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041644_b23de5fd-fa07-49cf-9cd6-c18fa5272cc0.mp4",
+    "in_point": 0.0,
+    "duration": 3.2,
+    "section": "CH1",
+    "note": "singer sings the chorus with force into the mic",
+    "cum_start": 115.35,
+    "is_new": true,
+    "is_onmodel": true
+  },
+  {
+    "i": 37,
+    "clip_key": "C10",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234056_da567b26-5aed-4863-a1e1-b710dc30c0bd.mp4",
+    "in_point": 1.5,
+    "duration": 3.11,
+    "section": "CH1",
+    "note": "water again",
+    "cum_start": 118.55,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 38,
+    "clip_key": "C12",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234100_3bb65d56-bdeb-4897-8ce1-d7b930791440.mp4",
+    "in_point": 0.0,
+    "duration": 3.11,
+    "section": "CH1",
+    "note": "band",
+    "cum_start": 121.66,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 39,
+    "clip_key": "C34",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041645_5c2cdeaa-debd-4262-8f0e-c46f9de2eb32.mp4",
+    "in_point": 0.0,
+    "duration": 3.23,
+    "section": "CH1",
+    "note": "hands lift into the chorus on the keys under warm lamp",
+    "cum_start": 124.77,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 40,
+    "clip_key": "C13",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260628_153325_9255cfb3-0f7b-407e-96c1-3d022d299707.mp4",
+    "in_point": 0.0,
+    "duration": 2.66,
+    "section": "V3",
+    "note": "turns toward window at thunder",
+    "cum_start": 128.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 41,
+    "clip_key": "C18",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234126_f6484ae3-c098-41e8-82dc-ac95248b6962.mp4",
+    "in_point": 0.0,
+    "duration": 1.6,
+    "section": "V3",
+    "note": "storm clouds",
+    "cum_start": 130.66,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 42,
+    "clip_key": "C09",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234017_adb501a3-dc3c-46dd-91b7-150e743e0083.mp4",
+    "in_point": 1.0,
+    "duration": 1.6,
+    "section": "V3",
+    "note": "band warmer",
+    "cum_start": 132.26,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 43,
+    "clip_key": "C13",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260628_153325_9255cfb3-0f7b-407e-96c1-3d022d299707.mp4",
+    "in_point": 1.0,
+    "duration": 2.13,
+    "section": "V3",
+    "note": "turns",
+    "cum_start": 133.86,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 44,
+    "clip_key": "C11",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234058_f057574f-dd16-44e8-ad2d-ccdfb6151d96.mp4",
+    "in_point": 1.0,
+    "duration": 1.6,
+    "section": "V3",
+    "note": "distant woman",
+    "cum_start": 135.99,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 45,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.0,
+    "duration": 2.13,
+    "section": "V3",
+    "note": "singer less controlled",
+    "cum_start": 137.59,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 46,
+    "clip_key": "C12",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234100_3bb65d56-bdeb-4897-8ce1-d7b930791440.mp4",
+    "in_point": 0.0,
+    "duration": 2.13,
+    "section": "V3",
+    "note": "drummer harder",
+    "cum_start": 139.72,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 47,
+    "clip_key": "C13",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260628_153325_9255cfb3-0f7b-407e-96c1-3d022d299707.mp4",
+    "in_point": 0.0,
+    "duration": 2.65,
+    "section": "V3",
+    "note": "listening",
+    "cum_start": 141.85,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 48,
+    "clip_key": "C14",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234105_3a3f4f74-c141-4e84-ae23-7e5ec79c37f5.mp4",
+    "in_point": 0.0,
+    "duration": 4.75,
+    "section": "V4",
+    "note": "opens drawer",
+    "cum_start": 144.5,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 49,
+    "clip_key": "C15",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012642_42b95398-dc7b-4252-b145-9c1ddced4281.mp4",
+    "in_point": 0.0,
+    "duration": 4.75,
+    "section": "V4",
+    "note": "her face in misted mirror",
+    "cum_start": 149.25,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 50,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 1.0,
+    "duration": 2.85,
+    "section": "V4",
+    "note": "CU; band swallowed by story",
+    "cum_start": 154.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 51,
+    "clip_key": "C16",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014040_c31ab9e6-0b36-40c4-ae1a-679e8ecfd56b.mp4",
+    "in_point": 0.0,
+    "duration": 3.8,
+    "section": "V4",
+    "note": "face forms in fog",
+    "cum_start": 156.85,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 52,
+    "clip_key": "C15",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012642_42b95398-dc7b-4252-b145-9c1ddced4281.mp4",
+    "in_point": 1.0,
+    "duration": 3.8,
+    "section": "V4",
+    "note": "he reaches; dissolves to his reflection",
+    "cum_start": 160.65,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 53,
+    "clip_key": "C14",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234105_3a3f4f74-c141-4e84-ae23-7e5ec79c37f5.mp4",
+    "in_point": 1.0,
+    "duration": 3.8,
+    "section": "V4",
+    "note": "drawer closes",
+    "cum_start": 164.45,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 54,
+    "clip_key": "C09",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234017_adb501a3-dc3c-46dd-91b7-150e743e0083.mp4",
+    "in_point": 0.0,
+    "duration": 4.75,
+    "section": "V4",
+    "note": "shadowy band",
+    "cum_start": 168.25,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 55,
+    "clip_key": "C17",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234111_ad3d0086-ca15-4aa3-94f0-9b49293956c1.mp4",
+    "in_point": 0.0,
+    "duration": 4.12,
+    "section": "PRE2",
+    "note": "looks up into storm sky",
+    "cum_start": 173.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 56,
+    "clip_key": "C25",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041631_ca67e772-7825-4793-950b-2864a50b18c4.mp4",
+    "in_point": 0.0,
+    "duration": 3.4,
+    "section": "PRE2",
+    "note": "drummer hands accelerate a tom fill",
+    "cum_start": 177.12,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 57,
+    "clip_key": "C18",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234126_f6484ae3-c098-41e8-82dc-ac95248b6962.mp4",
+    "in_point": 0.0,
+    "duration": 3.3,
+    "section": "PRE2",
+    "note": "clouds move",
+    "cum_start": 180.52,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 58,
+    "clip_key": "C26",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041633_34402db4-ac1d-45d6-8f03-5679ad13f191.mp4",
+    "in_point": 0.0,
+    "duration": 3.4,
+    "section": "PRE2",
+    "note": "slow dolly push-in toward the band leaning into the build",
+    "cum_start": 183.82,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 59,
+    "clip_key": "C12",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234100_3bb65d56-bdeb-4897-8ce1-d7b930791440.mp4",
+    "in_point": 0.0,
+    "duration": 3.3,
+    "section": "PRE2",
+    "note": "band carries the confession",
+    "cum_start": 187.22,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 60,
+    "clip_key": "C27",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041635_1dfdd7cc-ea3d-4d1b-bf39-636f81e7f1e6.mp4",
+    "in_point": 0.0,
+    "duration": 3.4,
+    "section": "PRE2",
+    "note": "singer lifts chin and leans into a rising vocal in profile",
+    "cum_start": 190.52,
+    "is_new": true,
+    "is_onmodel": true
+  },
+  {
+    "i": 61,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.0,
+    "duration": 3.3,
+    "section": "PRE2",
+    "note": "I still want you",
+    "cum_start": 193.92,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 62,
+    "clip_key": "C28",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041636_76997023-342c-495f-b765-16cce9fe8b3f.mp4",
+    "in_point": 0.0,
+    "duration": 3.4,
+    "section": "PRE2",
+    "note": "bassist sways forward",
+    "cum_start": 197.22,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 63,
+    "clip_key": "C17",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234111_ad3d0086-ca15-4aa3-94f0-9b49293956c1.mp4",
+    "in_point": 1.0,
+    "duration": 3.3,
+    "section": "PRE2",
+    "note": "stops fighting it",
+    "cum_start": 200.62,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 64,
+    "clip_key": "C29",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041638_dc84bdd5-c69d-4e06-93a4-cf2d684d7f3d.mp4",
+    "in_point": 0.0,
+    "duration": 3.4,
+    "section": "PRE2",
+    "note": "hands drive hard chords",
+    "cum_start": 203.92,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 65,
+    "clip_key": "C20",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234130_e6670604-3ac6-4183-af4e-caaf11f70587.mp4",
+    "in_point": 0.0,
+    "duration": 3.3,
+    "section": "PRE2",
+    "note": "band rises",
+    "cum_start": 207.32,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 66,
+    "clip_key": "C30",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041639_d5152734-b2ec-4209-8b62-839f7510214b.mp4",
+    "in_point": 0.0,
+    "duration": 3.38,
+    "section": "PRE2",
+    "note": "whole band rises together at the peak",
+    "cum_start": 210.62,
+    "is_new": true,
+    "is_onmodel": false
+  },
+  {
+    "i": 67,
+    "clip_key": "C20",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234130_e6670604-3ac6-4183-af4e-caaf11f70587.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "CH2",
+    "note": "band",
+    "cum_start": 214.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 68,
+    "clip_key": "C10",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234056_da567b26-5aed-4863-a1e1-b710dc30c0bd.mp4",
+    "in_point": 0.0,
+    "duration": 2.5,
+    "section": "CH2",
+    "note": "water",
+    "cum_start": 217.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 69,
+    "clip_key": "C19",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012933_075c6af2-6581-488e-aa0c-2479a72e14cf.mp4",
+    "in_point": 0.0,
+    "duration": 2.5,
+    "section": "CH2",
+    "note": "thunder",
+    "cum_start": 219.5,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 70,
+    "clip_key": "C15",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012642_42b95398-dc7b-4252-b145-9c1ddced4281.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "CH2",
+    "note": "mirror",
+    "cum_start": 222.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 71,
+    "clip_key": "C07",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014340_d0c0e4d4-dcac-4732-b7f0-ede3507dce8f.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "CH2",
+    "note": "window reflection",
+    "cum_start": 225.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 72,
+    "clip_key": "C21",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234132_7826073a-b52d-4740-93b2-aed813a60484.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "CH2",
+    "note": "clean memory shot",
+    "cum_start": 228.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 73,
+    "clip_key": "C20",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234130_e6670604-3ac6-4183-af4e-caaf11f70587.mp4",
+    "in_point": 1.0,
+    "duration": 3.0,
+    "section": "CH2",
+    "note": "band",
+    "cum_start": 231.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 74,
+    "clip_key": "C02",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234004_229bbbc3-52d9-4886-b5fc-57161427509f.mp4",
+    "in_point": 0.0,
+    "duration": 4.0,
+    "section": "CH2",
+    "note": "almost angry at himself",
+    "cum_start": 234.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 75,
+    "clip_key": "C22",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013716_f0b1f137-0c1b-4264-9ee7-d142ecce7d20.mp4",
+    "in_point": 0.0,
+    "duration": 5.0,
+    "section": "BRIDGE",
+    "note": "rainwater spreads across floor",
+    "cum_start": 238.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 76,
+    "clip_key": "C16",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014040_c31ab9e6-0b36-40c4-ae1a-679e8ecfd56b.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "BRIDGE",
+    "note": "mirror fogs",
+    "cum_start": 243.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 77,
+    "clip_key": "C11",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234058_f057574f-dd16-44e8-ad2d-ccdfb6151d96.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "BRIDGE",
+    "note": "she turns away",
+    "cum_start": 246.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 78,
+    "clip_key": "C20",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234130_e6670604-3ac6-4183-af4e-caaf11f70587.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "BRIDGE",
+    "note": "band at peak",
+    "cum_start": 249.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 79,
+    "clip_key": "C22",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013716_f0b1f137-0c1b-4264-9ee7-d142ecce7d20.mp4",
+    "in_point": 2.0,
+    "duration": 3.0,
+    "section": "BRIDGE",
+    "note": "drawer creaks open",
+    "cum_start": 252.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 80,
+    "clip_key": "C21",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234132_7826073a-b52d-4740-93b2-aed813a60484.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "BRIDGE",
+    "note": "she vanishes",
+    "cum_start": 255.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 81,
+    "clip_key": "C15",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012642_42b95398-dc7b-4252-b145-9c1ddced4281.mp4",
+    "in_point": 0.0,
+    "duration": 3.0,
+    "section": "BRIDGE",
+    "note": "he reaches for the mirror",
+    "cum_start": 258.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 82,
+    "clip_key": "C20",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234130_e6670604-3ac6-4183-af4e-caaf11f70587.mp4",
+    "in_point": 0.0,
+    "duration": 2.6,
+    "section": "FINAL",
+    "note": "final chorus",
+    "cum_start": 261.0,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 83,
+    "clip_key": "C24",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014050_e77cd5b3-b90c-436d-984c-f6dd8761acd0.mp4",
+    "in_point": 0.0,
+    "duration": 2.6,
+    "section": "FINAL",
+    "note": "singer direct",
+    "cum_start": 263.6,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 84,
+    "clip_key": "C23",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013722_94e1d8b1-b325-4d5d-a43d-63a02bdc497d.mp4",
+    "in_point": 0.0,
+    "duration": 3.47,
+    "section": "FINAL",
+    "note": "alone by the window",
+    "cum_start": 266.2,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 85,
+    "clip_key": "C03",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_234033_74079fe6-bb4e-44ba-aff2-21aa172c0d83.mp4",
+    "in_point": 0.0,
+    "duration": 1.73,
+    "section": "FINAL",
+    "note": "rain continues",
+    "cum_start": 269.67,
+    "is_new": false,
+    "is_onmodel": false
+  },
+  {
+    "i": 86,
+    "clip_key": "C23",
+    "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013722_94e1d8b1-b325-4d5d-a43d-63a02bdc497d.mp4",
+    "in_point": 1.0,
+    "duration": 2.6,
+    "section": "FINAL",
+    "note": "looks to camera",
+    "cum_start": 271.4,
+    "is_new": false,
+    "is_onmodel": false
+  }
+];
+
+// ---- State ----
+var idx = 0;            // current cut index (0-based)
+var playing = false;
+var advanceTimer = null;
+var marks = {};         // { cutIndex: {verdict:"PASS"|"FAIL", note:"..."} }
+var STORE_KEY = "wir_preview_marks_v1";
+
+var vid = document.getElementById("vid");
+
+function mmss(t) {
+  t = Math.max(0, Math.floor(t));
+  var m = Math.floor(t / 60), s = t % 60;
+  return m + ":" + (s < 10 ? "0" : "") + s;
+}
+
+function loadMarks() {
+  try {
+    var raw = localStorage.getItem(STORE_KEY);
+    if (raw) marks = JSON.parse(raw) || {};
+  } catch (e) { marks = {}; }
+}
+function saveMarks() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(marks)); } catch (e) {}
+}
+
+// ---- Build the click-to-jump list once ----
+var listBody = document.getElementById("cutList");
+function buildList() {
+  var html = "";
+  for (var k = 0; k < CUTS.length; k++) {
+    var c = CUTS[k];
+    var rowCls = c.is_new ? "row-new" : "";
+    var marker = "";
+    if (c.is_new) marker += '<span class="dot dot-new"></span>';
+    if (c.is_onmodel) marker += '<span class="dot dot-onmodel"></span>';
+    html += '<tr data-k="' + k + '" class="' + rowCls + '">'
+      + '<td class="li-idx">' + c.i + '</td>'
+      + '<td class="li-tc">' + mmss(c.cum_start) + '</td>'
+      + '<td class="li-sec">' + c.section + '</td>'
+      + '<td class="li-clip">' + marker + esc(c.clip_key) + '</td>'
+      + '<td class="li-note">' + esc(c.note) + '</td>'
+      + '<td class="li-mark" id="mark-' + k + '"></td>'
+      + '</tr>';
+  }
+  listBody.innerHTML = html;
+  var rows = listBody.querySelectorAll("tr");
+  for (var r = 0; r < rows.length; r++) {
+    rows[r].addEventListener("click", (function (kk) {
+      return function () { goto(kk, true); };
+    })(parseInt(rows[r].getAttribute("data-k"), 10)));
+  }
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function refreshMarkCells() {
+  for (var k = 0; k < CUTS.length; k++) {
+    var cell = document.getElementById("mark-" + k);
+    if (!cell) continue;
+    var m = marks[k];
+    if (m && m.verdict) {
+      cell.textContent = m.verdict;
+      cell.className = "li-mark " + m.verdict;
+    } else {
+      cell.textContent = "";
+      cell.className = "li-mark";
+    }
+  }
+}
+
+// ---- Overlay + current-row highlight ----
+function renderOverlay() {
+  var c = CUTS[idx];
+  document.getElementById("ovN").textContent = c.i + "/" + CUTS.length;
+  document.getElementById("ovTc").textContent = mmss(c.cum_start);
+  document.getElementById("ovSec").textContent = c.section;
+  document.getElementById("ovClip").textContent = c.clip_key;
+  document.getElementById("ovNote").textContent = c.note;
+  var b = "";
+  if (c.is_new) b += '<span class="badge badge-new">new band coverage</span>';
+  if (c.is_onmodel) b += '<span class="badge badge-onmodel">on-model singer shot</span>';
+  if (failedClip) b += '<span class="badge badge-fail">clip failed to load</span>';
+  document.getElementById("ovBadges").innerHTML = b;
+
+  var rows = listBody.querySelectorAll("tr");
+  for (var r = 0; r < rows.length; r++) rows[r].classList.remove("cur");
+  if (rows[idx]) {
+    rows[idx].classList.add("cur");
+    rows[idx].scrollIntoView({ block: "nearest" });
+  }
+  // reflect this cut's existing mark in the review controls
+  var m = marks[idx] || {};
+  document.getElementById("btnPass").classList.toggle("on", m.verdict === "PASS");
+  document.getElementById("btnFail").classList.toggle("on", m.verdict === "FAIL");
+  document.getElementById("reviewNote").value = m.note || "";
+}
+
+function setStatus(msg) { document.getElementById("status").textContent = msg; }
+
+// ---- Playback engine ----
+var failedClip = false;
+
+function clearAdvance() {
+  if (advanceTimer !== null) { clearTimeout(advanceTimer); advanceTimer = null; }
+}
+
+function scheduleAdvance(seconds) {
+  clearAdvance();
+  advanceTimer = setTimeout(function () {
+    advanceTimer = null;
+    next(true);
+  }, Math.max(0, seconds) * 1000);
+}
+
+function loadCut(autoplay) {
+  var c = CUTS[idx];
+  failedClip = false;
+  renderOverlay();
+  clearAdvance();
+
+  if (!c.mp4_url) { onClipFailed(); return; }
+
+  // Only reset src when the URL actually changes (handles same-URL-consecutive).
+  var sameSrc = vid.getAttribute("data-src") === c.mp4_url;
+  if (!sameSrc) {
+    vid.setAttribute("data-src", c.mp4_url);
+    vid.src = c.mp4_url;
+    vid.load();
+  } else {
+    // same clip back-to-back: just seek again
+    seekAndPlay(autoplay);
+  }
+  if (autoplay) playing = true;
+}
+
+function seekAndPlay(autoplay) {
+  var c = CUTS[idx];
+  try {
+    if (isFinite(c.in_point)) vid.currentTime = c.in_point;
+  } catch (e) {}
+  if (autoplay && playing) {
+    var p = vid.play();
+    if (p && p.catch) p.catch(function () { /* autoplay blocked; user can press Play */ });
+  }
+  if (playing) scheduleAdvance(c.duration);
+  setStatus(playing ? "playing" : "paused");
+}
+
+function onClipFailed() {
+  failedClip = true;
+  renderOverlay();
+  setStatus("clip failed to load — showing metadata, auto-advancing");
+  if (playing) scheduleAdvance(CUTS[idx].duration);
+}
+
+vid.addEventListener("loadedmetadata", function () { seekAndPlay(true); });
+vid.addEventListener("error", function () { onClipFailed(); });
+// Guard: if a same-URL seek fires timeupdate past the window, advance.
+vid.addEventListener("timeupdate", function () {
+  if (!playing) return;
+  var c = CUTS[idx];
+  if (advanceTimer === null) return; // already advancing / failed
+  if (vid.currentTime >= c.in_point + c.duration - 0.02) {
+    next(true);
+  }
+});
+
+function goto(k, autoplay) {
+  if (k < 0) k = 0;
+  if (k >= CUTS.length) { stopAtEnd(); return; }
+  idx = k;
+  loadCut(autoplay);
+}
+
+function next(autoplay) {
+  if (idx + 1 >= CUTS.length) { stopAtEnd(); return; }
+  goto(idx + 1, autoplay);
+}
+function prev() { goto(Math.max(0, idx - 1), playing); }
+
+function stopAtEnd() {
+  playing = false;
+  clearAdvance();
+  try { vid.pause(); } catch (e) {}
+  setStatus("end of cut list (" + CUTS.length + " cuts, " + mmss(CUTS[CUTS.length - 1].cum_start + CUTS[CUTS.length - 1].duration) + ")");
+  document.getElementById("btnPlay").textContent = "Replay";
+}
+
+function togglePlay() {
+  if (playing) {
+    playing = false;
+    clearAdvance();
+    try { vid.pause(); } catch (e) {}
+    document.getElementById("btnPlay").textContent = "Play";
+    setStatus("paused");
+  } else {
+    if (idx >= CUTS.length - 1 &&
+        document.getElementById("btnPlay").textContent === "Replay") {
+      idx = 0;
+    }
+    playing = true;
+    document.getElementById("btnPlay").textContent = "Pause";
+    loadCut(true);
+  }
+}
+
+// ---- Review marks ----
+function setVerdict(v) {
+  var existing = marks[idx] || {};
+  if (existing.verdict === v) {
+    delete existing.verdict;           // toggle off
+  } else {
+    existing.verdict = v;
+  }
+  existing.note = document.getElementById("reviewNote").value;
+  if (!existing.verdict && !existing.note) delete marks[idx];
+  else marks[idx] = existing;
+  saveMarks();
+  refreshMarkCells();
+  renderOverlay();
+}
+
+document.getElementById("reviewNote").addEventListener("input", function () {
+  var existing = marks[idx] || {};
+  existing.note = this.value;
+  if (!existing.verdict && !existing.note) delete marks[idx];
+  else marks[idx] = existing;
+  saveMarks();
+});
+
+function buildExport() {
+  var lines = [];
+  lines.push("When It Rains — silent preview review");
+  lines.push("cuts: " + CUTS.length + " | runtime(EDL): " +
+             mmss(CUTS[CUTS.length - 1].cum_start + CUTS[CUTS.length - 1].duration) +
+             " (" + (CUTS[CUTS.length - 1].cum_start + CUTS[CUTS.length - 1].duration).toFixed(1) + "s)");
+  lines.push("note: SILENT preview, timing approximate (browser seek).");
+  lines.push("");
+  var any = false;
+  for (var k = 0; k < CUTS.length; k++) {
+    var m = marks[k];
+    if (!m || (!m.verdict && !m.note)) continue;
+    any = true;
+    var c = CUTS[k];
+    var flags = [];
+    if (c.is_new) flags.push("new");
+    if (c.is_onmodel) flags.push("on-model");
+    var flagStr = flags.length ? " [" + flags.join(",") + "]" : "";
+    lines.push("#" + c.i + "  " + mmss(c.cum_start) + "  " + c.section + "  " +
+               c.clip_key + flagStr + "  " + (m.verdict || "(noted)") +
+               (m.note ? " — " + m.note : ""));
+  }
+  if (!any) lines.push("(no cuts marked yet)");
+  return lines.join("
+");
+}
+
+document.getElementById("btnCopy").addEventListener("click", function () {
+  var text = buildExport();
+  var ta = document.getElementById("export");
+  ta.value = text;
+  ta.select();
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text);
+    } else {
+      document.execCommand("copy");
+    }
+    setStatus("results copied to clipboard");
+  } catch (e) {
+    setStatus("results shown below — select and copy");
+  }
+});
+
+document.getElementById("btnClear").addEventListener("click", function () {
+  if (!confirm("Clear all PASS/FAIL marks and notes?")) return;
+  marks = {};
+  saveMarks();
+  refreshMarkCells();
+  renderOverlay();
+  document.getElementById("export").value = "";
+});
+
+// ---- Wire controls ----
+document.getElementById("btnPlay").addEventListener("click", togglePlay);
+document.getElementById("btnPrev").addEventListener("click", prev);
+document.getElementById("btnNext").addEventListener("click", function () { next(playing); });
+document.getElementById("btnPass").addEventListener("click", function () { setVerdict("PASS"); });
+document.getElementById("btnFail").addEventListener("click", function () { setVerdict("FAIL"); });
+
+document.addEventListener("keydown", function (e) {
+  if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+  if (e.key === " ") { e.preventDefault(); togglePlay(); }
+  else if (e.key === "ArrowRight") { next(playing); }
+  else if (e.key === "ArrowLeft") { prev(); }
+  else if (e.key.toLowerCase() === "p") { setVerdict("PASS"); }
+  else if (e.key.toLowerCase() === "f") { setVerdict("FAIL"); }
+});
+
+// ---- Boot ----
+loadMarks();
+buildList();
+refreshMarkCells();
+goto(0, false);          // load first cut paused; show its frame + metadata
+setStatus("ready — press Play (needs internet to reach the CDN)");
+</script>
+</body>
+</html>
