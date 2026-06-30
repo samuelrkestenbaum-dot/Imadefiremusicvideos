@@ -23,16 +23,27 @@
   **held**; **no C27/C33 regen needed**. This **CLOSES the open on-model item from
   P-006**. (Still an automated confirmation, not a human eye — the render pass
   remains the final human-eye check, but the on-model RISK is closed.)
-- **`assets.json` pre-existing regenerated-clip rows drift — NEW, handled by P-009.**
-  `assets.json`'s **existing** clip entries for the 11 earlier-regenerated clips
-  (**C01, C04, C06, C07, C13, C15, C16, C19, C22, C23, C24**) still carry
-  **pre-regen job_ids / urls**, diverging from the fixed `clips.csv`. This is
-  **non-functional** — the render reads `clips.csv` (the source of truth), not
-  `assets.json` — but it is a manifest drift **P-009 reconciles** (bring the
-  manifest's existing rows into line with the fixed CSVs; no generation, no CSV
-  functional change). P-008 already reconciled the counts block, the runtime, the
-  C25–C34 array rows, and the inline `edl` array; P-009 finishes the existing-row
-  reconcile.
+- **`assets.json` pre-existing regenerated-clip rows drift — RESOLVED (P-009).**
+  `assets.json`'s existing clip entries for the 11 earlier-regenerated clips
+  (**C01, C04, C06, C07, C13, C15, C16, C19, C22, C23, C24**) had carried
+  **pre-regen job_ids / urls**, diverging from the fixed `clips.csv`. **P-009
+  reconciled them** (job_id / source_still / mp4_url updated verbatim from
+  `clips.csv`; 33 ins / 33 del, exactly the 11 changed, other 25 byte-identical;
+  qa GREEN 8/8, reviewer PASS). Combined with P-008 (counts / runtime / C25–C34
+  array rows / inline `edl` array), the manifest now **fully matches** the
+  functional CSVs. The drift thread is **CLOSED** (non-functional all along — the
+  render reads `clips.csv`, not `assets.json`).
+- **`source_still` ↔ `stills.csv` id-format gap — OPTIONAL / LOW-PRIORITY (P-010).**
+  `clips.csv`'s `source_still` values are **8-char prefixes** that do **not**
+  resolve to `stills.csv`'s **full-UUID** keys — a **pre-existing id-format quirk
+  affecting all 36 clips both BEFORE and AFTER P-009** (NOT a P-009 defect, per the
+  reviewer). It is **non-functional**: the render reads each clip's `mp4_url` from
+  `clips.csv` directly, not via the still join. Additionally, **C04's**
+  `source_still` is a `regenA1` **placeholder** (known-incomplete from the earlier
+  C04 partial regen — hair/reflection fixed, head-turn still absent). A backfill
+  (**P-010**) would resolve the prefixes to full UUIDs and replace the C04
+  placeholder — but it **touches a source CSV + a count**, so it needs an **explicit
+  go**. Low priority; non-blocking for the render-review.
 - **Sub-beat beat-grid quantization (still deferred / optional).** Snap the 86
   cuts to the **0.97524s** beat grid (61.5234375 BPM) on top of the section-sync —
   but this needs a **rigorous downbeat phase reference** and the MP3 re-attached
@@ -108,7 +119,8 @@
   verified both on-model, so no regen is needed; any other new generation needs a
   **fresh go**.) The P-007 edit (the gated insert + re-time) is **done**; **P-008**
   (docs/manifest refresh) is **done**; **P-009** (manifest existing-row reconcile)
-  is a docs-only edit — no generation.
+  is **done**. The only generation-touching follow-up left is **P-010** (optional
+  stills backfill — touches a source CSV + a count), which needs a **fresh go**.
 
 ---
 _Append-only working notes. Seeded from `when-it-rains/HANDOFF.md` +
@@ -116,4 +128,6 @@ _Append-only working notes. Seeded from `when-it-rains/HANDOFF.md` +
 appended 2026-06-29; P-004 note appended 2026-06-29; P-005 note appended
 2026-06-29; P-006 note appended 2026-06-29; P-007 note appended 2026-06-29
 (PRE2/CH1 drag RESOLVED); P-008 note appended 2026-06-29 (C27/C33 on-model
-RESOLVED — verified on-model; P-009 manifest-drift item opened)._
+RESOLVED — verified on-model; P-009 manifest-drift item opened); P-009 note
+appended 2026-06-29 (assets.json drift RESOLVED; remaining source_still↔stills.csv
+id-format gap re-characterized as optional P-010)._

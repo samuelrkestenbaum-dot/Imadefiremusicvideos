@@ -21,31 +21,38 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-008 — docs/manifest refresh + on-model verified** —
-  marketing-media (docs-consistency sub-scope on `when-it-rains/**`; **no
-  generation, no CSV / functional change**), route builder → reviewer → qa →
-  archivist. Commits **`71bf753`** + **`a07c5a0`** (base **`2925961`**):
-  reconciled the documentation / manifest layer to the real pipeline state.
-  `71bf753` set `data/assets.json` counts → **36 / 52 / 86**, runtime →
-  **274 / "4:34"**, clips array **+10 (C25–C34)**, stills array **+10**, and
-  **rebuilt the inline `edl` array to 86 rows == `data/edl.csv`** (row-for-row);
-  `fetch_assets.sh` comment-only (26→36 / 42→52, zero logic change). `a07c5a0`
-  refreshed `HANDOFF.md` to the 86-cut/274s/band-coverage state (old numbers only
-  as historical "(was…)"). **qa GREEN — 10/10**: all 9 counts reconcile
-  (CSV == counts-block == array-lengths = 36/52/86); runtime 274/"4:34" (edl sums
-  274.0); C25–C34 + 10 new stills match the registries; inline edl array matches
-  `edl.csv` row-for-row; `fetch_assets.sh` comment-only; HANDOFF stale numbers
-  only as "(was…)"; Commit-1 isolation; safety clean. **reviewer PASS** — zero
-  functional change confirmed (render reads the CSVs, not `assets.json`); manifest
-  accurate; HANDOFF truthful/resumable; **Codex second-eyes UNAVAILABLE**,
-  single-reviewer. Receipt `build-os/receipts/P-008.md`.
-  **On-model: CONFIRMED.** C27 (singer profile) + C33 (chorus CU) both verified
-  **ON-MODEL** via Higgsfield `video_analysis` (C27 "late-30s, fair complexion,
-  very short thinning reddish hair, light beard"; C33 "mid-30s, freckles, short
-  ginger hair, trimmed ginger beard") — short reddish/ginger hair + beard, NOT
-  bald. The reference-anchoring bald-fix **held**; this **CLOSES the open on-model
-  item from P-006** (no C27/C33 regen needed).
-  (Prior: **P-007 — band-coverage inserted + PRE2/CH1 re-timed** — commit
+- **Last closed packet:** **P-009 — assets.json reconciled to clips.csv** —
+  marketing-media (manifest / docs-consistency sub-scope on
+  `when-it-rains/data/assets.json`; **no generation, no CSV functional change**),
+  route builder → reviewer → qa → archivist. Commit **`f59829b`** (base
+  **`cb7610b`**): updated the **11 stale clip entries**
+  (**C01, C04, C06, C07, C13, C15, C16, C19, C22, C23, C24**) in
+  `data/assets.json` — `job_id` / `source_still` / `mp4_url` — to match the fixed
+  `data/clips.csv` (the source of truth the render reads). One file, **33 ins /
+  33 del**, one commit. **qa GREEN — 8/8 + Commit-1 isolation**: assets.json clips
+  == clips.csv (**36/36 reconcile, 0 divergence**); exactly the **11** changed
+  (other **25** byte-identical); old (pre-regen) job_ids / source_stills all gone;
+  stills(**52**) / counts(**36/52/86**) / runtime / inline edl(**86**) / models /
+  references all **byte-unchanged**; stills array == `stills.csv`; safety clean.
+  **reviewer PASS** — verbatim-from-source correctness, scope airtight (only
+  assets.json), manifest now points at the **CORRECT fixed clips** (more truthful).
+  **Key clarification:** the `source_still`↔`stills.csv` non-resolution is a
+  **PRE-EXISTING id-format quirk** (clips.csv uses 8-char prefixes, stills.csv
+  keys on full UUIDs) affecting **all 36 clips both BEFORE and AFTER P-009** —
+  **NOT a P-009 defect** (re-characterized as optional **P-010**). **Codex
+  second-eyes UNAVAILABLE**, single-reviewer. Receipt `build-os/receipts/P-009.md`.
+  (Prior: **P-008 — docs/manifest refresh + on-model verified** —
+  marketing-media (docs-consistency on `when-it-rains/**`, no CSV change), commits
+  **`71bf753`** + **`a07c5a0`** (base **`2925961`**): assets.json counts →
+  **36/52/86**, runtime **274/"4:34"**, clips/stills arrays **+10 (C25–C34)**,
+  inline `edl` array rebuilt to **86 == data/edl.csv**; `fetch_assets.sh`
+  comment-only; `HANDOFF.md` refreshed. qa GREEN 10/10, reviewer PASS (zero
+  functional change; Codex unavailable); receipt `build-os/receipts/P-008.md`.
+  **On-model CONFIRMED:** C27 + C33 both verified **ON-MODEL** via Higgsfield
+  `video_analysis` (short reddish/ginger hair + beard, NOT bald) — the
+  reference-anchoring bald-fix held; **CLOSES the open on-model item from P-006**
+  (no C27/C33 regen needed).
+  **P-007 — band-coverage inserted + PRE2/CH1 re-timed** — commit
   **`1969435`** (base `ed046b5`): `scripts/insert_band_coverage.py` regenerated
   `data/edl.csv` to **86 cuts**, added `data/edl_pre_bandcoverage_backup.csv`,
   wrote **+10 rows each** into `clips.csv` / `stills.csv` (C25–C34); **PRE2 6→12 /
@@ -57,21 +64,21 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** the **repo is COHERENT** — docs/manifests now match the real
-  **86-cut / 274.0s** pipeline (**36 clips / 52 stills**), and the **C27/C33
-  on-model risk is CLOSED** (verified on-model). The edit + manifest are
-  **render-ready**. Reversibility chain intact:
-  `edl_pre_bandcoverage_backup.csv` (pre-band) → `edl_original_backup.csv`
-  (pre-section-sync), neither overwritten. **P-009 in flight** — reconcile
-  `assets.json`'s **pre-existing** regenerated-clip rows (the 11 earlier-regen
-  clips still carry pre-regen job_ids/urls, diverging from the fixed `clips.csv`;
-  non-functional manifest drift). The **only remaining real work is the user's
-  render-review**.
-- **Next:** finish **P-009** (manifest reconcile of the pre-existing clip/still
-  entries to `clips.csv` / `stills.csv`), then the **user renders + judges** the
-  cut — `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`, walking
+- **Now:** **P-009 is CLOSED** — the **manifest (`assets.json`) now fully matches
+  the functional CSVs**: its 11 stale clip rows were reconciled to `clips.csv`, so
+  the whole repo is **COHERENT** — docs/manifests match the real **86-cut /
+  274.0s** pipeline (**36 clips / 52 stills**), the **C27/C33 on-model risk is
+  CLOSED** (verified on-model), and the edit + manifest are **render-ready**.
+  Reversibility chain intact: `edl_pre_bandcoverage_backup.csv` (pre-band) →
+  `edl_original_backup.csv` (pre-section-sync), neither overwritten. The **ONLY
+  open work is the user's render-review**. (Optional / low-priority later:
+  **P-010** — stills backfill of the pre-existing 8-char-prefix ↔ full-UUID
+  source_still gap; non-functional, needs a fresh go.)
+- **Next:** the **user renders + judges** the cut —
+  `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`, walking
   `when-it-rains/RENDER_REVIEW.md` (overall pacing judgment; C27/C33 on-model is
-  now resolved, no longer a spot-check item). Optional later: **sub-beat
+  now resolved, no longer a spot-check item). Optional later: **P-010** (stills
+  backfill — pre-existing id-format gap, non-functional, needs go), **sub-beat
   beat-grid quantization** to the 0.97524s grid (needs a rigorous downbeat phase
   reference), and **selective 2K/4K upscale** (explicitly LAST, after the cut is
   locked).
@@ -86,10 +93,13 @@
   prompt/recipe in `build-os/receipts/P-006.md`). **P-008** reconciled the
   documentation / manifest layer to match: `data/assets.json` counts block =
   **36 / 52 / 86**, runtime **274 / "4:34"**, clips & stills arrays carry C25–C34,
-  and its inline `edl` array == `data/edl.csv` row-for-row. (NOTE: `assets.json`'s
-  **pre-existing** clip/still entries for the 11 earlier-regenerated clips still
-  carry pre-regen job_ids/urls — a non-functional manifest drift **P-009**
-  reconciles; the render reads the CSVs, not `assets.json`.)
+  and its inline `edl` array == `data/edl.csv` row-for-row. **P-009** then
+  reconciled `assets.json`'s **pre-existing** clip entries for the 11
+  earlier-regenerated clips (job_id / source_still / mp4_url) to `clips.csv` —
+  so the manifest now **fully matches** the functional CSVs (the non-functional
+  drift is RESOLVED; the render reads the CSVs, not `assets.json`). Residual: the
+  `source_still`↔`stills.csv` id-format quirk (8-char prefixes vs full UUIDs,
+  pre-existing, non-functional) is now optional **P-010**.)
 - **Edit kit:** `data/edl.csv` = **86 cuts, total 274.0s** (resolves on the
   Jun-27 mix end). It is section-synced to the confirmed section times (P-004)
   AND has the band-coverage inserted with PRE2/CH1 re-timed to ~3.3s avg (P-007:
@@ -142,4 +152,4 @@ _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 `FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29. P-001 closed
 2026-06-29; P-002 closed 2026-06-29; P-003 closed 2026-06-29; P-004 closed
 2026-06-29; P-005 closed 2026-06-29; P-006 closed 2026-06-29; P-007 closed
-2026-06-29; P-008 closed 2026-06-29._
+2026-06-29; P-008 closed 2026-06-29; P-009 closed 2026-06-29._
