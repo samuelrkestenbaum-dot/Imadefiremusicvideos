@@ -18,7 +18,7 @@
   },
   "counts": {
     "clips": 36,
-    "stills": 52,
+    "stills": 59,
     "edl_cuts": 86
   },
   "clips": [
@@ -49,7 +49,7 @@
     {
       "clip_key": "C04",
       "job_id": "297449bf-74a9-46a3-aa53-bf028d9a5a81",
-      "source_still": "regenA1",
+      "source_still": "2d0ba697",
       "section": "story",
       "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012654_297449bf-74a9-46a3-aa53-bf028d9a5a81.mp4",
       "motion": "Turns as if touched; reflection forms then dissolves"
@@ -323,34 +323,14 @@
       "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted earthy tones. The red-haired bearded man f"
     },
     {
-      "still_id": "22e02845-b29b-447e-bfde-5cca76976e9f",
-      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_185727_22e02845-b29b-447e-bfde-5cca76976e9f.png",
-      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted earthy tones. The man from the reference p"
-    },
-    {
       "still_id": "ccc75620-a4d3-4f7c-9858-1002c659f4b8",
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_185920_ccc75620-a4d3-4f7c-9858-1002c659f4b8.png",
       "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones fading to cool. A wide atmosp"
     },
     {
-      "still_id": "b0f3fd47-9ad5-4a0e-85c1-b111a458b02f",
-      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_190630_b0f3fd47-9ad5-4a0e-85c1-b111a458b02f.png",
-      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones. Intimate emotional close-up "
-    },
-    {
       "still_id": "8ddf51e6-de3d-4006-9898-b1675264e8e2",
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_190810_8ddf51e6-de3d-4006-9898-b1675264e8e2.png",
       "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; warm muted earthy tones. A full live band playing tog"
-    },
-    {
-      "still_id": "26443c5f-dfa8-4895-8a5f-e1dda38c2313",
-      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_191114_26443c5f-dfa8-4895-8a5f-e1dda38c2313.png",
-      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool stormy tones. The exact man from the reference i"
-    },
-    {
-      "still_id": "ff3797c3-c255-48a3-a962-7418a0f2f712",
-      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_191244_ff3797c3-c255-48a3-a962-7418a0f2f712.png",
-      "prompt_summary": "Cinematic 1970s film still; widescreen; 35mm film grain; cool muted earthy tones. The exact man from the refer"
     },
     {
       "still_id": "43498158-4557-4f17-b038-0e4d14a00136",
@@ -571,6 +551,61 @@
       "still_id": "4e032f83-aae9-4d4c-ad2a-e565b34267c1",
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041441_4e032f83-aae9-4d4c-ad2a-e565b34267c1.png",
       "prompt_summary": "Hands on an electric piano under a warm lamp, lifting into the chorus"
+    },
+    {
+      "still_id": "8f972a07-33af-4403-a32d-49720ea46080",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_014251_8f972a07-33af-4403-a32d-49720ea46080.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; cool blue-grey rainy night."
+    },
+    {
+      "still_id": "97cd064d-3806-45fa-a6e3-0c729ff8d323",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013941_97cd064d-3806-45fa-a6e3-0c729ff8d323.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; WARM amber/brown wood-panele"
+    },
+    {
+      "still_id": "7553790a-de55-4b45-81ec-f505918a81b8",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013934_7553790a-de55-4b45-81ec-f505918a81b8.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; soft cool-neutral tones; a f"
+    },
+    {
+      "still_id": "5e5552ea-15ad-4fe9-817e-c1112f68d4fc",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013630_5e5552ea-15ad-4fe9-817e-c1112f68d4fc.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; cool blue-grey; a dim interi"
+    },
+    {
+      "still_id": "bc9718dd-f75a-405e-9d88-097d5202e6b7",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013625_bc9718dd-f75a-405e-9d88-097d5202e6b7.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; cool blue-grey stormy night;"
+    },
+    {
+      "still_id": "ca2e6b85-64e3-43ba-9735-1de235467e7e",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013136_ca2e6b85-64e3-43ba-9735-1de235467e7e.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; cool desaturated grey tones."
+    },
+    {
+      "still_id": "ec7bf2e2-a054-4c59-8dd4-e521508079e6",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_013113_ec7bf2e2-a054-4c59-8dd4-e521508079e6.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; warm amber/brown wood-panele"
+    },
+    {
+      "still_id": "e6c3fd90-3380-4673-b5d9-7491b1a0f99a",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012842_e6c3fd90-3380-4673-b5d9-7491b1a0f99a.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; cool blue-grey night. THE EX"
+    },
+    {
+      "still_id": "5ca66ac1-e2e8-4e7e-a1ba-baf2af2654e2",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012553_5ca66ac1-e2e8-4e7e-a1ba-baf2af2654e2.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; cool desaturated tones; a di"
+    },
+    {
+      "still_id": "94430bdf-22eb-46e2-a01a-4c8b645e58fa",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260628_153234_94430bdf-22eb-46e2-a01a-4c8b645e58fa.png",
+      "prompt_summary": "Cinematic 1970s film still; widescreen 16:9; 35mm film grain; cool muted nighttime blue-gr"
+    },
+    {
+      "still_id": "2d0ba697-5a52-45a5-860d-87f82fe44555",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260629_012553_2d0ba697-5a52-45a5-860d-87f82fe44555.png",
+      "prompt_summary": "Cinematic 1970s film still; cool steel-blue rainy night; the man in profile at a rain-streaked window; faint brunette-woman reflection behind his shoulder (C04 source)"
     }
   ],
   "edl": [
