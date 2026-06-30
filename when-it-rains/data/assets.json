@@ -1,7 +1,7 @@
 {
   "project": "When It Rains",
-  "target_runtime_sec": 276,
-  "target_runtime": "4:36",
+  "target_runtime_sec": 274,
+  "target_runtime": "4:34",
   "aspect_ratio": "16:9",
   "generator": "Higgsfield",
   "models": {
@@ -17,9 +17,9 @@
     "note": "Man stills were generated against these uploaded selfies. Woman is described per-prompt (one brunette woman, long dark wavy hair)."
   },
   "counts": {
-    "clips": 26,
-    "stills": 42,
-    "edl_cuts": 76
+    "clips": 36,
+    "stills": 52,
+    "edl_cuts": 86
   },
   "clips": [
     {
@@ -229,6 +229,86 @@
       "section": "story",
       "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_220349_c1cb27a8-fd89-470a-bbeb-1feb29a80605.mp4",
       "motion": "Man in rain looks up; lightning flashes on his face"
+    },
+    {
+      "clip_key": "C25",
+      "job_id": "ca67e772-7825-4793-950b-2864a50b18c4",
+      "source_still": "76c55142",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041631_ca67e772-7825-4793-950b-2864a50b18c4.mp4",
+      "motion": "drummer hands accelerate a tom fill, sticks blur, lightning flickers"
+    },
+    {
+      "clip_key": "C26",
+      "job_id": "34402db4-ac1d-45d6-8f03-5679ad13f191",
+      "source_still": "3c48a26d",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041633_34402db4-ac1d-45d6-8f03-5679ad13f191.mp4",
+      "motion": "slow dolly push-in toward the band leaning into the build"
+    },
+    {
+      "clip_key": "C27",
+      "job_id": "1dfdd7cc-ea3d-4d1b-bf39-636f81e7f1e6",
+      "source_still": "a685bc64",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041635_1dfdd7cc-ea3d-4d1b-bf39-636f81e7f1e6.mp4",
+      "motion": "singer lifts chin and leans into a rising vocal in profile"
+    },
+    {
+      "clip_key": "C28",
+      "job_id": "76997023-342c-495f-b765-16cce9fe8b3f",
+      "source_still": "727357a7",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041636_76997023-342c-495f-b765-16cce9fe8b3f.mp4",
+      "motion": "bassist sways forward, hand driving low strings, rim light shifts"
+    },
+    {
+      "clip_key": "C29",
+      "job_id": "dc84bdd5-c69d-4e06-93a4-cf2d684d7f3d",
+      "source_still": "589045f9",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041638_dc84bdd5-c69d-4e06-93a4-cf2d684d7f3d.mp4",
+      "motion": "hands drive hard chords, lightning flash crosses the keys"
+    },
+    {
+      "clip_key": "C30",
+      "job_id": "d5152734-b2ec-4209-8b62-839f7510214b",
+      "source_still": "7bc97ef5",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041639_d5152734-b2ec-4209-8b62-839f7510214b.mp4",
+      "motion": "whole band rises together at the peak, arms and instruments lifting"
+    },
+    {
+      "clip_key": "C31",
+      "job_id": "833e7ed9-943c-4ec1-a365-223b3a58737c",
+      "source_still": "2c9eb497",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041640_833e7ed9-943c-4ec1-a365-223b3a58737c.mp4",
+      "motion": "drummer strikes the backbeat hard, cymbal shimmers"
+    },
+    {
+      "clip_key": "C32",
+      "job_id": "06390892-c1c8-4b89-b395-2a5e478281dd",
+      "source_still": "150210b6",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041642_06390892-c1c8-4b89-b395-2a5e478281dd.mp4",
+      "motion": "hands strum and move along the fretboard, chorus rhythm"
+    },
+    {
+      "clip_key": "C33",
+      "job_id": "b23de5fd-fa07-49cf-9cd6-c18fa5272cc0",
+      "source_still": "ef844001",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041644_b23de5fd-fa07-49cf-9cd6-c18fa5272cc0.mp4",
+      "motion": "singer sings the chorus with force into the mic, slight push-in"
+    },
+    {
+      "clip_key": "C34",
+      "job_id": "5c2cdeaa-debd-4262-8f0e-c46f9de2eb32",
+      "source_still": "4e032f83",
+      "section": "band",
+      "mp4_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041645_5c2cdeaa-debd-4262-8f0e-c46f9de2eb32.mp4",
+      "motion": "hands lift into the chorus on the keys under warm lamp"
     }
   ],
   "stills": [
@@ -441,6 +521,56 @@
       "still_id": "749d8aeb-8b9a-45b0-9592-e931228e4b0d",
       "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260627_233734_749d8aeb-8b9a-45b0-9592-e931228e4b0d.png",
       "prompt_summary": "INSERT rainwater puddle; trembling reflection; streetlight"
+    },
+    {
+      "still_id": "76c55142-0b83-4fe2-a6d9-9a116968cf8c",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041425_76c55142-0b83-4fe2-a6d9-9a116968cf8c.png",
+      "prompt_summary": "Storm-lit drummer hands and sticks building a tom fill; blue-grey key light; film grain"
+    },
+    {
+      "still_id": "3c48a26d-0c83-4fb4-9529-c23a82de1aca",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041427_3c48a26d-0c83-4fb4-9529-c23a82de1aca.png",
+      "prompt_summary": "Slow push-in toward full band in a storm-lit room, rising build; 35mm cinematic"
+    },
+    {
+      "still_id": "a685bc64-58e3-41ca-a2b0-a8f7ac0b7778",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041430_a685bc64-58e3-41ca-a2b0-a8f7ac0b7778.png",
+      "prompt_summary": "Side-lit profile of the male singer (short red-blonde hair, receding hairline, not bald) leaning into a vocal; storm light"
+    },
+    {
+      "still_id": "727357a7-6e1d-48f1-b916-12edf31e1b60",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041431_727357a7-6e1d-48f1-b916-12edf31e1b60.png",
+      "prompt_summary": "Backlit bassist silhouette driving low strings in a storm-lit room; rim light"
+    },
+    {
+      "still_id": "589045f9-a971-4435-9a1f-cc06df021f1a",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041433_589045f9-a971-4435-9a1f-cc06df021f1a.png",
+      "prompt_summary": "Hands driving hard chords on an electric piano under a lamp; lightning on the keys"
+    },
+    {
+      "still_id": "7bc97ef5-11cd-4f4d-bbd6-0909f675540e",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041434_7bc97ef5-11cd-4f4d-bbd6-0909f675540e.png",
+      "prompt_summary": "Wide of the full band rising at the peak of a storm-build; arms and instruments lifting"
+    },
+    {
+      "still_id": "2c9eb497-7028-4b87-bf0f-cd96699349cf",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041435_2c9eb497-7028-4b87-bf0f-cd96699349cf.png",
+      "prompt_summary": "Drummer hard CU, backbeat hit, cymbal shimmer; warm wood-panelled room"
+    },
+    {
+      "still_id": "150210b6-f284-4e16-9f13-fd1c28840eb9",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041437_150210b6-f284-4e16-9f13-fd1c28840eb9.png",
+      "prompt_summary": "Guitar hands on the fretboard mid-strum; warm room; chorus rhythm"
+    },
+    {
+      "still_id": "ef844001-cd00-41a3-af52-d4985fb328eb",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041440_ef844001-cd00-41a3-af52-d4985fb328eb.png",
+      "prompt_summary": "Straight-to-lens CU of the male singer (short red-blonde hair, receding hairline, not bald) singing the chorus; warm key light"
+    },
+    {
+      "still_id": "4e032f83-aae9-4d4c-ad2a-e565b34267c1",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260630_041441_4e032f83-aae9-4d4c-ad2a-e565b34267c1.png",
+      "prompt_summary": "Hands on an electric piano under a warm lamp, lifting into the chorus"
     }
   ],
   "edl": [
@@ -488,7 +618,7 @@
       "index": "6",
       "clip_key": "C02",
       "in_point": "0.5",
-      "duration": "4.0",
+      "duration": "3.1",
       "section": "V1",
       "note": "sings opening line"
     },
@@ -496,7 +626,7 @@
       "index": "7",
       "clip_key": "C04",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "3.88",
       "section": "V1",
       "note": "turns as if touched; reflection dissolves"
     },
@@ -504,7 +634,7 @@
       "index": "8",
       "clip_key": "C01",
       "in_point": "1.0",
-      "duration": "3.0",
+      "duration": "2.33",
       "section": "V1",
       "note": "restrained band"
     },
@@ -512,7 +642,7 @@
       "index": "9",
       "clip_key": "C06",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.1",
       "section": "V1",
       "note": "grey ocean"
     },
@@ -520,7 +650,7 @@
       "index": "10",
       "clip_key": "EX1",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.1",
       "section": "V1",
       "note": "gazes at ocean through glass"
     },
@@ -528,7 +658,7 @@
       "index": "11",
       "clip_key": "C05",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.1",
       "section": "V1",
       "note": "river bend"
     },
@@ -536,7 +666,7 @@
       "index": "12",
       "clip_key": "C02",
       "in_point": "2.0",
-      "duration": "3.0",
+      "duration": "2.33",
       "section": "V1",
       "note": "singer"
     },
@@ -544,7 +674,7 @@
       "index": "13",
       "clip_key": "C04",
       "in_point": "1.5",
-      "duration": "3.0",
+      "duration": "2.31",
       "section": "V1",
       "note": "window"
     },
@@ -552,7 +682,7 @@
       "index": "14",
       "clip_key": "C07",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "4.75",
       "section": "V2",
       "note": "over shoulder; her reflection surfaces"
     },
@@ -560,7 +690,7 @@
       "index": "15",
       "clip_key": "C02",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "2.85",
       "section": "V2",
       "note": "face-on singing"
     },
@@ -568,7 +698,7 @@
       "index": "16",
       "clip_key": "C03",
       "in_point": "0.5",
-      "duration": "3.0",
+      "duration": "2.85",
       "section": "V2",
       "note": "rain behind him"
     },
@@ -576,7 +706,7 @@
       "index": "17",
       "clip_key": "C07",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.8",
       "section": "V2",
       "note": "raindrop breaks reflection; empty room"
     },
@@ -584,7 +714,7 @@
       "index": "18",
       "clip_key": "C09",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "2.85",
       "section": "V2",
       "note": "band fragments"
     },
@@ -592,7 +722,7 @@
       "index": "19",
       "clip_key": "C02",
       "in_point": "1.0",
-      "duration": "3.0",
+      "duration": "2.85",
       "section": "V2",
       "note": "more direct"
     },
@@ -600,7 +730,7 @@
       "index": "20",
       "clip_key": "C04",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.8",
       "section": "V2",
       "note": "window"
     },
@@ -608,7 +738,7 @@
       "index": "21",
       "clip_key": "C07",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "4.75",
       "section": "V2",
       "note": "reflection again",
       "null": [
@@ -619,7 +749,7 @@
       "index": "22",
       "clip_key": "C08",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "3.9",
       "section": "PRE1",
       "note": "curtains breathe; trees move"
     },
@@ -627,7 +757,7 @@
       "index": "23",
       "clip_key": "C13",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.12",
       "section": "PRE1",
       "note": "almost turns toward a sound"
     },
@@ -635,7 +765,7 @@
       "index": "24",
       "clip_key": "C09",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.12",
       "section": "PRE1",
       "note": "drummer enters",
       "null": [
@@ -646,7 +776,7 @@
       "index": "25",
       "clip_key": "C02",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "2.34",
       "section": "PRE1",
       "note": "it's like you never left"
     },
@@ -654,7 +784,7 @@
       "index": "26",
       "clip_key": "C08",
       "in_point": "1.0",
-      "duration": "4.0",
+      "duration": "3.12",
       "section": "PRE1",
       "note": "trees move"
     },
@@ -662,7 +792,7 @@
       "index": "27",
       "clip_key": "C09",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "3.9",
       "section": "PRE1",
       "note": "push-in",
       "null": [
@@ -673,7 +803,7 @@
       "index": "28",
       "clip_key": "C12",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "4.15",
       "section": "CH1",
       "note": "band release"
     },
@@ -681,23 +811,34 @@
       "index": "29",
       "clip_key": "C10",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "3.11",
       "section": "CH1",
       "note": "puddle reflection trembles"
     },
     {
       "index": "30",
+      "clip_key": "C31",
+      "in_point": "0.0",
+      "duration": "3.2",
+      "section": "CH1",
+      "note": "drummer strikes the backbeat hard",
+      "null": [
+        " cymbal shimmers"
+      ]
+    },
+    {
+      "index": "31",
       "clip_key": "C19",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "3.11",
       "section": "CH1",
       "note": "thunder flash"
     },
     {
-      "index": "31",
+      "index": "32",
       "clip_key": "C11",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "3.11",
       "section": "CH1",
       "note": "woman from behind",
       "null": [
@@ -705,58 +846,88 @@
       ]
     },
     {
-      "index": "32",
+      "index": "33",
+      "clip_key": "C32",
+      "in_point": "0.0",
+      "duration": "3.2",
+      "section": "CH1",
+      "note": "hands strum and move along the fretboard",
+      "null": [
+        " chorus rhythm"
+      ]
+    },
+    {
+      "index": "34",
       "clip_key": "C12",
       "in_point": "1.5",
-      "duration": "3.0",
+      "duration": "3.11",
       "section": "CH1",
       "note": "band"
     },
     {
-      "index": "33",
+      "index": "35",
       "clip_key": "C02",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "3.11",
       "section": "CH1",
       "note": "chorus with force"
     },
     {
-      "index": "34",
+      "index": "36",
+      "clip_key": "C33",
+      "in_point": "0.0",
+      "duration": "3.2",
+      "section": "CH1",
+      "note": "singer sings the chorus with force into the mic",
+      "null": [
+        " slight push-in"
+      ]
+    },
+    {
+      "index": "37",
       "clip_key": "C10",
       "in_point": "1.5",
-      "duration": "3.0",
+      "duration": "3.11",
       "section": "CH1",
       "note": "water again"
     },
     {
-      "index": "35",
+      "index": "38",
       "clip_key": "C12",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "3.11",
       "section": "CH1",
       "note": "band"
     },
     {
-      "index": "36",
+      "index": "39",
+      "clip_key": "C34",
+      "in_point": "0.0",
+      "duration": "3.23",
+      "section": "CH1",
+      "note": "hands lift into the chorus on the keys under warm lamp"
+    },
+    {
+      "index": "40",
       "clip_key": "C13",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "2.66",
       "section": "V3",
       "note": "turns toward window at thunder"
     },
     {
-      "index": "37",
+      "index": "41",
       "clip_key": "C18",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "1.6",
       "section": "V3",
       "note": "storm clouds"
     },
     {
-      "index": "38",
+      "index": "42",
       "clip_key": "C09",
       "in_point": "1.0",
-      "duration": "3.0",
+      "duration": "1.6",
       "section": "V3",
       "note": "band warmer",
       "null": [
@@ -764,10 +935,10 @@
       ]
     },
     {
-      "index": "39",
+      "index": "43",
       "clip_key": "C13",
       "in_point": "1.0",
-      "duration": "4.0",
+      "duration": "2.13",
       "section": "V3",
       "note": "turns",
       "null": [
@@ -775,10 +946,10 @@
       ]
     },
     {
-      "index": "40",
+      "index": "44",
       "clip_key": "C11",
       "in_point": "1.0",
-      "duration": "3.0",
+      "duration": "1.6",
       "section": "V3",
       "note": "distant woman",
       "null": [
@@ -786,26 +957,26 @@
       ]
     },
     {
-      "index": "41",
+      "index": "45",
       "clip_key": "C02",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "2.13",
       "section": "V3",
       "note": "singer less controlled"
     },
     {
-      "index": "42",
+      "index": "46",
       "clip_key": "C12",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "2.13",
       "section": "V3",
       "note": "drummer harder"
     },
     {
-      "index": "43",
+      "index": "47",
       "clip_key": "C13",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "2.65",
       "section": "V3",
       "note": "listening",
       "null": [
@@ -813,10 +984,10 @@
       ]
     },
     {
-      "index": "44",
+      "index": "48",
       "clip_key": "C14",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "4.75",
       "section": "V4",
       "note": "opens drawer",
       "null": [
@@ -824,103 +995,165 @@
       ]
     },
     {
-      "index": "45",
+      "index": "49",
       "clip_key": "C15",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "4.75",
       "section": "V4",
       "note": "her face in misted mirror"
     },
     {
-      "index": "46",
+      "index": "50",
       "clip_key": "C02",
       "in_point": "1.0",
-      "duration": "3.0",
+      "duration": "2.85",
       "section": "V4",
       "note": "CU; band swallowed by story"
     },
     {
-      "index": "47",
+      "index": "51",
       "clip_key": "C16",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.8",
       "section": "V4",
       "note": "face forms in fog"
     },
     {
-      "index": "48",
+      "index": "52",
       "clip_key": "C15",
       "in_point": "1.0",
-      "duration": "4.0",
+      "duration": "3.8",
       "section": "V4",
       "note": "he reaches; dissolves to his reflection"
     },
     {
-      "index": "49",
+      "index": "53",
       "clip_key": "C14",
       "in_point": "1.0",
-      "duration": "4.0",
+      "duration": "3.8",
       "section": "V4",
       "note": "drawer closes"
     },
     {
-      "index": "50",
+      "index": "54",
       "clip_key": "C09",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "4.75",
       "section": "V4",
       "note": "shadowy band"
     },
     {
-      "index": "51",
+      "index": "55",
       "clip_key": "C17",
       "in_point": "0.0",
-      "duration": "5.0",
+      "duration": "4.12",
       "section": "PRE2",
       "note": "looks up into storm sky"
     },
     {
-      "index": "52",
+      "index": "56",
+      "clip_key": "C25",
+      "in_point": "0.0",
+      "duration": "3.4",
+      "section": "PRE2",
+      "note": "drummer hands accelerate a tom fill",
+      "null": [
+        " sticks blur",
+        " lightning flickers"
+      ]
+    },
+    {
+      "index": "57",
       "clip_key": "C18",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.3",
       "section": "PRE2",
       "note": "clouds move"
     },
     {
-      "index": "53",
+      "index": "58",
+      "clip_key": "C26",
+      "in_point": "0.0",
+      "duration": "3.4",
+      "section": "PRE2",
+      "note": "slow dolly push-in toward the band leaning into the build"
+    },
+    {
+      "index": "59",
       "clip_key": "C12",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.3",
       "section": "PRE2",
       "note": "band carries the confession"
     },
     {
-      "index": "54",
+      "index": "60",
+      "clip_key": "C27",
+      "in_point": "0.0",
+      "duration": "3.4",
+      "section": "PRE2",
+      "note": "singer lifts chin and leans into a rising vocal in profile"
+    },
+    {
+      "index": "61",
       "clip_key": "C02",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.3",
       "section": "PRE2",
       "note": "I still want you"
     },
     {
-      "index": "55",
+      "index": "62",
+      "clip_key": "C28",
+      "in_point": "0.0",
+      "duration": "3.4",
+      "section": "PRE2",
+      "note": "bassist sways forward",
+      "null": [
+        " hand driving low strings",
+        " rim light shifts"
+      ]
+    },
+    {
+      "index": "63",
       "clip_key": "C17",
       "in_point": "1.0",
-      "duration": "4.0",
+      "duration": "3.3",
       "section": "PRE2",
       "note": "stops fighting it"
     },
     {
-      "index": "56",
+      "index": "64",
+      "clip_key": "C29",
+      "in_point": "0.0",
+      "duration": "3.4",
+      "section": "PRE2",
+      "note": "hands drive hard chords",
+      "null": [
+        " lightning flash crosses the keys"
+      ]
+    },
+    {
+      "index": "65",
       "clip_key": "C20",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.3",
       "section": "PRE2",
       "note": "band rises"
     },
     {
-      "index": "57",
+      "index": "66",
+      "clip_key": "C30",
+      "in_point": "0.0",
+      "duration": "3.38",
+      "section": "PRE2",
+      "note": "whole band rises together at the peak",
+      "null": [
+        " arms and instruments lifting"
+      ]
+    },
+    {
+      "index": "67",
       "clip_key": "C20",
       "in_point": "0.0",
       "duration": "3.0",
@@ -928,7 +1161,7 @@
       "note": "band"
     },
     {
-      "index": "58",
+      "index": "68",
       "clip_key": "C10",
       "in_point": "0.0",
       "duration": "2.5",
@@ -936,7 +1169,7 @@
       "note": "water"
     },
     {
-      "index": "59",
+      "index": "69",
       "clip_key": "C19",
       "in_point": "0.0",
       "duration": "2.5",
@@ -944,7 +1177,7 @@
       "note": "thunder"
     },
     {
-      "index": "60",
+      "index": "70",
       "clip_key": "C15",
       "in_point": "0.0",
       "duration": "3.0",
@@ -952,7 +1185,7 @@
       "note": "mirror"
     },
     {
-      "index": "61",
+      "index": "71",
       "clip_key": "C07",
       "in_point": "0.0",
       "duration": "3.0",
@@ -960,7 +1193,7 @@
       "note": "window reflection"
     },
     {
-      "index": "62",
+      "index": "72",
       "clip_key": "C21",
       "in_point": "0.0",
       "duration": "3.0",
@@ -971,7 +1204,7 @@
       ]
     },
     {
-      "index": "63",
+      "index": "73",
       "clip_key": "C20",
       "in_point": "1.0",
       "duration": "3.0",
@@ -979,7 +1212,7 @@
       "note": "band"
     },
     {
-      "index": "64",
+      "index": "74",
       "clip_key": "C02",
       "in_point": "0.0",
       "duration": "4.0",
@@ -987,7 +1220,7 @@
       "note": "almost angry at himself"
     },
     {
-      "index": "65",
+      "index": "75",
       "clip_key": "C22",
       "in_point": "0.0",
       "duration": "5.0",
@@ -995,7 +1228,7 @@
       "note": "rainwater spreads across floor"
     },
     {
-      "index": "66",
+      "index": "76",
       "clip_key": "C16",
       "in_point": "0.0",
       "duration": "3.0",
@@ -1003,7 +1236,7 @@
       "note": "mirror fogs"
     },
     {
-      "index": "67",
+      "index": "77",
       "clip_key": "C11",
       "in_point": "0.0",
       "duration": "3.0",
@@ -1011,7 +1244,7 @@
       "note": "she turns away"
     },
     {
-      "index": "68",
+      "index": "78",
       "clip_key": "C20",
       "in_point": "0.0",
       "duration": "3.0",
@@ -1019,7 +1252,7 @@
       "note": "band at peak"
     },
     {
-      "index": "69",
+      "index": "79",
       "clip_key": "C22",
       "in_point": "2.0",
       "duration": "3.0",
@@ -1027,7 +1260,7 @@
       "note": "drawer creaks open"
     },
     {
-      "index": "70",
+      "index": "80",
       "clip_key": "C21",
       "in_point": "0.0",
       "duration": "3.0",
@@ -1035,7 +1268,7 @@
       "note": "she vanishes"
     },
     {
-      "index": "71",
+      "index": "81",
       "clip_key": "C15",
       "in_point": "0.0",
       "duration": "3.0",
@@ -1043,10 +1276,10 @@
       "note": "he reaches for the mirror"
     },
     {
-      "index": "72",
+      "index": "82",
       "clip_key": "C20",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "2.6",
       "section": "FINAL",
       "note": "final chorus",
       "null": [
@@ -1054,10 +1287,10 @@
       ]
     },
     {
-      "index": "73",
+      "index": "83",
       "clip_key": "C24",
       "in_point": "0.0",
-      "duration": "3.0",
+      "duration": "2.6",
       "section": "FINAL",
       "note": "singer direct",
       "null": [
@@ -1065,26 +1298,26 @@
       ]
     },
     {
-      "index": "74",
+      "index": "84",
       "clip_key": "C23",
       "in_point": "0.0",
-      "duration": "4.0",
+      "duration": "3.47",
       "section": "FINAL",
       "note": "alone by the window"
     },
     {
-      "index": "75",
+      "index": "85",
       "clip_key": "C03",
       "in_point": "0.0",
-      "duration": "2.0",
+      "duration": "1.73",
       "section": "FINAL",
       "note": "rain continues"
     },
     {
-      "index": "76",
+      "index": "86",
       "clip_key": "C23",
       "in_point": "1.0",
-      "duration": "3.0",
+      "duration": "2.6",
       "section": "FINAL",
       "note": "looks to camera",
       "null": [

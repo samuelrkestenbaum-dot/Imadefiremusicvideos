@@ -3,8 +3,8 @@
 # RUN THIS ON YOUR OWN MACHINE — this repo's cloud session blocks the CDN hosts.
 #
 # Usage:  bash scripts/fetch_assets.sh
-# Result: clips/<KEY>.mp4   (26 animated clips)
-#         stills/<ID>.png   (42 source stills)
+# Result: clips/<KEY>.mp4   (36 animated clips)
+#         stills/<ID>.png   (52 source stills)
 #
 # Re-running skips files already downloaded.
 set -euo pipefail
