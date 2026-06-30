@@ -17,11 +17,40 @@
   `when-it-rains/scripts/fetch_assets.sh` then
   `when-it-rains/scripts/assemble_rough_cut.sh`. The **cloud session CANNOT
   render**: the Higgsfield CDN is egress-blocked here and there is no system
-  ffmpeg. "Proof" for this project = the user eyeballing a real render.
+  ffmpeg. "Proof" for this project = the user eyeballing a real render. **NEW
+  (P-011):** there is now also `when-it-rains/preview.html` — a self-contained,
+  browser-playable in-browser review aid that streams the 86 clip mp4s from the
+  CDN (browser-reachable even though this cloud session's egress is blocked);
+  silent + approximate-timing, but it lets the user review the rough cut in a
+  browser without the Mac fetch+ffmpeg render.
 
 ## Where we are
 
-- **Last closed packet:** **P-009 — assets.json reconciled to clips.csv** —
+- **Last closed packet:** **P-011 — browser preview tool (`preview.html`)** —
+  build (read-only media-data input → HTML artifact; no generation, no source-CSV
+  change), route builder → reviewer → qa → archivist. Commits **`645df31`**
+  (`scripts/build_preview.py` — deterministic generator + embedded self-test, 700
+  ins) + **`a4266c5`** (`preview.html` — self-contained 86-cut browser review
+  tool, 1498 ins), base **`46adfc0`**. `build_preview.py` reads `data/edl.csv` +
+  `data/clips.csv`, joins `clip_key → mp4_url`, and emits a **self-contained**
+  `when-it-rains/preview.html` that plays all **86** EDL cuts in order, streaming
+  the clip mp4s from the Higgsfield CDN. Per-cut overlay (n/86, section, cumulative
+  timecode, clip, note); **C25–C34** highlighted + **C27/C33** badged on-model;
+  per-cut PASS/FAIL + note marking (localStorage + export mirroring
+  `RENDER_REVIEW.md`); play/pause/prev/next + click-to-jump list; graceful
+  per-clip failure; a clear SILENT / approximate-timing banner naming the Mac
+  render path. **qa GREEN — 10/10 + Commit-1 isolation**: 86 cuts in EDL order;
+  all mp4_urls + notes verbatim from CSVs; timecodes monotonic ending **274.0**;
+  new/on-model flags correct; self-contained (no external script/link/@import);
+  deterministic (byte-identical re-runs; Commit-1 `645df31` regenerates the
+  artifact identically); safety clean. **reviewer PASS** — generator deterministic,
+  playback engine has no stall/double-advance bug (all paths traced; failed clips
+  degrade not hang), self-contained + honest banner + XSS-safe, scope airtight.
+  **Codex second-eyes UNAVAILABLE** (single-reviewer); the live play-test is the
+  **user's** (CDN egress-blocked here). Receipt `build-os/receipts/P-011.md`.
+  **Reviewer-flagged (out of scope):** `RENDER_REVIEW.md` is STALE (still the
+  76-cut/276s edit) — logged as new residue, optional refresh.
+- **Last closed packet (prior):** **P-009 — assets.json reconciled to clips.csv** —
   marketing-media (manifest / docs-consistency sub-scope on
   `when-it-rains/data/assets.json`; **no generation, no CSV functional change**),
   route builder → reviewer → qa → archivist. Commit **`f59829b`** (base
@@ -64,24 +93,27 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-009 is CLOSED** — the **manifest (`assets.json`) now fully matches
-  the functional CSVs**: its 11 stale clip rows were reconciled to `clips.csv`, so
-  the whole repo is **COHERENT** — docs/manifests match the real **86-cut /
-  274.0s** pipeline (**36 clips / 52 stills**), the **C27/C33 on-model risk is
-  CLOSED** (verified on-model), and the edit + manifest are **render-ready**.
-  Reversibility chain intact: `edl_pre_bandcoverage_backup.csv` (pre-band) →
-  `edl_original_backup.csv` (pre-section-sync), neither overwritten. The **ONLY
-  open work is the user's render-review**. (Optional / low-priority later:
-  **P-010** — stills backfill of the pre-existing 8-char-prefix ↔ full-UUID
-  source_still gap; non-functional, needs a fresh go.)
-- **Next:** the **user renders + judges** the cut —
-  `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`, walking
-  `when-it-rains/RENDER_REVIEW.md` (overall pacing judgment; C27/C33 on-model is
-  now resolved, no longer a spot-check item). Optional later: **P-010** (stills
-  backfill — pre-existing id-format gap, non-functional, needs go), **sub-beat
-  beat-grid quantization** to the 0.97524s grid (needs a rigorous downbeat phase
-  reference), and **selective 2K/4K upscale** (explicitly LAST, after the cut is
-  locked).
+- **Now:** **P-011 is CLOSED** — `preview.html` is delivered as an interactive
+  **in-browser render-review aid** (86 cuts, streams from the CDN, silent /
+  approximate-timing). The repo stays **COHERENT + render-ready** (docs/manifests
+  match the real **86-cut / 274.0s** pipeline — **36 clips / 52 stills**; C27/C33
+  on-model CLOSED; reversibility chain intact:
+  `edl_pre_bandcoverage_backup.csv` → `edl_original_backup.csv`, neither
+  overwritten). The **render-review** (the interactive preview AND/OR a full Mac
+  render) is now the **open user step**. (Optional / low-priority later: **refresh
+  the STALE `RENDER_REVIEW.md`** to 86/274 — see residue; and **P-010** — stills
+  backfill of the pre-existing 8-char-prefix ↔ full-UUID source_still gap;
+  non-functional, needs a fresh go.)
+- **Next:** the **user reviews + judges** the cut — either open
+  `when-it-rains/preview.html` in a browser (silent, approximate-timing, streams
+  from the CDN) and/or run the full Mac render (`scripts/fetch_assets.sh` →
+  `scripts/assemble_rough_cut.sh`) for overall pacing judgment (C27/C33 on-model
+  is resolved, no longer a spot-check item). Optional later: **refresh
+  `RENDER_REVIEW.md`** to 86/274 (preview.html supersedes the static checklist for
+  the live review), **P-010** (stills backfill — pre-existing id-format gap,
+  non-functional, needs go), **sub-beat beat-grid quantization** to the 0.97524s
+  grid (needs a rigorous downbeat phase reference), and **selective 2K/4K upscale**
+  (explicitly LAST, after the cut is locked).
 
 ## Stable facts (slow-changing)
 
@@ -100,6 +132,14 @@
   drift is RESOLVED; the render reads the CSVs, not `assets.json`). Residual: the
   `source_still`↔`stills.csv` id-format quirk (8-char prefixes vs full UUIDs,
   pre-existing, non-functional) is now optional **P-010**.)
+- **Browser preview (P-011):** `when-it-rains/preview.html` (generated by
+  `scripts/build_preview.py` from `edl.csv` + `clips.csv`) is a **self-contained**
+  browser tool that plays all **86** cuts in EDL order, streaming the clip mp4s
+  from the Higgsfield CDN. Silent + approximate-timing; per-cut overlay,
+  C25–C34/C27-C33 flags, click-to-jump, per-cut PASS/FAIL+note (localStorage +
+  export). Deterministic generator (byte-identical re-runs). It is a **review aid**
+  that supersedes the static `RENDER_REVIEW.md` for the live review; it does **not**
+  replace the high-fidelity Mac render.
 - **Edit kit:** `data/edl.csv` = **86 cuts, total 274.0s** (resolves on the
   Jun-27 mix end). It is section-synced to the confirmed section times (P-004)
   AND has the band-coverage inserted with PRE2/CH1 re-timed to ~3.3s avg (P-007:
@@ -134,13 +174,16 @@
 - **Verification caveat:** the fixes were confirmed by **automated re-analysis,
   NOT a human eye** (canary on C13) — a real render is the final confidence check.
   `when-it-rains/RENDER_REVIEW.md` (P-002) is the structured instrument for that
-  still-pending human review. **C27 + C33 (the two singer-facing P-006 band clips)
-  are now CONFIRMED ON-MODEL (P-008)** via Higgsfield `video_analysis` — C27
-  "late-30s, fair complexion, very short thinning reddish hair, light beard"; C33
-  "mid-30s, freckles, short ginger hair, trimmed ginger beard" (short reddish/ginger
-  hair + beard, NOT bald). The reference-anchoring bald-fix held; the C27/C33
-  on-model risk from P-006 is **CLOSED** (no regen needed). This is still an
-  automated confirmation, not a human eye — the render pass stays the final check.
+  still-pending human review **but is STALE** (P-011: it still describes the
+  pre-band-coverage 76-cut / 276.0s edit — `preview.html` supersedes it for the
+  live review; an optional refresh to 86/274 is residue). **C27 + C33 (the two
+  singer-facing P-006 band clips) are now CONFIRMED ON-MODEL (P-008)** via
+  Higgsfield `video_analysis` — C27 "late-30s, fair complexion, very short
+  thinning reddish hair, light beard"; C33 "mid-30s, freckles, short ginger hair,
+  trimmed ginger beard" (short reddish/ginger hair + beard, NOT bald). The
+  reference-anchoring bald-fix held; the C27/C33 on-model risk from P-006 is
+  **CLOSED** (no regen needed). This is still an automated confirmation, not a
+  human eye — the render pass stays the final check.
 - **Creative invariants:** the man = fair freckled skin, reddish beard, short
   cropped red-blonde hair with a receding hairline (NOT bald/shaved/buzzed); the
   woman = one brunette, long dark wavy hair, only ever memory/reflection. Look =
@@ -152,4 +195,5 @@ _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 `FOOTAGE_AUDIT.md`, `README.md`, and `data/` on 2026-06-29. P-001 closed
 2026-06-29; P-002 closed 2026-06-29; P-003 closed 2026-06-29; P-004 closed
 2026-06-29; P-005 closed 2026-06-29; P-006 closed 2026-06-29; P-007 closed
-2026-06-29; P-008 closed 2026-06-29; P-009 closed 2026-06-29._
+2026-06-29; P-008 closed 2026-06-29; P-009 closed 2026-06-29; P-011 closed
+2026-06-29._

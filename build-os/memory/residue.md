@@ -6,6 +6,17 @@
 
 ## Deferred (follow-up packets)
 
+- **`when-it-rains/RENDER_REVIEW.md` is STALE — NEW (P-011, reviewer-flagged, out
+  of P-011 scope) / OPTIONAL.** Its per-cut checklist still describes the
+  **pre-band-coverage 76-cut / 276.0s** edit — it **predates** the P-004
+  section-sync (→ 274s) and the P-006/P-007 band coverage (→ 86 cuts). `data/edl.csv`
+  AND the new `when-it-rains/preview.html` are **correct at 86 / 274.0**;
+  **`preview.html` supersedes the static checklist for the live review.** A refresh
+  of `RENDER_REVIEW.md` to **86 / 274** (plus updated watch-points: band coverage
+  added (C25–C34), on-model confirmed (C27/C33), section times confirmed) is an
+  **OPTIONAL follow-up pending the user's decision** — it touches a `when-it-rains/`
+  doc, so it needs a **fresh go**. Non-blocking: the user can already do the live
+  review via `preview.html` (in-browser) and/or the full Mac render.
 - **PRE2 / CH1 drag — RESOLVED (P-007).** The section-sync had stretched
   **CH1 ×1.55** and **PRE2 ×1.64** so their cuts held **~5–6.5s and dragged**.
   P-005 spec'd the fix, P-006 generated the 10 band-only add-cuts, and **P-007
@@ -84,23 +95,29 @@
 - **No render in the cloud env.** The Higgsfield CDN is egress-blocked here and
   there is no system ffmpeg, so the rough cut **cannot be rendered or eyeballed in
   this session** — it MUST be rendered on the user's Mac
-  (`scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`). Server-side
-  `video_analysis` (free, bypasses the CDN) is the only in-session look at footage
-  — **and it only accepts imported video ids, not generation job ids** (this is why
-  the P-006 clips could not be auto-checked on-model). The 86-cut, PRE2/CH1-retimed
-  cut (P-007) is therefore **unverified by human eye** until the user renders it.
-- **The rough cut still needs a human render pass — STILL OPEN.** The full 86-cut
+  (`scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`). **NEW (P-011):**
+  `when-it-rains/preview.html` offers an **in-browser** review path — the browser
+  CAN reach the CDN even though this cloud session's egress cannot, so the user
+  can stream + review the 86 cuts in a browser (silent, approximate-timing)
+  without the Mac render. Server-side `video_analysis` (free, bypasses the CDN) is
+  the only in-session look at footage — **and it only accepts imported video ids,
+  not generation job ids** (this is why the P-006 clips could not be auto-checked
+  on-model). The 86-cut, PRE2/CH1-retimed cut (P-007) is therefore **unverified by
+  human eye** until the user reviews it (via preview.html or the full render).
+- **The rough cut still needs a human review pass — STILL OPEN.** The full 86-cut
   274.0s edit (the 11 P-002-era fixes + the P-004 section-sync + the P-006/P-007
   band coverage) has **not been watched by a human**. The 11 fixes were confirmed
   by **automated re-analysis** (`video_analysis`, canary on C13), and the 10 band
   clips were not auto-analyzed at all (only reference-anchoring confirmed +
-  C27/C33 shown). A render is the final confidence check. Known-open even after
-  the P-002 fix: C04's head-turn is still absent, and the lead's exact face still
-  varies slightly clip-to-clip (anchored, not a trained Soul).
-  **`when-it-rains/RENDER_REVIEW.md`** (P-002) is the structured timecode-keyed
-  capture instrument for this still-pending review — the gap stays open until the
-  user actually renders + reviews (now including C25–C34 and the new PRE2/CH1
-  pacing).
+  C27/C33 shown). A render (or the P-011 `preview.html`) is the confidence check.
+  Known-open even after the P-002 fix: C04's head-turn is still absent, and the
+  lead's exact face still varies slightly clip-to-clip (anchored, not a trained
+  Soul). **`when-it-rains/RENDER_REVIEW.md`** (P-002) was the structured
+  timecode-keyed capture instrument for this still-pending review — but it is now
+  **STALE** (P-011: still the 76-cut/276s edit; `preview.html` supersedes it for
+  the live review, and an optional refresh to 86/274 is logged in Deferred). The
+  review gap stays open until the user actually reviews (preview.html and/or the
+  full Mac render, now including C25–C34 and the new PRE2/CH1 pacing).
 - **Mid-song section starts — CONFIRMED + applied (resolved).**
   **`when-it-rains/SECTION_TIMES.md`** (P-003) proposed the ambiguous starts; the
   user **CONFIRMED** them ("those look good, keep going") and **P-004 applied them**
@@ -119,8 +136,12 @@
   verified both on-model, so no regen is needed; any other new generation needs a
   **fresh go**.) The P-007 edit (the gated insert + re-time) is **done**; **P-008**
   (docs/manifest refresh) is **done**; **P-009** (manifest existing-row reconcile)
-  is **done**. The only generation-touching follow-up left is **P-010** (optional
-  stills backfill — touches a source CSV + a count), which needs a **fresh go**.
+  is **done**; **P-011** (browser preview tool) is **done**. The only
+  generation-touching follow-up left is **P-010** (optional stills backfill —
+  touches a source CSV + a count), which needs a **fresh go**.
+- **The optional `RENDER_REVIEW.md` refresh (to 86/274) is NOT authorized** —
+  reviewer-flagged in P-011 as out-of-scope; it touches a `when-it-rains/` doc and
+  needs a **fresh go**.
 
 ---
 _Append-only working notes. Seeded from `when-it-rains/HANDOFF.md` +
@@ -130,4 +151,7 @@ appended 2026-06-29; P-004 note appended 2026-06-29; P-005 note appended
 (PRE2/CH1 drag RESOLVED); P-008 note appended 2026-06-29 (C27/C33 on-model
 RESOLVED — verified on-model; P-009 manifest-drift item opened); P-009 note
 appended 2026-06-29 (assets.json drift RESOLVED; remaining source_still↔stills.csv
-id-format gap re-characterized as optional P-010)._
+id-format gap re-characterized as optional P-010); P-011 note appended 2026-06-29
+(browser preview tool `preview.html` delivered; NEW finding — RENDER_REVIEW.md is
+STALE at 76-cut/276s, preview.html supersedes it for the live review, optional
+refresh to 86/274 needs go)._
