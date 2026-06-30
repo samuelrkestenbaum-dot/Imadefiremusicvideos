@@ -14,15 +14,25 @@
   274.0s**, all section starts unchanged, no two new cuts back-to-back. The drag
   thread is **CLOSED** — the remaining check is the human render-eye on the new
   pacing (below).
-- **C27 + C33 (singer-facing) on-model NOT auto-verified — STILL OPEN.** The
-  Higgsfield `video_analysis` on-model check **ERRORED** on all 10 P-006 clips —
-  the tool needs an **uploaded/imported video id**, not a generation **job id**.
-  Reference-anchoring (the proven bald-fix) **IS** confirmed applied to all 10
-  stills, and C27/C33 (the two singer stills, also +3 man-selfies) were shown to
-  the user — so **risk is low**. **Confirm C27 + C33 read on-model at the user's
-  render-review** (they are the designated spot-check); if either is off-model,
-  **regenerate just those (~10 credits, needs a fresh go).** Carried out of P-006,
-  still open after P-007 (the insert did not — and could not — verify on-model).
+- **C27 + C33 (singer-facing) on-model — RESOLVED (P-008).** Earlier the
+  Higgsfield `video_analysis` check had errored on the P-006 clips, so C27/C33
+  on-model was carried open. **P-008 verified both ON-MODEL** via `video_analysis`:
+  **C27** "late-30s, fair complexion, very short thinning reddish hair, light
+  beard"; **C33** "mid-30s, freckles, short ginger hair, trimmed ginger beard" —
+  short reddish/ginger hair + beard, **NOT bald**. The reference-anchoring bald-fix
+  **held**; **no C27/C33 regen needed**. This **CLOSES the open on-model item from
+  P-006**. (Still an automated confirmation, not a human eye — the render pass
+  remains the final human-eye check, but the on-model RISK is closed.)
+- **`assets.json` pre-existing regenerated-clip rows drift — NEW, handled by P-009.**
+  `assets.json`'s **existing** clip entries for the 11 earlier-regenerated clips
+  (**C01, C04, C06, C07, C13, C15, C16, C19, C22, C23, C24**) still carry
+  **pre-regen job_ids / urls**, diverging from the fixed `clips.csv`. This is
+  **non-functional** — the render reads `clips.csv` (the source of truth), not
+  `assets.json` — but it is a manifest drift **P-009 reconciles** (bring the
+  manifest's existing rows into line with the fixed CSVs; no generation, no CSV
+  functional change). P-008 already reconciled the counts block, the runtime, the
+  C25–C34 array rows, and the inline `edl` array; P-009 finishes the existing-row
+  reconcile.
 - **Sub-beat beat-grid quantization (still deferred / optional).** Snap the 86
   cuts to the **0.97524s** beat grid (61.5234375 BPM) on top of the section-sync —
   but this needs a **rigorous downbeat phase reference** and the MP3 re-attached
@@ -94,13 +104,16 @@
   no trunk) — local commits only without explicit go.
 - **No further Higgsfield generation / upscale** — spends credits = external
   mutation; STOP unless inside a confirmed media packet with go. (P-006's C25–C34
-  generation go is **spent / done**; any new generation — including the ~10-credit
-  C27/C33 regen if off-model — needs a **fresh go**.) The P-007 edit (the gated
-  insert + re-time) is now **done**.
+  generation go is **spent / done**; the **C27/C33 regen is now MOOT** — P-008
+  verified both on-model, so no regen is needed; any other new generation needs a
+  **fresh go**.) The P-007 edit (the gated insert + re-time) is **done**; **P-008**
+  (docs/manifest refresh) is **done**; **P-009** (manifest existing-row reconcile)
+  is a docs-only edit — no generation.
 
 ---
 _Append-only working notes. Seeded from `when-it-rains/HANDOFF.md` +
 `FOOTAGE_AUDIT.md` on 2026-06-29. P-002 note appended 2026-06-29; P-003 note
 appended 2026-06-29; P-004 note appended 2026-06-29; P-005 note appended
 2026-06-29; P-006 note appended 2026-06-29; P-007 note appended 2026-06-29
-(PRE2/CH1 drag RESOLVED)._
+(PRE2/CH1 drag RESOLVED); P-008 note appended 2026-06-29 (C27/C33 on-model
+RESOLVED — verified on-model; P-009 manifest-drift item opened)._
