@@ -26,7 +26,55 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-014 — stills-catalog backfill (manifest now
+- **Last closed packet:** **P-015 — beat-lock analysis + gated beat-aware EDL
+  variant** — build (in-session audio analysis + a NON-DESTRUCTIVE derived data
+  artifact under `when-it-rains/`), route builder → qa → reviewer → archivist.
+  Commits **`c65748e`** (Commit-1: `scripts/beat_lock.py` + `scripts/test_beat_lock.py`
+  [20-check suite] + `analysis/beats.json` + `analysis/beat_vs_cut.md`; **4 files,
+  1181 ins**, green in isolation) + **`9370af3`** (Commit-2 tip: `data/edl_beatlocked.csv`;
+  **1 file, 87 ins**), base **`9ba310b`**. Decoded `when-it-rains/song.mp3` via the
+  bundled `imageio_ffmpeg`, built a **uniform beat grid** at the `song.json` period
+  (**61.5234375 BPM / 0.9752381 s**) **phase-locked to onset-envelope energy** (method
+  `librosa_onset_phase_grid`; librosa 0.11.0's raw ~184.6 BPM 3×-subdivision kept only
+  as labeled corroboration, **NOT** used for snapping). Produced the durable map
+  `analysis/beats.json` (survives the gitignored `song.mp3` disappearing), the
+  diagnostic `analysis/beat_vs_cut.md` over the live 86-cut edit, and the **gated,
+  non-destructive** variant `data/edl_beatlocked.csv`. **qa GREEN 8/8** (suite **20/20**):
+  **NON-DESTRUCTIVE INVARIANT HELD** — `git diff 9ba310b..9370af3` **EMPTY** for
+  `data/edl.csv` / `clips.csv` / `stills.csv` / `assets.json` / `scripts/preflight_edl.py`
+  / `scripts/render_master.sh`; `--stat` = **5 files, 1268 ins, 0 modifications**.
+  **Variant integrity:** 86 rows + header (schema == `edl.csv`); **11 sections, all
+  START times identical to live**; total **274.0 s**; **0 over-reads / 0 unresolved
+  clip_keys / 0 back-to-back adjacency**; **84/86 cuts snapped**. **Determinism:**
+  `beats.json` md5 `5fcf02866956d60c4bcb321f3a3cecb4`, `edl_beatlocked.csv` md5
+  `876b38a640cfb787d0c647b7fd8f7bc1`, `beat_vs_cut.md` md5 `1a8e06484da640688de9ea1874175efd`
+  — identical across 2 regens and == committed. **Commit-1 green in isolation** (throwaway
+  worktree @ `c65748e` with `song.mp3` present: variant absent, `--analyze-only` regenerates
+  `beats.json` byte-identically, `edl.csv` byte-identical, suite 20/20). `preflight_edl.py`
+  (live `edl.csv`) still **RESULT: PASS, exit 0, 0 critical**. **Safety grep clean**
+  (`subprocess` = bundled ffmpeg decode + self-invocation only; `os.remove` = variant
+  file only; no secrets/network/destructive ops; `song.mp3` NOT committed [gitignored],
+  `beats.json` IS tracked). **reviewer PASS** — non-destructive invariant confirmed,
+  variant integrity + determinism independently checked, honest framing (beats not
+  downbeats; librosa raw corroboration-only) accurate, scope airtight; **Codex UNAVAILABLE
+  — reviewer ran SOLO** (single-reviewer). Receipt `build-os/receipts/P-015.md`.
+  **Alignment gain (informational, only if promoted):** cuts within ±50 ms of a beat
+  **8.1 % → 84.9 %**; mean `|offset|` **256.0 ms → 52.7 ms**; median **250.5 ms → 3.0 ms**.
+  **Caveats:** downbeat-phase confidence LOW (best 4/4 phase ≈ 720 ms mean section-start
+  error) → the variant snaps to **BEATS, not downbeats** (downbeat times in `beats.json`
+  advisory only); one residual ~836 ms offset = the final cut end pinned by the 274.0 total
+  + preserve-section-start constraints (intentional); Commit-1 isolation is
+  **environment-dependent** — a bare checkout WITHOUT the gitignored `song.mp3` cannot
+  regenerate (`FileNotFoundError`), by design (`beats.json` is the durable artifact — anyone
+  re-running the suite needs `song.mp3` re-attached in `when-it-rains/`).
+- **Render pipeline (recorded now — was unreceipted before P-015 close):** two commits
+  landed this session as the shipped render pipeline (NOT their own packet): **`82ac71e`**
+  — `scripts/render_master.sh`, a one-shot `validate → fetch → assemble → verify` wrapper
+  (131 ins); **`9ba310b`** — `scripts/preflight_edl.py`, an offline render-readiness
+  validator, + `render_master.sh` gated on it (113 ins / 2 files; `9ba310b` is also
+  P-015's base). The **86-cut / 274.0 s live edit** (`data/edl.csv`) is
+  **validated render-ready** (`preflight_edl.py` 0-critical).
+- **Last closed packet (prior):** **P-014 — stills-catalog backfill (manifest now
   truthful)** — marketing-media (data / catalog edit on `when-it-rains/data/` +
   the inline manifest; user explicitly authorized — "yes do it"), route
   builder → reviewer → qa → archivist. Commits **`6005114`** (`stills.csv` **+11
@@ -158,32 +206,39 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-014 is CLOSED → the stills catalog is now TRUTHFUL; AUDIT-001
-  D5-M3 RESOLVED.** The catalog is fully consistent with the live assets (**59
-  stills**; **34 / 36** clip `source_still`s resolve — all C01–C34); only EX1 / EX2
-  `'prior'` remain intentionally unresolved (a prior project — benign / accepted,
-  NOT an open gap). P-013 + AUDIT-001 stand: the **system is ALIGNED to canonical**
-  (zero structural / functional / process defects) and both project docs
-  (`README.md` + `EDIT_MAP.md`) are coherent with the 86/274 edit. **Both review
-  instruments are current:** `preview.html` (P-011, silent in-browser pass) +
-  `RENDER_REVIEW.md` (P-012, audio-render timecode checklist), both at **86 cuts /
-  274.0s**. **The repo is fully coherent** — docs / manifests / catalog match the
-  real **86-cut / 274.0s** pipeline (**36 clips / 59 stills**; C27/C33 on-model
-  CLOSED; reversibility chain intact: `edl_pre_bandcoverage_backup.csv` →
-  `edl_original_backup.csv`, neither overwritten). **The ONLY open work is the
-  user's render-review** — the interactive preview AND/OR a full Mac audio render.
-  (Optional later, POST-APPROVAL only: sub-beat beat-grid quantization; selective
-  2K/4K upscale.)
+- **Now:** **P-015 is CLOSED → the beat-analysis capability + a gated
+  beat-aware EDL variant exist; the live edit is byte-untouched.** `beat_lock.py`
+  (+ 20-check suite) decodes `song.mp3` via bundled `imageio_ffmpeg` and produced
+  the durable map `analysis/beats.json`, the diagnostic `analysis/beat_vs_cut.md`,
+  and the **non-destructive** variant `data/edl_beatlocked.csv` (86 rows, section
+  starts preserved, 274.0 s, 84/86 cuts snapped; ±50 ms alignment 8.1 % → 84.9 %
+  **if promoted**). The **NON-DESTRUCTIVE INVARIANT HELD** — the live `data/edl.csv`
+  + all 5 other product surfaces are byte-identical (empty diff). The render
+  pipeline is now also on record: **`82ac71e`** (`scripts/render_master.sh`,
+  one-shot validate→fetch→assemble→verify) + **`9ba310b`** (`scripts/preflight_edl.py`,
+  offline render-readiness validator, gating render_master) — the **86-cut / 274.0 s
+  live edit is validated render-ready** (preflight 0-critical). P-014 + P-013 +
+  AUDIT-001 all still stand (stills catalog truthful — 59 stills, 34/36 resolve;
+  docs coherent at 86/274; system ALIGNED to canonical). **Both review instruments
+  are current** at 86/274: `preview.html` (P-011) + `RENDER_REVIEW.md` (P-012).
+  **The ONLY open real work is the user's render-review + judgment** — and, if the
+  user likes it, the **user-gated** decision to promote `edl_beatlocked.csv` into
+  the live edit. **BLOCKED in-session:** the real footage master cannot render here
+  — the Higgsfield CDN (`d8j0ntlcm91z4.cloudfront.net`) is egress-blocked (403, org
+  policy); the user must allowlist the host OR run `scripts/render_master.sh` on a
+  connected Mac. (Optional later, POST-APPROVAL only: promote the beat-locked
+  variant; selective 2K/4K upscale.)
 - **Next:** the **user reviews + judges** the cut — either open
   `when-it-rains/preview.html` in a browser (silent, approximate-timing, streams
-  from the CDN) and/or run the full Mac audio render (`scripts/fetch_assets.sh` →
-  `scripts/assemble_rough_cut.sh`) with `RENDER_REVIEW.md` (now refreshed to
-  86/274) as the timecode-keyed capture checklist, for overall pacing judgment
-  (C27/C33 on-model is resolved, no longer a spot-check item). Optional later,
-  post-approval: **sub-beat beat-grid quantization** to the 0.97524s grid (needs a
-  rigorous downbeat phase reference) and **selective 2K/4K upscale** (explicitly
-  LAST, after the cut is locked). (The stills-catalog gap is no longer open —
-  **P-014 RESOLVED it**.)
+  from the CDN) and/or run the full Mac render (`scripts/render_master.sh`, or
+  `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`) with `RENDER_REVIEW.md`
+  as the timecode-keyed capture checklist, for overall pacing judgment. If the
+  pacing wants tightening to the beat, the **user-gated** promotion of
+  `data/edl_beatlocked.csv` into the live `data/edl.csv` is staged and ready (84/86
+  cuts snapped, section starts preserved). Optional later, post-approval:
+  **selective 2K/4K upscale** (explicitly LAST, after the cut is locked). NOT YET
+  PUSHED: P-015 commits `c65748e` / `9370af3` + this close commit are local-only —
+  awaiting an explicit push go.
 
 ## Stable facts (slow-changing)
 
@@ -231,8 +286,14 @@
   pre-section-sync (pre-P-004) original 276s EDL — **neither overwritten**.
   Re-timers `scripts/resync_edl.py` and inserter
   `scripts/insert_band_coverage.py` are both deterministic / idempotent. Note:
-  the section-sync is coarse — it matches section spans, NOT a sub-beat beat grid
-  (that quantization is still deferred).
+  the section-sync is coarse — it matches section spans, NOT a sub-beat beat grid.
+  **P-015 produced a gated beat-aware alternative** `data/edl_beatlocked.csv` (86
+  rows, section starts preserved, 274.0 s, 84/86 cuts snapped to the 0.9752381 s
+  grid) — a NON-DESTRUCTIVE variant, NOT applied to `data/edl.csv`; promoting it is
+  user-gated. **`scripts/preflight_edl.py`** (offline render-readiness validator,
+  landed `9ba310b`) reports the live `edl.csv` **render-ready (0 critical)**, and
+  **`scripts/render_master.sh`** (`82ac71e`) is the one-shot validate→fetch→assemble→verify
+  wrapper gated on it.
 - **Band-coverage plan (P-005, spec):** `when-it-rains/BAND_COVERAGE_PLAN.md`
   specified the 10 new band-only cuts (C25–C30 PRE2, C31–C34 CH1). **GENERATED
   (P-006)** + **INSERTED / re-timed (P-007)** — fully landed.
@@ -241,6 +302,19 @@
   per beat), 12 transitions. The song MP3 has been **re-attached + staged**
   (gitignored) and the analysis re-verified reproducible this session; `numpy` +
   `imageio-ffmpeg` are installed. (The MP3 itself will NOT survive a new session.)
+- **Beat-lock capability (P-015):** `scripts/beat_lock.py` (+ 20-check
+  `scripts/test_beat_lock.py`) decodes `song.mp3` via the bundled `imageio_ffmpeg`
+  and builds a uniform beat grid at the `song.json` period (61.5234375 BPM /
+  0.9752381 s) **phase-locked to onset-envelope energy** (method
+  `librosa_onset_phase_grid`; librosa 0.11.0's raw ~184.6 BPM 3×-subdivision is
+  labeled corroboration only, NOT used for snapping). The **durable** artifact is
+  `analysis/beats.json` (md5 `5fcf02866956d60c4bcb321f3a3cecb4`) — it survives the
+  gitignored `song.mp3` disappearing; `analysis/beat_vs_cut.md` is the diagnostic
+  over the live 86-cut edit. The grid snaps to **BEATS, not downbeats** (4/4
+  downbeat-phase confidence LOW ≈ 720 ms section-start error — downbeat times in
+  `beats.json` are advisory only). Re-running the suite from a bare checkout
+  requires `song.mp3` re-attached in `when-it-rains/` (FileNotFoundError otherwise —
+  by design; `beats.json` is the durable output).
 - **Footage audit + regeneration: DONE.** All 26 clips were inspected via
   Higgsfield server-side `video_analysis` (free, bypasses the CDN block). It
   found the lead rendered **bald/shaved in 22 of 76 cuts** (cool story clips) +
@@ -278,4 +352,11 @@ _Updated by the archivist on close. Seeded from `when-it-rains/HANDOFF.md`,
 2026-06-29; P-012 closed 2026-06-29; P-013 closed 2026-06-29 (AUDIT-001
 recorded — system ALIGNED to canonical); P-014 closed 2026-06-29 (stills-catalog
 backfill — manifest now truthful; AUDIT-001 D5-M3 RESOLVED — stills 52 → 59, 34/36
-source_stills resolve)._
+source_stills resolve); P-015 closed 2026-07-01 (beat-lock analysis + gated
+beat-aware EDL variant — `beat_lock.py` + `analysis/beats.json` + `analysis/beat_vs_cut.md`
++ NON-DESTRUCTIVE `data/edl_beatlocked.csv`; live edit byte-untouched, empty diff on
+all 6 product surfaces; qa GREEN 8/8 / suite 20/20 / Commit-1 iso in a throwaway
+worktree / determinism by md5 / safety clean; reviewer PASS, Codex unavailable — solo;
+base `9ba310b`, tip `9370af3`; render pipeline `82ac71e` + `9ba310b` recorded as
+shipped; live edit preflight render-ready; P-015 commits + close are local-only,
+awaiting push go)._

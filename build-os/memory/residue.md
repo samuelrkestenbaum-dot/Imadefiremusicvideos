@@ -98,18 +98,38 @@
   but `origin` mirrors HEAD — a **wording imprecision**, NOT an ungated mutation
   (the archivist never pushed; the mirror is an environment fact). Cosmetic; recorded
   so future receipts can phrase it precisely.
-- **Sub-beat beat-grid quantization (still deferred / optional — POST-APPROVAL).**
-  Snap the 86 cuts to the **0.97524s** beat grid (61.5234375 BPM) on top of the
-  section-sync — but this needs a **rigorous downbeat phase reference** and the MP3
-  re-attached (staged this session, won't survive a new one — see risks).
-  **Premature until the cut is approved.** P-004 delivered the coarser
-  **section-sync** and P-007 the band-coverage insert; neither is this finer beat
-  quantization.
+- **Sub-beat beat-grid quantization — a gated variant now EXISTS (P-015); its
+  PROMOTION is deferred / user-gated.** P-015 built the beat-lock capability
+  (`scripts/beat_lock.py` + 20-check suite) and produced the **non-destructive**
+  variant `data/edl_beatlocked.csv` — the 86 cuts snapped to the **0.9752381 s**
+  grid (61.5234375 BPM), section starts preserved, total 274.0 s, **84/86 snapped**,
+  ±50 ms alignment **8.1 % → 84.9 %** (mean `|offset|` 256.0 → 52.7 ms, median 250.5
+  → 3.0 ms). It is NOT applied to the live `data/edl.csv` (empty diff verified).
+  **Promoting it into the live edit is a user-gated decision after human review** —
+  premature until the cut is approved. **Caveat:** it snaps to **BEATS, not
+  downbeats** (4/4 downbeat-phase confidence LOW ≈ 720 ms section-start error —
+  downbeat times in `beats.json` are advisory only); one residual ~836 ms offset is
+  the final cut end pinned by the 274.0 total + preserve-section-start constraints
+  (intentional/conservative). Regenerating requires `song.mp3` re-attached in
+  `when-it-rains/` (see risks); `analysis/beats.json` is the durable map that
+  survives without it.
 - **Verify the fast V3 cuts on render (P-004 follow-up).** The section-sync
   compressed **V3 ×0.53**, so its cuts are **~1.6–2.7s (fast)** — confirm on the
   render they read as energetic, not rushed.
 - **Selective 2K/4K upscale — POST-APPROVAL.** Explicitly LAST, only after the cut
   is emotionally locked.
+- **Render pipeline shipped + now recorded (P-015 close) — NOT its own packet.**
+  Two commits landed this session but were unreceipted until the P-015 close:
+  **`82ac71e`** (`scripts/render_master.sh` — one-shot validate→fetch→assemble→verify
+  wrapper) and **`9ba310b`** (`scripts/preflight_edl.py` — offline render-readiness
+  validator, + `render_master.sh` gated on it; `9ba310b` is also P-015's base). The
+  **86-cut / 274.0 s live edit is validated render-ready** (`preflight_edl.py` 0
+  critical). These are recorded in `current_state.md`; the render itself is still
+  the user's (blocked in-session — see the CDN risk below).
+- **In-session song-synced ANIMATIC delivered to the user (NOT committed).** A
+  placeholder-visuals / real-timings animatic was produced this session as the
+  pacing proof — it is a **scratchpad artifact, not in git**; it will not survive a
+  new session and is not part of the deliverable.
 
 ## Known risks / debt
 
@@ -135,11 +155,20 @@
   will **NOT survive into a new session** — it must be re-attached again before
   any future audio/beat-lock work in a fresh session. The `analysis/` outputs
   (BPM 61.5234375, 0.97524s/beat, `music_end 273.75`, climaxes) are derived and
-  stay; the raw audio does not.
-- **No render in the cloud env.** The Higgsfield CDN is egress-blocked here and
-  there is no system ffmpeg, so the rough cut **cannot be rendered or eyeballed in
-  this session** — it MUST be rendered on the user's Mac
-  (`scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`). `preview.html`
+  stay; the raw audio does not. **P-015 made the beat map durable:**
+  `when-it-rains/analysis/beats.json` (the phase-locked grid) is committed and
+  survives the mp3 disappearing — but re-**running** `beat_lock.py` / its 20-check
+  suite from a bare checkout still needs `song.mp3` re-attached in `when-it-rains/`
+  (`FileNotFoundError` otherwise — by design; `beats.json` is the durable output,
+  not a defect).
+- **No render in the cloud env — a POLICY BOUNDARY, not routable.** The Higgsfield
+  CDN (`d8j0ntlcm91z4.cloudfront.net`) is **egress-blocked here (403, org policy)**
+  and there is no system ffmpeg, so the real footage master **cannot be rendered or
+  eyeballed in this session** — it MUST be rendered on the user's Mac
+  (`scripts/render_master.sh`, the one-shot validate→fetch→assemble→verify wrapper,
+  or `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`). Unblocking
+  in-session would require the **user to allowlist the CDN host** for the session;
+  otherwise render on a connected machine. `preview.html`
   (P-011) offers an **in-browser** review path — the browser CAN reach the CDN even
   though this cloud session's egress cannot, so the user can stream + review the 86
   cuts in a browser (silent, approximate-timing) without the Mac render. Server-side
@@ -174,7 +203,14 @@
 ## Open boundaries (awaiting explicit go)
 
 - **No push / merge / PR** on `claude/when-it-rains-music-video-fetr0z` (repo has
-  no trunk) — local commits only without explicit go.
+  no trunk) — local commits only without explicit go. **NOT YET PUSHED:** P-015
+  commits **`c65748e`** + **`9370af3`**, the render-pipeline commits **`82ac71e`** +
+  **`9ba310b`**, and the archivist's own `build-os/` close commit are all
+  **local-only**, awaiting the user's explicit push go.
+- **Promoting the beat-locked variant is USER-GATED.** `data/edl_beatlocked.csv`
+  (P-015) is a ready, non-destructive alternative to the live `data/edl.csv`;
+  swapping it into the live edit is the user's call after human review — do not
+  promote it without an explicit go.
 - **No further Higgsfield generation / upscale** — spends credits = external
   mutation; STOP unless inside a confirmed media packet with go. (P-006's C25–C34
   generation go is **spent / done**; the **C27/C33 regen is now MOOT** — P-008
@@ -186,8 +222,9 @@
   READ-ONLY, **no credits**) is **done** (D5-M3 RESOLVED). No
   generation-touching follow-up remains open; any **new** Higgsfield generation
   needs a **fresh go**.
-- **Post-approval polish is premature** — sub-beat beat-grid quantization and
-  selective 2K/4K upscale are explicitly later, after the user approves the cut.
+- **Post-approval polish is premature** — the sub-beat beat-grid variant now
+  EXISTS (P-015, `data/edl_beatlocked.csv`) but its **promotion** and any selective
+  2K/4K upscale are explicitly later, after the user approves the cut.
 
 ---
 _Append-only working notes. Seeded from `when-it-rains/HANDOFF.md` +
@@ -213,4 +250,14 @@ D1-01 + D3-M1 recorded as LOW open items); P-014 note appended 2026-06-29
 off-model stills pruned, stills 52 → 59, 34/36 source_stills resolve; UUIDs retrieved
 READ-ONLY from Higgsfield, no credits; the "declined P-010" framing is RETIRED. Only
 remaining stills non-resolvers = EX1/EX2 'prior' [a prior project — accepted/benign,
-not an open gap])._
+not an open gap]); P-015 note appended 2026-07-01 (beat-lock analysis + a gated,
+NON-DESTRUCTIVE beat-aware EDL variant `data/edl_beatlocked.csv` [86 rows, section
+starts preserved, 274.0 s, 84/86 snapped to the 0.9752381 s grid, ±50 ms alignment
+8.1 % → 84.9 %] — live `data/edl.csv` byte-untouched [empty diff on all 6 product
+surfaces]; durable map `analysis/beats.json`; snaps to BEATS not downbeats [downbeat
+confidence LOW]; qa GREEN 8/8 / suite 20/20 / Commit-1 iso in throwaway worktree /
+determinism by md5 / safety clean; reviewer PASS, Codex unavailable — solo; render
+pipeline `82ac71e` + `9ba310b` recorded as shipped; live edit preflight render-ready;
+CDN egress-block characterized as a 403 org-policy boundary; promotion of the variant
+is user-gated; P-015 + render-pipeline commits + close are local-only, awaiting push
+go)._
