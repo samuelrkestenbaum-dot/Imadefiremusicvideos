@@ -13,3 +13,8 @@ song.flac
 *.m4a
 *.flac
 analysis/*.npy
+
+# Per-line vocal slices produced by scripts/slice_vocals.py (need song.mp3).
+# analysis/line_map.json is the durable committed artifact; the WAVs and their
+# segments_manifest.json are regenerated locally and never committed.
+audio_segments/
