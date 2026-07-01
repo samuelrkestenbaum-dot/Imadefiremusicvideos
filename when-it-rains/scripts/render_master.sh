@@ -55,7 +55,19 @@ get_dur() { # echo duration in seconds of $1, or "?" if undeterminable
     ffmpeg -hide_banner -i "$1" 2>&1 | awk -F'[:,]' '/Duration:/{printf "%.2f\n",($2*3600)+($3*60)+$4; exit}'
   fi
 }
-has_stream() { ffmpeg -hide_banner -i "$1" 2>&1 | grep -q "Stream.*$2"; }
+has_stream() { # $1=file  $2=Video|Audio  -> return 0 if that stream type is present
+  # NB: `ffmpeg -i` always exits non-zero (no output file), which under
+  # `set -o pipefail` would poison a piped grep — so capture first, then match.
+  local t info
+  if [ "$HAVE_FFPROBE" = 1 ]; then
+    t=$(printf '%s' "$2" | tr '[:upper:]' '[:lower:]')   # Video->video / Audio->audio
+    info=$(ffprobe -v error -show_entries stream=codec_type -of csv=p=0 "$1" 2>/dev/null || true)
+    printf '%s\n' "$info" | grep -qi "^${t}\$"
+  else
+    info=$(ffmpeg -hide_banner -i "$1" 2>&1 || true)
+    printf '%s\n' "$info" | grep -q "Stream.*$2"
+  fi
+}
 
 # --- 1. preflight ---------------------------------------------------------------
 rule; say "render_master: preflight"; rule
