@@ -1,10 +1,16 @@
 # WHEN IT RAINS — Story Treatment (narrative cut)
 
-**Logline.** A man moves through the ordinary rhythm of a rainy city — his apartment,
-a coffee shop, the street, the train — and *she* is everywhere he isn't looking: in
-the reflection of a glass case, a rain-streaked bus window, the black surface of his
-coffee. She's gone. He keeps almost seeing her. The song is one day of grief carried
-through normal life, until it floods.
+**Logline.** A man, newly single after a breakup, moves through the ordinary rhythm
+of a rainy city — his apartment, a coffee shop, the street, the train — and *his ex*
+is everywhere he isn't looking: in the reflection of a glass case, a rain-streaked
+bus window, the black surface of his coffee. She's gone. He keeps almost seeing her.
+The song is one day of heartbreak carried through normal life, until it floods.
+
+**CHARACTER BIBLE (hard rules, every prompt):**
+- **HIM: single, post-breakup. BARE HANDS — NO ring, NO jewelry.** Short buzzed hair
+  (full hairline, not receding/bald), reddish stubble, fit lean build.
+- **HER: his ex** — pale skin, long dark wavy hair, late 20s, delicate melancholic.
+  Appears obliquely only (reflections, glass, water, edge of frame).
 
 **The rule (fixes "on the nose").** We do NOT illustrate the lyric literally. She
 appears **obliquely — in reflections, glass, water, the edge of frame** — never

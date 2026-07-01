@@ -35,8 +35,10 @@ Scientist* (Romanek). Directors' toolkit we're copying:
 
 ## Casting / consistency
 - **Lead** = the artist himself — **short buzzed hair (buzz cut)**, reddish stubble,
-  ~2000-era wet styling; face anchored to his selfies. (NO "receding hairline" language —
-  that old boilerplate aged him wrong.) He lip-syncs the hook and each verse's opener.
+  ~2000-era wet styling; face anchored to his selfies / trained Soul. (NO "receding
+  hairline" language — that old boilerplate aged him wrong.) **BARE HANDS — NO ring,
+  NO jewelry: he is single, post-breakup; the woman is his EX.** He lip-syncs the
+  hook and each verse's opener.
 - **The woman** = a NEW consistent, reference-anchored memory character. Glimpsed only.
 
 ## Look / cutting rhythm
