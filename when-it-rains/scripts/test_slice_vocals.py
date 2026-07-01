@@ -251,6 +251,12 @@ def main():
             ]
         }, open(produced, "w"), indent=2)
 
+        # Snapshot the live CSVs so we can restore them after the swap test —
+        # the suite must leave the working tree byte-identical (the swap only
+        # runs on demand in production, never as part of a build).
+        edl_snapshot = open(EDL, "rb").read()
+        clips_snapshot = open(CLIPS, "rb").read()
+
         edl_md5_pre_swap = md5(EDL)
         clips_md5_pre_swap = md5(CLIPS)
 
@@ -296,6 +302,18 @@ def main():
               len(synced2) == 3, str(len(synced2)))
         check("swap edl.csv deterministic across runs", md5(EDL) == edl_md5_after1,
               "edl differs")
+
+        # restore the live CSVs + drop the backup so the tree is left clean
+        open(EDL, "wb").write(edl_snapshot)
+        open(CLIPS, "wb").write(clips_snapshot)
+        if os.path.exists(EDL_BAK):
+            os.remove(EDL_BAK)
+        check("suite left edl.csv byte-identical", md5(EDL) == edl_md5_pre_swap)
+        check("suite left clips.csv byte-identical", md5(CLIPS) == clips_md5_pre_swap)
+
+    # tidy the transient audio_segments/ workspace this suite created
+    if os.path.isdir(SEG_DIR):
+        shutil.rmtree(SEG_DIR)
 
     print(f"\n{PASS} passed, {FAIL} failed, {SKIP} skipped")
     return 1 if FAIL else 0
