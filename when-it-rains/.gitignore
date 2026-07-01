@@ -18,3 +18,14 @@ analysis/*.npy
 # analysis/line_map.json is the durable committed artifact; the WAVs and their
 # segments_manifest.json are regenerated locally and never committed.
 audio_segments/
+
+# audio_relay/ holds the small per-line vocal segments the git->media_import
+# relay (scripts/import_relay.py) commits + pushes so media_import_url can fetch
+# them from the PUBLIC raw GitHub URL. These *.mp3 segments MUST be committable,
+# so un-ignore the relay dir's audio (the top-level *.mp3 rule still hides
+# song.mp3). The generated relay_plan.json / relay_runbook.md are local artifacts.
+!audio_relay/*.mp3
+!audio_relay/*.wav
+audio_relay/relay_plan.json
+audio_relay/relay_runbook.md
+audio_relay/_netguard/

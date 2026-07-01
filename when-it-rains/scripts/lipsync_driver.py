@@ -7,11 +7,23 @@ segments_manifest.json from slice_vocals.py and produces the exact Higgsfield MC
 call plan (media_upload -> byte-PUT -> media_confirm -> wan2_7) for the artist to
 run under the assistant with an explicit go.
 
-Two upload paths (the audio bytes cannot leave this sandbox — the presigned PUT
-to upload.higgsfield.ai is egress-blocked / 403 here — so the byte-PUT is always
-done on the artist's Mac):
+Three ingestion paths. The audio bytes cannot leave this sandbox via the
+Higgsfield presigned PUT (egress-blocked / 403 here), so the two legacy paths
+push the byte-PUT to the artist's Mac. The PREFERRED path (path-relay) sidesteps
+the block entirely:
 
-  path-b  (mint here, PUT on the Mac):
+  path-relay  (PREFERRED — PROVEN in-session):
+            The repo is PUBLIC, so a committed vocal segment is fetchable at its
+            raw GitHub URL, and media_import_url(<raw url>, type=audio) returns an
+            audio media_id in-session — no presigned PUT, no Mac round-trip. See
+            scripts/import_relay.py (build_relay_plan / raw_url / stage_segment) and
+            the emitted audio_relay/relay_runbook.md. The live push +
+            media_import_url + wan2_7 are assistant/human-run under an explicit go;
+            this driver only surfaces the relay plan. Verified live:
+            audio_relay/hook_vocal.mp3 @ 8a5048c -> audio media 082e40a0; still
+            8ec708fb -> image media 686b2b8a; wan2_7 produced a lip-synced clip.
+
+  path-b  (fallback — mint here, PUT on the Mac):
             1. media_upload(type=audio)           -> {media_id, upload_url, expiry}
             2. curl -T <wav> <upload_url>          (RUN ON THE MAC — see upload_segments.sh)
             3. media_confirm(media_id, type=audio)
@@ -36,9 +48,10 @@ Gating (hard rule — a subagent/build step must NEVER generate)
 
 Usage
 -----
-  python3 scripts/lipsync_driver.py --dry-run --path b     # plan + upload_segments.sh
+  python3 scripts/lipsync_driver.py --dry-run --path relay  # PREFERRED — relay plan
+  python3 scripts/lipsync_driver.py --dry-run --path b      # fallback: upload_segments.sh
   python3 scripts/lipsync_driver.py --dry-run --path c --media-ids ids.json
-  python3 scripts/lipsync_driver.py --go ...               # refuses; see gating
+  python3 scripts/lipsync_driver.py --go ...                # refuses; see gating
 
 CAVEAT on the wan2_7 parameter shape: this session verified wan2_7 is the
 audio-driven lip-sync model whose media roles are `start_image` + `audio_references`.
@@ -52,10 +65,15 @@ import sys, os, json, argparse, stat
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
+# PREFERRED ingestion path: the git->media_import relay (pure plan builder).
+sys.path.insert(0, HERE)
+import import_relay  # noqa: E402  (CODE ONLY — never pushes/imports/generates)
+
 SEG_DIR   = os.path.join(ROOT, "audio_segments")
 MANIFEST  = os.path.join(SEG_DIR, "segments_manifest.json")
 UPLOAD_SH = os.path.join(SEG_DIR, "upload_segments.sh")
 PLAN_JSON = os.path.join(SEG_DIR, "lipsync_plan.json")
+LINE_MAP  = os.path.join(ROOT, "analysis", "line_map.json")
 
 LIPSYNC_MODEL = "wan2_7"
 UPLOAD_HOST = "upload.higgsfield.ai"     # presigned PUT target (egress-blocked here)
@@ -233,10 +251,13 @@ def generate_lipsync(*_a, **_k):  # pragma: no cover - intentionally never run h
 def main(argv=None):
     ap = argparse.ArgumentParser(
         description="plan the Higgsfield wan2_7 lip-sync (DRY-RUN by default; never generates)")
-    ap.add_argument("--path", choices=["b", "c"], default="b",
-                    help="b = mint here + PUT on the Mac; c = pre-supplied media_ids")
+    ap.add_argument("--path", choices=["relay", "b", "c"], default="relay",
+                    help="relay = PREFERRED git->media_import (public raw URL, no PUT); "
+                         "b = mint here + PUT on the Mac; c = pre-supplied media_ids")
     ap.add_argument("--media-ids", metavar="JSON",
                     help="path-c: JSON {line_id: media_id} from the web-app upload")
+    ap.add_argument("--ext", default="mp3", choices=["mp3", "wav"],
+                    help="path-relay: vocal segment extension to relay (default mp3)")
     ap.add_argument("--dry-run", action="store_true", default=True,
                     help="(default) print the MCP plan + write upload_segments.sh; NO network")
     ap.add_argument("--go", action="store_true",
@@ -251,6 +272,17 @@ def main(argv=None):
         generate_lipsync()      # raises SystemExit — never returns
         return 2                # unreachable
 
+    # ------------------------------------------------------------------ #
+    # PREFERRED: path-relay delegates to the pure import_relay plan builder
+    # (line_map -> git-add-f + raw_url + media_import_url + wan2_7 plan).
+    # No manifest / no song.mp3 needed; no network / MCP / git executed.
+    # ------------------------------------------------------------------ #
+    if args.path == "relay":
+        return import_relay.main(["--dry-run", "--ext", args.ext])
+
+    # ------------------------------------------------------------------ #
+    # fallbacks: path-b (mint here + Mac PUT) / path-c (pre-supplied ids)
+    # ------------------------------------------------------------------ #
     manifest = load_manifest()
     media_ids = {}
     if args.media_ids:
