@@ -6,6 +6,39 @@
 
 ## Deferred (follow-up packets)
 
+- **wan2_7 audio-driven lip-sync validation FAILING — real lip-sync likely needs
+  FILMED FOOTAGE (P-017, critical, LIVE this session).** The P-017 CODE is correct
+  and shelved-ready, but the underlying **wan2_7 mechanism is UNPROVEN**: **3
+  render attempts FAILED outright** (inputs resolve — `start_image` + audio attach
+  — but generation dies; tried durations 8/5/5 and long+short TTS audio); a **4th**
+  attempt with `media_import_url`'d media_ids (image `686b2b8a`, audio `720e0e5a`)
+  was **in flight at close**. If it also fails, wan2_7 does not reliably produce
+  audio-driven lip-sync for our stylized dark performance stills, and the
+  recommended path for true lip-sync becomes **shooting real performance footage
+  of the artist** (graded + intercut). Also: wan2_7's `audio_references` shape is
+  ASSUMED in `lipsync_driver.py` and must be reconciled at the single gated
+  validation.
+- **UNPUSHED — the whole session's commits are local-only, awaiting the user's
+  push go.** In order: `3b4bc4d` (render_master verify fix) + `0320218`
+  (treatment v1) + **`60b297d`** (P-016 director's cut) + **`8dd6c41`** +
+  **`eed8ed8`** (P-017 lip-sync pipeline) + the archivist's `build-os/` close
+  commit. **No push / merge / deploy without explicit go.**
+- **Ephemeral asset maps live ONLY in scratchpad (WON'T survive a new session).**
+  `p016_clips.json` (the 24-clip asset map) + `p016_assets.json` are scratchpad
+  artifacts, not committed. **The durable copies are `data/clips.csv` +
+  `analysis/line_map.json`** — rebuild from those in a fresh session; do not rely
+  on the scratchpad files.
+- **"Bald vs buzz" on some perf clips (P-016).** A few of the 24 new clips read
+  "shaved" rather than "buzzed"; flagged for a possible re-roll (fresh media-packet
+  go — credits). Frontman likeness was corrected across 3 anchor iterations
+  (canonical still `00d037d0`).
+- **`song.mp3` still gitignored / session-only.** The full-slice branch of
+  `slice_vocals.py` (and any live slicing / beat decode) needs `song.mp3`
+  re-attached in `when-it-rains/`. The durable committed artifacts are
+  `analysis/line_map.json` (P-017) + `analysis/beats.json` (P-015); `audio_segments/`
+  (the per-line WAVs + `segments_manifest.json`) is gitignored and regenerated
+  locally.
+
 - **README + EDIT_MAP doc-drift — RESOLVED (P-013, from AUDIT-001).** The system
   audit flagged two stale docs: **D4** (EDIT_MAP described the pre-band-coverage
   state) and **D5-M1 / D5-M2** (README runtime 4:36/276 + wrong CSV schema lines).

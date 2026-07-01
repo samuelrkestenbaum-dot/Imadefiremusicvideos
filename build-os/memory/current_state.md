@@ -5,11 +5,13 @@
 
 ## Project
 
-- **What this repo is:** "When It Rains" — a 1970s-cinematic rain-drama **music
-  video** built on Higgsfield. A warm wood-paneled band-performance world is
-  intercut with a cool blue-grey breakup-memory story; **exactly one brunette
-  woman** appears, only ever as memory / reflection / distant presence. The
-  deliverable is a **rendered video**, not software.
+- **What this repo is:** "When It Rains" — a rain-drama **music video** built on
+  Higgsfield. **AESTHETIC ADVANCED (P-016 director's cut):** the live edit is now
+  a **late-90s / early-2000s** bleach-bypass rain-ballad — the artist as a
+  **buzz-cut / fit / soaked 2000s frontman** intercut with a **consistent memory
+  woman** + atmosphere. (The prior **1970s** wood-paneled band cut is preserved as
+  `data/{edl,clips,stills}.70s.csv`, not deleted — history kept.) The deliverable
+  is a **rendered video**, not software.
 - **Primary branch / base:** `claude/when-it-rains-music-video-fetr0z` (this repo
   has **no trunk** — no `origin/main`; "green" is judged against the branch tip).
 - **Build/test command:** _there is no software test suite._ The deliverable is a
@@ -19,14 +21,73 @@
   render**: the Higgsfield CDN is egress-blocked here and there is no system
   ffmpeg. "Proof" for this project = the user eyeballing a real render. There is
   also `when-it-rains/preview.html` (P-011) — a self-contained, browser-playable
-  in-browser review aid that streams the 86 clip mp4s from the CDN
-  (browser-reachable even though this cloud session's egress is blocked); silent +
-  approximate-timing, but it lets the user review the rough cut in a browser
-  without the Mac fetch+ffmpeg render.
+  in-browser review aid that streams the clip mp4s from the CDN (browser-reachable
+  even though this cloud session's egress is blocked); silent + approximate-timing,
+  but it lets the user review the rough cut in a browser without the Mac
+  fetch+ffmpeg render. NOTE: `preview.html` predates P-016 and still reflects the
+  older 86-cut edit — the authoritative live edit is now the P-016 **107-cut /
+  274.00 s** 2000s director's cut (`data/edl.csv`).
 
 ## Where we are
 
-- **Last closed packet:** **P-015 — beat-lock analysis + gated beat-aware EDL
+- **Last closed packet:** **P-017 — Higgsfield-native lip-sync pipeline (CODE
+  ONLY)** — build (a coded pipeline under `when-it-rains/`; zero credits, zero
+  Higgsfield calls, zero network in the default path), route orchestrator →
+  builder → qa → reviewer → archivist. Commits **`8dd6c41`** (Commit-1:
+  `scripts/slice_vocals.py` + the durable committed `analysis/line_map.json`
+  [43 lyric lines, **27 in-scope**, embedding the 3 in-scope still job_ids for
+  `PERF_hook` / `PERF_lookup` / `PERF_window`] + `scripts/test_slice_vocals.py`;
+  4 files / 1215 ins; **green in isolation 23/0/4** — driver/swap checks SKIP,
+  added in Commit 2) + **`eed8ed8`** (Commit-2 tip: `scripts/lipsync_driver.py`
+  [the gated wan2_7 audio-driven call-plan — **DRY-RUN default = zero network**;
+  `--go` refuses by `SystemExit`, spends nothing without a human `--go` + the
+  live MCP; path-b mint+Mac-PUT+confirm or path-c web-app upload; emits
+  `upload_segments.sh`] + `scripts/swap_lipsync_clips.py` [NON-DESTRUCTIVE:
+  backs up `edl.csv` → `edl_pre_lipsync_backup.csv`, repoints only the in-scope
+  cuts] + driver/swap checks now active; 3 files / 438 ins), base **`60b297d`**.
+  `git diff --stat 60b297d..eed8ed8` = **6 files, +1653**. **qa GREEN:** suite
+  **42/42/0** (full-slice branch executed); zero-network dry-run BOTH paths,
+  `--go` refused; non-destructive swap with `preflight_edl` **PASS before AND
+  after**; **Commit-1 green in isolation 23/0/4**; safety grep clean — no
+  secrets, `song.mp3` gitignored, `audio_segments/` gitignored, `data/` empty of
+  generated artifacts. **reviewer PASS** — gated-generation safety airtight, no
+  hardcoded md5, reversible swap, honest about the assumed wan2_7
+  `audio_references` shape, trajectory low-risk; **Codex UNAVAILABLE — reviewer
+  ran SOLO**. Receipt `build-os/receipts/P-017.md`.
+  **HONEST STATUS (critical):** the P-017 CODE is correct and **shelved-ready**,
+  but the underlying **wan2_7 audio-driven lip-sync MECHANISM is UNPROVEN and SO
+  FAR FAILING** — **3 wan2_7 render attempts FAILED outright** (inputs resolve:
+  `start_image` + audio attach, but generation dies; tried durations 8/5/5 and
+  long+short TTS audio); a **4th** attempt using `media_import_url`'d media_ids
+  (image `686b2b8a`, audio `720e0e5a`) was **in flight at close**. If it also
+  fails, the finding is: wan2_7 does not reliably produce audio-driven lip-sync
+  for our stylized dark performance stills, and true lip-sync likely needs
+  **filmed performance footage** (graded + intercut). The code is correct
+  regardless; only the mechanism is unproven.
+- **P-016 — director's cut, late-90s / 2000s aesthetic (RECEIPT DEBT CLEARED
+  this close).** Commit **`60b297d`** (also P-017's base) — a full creative
+  re-edit **replacing the 70s rough cut**: **24 new reference-anchored Higgsfield
+  clips** (artist as buzz-cut / fit / soaked 2000s frontman + a consistent memory
+  woman + atmosphere; bleach-bypass look; **~198 credits**), deterministically
+  sequenced by `scripts/build_edit_v2.py` to the lyrics + beat grid into
+  `data/edl.csv` = **107 cuts, 274.00 s, no clip repeating within an 8-cut
+  window** (fixes the old C02-×11 recycling). **preflight PASS, 0 critical, 0
+  warnings.** The **old 70s edit is preserved** as `data/{edl,clips,stills}.70s.csv`;
+  `TREATMENT.md` is the director's treatment; frontman likeness corrected across
+  3 anchor iterations (canonical still `00d037d0`). Verify via Higgsfield
+  `video_analysis` (8 character clips on-model). **Caveats:** a few perf clips
+  read "shaved" not "buzzed" (possible re-roll); AI lip-sync not frame-accurate
+  (the motivation for P-017). Preceding commits this session (context): `3b4bc4d`
+  (render_master verify fix) + `0320218` (treatment v1). Receipt
+  `build-os/receipts/P-016.md`.
+- **The live / authoritative edit is now the P-016 107-cut / 274.00 s 2000s
+  director's cut** (`data/edl.csv`) — NOT the old 86-cut. The **24-clip 2000s
+  asset library** lives in `data/clips.csv` (durable) with the 70s library kept as
+  `data/clips.70s.csv`. **Render pipeline:** `scripts/render_master.sh`
+  (validate → fetch → assemble → verify) gated on `scripts/preflight_edl.py`;
+  `scripts/build_edit_v2.py` is the deterministic sequencer. **Lip-sync pipeline
+  code (P-017) is shelved** pending wan2_7 validation (above).
+- **Last closed packet (prior):** **P-015 — beat-lock analysis + gated beat-aware EDL
   variant** — build (in-session audio analysis + a NON-DESTRUCTIVE derived data
   artifact under `when-it-rains/`), route builder → qa → reviewer → archivist.
   Commits **`c65748e`** (Commit-1: `scripts/beat_lock.py` + `scripts/test_beat_lock.py`
@@ -358,5 +419,19 @@ beat-aware EDL variant — `beat_lock.py` + `analysis/beats.json` + `analysis/be
 all 6 product surfaces; qa GREEN 8/8 / suite 20/20 / Commit-1 iso in a throwaway
 worktree / determinism by md5 / safety clean; reviewer PASS, Codex unavailable — solo;
 base `9ba310b`, tip `9370af3`; render pipeline `82ac71e` + `9ba310b` recorded as
-shipped; live edit preflight render-ready; P-015 commits + close are local-only,
-awaiting push go)._
+shipped; live edit preflight render-ready); P-016 closed 2026-07-01 (director's cut
+— late-90s / 2000s bleach-bypass re-edit replacing the 70s cut; 24 new
+reference-anchored Higgsfield clips ~198 credits; `build_edit_v2.py` sequenced
+`data/edl.csv` = 107 cuts / 274.00 s / no repeat-within-8; preflight PASS 0
+warnings; old 70s edit preserved as `data/*.70s.csv`; qa PASS, reviewer PASS —
+caveats: a few perf clips "shaved" not "buzzed", AI lip-sync not frame-accurate;
+commit `60b297d`; receipt debt cleared this close); P-017 closed 2026-07-01
+(Higgsfield-native wan2_7 lip-sync pipeline, CODE ONLY — `slice_vocals.py` +
+durable `analysis/line_map.json` + gated `lipsync_driver.py` [DRY-RUN default,
+`--go` refuses] + non-destructive `swap_lipsync_clips.py`; qa GREEN suite 42/42/0,
+Commit-1 iso 23/0/4, dry-run zero-network both paths, safety clean; reviewer PASS,
+Codex unavailable — solo; base `60b297d`, tip `eed8ed8`; HONEST STATUS: code
+shelved-ready but wan2_7 mechanism UNPROVEN / SO FAR FAILING [3 attempts failed, a
+4th in flight at close] → true lip-sync likely needs filmed footage). The live edit
+is now the P-016 107-cut / 274.00 s 2000s director's cut. All of P-016 + P-017
+commits + this close are local-only, awaiting an explicit push go._
