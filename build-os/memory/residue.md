@@ -6,8 +6,9 @@
 
 ## Deferred (follow-up packets)
 
-- **wan2_7 audio-driven lip-sync validation FAILING — real lip-sync likely needs
-  FILMED FOOTAGE (P-017, critical, LIVE this session).** The P-017 CODE is correct
+- **wan2_7 audio-driven lip-sync validation — RESOLVED (P-018): mechanism
+  PROVEN.** (Carried at P-017 close as FAILING / "real lip-sync likely needs
+  FILMED FOOTAGE" — that pivot is NOT needed.) The P-017 CODE is correct
   and shelved-ready, but the underlying **wan2_7 mechanism is UNPROVEN**: **3
   render attempts FAILED outright** (inputs resolve — `start_image` + audio attach
   — but generation dies; tried durations 8/5/5 and long+short TTS audio); a **4th**
@@ -18,8 +19,16 @@
   of the artist** (graded + intercut). Also: wan2_7's `audio_references` shape is
   ASSUMED in `lipsync_driver.py` and must be reconciled at the single gated
   validation.
-- **UNPUSHED — the whole session's commits are local-only, awaiting the user's
-  push go.** In order: `3b4bc4d` (render_master verify fix) + `0320218`
+  **RESOLUTION (P-018):** wan2_7 lip-sync WORKS when BOTH inputs are IMPORTED
+  media (`media_import_url`), NOT generation job ids. The working relay is:
+  slice vocal from `song.mp3` → commit to `when-it-rains/audio_relay/` → push →
+  `raw.githubusercontent.com` URL → `media_import_url`. The hero chorus clip
+  `491e39d1` IS a working wan2_7 lip-sync and is user-locked as THE hero.
+  Canonized in `when-it-rains/PRODUCTION_PLAYBOOK.md` §3.8. Thread **CLOSED**.
+- **UNPUSHED — SUPERSEDED (P-018): the branch AUTO-MIRRORS to origin** (an
+  environment fact, not an archivist push; AUDIT-001 D3-M1 now precise). The
+  standing boundary is unchanged — no MERGE / DEPLOY / PUBLISH / secrets
+  without explicit go. (Original note, kept for history:) In order: `3b4bc4d` (render_master verify fix) + `0320218`
   (treatment v1) + **`60b297d`** (P-016 director's cut) + **`8dd6c41`** +
   **`eed8ed8`** (P-017 lip-sync pipeline) + the archivist's `build-os/` close
   commit. **No push / merge / deploy without explicit go.**
@@ -164,6 +173,28 @@
   pacing proof — it is a **scratchpad artifact, not in git**; it will not survive a
   new session and is not part of the deliverable.
 
+- **P-018 residue — chorus iteration trail (v2–v15).** `render_chorus_v2.sh` ..
+  `render_chorus_v15.sh` are the iteration trail only; **`render_chorus_v16.sh`
+  is CANONICAL** (the locked chorus). Keep for history or prune in a later
+  hygiene packet.
+- **P-018 residue — CI-committed render mp4s.** `when-it-rains/chorus_v12.mp4`
+  .. `chorus_v16.mp4` (~5.5 MB each) are committed to the branch by CI
+  (`.github/workflows/render-chorus.yml`). Only v16 is the locked cut —
+  **consider pruning the older ones later** (repo weight).
+- **P-018 residue — the old 107-cut `data/edl.csv` / P-016 director's cut
+  predates the playbook method** and will be **superseded section by section**
+  as `STORY.md` scenes are boarded with `PRODUCTION_PLAYBOOK.md`. Do not invest
+  in it further (same for the pre-P-016 review instruments keyed to it).
+- **P-018 residue — Higgsfield credits ~1900–2000 remaining of 2415** (rough
+  estimate; the era spent on Soul training, stills, one-takes, lip-syncs, nano
+  edits). Budget scene packets accordingly.
+- **P-018 privacy note — Soul training photos are out of the TREE but in git
+  HISTORY.** Commits `271b415` (5 PNGs) / `eede048` (compact JPGs) relayed
+  training photos; `edd4b31` removed them from the tree (verified clean at
+  close). They remain recoverable from history on an auto-mirrored branch — if
+  the repo ever goes public, purging needs a **history rewrite** (external
+  mutation → explicit user go).
+
 ## Known risks / debt
 
 - **The edit is reversible (two-layer chain) — neither backup overwritten.**
@@ -293,4 +324,11 @@ determinism by md5 / safety clean; reviewer PASS, Codex unavailable — solo; re
 pipeline `82ac71e` + `9ba310b` recorded as shipped; live edit preflight render-ready;
 CDN egress-block characterized as a 403 org-policy boundary; promotion of the variant
 is user-gated; P-015 + render-pipeline commits + close are local-only, awaiting push
-go)._
+go). P-018 note appended 2026-07-01 (CHORUS LOCK closed — wan2_7 lip-sync RESOLVED /
+PROVEN via imported media [thread CLOSED, filmed-footage pivot NOT needed]; the
+"UNPUSHED / local-only" framing SUPERSEDED by the branch auto-mirror; new residue:
+v2–v15 chorus scripts = iteration trail [v16 canonical], CI-committed
+chorus_v12..v16 mp4s [prune older later], 107-cut edl.csv to be superseded section
+by section by the playbook method, credits ~1900–2000/2415, Soul training photos
+out of tree but in git history [public release would need a history rewrite —
+gated])._

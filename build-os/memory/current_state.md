@@ -12,6 +12,14 @@
   woman** + atmosphere. (The prior **1970s** wood-paneled band cut is preserved as
   `data/{edl,clips,stills}.70s.csv`, not deleted — history kept.) The deliverable
   is a **rendered video**, not software.
+- **STYLE LOCKED (P-018 chorus lock):** the canonical production style is now
+  the **LOCKED chorus** (`when-it-rains/scripts/render_chorus_v16.sh` →
+  `when-it-rains/chorus_v16.mp4`) + **`when-it-rains/PRODUCTION_PLAYBOOK.md`**
+  — the copy-paste bible for every remaining section. Identity is durable: a
+  **trained Soul** of the artist (`07822e21-af62-44cc-a8b8-0b27dfe6de8a`) + two
+  reference **elements** (`wir-him` / `wir-her`). Narrative source of truth is
+  `when-it-rains/STORY.md`. The P-016 107-cut `data/edl.csv` director's cut
+  **predates the playbook method** and will be superseded section by section.
 - **Primary branch / base:** `claude/when-it-rains-music-video-fetr0z` (this repo
   has **no trunk** — no `origin/main`; "green" is judged against the branch tip).
 - **Build/test command:** _there is no software test suite._ The deliverable is a
@@ -30,7 +38,41 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-017 — Higgsfield-native lip-sync pipeline (CODE
+- **Last closed packet:** **P-018 — CHORUS LOCK (the chorus-production era)** —
+  media / creative sprint (user-directed, post-P-017), **32 commits**
+  `8a5048c..bc9d4d7` on base **`90ce268`** (+ CI render commit **`8a2e88d`** =
+  `chorus_v16.mp4`; the branch **auto-mirrors to origin**). Delivered: (1)
+  **trained Soul of the artist** — soul_id
+  `07822e21-af62-44cc-a8b8-0b27dfe6de8a` (8 real photos; photos REMOVED from
+  the repo tree after training for privacy — still in git HISTORY, see
+  residue); (2) **reference elements** `wir-him` =
+  `1b581c11-e515-4d88-bb2c-b2b0af3b722d` (from de-ringed cafe still
+  `32058bcb`) + `wir-her` = `38ebfd81-9ddb-4b11-b055-b95307d2d5ce` (from her
+  anchor `65382e29`) — **PROVEN multi-likeness single-frame generation** via
+  `<<<uuid>>>` placeholders (nano_banana_2 / kling3_0); (3) the **LOCKED
+  chorus** `render_chorus_v16.sh` (v5..v15 = iteration trail): hero hook
+  (ORIGINAL wan2_7 lip-sync clip `491e39d1`) → her puddle reflection
+  (`b22edfc6`) → hero → cafe one-take notice (`c1ffc156` @1.0s) → composited
+  POV reflection reveal (insert `6b3be8f1` @55% over empty plate `ec557078`,
+  setpts-fixed) → same-take turn (@6.9s); (4) **PRODUCTION_PLAYBOOK.md** — the
+  canonized method: spec-first staging (`CAFE_SCENE_SPEC.md` template),
+  body-state law (his body in ONE take per setup), measured cuts via
+  `video_analysis` timestamps, POV insert grammar, environment-mirrored
+  reflections, surgical nano "ONE change only" edits, true ffmpeg composites
+  (empty plate + GHOST_OPACITY, setpts both layers), wan2_7 lip-sync via
+  IMPORTED media (NOT job ids — **P-017's mechanism question CLOSED: PROVEN**),
+  vocal relay git → raw.githubusercontent → media_import_url, CI delivery
+  (`.github/workflows/render-chorus.yml` renders + commits the mp4). Character
+  bible hard rules: HIM buzz cut FULL hairline reddish stubble fit lean, BARE
+  HANDS no ring (single, post-breakup); HER = his ex, pale, long dark wavy
+  hair, oblique/reflections ONLY; NO text in any frame. **Proof = user eyeball
+  verdicts on CI-rendered mp4s** (chorus_v12..v16 committed) — no formal
+  qa/reviewer pass; ≤2-commit contract superseded by user direction (accepted
+  process deviation, recorded). **User verdicts on record:** original hero clip
+  is THE hero (never replace); v14-style environment-mirrored reflection
+  preferred; composited v15/v16 ghost is the standard; likeness ALWAYS beats
+  scene-cohesion. Receipt `build-os/receipts/P-018.md`.
+- **Last closed packet (prior):** **P-017 — Higgsfield-native lip-sync pipeline (CODE
   ONLY)** — build (a coded pipeline under `when-it-rains/`; zero credits, zero
   Higgsfield calls, zero network in the default path), route orchestrator →
   builder → qa → reviewer → archivist. Commits **`8dd6c41`** (Commit-1:
@@ -267,39 +309,26 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-015 is CLOSED → the beat-analysis capability + a gated
-  beat-aware EDL variant exist; the live edit is byte-untouched.** `beat_lock.py`
-  (+ 20-check suite) decodes `song.mp3` via bundled `imageio_ffmpeg` and produced
-  the durable map `analysis/beats.json`, the diagnostic `analysis/beat_vs_cut.md`,
-  and the **non-destructive** variant `data/edl_beatlocked.csv` (86 rows, section
-  starts preserved, 274.0 s, 84/86 cuts snapped; ±50 ms alignment 8.1 % → 84.9 %
-  **if promoted**). The **NON-DESTRUCTIVE INVARIANT HELD** — the live `data/edl.csv`
-  + all 5 other product surfaces are byte-identical (empty diff). The render
-  pipeline is now also on record: **`82ac71e`** (`scripts/render_master.sh`,
-  one-shot validate→fetch→assemble→verify) + **`9ba310b`** (`scripts/preflight_edl.py`,
-  offline render-readiness validator, gating render_master) — the **86-cut / 274.0 s
-  live edit is validated render-ready** (preflight 0-critical). P-014 + P-013 +
-  AUDIT-001 all still stand (stills catalog truthful — 59 stills, 34/36 resolve;
-  docs coherent at 86/274; system ALIGNED to canonical). **Both review instruments
-  are current** at 86/274: `preview.html` (P-011) + `RENDER_REVIEW.md` (P-012).
-  **The ONLY open real work is the user's render-review + judgment** — and, if the
-  user likes it, the **user-gated** decision to promote `edl_beatlocked.csv` into
-  the live edit. **BLOCKED in-session:** the real footage master cannot render here
-  — the Higgsfield CDN (`d8j0ntlcm91z4.cloudfront.net`) is egress-blocked (403, org
-  policy); the user must allowlist the host OR run `scripts/render_master.sh` on a
-  connected Mac. (Optional later, POST-APPROVAL only: promote the beat-locked
-  variant; selective 2K/4K upscale.)
-- **Next:** the **user reviews + judges** the cut — either open
-  `when-it-rains/preview.html` in a browser (silent, approximate-timing, streams
-  from the CDN) and/or run the full Mac render (`scripts/render_master.sh`, or
-  `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`) with `RENDER_REVIEW.md`
-  as the timecode-keyed capture checklist, for overall pacing judgment. If the
-  pacing wants tightening to the beat, the **user-gated** promotion of
-  `data/edl_beatlocked.csv` into the live `data/edl.csv` is staged and ready (84/86
-  cuts snapped, section starts preserved). Optional later, post-approval:
-  **selective 2K/4K upscale** (explicitly LAST, after the cut is locked). NOT YET
-  PUSHED: P-015 commits `c65748e` / `9370af3` + this close commit are local-only —
-  awaiting an explicit push go.
+- **Now:** **P-018 is CLOSED → the chorus is LOCKED and the method is
+  CANONIZED.** The live deliverable is the **locked chorus_v16**
+  (`render_chorus_v16.sh` → `chorus_v16.mp4`) + **`PRODUCTION_PLAYBOOK.md`**
+  (the copy-paste bible for every remaining section). Identity infrastructure
+  is durable (trained Soul `07822e21-…`; elements `wir-him` / `wir-her`). The
+  delivery loop is LIVE: commit render script → trigger
+  `.github/workflows/render-chorus.yml` (input `script=<name>.sh`) → CI renders
+  on a connected runner + commits the mp4 → `git pull` → review in chat — this
+  retires the old "cannot render in-session" boundary as the delivery blocker.
+  The branch **auto-mirrors to origin** (the earlier "local-only / awaiting
+  push go" framing is SUPERSEDED — the mirror is an environment fact; the
+  standing boundary is unchanged: no merge / deploy / publish / secrets without
+  explicit go). Higgsfield credits ~**1900–2000 of 2415** remaining (rough).
+- **Next:** **board the remaining `STORY.md` scenes with the playbook** —
+  apartment intro, V1 morning, street/bus PRE1, V3 hall glimpse, V4
+  mirror/drawer, PRE2 train/sky, bridge waterfront flood, final — one
+  scene-spec → master-still → one-take → measured-cuts packet at a time (the
+  chorus shape is the reference), then the **full 4:34 assembly** (one
+  continuous vocal, cuts on `analysis/beats.json`). The old 107-cut
+  `data/edl.csv` gets superseded section by section as scenes land.
 
 ## Stable facts (slow-changing)
 
@@ -434,4 +463,10 @@ Codex unavailable — solo; base `60b297d`, tip `eed8ed8`; HONEST STATUS: code
 shelved-ready but wan2_7 mechanism UNPROVEN / SO FAR FAILING [3 attempts failed, a
 4th in flight at close] → true lip-sync likely needs filmed footage). The live edit
 is now the P-016 107-cut / 274.00 s 2000s director's cut. All of P-016 + P-017
-commits + this close are local-only, awaiting an explicit push go._
+commits + this close are local-only, awaiting an explicit push go. P-018 closed 2026-07-01 (CHORUS LOCK — the
+chorus-production era: trained Soul `07822e21`, elements `wir-him` / `wir-her`,
+LOCKED `render_chorus_v16.sh` + `PRODUCTION_PLAYBOOK.md` canonized, wan2_7
+lip-sync PROVEN via imported media, CI render delivery live; 32 commits
+`8a5048c..bc9d4d7` + CI `8a2e88d`, base `90ce268`; proof = user verdicts on
+CI-rendered mp4s [accepted process deviation]; NOTE: the branch AUTO-MIRRORS to
+origin — the "local-only / awaiting push go" framing above is superseded)._
