@@ -62,6 +62,12 @@ rule; say "render_master: preflight"; rule
 [ -s data/edl.csv ]    || { say "ERROR: data/edl.csv missing."; exit 1; }
 [ -s data/clips.csv ]  || { say "ERROR: data/clips.csv missing."; exit 1; }
 
+# Offline data check: proves every cut resolves to a real clip URL and the edit is
+# on-target BEFORE we download anything. Critical failures abort here.
+if [ -f scripts/preflight_edl.py ] && command -v python3 >/dev/null 2>&1; then
+  python3 scripts/preflight_edl.py || { say "ERROR: preflight_edl found critical issues; fix data/*.csv first."; exit 1; }
+fi
+
 SONG=""; for c in song.wav song.mp3 song.m4a song.flac; do [ -s "$c" ] && { SONG="$c"; break; }; done
 if [ -z "$SONG" ]; then
   say "WARN: no song.(wav|mp3|m4a|flac) in project root — master will be SILENT."
