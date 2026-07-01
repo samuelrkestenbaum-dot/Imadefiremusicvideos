@@ -29,6 +29,7 @@ done
 echo "== Stills =="
 tail -n +2 data/stills.csv | while IFS=, read -r id url rest; do
   [ -z "$id" ] && continue
+  [ -z "$url" ] && continue          # stills with no URL are generation-only; render doesn't need them
   dl "$url" "stills/${id}.png"
 done
 

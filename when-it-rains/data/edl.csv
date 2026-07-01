@@ -1,87 +1,108 @@
 index,clip_key,in_point,duration,section,note
-1,C03,0.0,4,INTRO,rain on glass (open)
-2,C01,0.0,4,INTRO,band room wakes
-3,C02,0.0,3,INTRO,singer close-up
-4,C04,0.0,4,INTRO,man alone by window
-5,C03,1.0,3,INTRO,rain hold into verse
-6,C02,0.5,3.1,V1,sings opening line
-7,C04,0.0,3.88,V1,turns as if touched; reflection dissolves
-8,C01,1.0,2.33,V1,restrained band
-9,C06,0.0,3.1,V1,grey ocean
-10,EX1,0.0,3.1,V1,gazes at ocean through glass
-11,C05,0.0,3.1,V1,river bend
-12,C02,2.0,2.33,V1,singer
-13,C04,1.5,2.31,V1,window
-14,C07,0.0,4.75,V2,over shoulder; her reflection surfaces
-15,C02,0.0,2.85,V2,face-on singing
-16,C03,0.5,2.85,V2,rain behind him
-17,C07,0.0,3.8,V2,raindrop breaks reflection; empty room
-18,C09,0.0,2.85,V2,band fragments
-19,C02,1.0,2.85,V2,more direct
-20,C04,0.0,3.8,V2,window
-21,C07,0.0,4.75,V2,reflection again, gone
-22,C08,0.0,3.9,PRE1,curtains breathe; trees move
-23,C13,0.0,3.12,PRE1,almost turns toward a sound
-24,C09,0.0,3.12,PRE1,drummer enters, build
-25,C02,0.0,2.34,PRE1,"it's like you never left"
-26,C08,1.0,3.12,PRE1,trees move
-27,C09,0.0,3.9,PRE1,push-in, intensity rising
-28,C12,0.0,4.15,CH1,band release
-29,C10,0.0,3.11,CH1,puddle reflection trembles
-30,C31,0.0,3.2,CH1,drummer strikes the backbeat hard, cymbal shimmers
-31,C19,0.0,3.11,CH1,thunder flash
-32,C11,0.0,3.11,CH1,woman from behind, gone
-33,C32,0.0,3.2,CH1,hands strum and move along the fretboard, chorus rhythm
-34,C12,1.5,3.11,CH1,band
-35,C02,0.0,3.11,CH1,chorus with force
-36,C33,0.0,3.2,CH1,singer sings the chorus with force into the mic, slight push-in
-37,C10,1.5,3.11,CH1,water again
-38,C12,0.0,3.11,CH1,band
-39,C34,0.0,3.23,CH1,hands lift into the chorus on the keys under warm lamp
-40,C13,0.0,2.66,V3,turns toward window at thunder
-41,C18,0.0,1.6,V3,storm clouds
-42,C09,1.0,1.6,V3,band warmer, urgent
-43,C13,1.0,2.13,V3,turns, nothing
-44,C11,1.0,1.6,V3,distant woman, one shot
-45,C02,0.0,2.13,V3,singer less controlled
-46,C12,0.0,2.13,V3,drummer harder
-47,C13,0.0,2.65,V3,listening, haunted
-48,C14,0.0,4.75,V4,opens drawer, hides memory
-49,C15,0.0,4.75,V4,her face in misted mirror
-50,C02,1.0,2.85,V4,CU; band swallowed by story
-51,C16,0.0,3.8,V4,face forms in fog
-52,C15,1.0,3.8,V4,he reaches; dissolves to his reflection
-53,C14,1.0,3.8,V4,drawer closes
-54,C09,0.0,4.75,V4,shadowy band
-55,C17,0.0,4.12,PRE2,looks up into storm sky
-56,C25,0.0,3.4,PRE2,drummer hands accelerate a tom fill, sticks blur, lightning flickers
-57,C18,0.0,3.3,PRE2,clouds move
-58,C26,0.0,3.4,PRE2,slow dolly push-in toward the band leaning into the build
-59,C12,0.0,3.3,PRE2,band carries the confession
-60,C27,0.0,3.4,PRE2,singer lifts chin and leans into a rising vocal in profile
-61,C02,0.0,3.3,PRE2,"I still want you"
-62,C28,0.0,3.4,PRE2,bassist sways forward, hand driving low strings, rim light shifts
-63,C17,1.0,3.3,PRE2,stops fighting it
-64,C29,0.0,3.4,PRE2,hands drive hard chords, lightning flash crosses the keys
-65,C20,0.0,3.3,PRE2,band rises
-66,C30,0.0,3.38,PRE2,whole band rises together at the peak, arms and instruments lifting
-67,C20,0.0,3,CH2,band
-68,C10,0.0,2.5,CH2,water
-69,C19,0.0,2.5,CH2,thunder
-70,C15,0.0,3,CH2,mirror
-71,C07,0.0,3,CH2,window reflection
-72,C21,0.0,3,CH2,clean memory shot, turns away
-73,C20,1.0,3,CH2,band
-74,C02,0.0,4,CH2,almost angry at himself
-75,C22,0.0,5,BRIDGE,rainwater spreads across floor
-76,C16,0.0,3,BRIDGE,mirror fogs
-77,C11,0.0,3,BRIDGE,she turns away
-78,C20,0.0,3,BRIDGE,band at peak
-79,C22,2.0,3,BRIDGE,drawer creaks open
-80,C21,0.0,3,BRIDGE,she vanishes
-81,C15,0.0,3,BRIDGE,he reaches for the mirror
-82,C20,0.0,2.6,FINAL,final chorus, band plays out
-83,C24,0.0,2.6,FINAL,singer direct, almost still
-84,C23,0.0,3.47,FINAL,alone by the window
-85,C03,0.0,1.73,FINAL,rain continues
-86,C23,1.0,2.6,FINAL,looks to camera, unresolved (end)
+1,ATM_window,0.0,3.02,INTRO,"rain sheets down window, bokeh"
+2,PERF_window,0.0,3.9,INTRO,"sits by rain window, slow push-in"
+3,ATM_river,0.0,3.9,INTRO,"river bends, rain dimples surface"
+4,RAIN_plate,0.0,3.9,INTRO,"silver rain streaks fall, slow-mo"
+5,MEM_touch,0.0,3.27,INTRO,her fingertips graze his jaw
+6,PERF_profile,0.0,3.55,V1,"profile singing, sway, rim light"
+7,MEM_happy,0.0,3.9,V1,"she laughs in golden light, alive"
+8,MEM_water,0.0,3.9,V1,"at ocean edge, wind in hair, waves"
+9,ATM_river,1.0,3.9,V1,"river bends, rain dimples surface"
+10,PERF_window,1.0,3.9,V1,"sits by rain window, slow push-in"
+11,PERF_profile,0.91,4.09,V1,"profile singing, sway, rim light"
+12,PERF_listen,0.0,3.71,V2,"turns head, listening"
+13,ATM_window,1.0,3.9,V2,"rain sheets down window, bokeh"
+14,HER_rain,0.0,3.9,V2,"she stands in the downpour, slow turn"
+15,MEM_mirror,0.0,3.9,V2,"her reflection in fogged mirror, drips"
+16,RAIN_plate,1.0,3.9,V2,"silver rain streaks fall, slow-mo"
+17,PERF_window,1.1,3.9,V2,"sits by rain window, slow push-in"
+18,PERF_listen,1.0,3.9,V2,"turns head, listening"
+19,ATM_window,2.0,1.39,V2,"rain sheets down window, bokeh"
+20,PERF_hook,0.0,2.52,PRE1,"singer sings the hook hard, push-in, rain"
+21,ATM_trees,0.0,2.93,PRE1,trees thrash in wind and rain
+22,MEM_turn,0.0,2.93,PRE1,"she turns to camera, half-smile"
+23,PERF_lookup,0.0,2.93,PRE1,"tilts face up into rain, singing"
+24,ATM_lightning,0.0,2.93,PRE1,lightning forks across the sky
+25,HER_rain,1.0,2.93,PRE1,"she stands in the downpour, slow turn"
+26,PERF_hook,1.0,2.36,PRE1,"singer sings the hook hard, push-in, rain"
+27,MEM_clouds,0.0,1.54,CH1,"her form in the storm clouds, dissolving"
+28,RAIN_plate,2.0,1.95,CH1,"silver rain streaks fall, slow-mo"
+29,PERF_profile,2.0,1.95,CH1,"profile singing, sway, rim light"
+30,ATM_trees,1.0,1.95,CH1,trees thrash in wind and rain
+31,PERF_outside,0.0,1.95,CH1,"soaked, head bowed, surrender"
+32,MEM_happy,1.0,1.95,CH1,"she laughs in golden light, alive"
+33,ATM_window,3.0,1.95,CH1,"rain sheets down window, bokeh"
+34,PERF_reach,0.0,1.95,CH1,lifts hand up into the downpour
+35,HER_rain,2.0,1.95,CH1,"she stands in the downpour, slow turn"
+36,PERF_hook,2.0,1.95,CH1,"singer sings the hook hard, push-in, rain"
+37,ATM_lightning,1.0,1.95,CH1,lightning forks across the sky
+38,MEM_clouds,1.0,1.95,CH1,"her form in the storm clouds, dissolving"
+39,PERF_lookup,1.0,1.95,CH1,"tilts face up into rain, singing"
+40,RAIN_plate,3.0,1.95,CH1,"silver rain streaks fall, slow-mo"
+41,PERF_profile,3.0,1.95,CH1,"profile singing, sway, rim light"
+42,ATM_trees,2.0,1.95,CH1,trees thrash in wind and rain
+43,PERF_outside,1.0,1.95,CH1,"soaked, head bowed, surrender"
+44,MEM_happy,2.0,1.95,CH1,"she laughs in golden light, alive"
+45,ATM_window,3.05,1.95,CH1,"rain sheets down window, bokeh"
+46,PERF_reach,1.0,2.1,CH1,lifts hand up into the downpour
+47,PERF_listen,2.0,2.78,V3,"turns head, listening"
+48,PERF_window,2.07,2.93,V3,"sits by rain window, slow push-in"
+49,MEM_mirror,1.0,2.93,V3,"her reflection in fogged mirror, drips"
+50,PERF_profile,2.07,2.93,V3,"profile singing, sway, rim light"
+51,ATM_trees,2.07,2.93,V3,trees thrash in wind and rain
+52,PERF_profile,2.98,2.02,V3,"profile singing, sway, rim light"
+53,ATM_drawer,0.0,3.83,V4,hand slides drawer shut on photo
+54,ATM_window,1.1,3.9,V4,"rain sheets down window, bokeh"
+55,MEM_turn,1.0,3.9,V4,"she turns to camera, half-smile"
+56,PERF_listen,1.1,3.9,V4,"turns head, listening"
+57,PERF_window,1.1,3.9,V4,"sits by rain window, slow push-in"
+58,MEM_mirror,1.1,3.9,V4,"her reflection in fogged mirror, drips"
+59,ATM_drawer,1.0,3.9,V4,hand slides drawer shut on photo
+60,PERF_profile,3.74,1.26,V4,"profile singing, sway, rim light"
+61,PERF_hook,3.0,1.67,PRE2,"singer sings the hook hard, push-in, rain"
+62,MEM_clouds,2.0,1.95,PRE2,"her form in the storm clouds, dissolving"
+63,PERF_lookup,2.0,1.95,PRE2,"tilts face up into rain, singing"
+64,ATM_lightning,2.0,1.95,PRE2,lightning forks across the sky
+65,PERF_reach,2.0,1.95,PRE2,lifts hand up into the downpour
+66,HER_rain,3.0,1.95,PRE2,"she stands in the downpour, slow turn"
+67,ATM_trees,3.05,1.95,PRE2,trees thrash in wind and rain
+68,RAIN_plate,3.05,1.95,PRE2,"silver rain streaks fall, slow-mo"
+69,PERF_outside,2.0,1.95,PRE2,"soaked, head bowed, surrender"
+70,PERF_hook,3.05,1.95,PRE2,"singer sings the hook hard, push-in, rain"
+71,MEM_clouds,3.0,1.95,PRE2,"her form in the storm clouds, dissolving"
+72,PERF_lookup,3.0,1.95,PRE2,"tilts face up into rain, singing"
+73,ATM_lightning,3.0,1.95,PRE2,lightning forks across the sky
+74,PERF_reach,3.0,1.95,PRE2,lifts hand up into the downpour
+75,HER_rain,3.05,1.95,PRE2,"she stands in the downpour, slow turn"
+76,PERF_profile,3.05,1.95,PRE2,"profile singing, sway, rim light"
+77,ATM_trees,3.05,1.95,PRE2,trees thrash in wind and rain
+78,RAIN_plate,3.05,1.95,PRE2,"silver rain streaks fall, slow-mo"
+79,PERF_outside,3.0,1.95,PRE2,"soaked, head bowed, surrender"
+80,PERF_hook,3.05,1.95,PRE2,"singer sings the hook hard, push-in, rain"
+81,MEM_clouds,2.72,2.28,PRE2,"her form in the storm clouds, dissolving"
+82,ATM_lightning,3.37,1.63,CH2,lightning forks across the sky
+83,PERF_lookup,3.05,1.95,CH2,"tilts face up into rain, singing"
+84,PERF_reach,3.05,1.95,CH2,lifts hand up into the downpour
+85,MEM_dissolve,0.0,1.95,CH2,her face dissolves into rain
+86,HER_rain,3.05,1.95,CH2,"she stands in the downpour, slow turn"
+87,RAIN_plate,3.05,1.95,CH2,"silver rain streaks fall, slow-mo"
+88,PERF_outside,3.05,1.95,CH2,"soaked, head bowed, surrender"
+89,PERF_profile,3.05,1.95,CH2,"profile singing, sway, rim light"
+90,ATM_trees,3.05,1.95,CH2,trees thrash in wind and rain
+91,PERF_hook,3.05,1.95,CH2,"singer sings the hook hard, push-in, rain"
+92,ATM_lightning,3.05,1.95,CH2,lightning forks across the sky
+93,MEM_clouds,3.05,1.95,CH2,"her form in the storm clouds, dissolving"
+94,PERF_lookup,4.08,0.92,CH2,"tilts face up into rain, singing"
+95,ATM_drop,0.0,2.01,BRIDGE,"raindrop strikes puddle, ripples, slow-mo"
+96,MEM_whisper,0.0,2.93,BRIDGE,she whispers at his ear
+97,PERF_outside,2.07,2.93,BRIDGE,"soaked, head bowed, surrender"
+98,ATM_flood,0.0,2.93,BRIDGE,floodwater rises over his feet
+99,MEM_dissolve,1.0,2.93,BRIDGE,her face dissolves into rain
+100,PERF_reach,2.07,2.93,BRIDGE,lifts hand up into the downpour
+101,ATM_flood,1.0,2.93,BRIDGE,floodwater rises over his feet
+102,MEM_whisper,1.0,3.44,BRIDGE,she whispers at his ear
+103,HER_rain,2.59,2.41,FINAL,"she stands in the downpour, slow turn"
+104,PERF_lookup,2.07,2.93,FINAL,"tilts face up into rain, singing"
+105,ATM_drop,1.0,2.93,FINAL,"raindrop strikes puddle, ripples, slow-mo"
+106,PERF_outside,2.07,2.93,FINAL,"soaked, head bowed, surrender"
+107,MEM_dissolve,2.0,1.76,FINAL,her face dissolves into rain

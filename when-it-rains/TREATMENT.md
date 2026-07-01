@@ -9,31 +9,49 @@ drops, still wondering.
 sung, and every cut lands on a downbeat (61.5 BPM grid, already mapped). The song
 drives the picture, not the other way around.
 
+## Aesthetic — late-90s / early-2000s rain ballad
+The whole visual language emulates ~1998–2004 music videos: the soaked-performance-
+plus-narrative rock/pop ballad. Reference points: Evanescence *My Immortal* /
+*Bring Me to Life*, 3 Doors Down *Here Without You*, Goo Goo Dolls *Iris*, The Calling
+*Wherever You Will Go*, Nickelback *Far Away*, Coldplay *Yellow* (Åkerlund) & *The
+Scientist* (Romanek). Directors' toolkit we're copying:
+- **Bleach-bypass / desaturated high-contrast** grade — crushed blacks, silver skin,
+  a steel-blue cast. Film grain + gate weave, subtle vignette, **2.35:1 letterbox**.
+- **Rain machine + hard backlight** so every drop reads as a silver streak in the dark.
+- **Slow-motion** on the hero moments (rain, the look-up, hair/water); **handheld**
+  energy and **anamorphic lens flares** elsewhere.
+- **Extreme close-ups**: wet eyelashes, rain on lips, water down glass/skin, an eye.
+- Performance in a **stark, bare space** — an empty warehouse / stripped room / rooftop —
+  NOT a period room. Sparse practical light (one window, one bulb, headlights).
+
 ## Two worlds (so the cutting means something)
-- **PRESENT** — the man, now, alone. Cold blue-grey storm light, 35mm grain,
-  anamorphic, rain on every window. This is where he sings (lip-sync).
-- **MEMORY** — her. Warm amber, soft/overexposed, fragmentary. She is **never fully
-  present** — a hand, a turn, a reflection, a shape in the cloud. (Serves the grief,
-  and hides AI face-consistency drift by design.)
+- **PRESENT** — him, now, alone, *soaked*. Desaturated steel-blue, high-contrast,
+  slow-mo rain in backlight. The stark performance space. This is where he lip-syncs.
+- **MEMORY** — her. **Bloomy, overexposed, warm, Super-8-textured** flashback (the
+  2000s "home-video memory" look), fragmentary — a hand, a turn, a reflection. Never
+  fully present (grief — and it hides AI face-drift by design).
 - **THE CHORUS** — the two worlds collide *in the water itself*: she appears in the
-  rain, the puddles, the lightning. Full band performance + storm peak.
+  rain, the puddles, the lightning. Full soaked-band performance + storm peak.
 
 ## Casting / consistency
-- **Lead** = our established man (short red-blonde hair, receding hairline, reddish
-  beard; anchor still `5cc8239a`). He lip-syncs the hook and each verse's opening line.
+- **Lead** = the artist himself — **short buzzed hair (buzz cut)**, reddish stubble,
+  ~2000-era wet styling; face anchored to his selfies. (NO "receding hairline" language —
+  that old boilerplate aged him wrong.) He lip-syncs the hook and each verse's opener.
 - **The woman** = a NEW consistent, reference-anchored memory character. Glimpsed only.
 
 ## Look / cutting rhythm
-- Slow tempo → verses breathe (3–5s cuts); choruses & bridge get denser and faster.
+- Slow tempo → verses breathe (3–5s cuts); choruses & bridge get denser and faster,
+  with slo-mo hero beats held longer.
 - Every cut on a downbeat. **No clip reused inside a 12-cut window** (kills the C02-×11 problem).
 
 ---
 
 ## Beat sheet (lyric → image), aligned to the grid
 
-**INTRO 0:00–0:18 (instrumental).** Rain sheeting down a dark 1970s window. The man
-sits motionless, lit blue, an untouched glass, an empty chair across from him. Slow
-push-in. On the last beat: one warm flash — her hand, gone before you register it.
+**INTRO 0:00–0:18 (instrumental).** Rain sheeting down a dark window in a bare, stark
+room. The man sits motionless, backlit and steel-blue, soaked-through, an empty chair
+across from him. Slow push-in, faint handheld drift. On the last beat: one warm,
+bloomy Super-8 flash — her hand, gone before you register it.
 
 **V1 0:18–0:41.**
 - 0:19 *"I think I feel you"* — CU lead singing, eyes closed (present/blue).
@@ -79,8 +97,11 @@ push-in. On the last beat: one warm flash — her hand, gone before you register
 - **A. Lead performance / lip-sync (present, blue):** ~8 clips — hook CUs (a few angles), verse-opening lines, the reach-into-rain, the bridge surrender. (Lip-sync tightened with Higgsfield dubbing.)
 - **B. The woman (memory, warm):** ~10 clips — fingertips, ocean waterline (back), the almost-turn, whisper at ear, face-in-mirror, figure-in-the-clouds, dissolving in rain.
 - **C. Atmosphere / symbols:** ~10 clips — rain on glass, bending river, thrashing trees, lightning, drawer-closing-on-photo, mirror, clouds-forming-a-face, flood over feet, final drop.
-- **Reuse** the strongest existing band clips for chorus energy (C01/C07/C10/C11/C31–C34).
-- Rough scale: **~28–30 new clips** (+ their stills). Staged section-by-section so we course-correct as we go.
+- **Existing 36 clips are 70s-styled and mostly RETIRE** — they clash with the 2000s
+  bleach-bypass look. Assume a near-total re-generation (a few may survive if they read
+  as timeless wet-performance; decided per shot, not reused wholesale).
+- Rough scale: **~30–36 new clips** (+ their stills), all in the new aesthetic. Staged
+  section-by-section so we course-correct as we go. (~9 credits/clip → order ~300 credits.)
 
 ## Proposed first step (de-risk before the full spend)
 Generate a **small test batch (~4 clips)** first — the CHORUS hook lip-sync + 2 memory
