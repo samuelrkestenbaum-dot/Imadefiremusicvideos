@@ -15,7 +15,7 @@ mkdir -p v2sec; : > v2sec/concat.txt
 VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
 get() { [ -s "v2sec/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v2sec/$2" "$1"; }; }
 get "$B/hf_20260702_201225_fccf32d3-f0ad-45b4-ad3b-dbc8e7d8dcc8.mp4" door.mp4    # door take (out + look + walk)
-get "$B/SYNC_URL_TBD.mp4" sync.mp4                                               # awning sync (wan2_7 + 2K)
+get "$B/hf_20260702_203815_d818ba44-2b4c-4c27-8b89-8ef52dfcff5d.mp4" sync.mp4   # awning sync (wan2_7 + 2K aigc)
 get "$B/hf_20260702_202835_0328c8be-1e00-4a8f-b146-aef3a5e4a029.mp4" curb.mp4      # the world-keeps-moving hold
 get "$B/hf_20260702_202914_7923e3e5-8b1f-4f8c-9d2e-fdba618f8e52.mp4" puddle.mp4    # rings between the drops
 
