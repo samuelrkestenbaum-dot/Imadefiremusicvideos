@@ -13,7 +13,7 @@ GHOST_OPACITY=0.30
 mkdir -p intro6; : > intro6/concat.txt
 VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
 get() { [ -s "intro6/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "intro6/$2" "$1"; }; }
-get "$B/hf_20260701_234433_086b45d2-f014-403a-881c-c782e19f8edf.mp4" rain.mp4
+get "$B/hf_20260702_140435_371791eb-362a-4d16-8510-5af28934f31d.mp4" rain.mp4    # bedroom's own window (derived from master)
 get "$B/hf_20260702_131248_eea03072-8e77-486f-9cac-289f6382decc.mp4" bed.mp4      # NEW double-bed take (from approved master)
 get "$B/hf_20260702_132700_8bd72a9d-b8c5-49d7-a417-119421449565.mp4" herhalf.mp4  # tight close: her untouched pillow (same-master derivation)
 get "$B/hf_20260701_234439_2280a662-c5e2-4bf2-aa65-4d5535bd6783.mp4" window.mp4
