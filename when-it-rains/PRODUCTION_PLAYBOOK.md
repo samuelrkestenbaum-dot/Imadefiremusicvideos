@@ -20,6 +20,21 @@ copy-paste bible for building every other section: same method, different scenes
 - Always append: "Absolutely NO text, NO signage, NO letters anywhere."
 
 ## 3. The method — per scene, in order
+0. **DERIVE, DON'T DESCRIBE** (law, learned from intro v4): every asset inside
+   a scene derives from that scene's approved MASTER frame — nano reframe /
+   removal with the master as source media — NEVER a fresh text prompt. A
+   fresh prompt invents its own room, weather, and sheets. Proven chains:
+   remove-person, tight-reframe-on-detail, window close-up from room master.
+0b. **SANDBOX EYES — QC every asset BEFORE the next spend and BEFORE the user
+   sees it** (the review loop): asset URL -> `review_urls.txt`; set
+   `render_request.txt` line 1 = `fetch_review.sh` (+ `# nonce:` line 2 to
+   force the push trigger); push; CI fetches into `when-it-rains/review/`
+   (videos also get 2fps frame PNGs); `git pull` and Read the images. Check:
+   same room/light/props as master, bible (hairline, NO ring, NO text),
+   locked camera, choreography timing — cut points are MEASURED from the
+   timestamped frames (this supersedes video_analysis for timing). The
+   finished cut gets the same pass via its raw.githubusercontent URL before
+   delivery.
 1. **SPEC FIRST, on paper** (template: `CAFE_SCENE_SPEC.md`): locked room geometry,
    blocking that motivates every camera position, reflection physics, and the
    **body-state law**: his body exists in ONE take only — inserts contain no part
@@ -62,3 +77,12 @@ copy-paste bible for building every other section: same method, different scenes
 `render_chorus_v16.sh`: HERO held (hook) → her oblique (puddle) → HERO return →
 story beat 1 (take: notice) → REVEAL (composited reflection) → story beat 2
 (same take: turn — no one). 12s, continuous vocal, every cut on the grid.
+
+## 6. The locked intro (second reference cut — the derivation showcase)
+`render_intro_v6.sh` (user: "Amazing"): bedroom's own rain-streaked window
+(derived close-up) → bed take beat 1 (double bed, lying awake, head turn
+measured 6.5-7.5) → HER-half insert (tight close, the pillow no one slept on,
+derived) → same take: the rise → V1 window + lip-synced first line (2K
+finish) → maybe-her ghost after the line. 24s. Bedroom canon: DOUBLE bed,
+charcoal bedding; all bedroom assets derive from master `2d080b77`. Full IDs
+in INTRO_SCENE_SPEC.md.
