@@ -1,1 +1,2 @@
 fetch_review.sh
+# nonce: p018-take-and-insert
