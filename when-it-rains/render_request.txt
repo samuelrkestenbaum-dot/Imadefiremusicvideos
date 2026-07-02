@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p020-three-assets-qc
+# nonce: p020-sync-still-rain-take-qc
