@@ -1,4 +1,2 @@
 # assets queued for sandbox review (fetched by scripts/fetch_review.sh in CI)
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260702_202835_0328c8be-1e00-4a8f-b146-aef3a5e4a029.mp4
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260702_202851_01a5608f-22d4-416a-8b7e-651e38e9431d.mp4
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260702_202914_7923e3e5-8b1f-4f8c-9d2e-fdba618f8e52.mp4
+https://raw.githubusercontent.com/samuelrkestenbaum-dot/Imadefiremusicvideos/9e0f1ad80479b6730fc5874d6d102c1ed62ea816/when-it-rains/v2_v1.mp4
