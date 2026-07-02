@@ -20,6 +20,17 @@
   reference **elements** (`wir-him` / `wir-her`). Narrative source of truth is
   `when-it-rains/STORY.md`. The P-016 107-cut `data/edl.csv` director's cut
   **predates the playbook method** and will be superseded section by section.
+- **INTRO LOCKED (P-018/P-019 intro pair, 2026-07-02):**
+  `when-it-rains/scripts/render_intro_v6.sh` → `when-it-rains/intro_v6.mp4` is
+  the **second reference cut** (user verdict: **"Amazing"**). **Double-bed
+  canon**; `INTRO_SCENE_SPEC.md` LOCKED with all final asset IDs. The playbook
+  gained **law 0 "DERIVE, DON'T DESCRIBE"** (every scene asset derives from the
+  scene master, never a fresh text prompt) and **law 0b "SANDBOX EYES"** (the
+  CI review-fetch loop — `scripts/fetch_review.sh` downloads `review_urls.txt`
+  assets into `when-it-rains/review/`, videos as 2fps frame PNGs, so the
+  sandbox inspects EVERY asset before spend/ship). Both laws bind every future
+  scene packet. Combined receipt `build-os/receipts/P-018_P-019.md` (note: the
+  id P-018 collides with the chorus-lock receipt — numbering resumes at P-020).
 - **Primary branch / base:** `claude/when-it-rains-music-video-fetr0z` (this repo
   has **no trunk** — no `origin/main`; "green" is judged against the branch tip).
 - **Build/test command:** _there is no software test suite._ The deliverable is a
@@ -38,7 +49,39 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-018 — CHORUS LOCK (the chorus-production era)** —
+- **Last closed packet:** **P-018/P-019 (intro pair) — INTRO LOCKED** —
+  media-production pair (user-directed, playbook-driven), **21 commits**
+  `f724323..25b8b80` (12 authored + 9 CI render commits; base **`f724323`** =
+  the intro_v4 CI render; tip **`25b8b80`**; the branch auto-mirrors to
+  origin). Unreceipted preceding context recorded in the receipt: the intro
+  v1–v4 sprint `e9ff090..f724323`, incl. `2da7e93` — the CI **push trigger via
+  `render_request.txt` line-1 + nonce** (github MCP dispatch now optional).
+  **P-018 — regenerate bed setup (intro v5):** user feedback on intro_v4 — the
+  nightstand insert was a DIFFERENT bedroom (sunny, wrong sheets) and the bed
+  had to become a **DOUBLE bed** so the "her untouched side" beat works. Root
+  cause: the insert was generated from a fresh text prompt instead of DERIVED
+  from the scene master, and the sandbox cannot see CDN images (assets used
+  blind). Built the **CI review-fetch path** (`scripts/fetch_review.sh` +
+  `render-chorus.yml` commit-step, `eabfcd4`+`976f4bc`) — sandbox eyes on every
+  asset BEFORE spending or shipping. New assets ALL derived from the
+  user-approved soul_2 bed master job `2d080b77`: bed take kling 10s
+  `eea03072` (still 0–6s, head-turn 6.5–7.5s, rise 8.5–10s — measured from
+  frames), her-half tight insert nano chain `9924df64` → `f64ef24d` → kling 5s
+  `8bd72a9d` (first attempt `9924df64` CAUGHT in frame QC — WHOLE bed empty,
+  continuity bug — re-derived tighter). Output `render_intro_v5.sh` →
+  `intro_v5.mp4`; user: "Looks great except [opening shot mismatch]".
+  **P-019 — match opening rain shot (intro v6):** the opening rain-on-glass
+  exterior didn't match the bedroom window; fixed BY DERIVATION — nano window
+  close-up from the master (`c63df6d2`) → kling 8s `371791eb`, frame-QC'd
+  (locked camera, same building/road as the master). Output
+  `render_intro_v6.sh` → `intro_v6.mp4` — **USER LOCKED THE INTRO:
+  "Amazing"**. Doc canon (`25b8b80`): `INTRO_SCENE_SPEC.md` LOCKED (final
+  asset IDs, double-bed canon); `PRODUCTION_PLAYBOOK.md` laws 0 + 0b, section
+  6 records intro_v6 as the second reference cut. **Proof = review-fetch frame
+  QC + user verdicts on CI renders** (accepted process deviation, same as the
+  chorus era); no formal qa/reviewer; Codex not run. Receipt
+  `build-os/receipts/P-018_P-019.md`.
+- **Last closed packet (prior):** **P-018 — CHORUS LOCK (the chorus-production era)** —
   media / creative sprint (user-directed, post-P-017), **32 commits**
   `8a5048c..bc9d4d7` on base **`90ce268`** (+ CI render commit **`8a2e88d`** =
   `chorus_v16.mp4`; the branch **auto-mirrors to origin**). Delivered: (1)
@@ -309,26 +352,28 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-018 is CLOSED → the chorus is LOCKED and the method is
-  CANONIZED.** The live deliverable is the **locked chorus_v16**
-  (`render_chorus_v16.sh` → `chorus_v16.mp4`) + **`PRODUCTION_PLAYBOOK.md`**
-  (the copy-paste bible for every remaining section). Identity infrastructure
-  is durable (trained Soul `07822e21-…`; elements `wir-him` / `wir-her`). The
-  delivery loop is LIVE: commit render script → trigger
-  `.github/workflows/render-chorus.yml` (input `script=<name>.sh`) → CI renders
-  on a connected runner + commits the mp4 → `git pull` → review in chat — this
-  retires the old "cannot render in-session" boundary as the delivery blocker.
-  The branch **auto-mirrors to origin** (the earlier "local-only / awaiting
-  push go" framing is SUPERSEDED — the mirror is an environment fact; the
-  standing boundary is unchanged: no merge / deploy / publish / secrets without
-  explicit go). Higgsfield credits ~**1900–2000 of 2415** remaining (rough).
-- **Next:** **board the remaining `STORY.md` scenes with the playbook** —
-  apartment intro, V1 morning, street/bus PRE1, V3 hall glimpse, V4
-  mirror/drawer, PRE2 train/sky, bridge waterfront flood, final — one
-  scene-spec → master-still → one-take → measured-cuts packet at a time (the
-  chorus shape is the reference), then the **full 4:34 assembly** (one
-  continuous vocal, cuts on `analysis/beats.json`). The old 107-cut
-  `data/edl.csv` gets superseded section by section as scenes land.
+- **Now:** **P-018/P-019 are CLOSED → TWO sections are LOCKED: the CHORUS
+  (`render_chorus_v16.sh` → `chorus_v16.mp4`) and the INTRO
+  (`render_intro_v6.sh` → `intro_v6.mp4`, user: "Amazing").** The method canon
+  now includes **law 0 "DERIVE, DON'T DESCRIBE"** and **law 0b "SANDBOX EYES"**
+  — the CI review-fetch loop (`scripts/fetch_review.sh` → `when-it-rains/
+  review/`, videos as 2fps frame PNGs) means the sandbox SEES every asset
+  before spend/ship; assets-used-blind is retired as a failure mode. The CI
+  delivery loop is **push-triggered via `render_request.txt` line-1 + nonce**
+  (github MCP dispatch optional). The branch **auto-mirrors to origin**
+  (environment fact; standing boundary unchanged: no merge / deploy / publish /
+  secrets without explicit go). Higgsfield credits ~**1700–1800 of 2415**
+  remaining (rough; supersedes the chorus-era ~1900–2000 figure).
+- **Next:** **Verse 1 board (23.5–43.0s)** — lines: "soft touch upon my skin"
+  23.5–31.3, "my heart had crossed the ocean" 31.3–35.2, "where the rivers
+  bend" 35.2–43.0; the **morning-routine kitchen scene with the TWO MUGS
+  handled-action beat**. Per the playbook (laws 0/0b binding): scene spec →
+  master still (user eyeballs BEFORE animation) → derived takes → frame QC via
+  review-fetch → measured cuts → CI render → user verdict. Then **PRE1, CH1,
+  V3/V4, PRE2, CH2, BRIDGE, FINAL** toward the **full 4:34 assembly** (one
+  continuous vocal, cuts on `analysis/beats.json`; the old 107-cut
+  `data/edl.csv` superseded section by section). **Number the next packet
+  P-020** (P-018/P-019 ids are exhausted twice over — see the collision note).
 
 ## Stable facts (slow-changing)
 
@@ -469,4 +514,9 @@ LOCKED `render_chorus_v16.sh` + `PRODUCTION_PLAYBOOK.md` canonized, wan2_7
 lip-sync PROVEN via imported media, CI render delivery live; 32 commits
 `8a5048c..bc9d4d7` + CI `8a2e88d`, base `90ce268`; proof = user verdicts on
 CI-rendered mp4s [accepted process deviation]; NOTE: the branch AUTO-MIRRORS to
-origin — the "local-only / awaiting push go" framing above is superseded)._
+origin — the "local-only / awaiting push go" framing above is superseded).
+**P-018/P-019 (intro pair) closed 2026-07-02** (INTRO LOCKED — intro_v6
+"Amazing"; combined receipt `build-os/receipts/P-018_P-019.md`; id collision
+with the chorus-lock P-018 recorded, numbering resumes at P-020; review-fetch
+"sandbox eyes" QC path live + playbook laws 0/0b canonized; double-bed canon;
+credits ~1700–1800/2415; next: Verse 1 board 23.5–43.0s, kitchen / TWO MUGS)._

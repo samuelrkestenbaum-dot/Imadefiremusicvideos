@@ -8,73 +8,72 @@
 - **Packet id:** —
 - **Title:** —
 
-> **P-018 (CHORUS LOCK — the chorus-production era) is CLOSED. NO packet is
-> active.** The live deliverable is the **LOCKED chorus**
-> (`when-it-rains/scripts/render_chorus_v16.sh` → `when-it-rains/chorus_v16.mp4`)
-> + **`when-it-rains/PRODUCTION_PLAYBOOK.md`** — the copy-paste bible for every
-> remaining section. Receipt: `build-os/receipts/P-018.md`.
+> **P-018/P-019 (intro pair — bed regen v5 + opening match v6) are CLOSED. THE
+> INTRO IS LOCKED. NO packet is active.** Combined receipt:
+> `build-os/receipts/P-018_P-019.md`. (Numbering note: "P-018" also names the
+> earlier chorus-lock receipt `P-018.md` — an id collision, recorded; **the
+> next packet is P-020**.)
 >
-> **P-018 in one paragraph:** 32 commits `8a5048c..bc9d4d7` (base `90ce268`,
-> + CI render commit `8a2e88d` = `chorus_v16.mp4`). Trained Soul of the artist
-> `07822e21-af62-44cc-a8b8-0b27dfe6de8a` (8 real photos; removed from the tree
-> after training — still in git history, see residue). Reference elements
-> `wir-him` `1b581c11-…` (from de-ringed cafe still `32058bcb`) + `wir-her`
-> `38ebfd81-…` (from her anchor `65382e29`) — multi-likeness single-frame
-> generation PROVEN via `<<<uuid>>>` placeholders (nano_banana_2 / kling3_0).
-> The locked chorus shape: hero hook (ORIGINAL wan2_7 lip-sync `491e39d1`) →
-> her puddle reflection (`b22edfc6`) → hero → cafe one-take notice (`c1ffc156`
-> @1.0s) → composited POV reflection reveal (insert `6b3be8f1` @55% over empty
-> plate `ec557078`, setpts-fixed) → same-take turn (@6.9s). Method CANONIZED in
-> `PRODUCTION_PLAYBOOK.md` (spec-first staging, body-state law, measured cuts,
-> POV insert grammar, environment-mirrored reflections, surgical nano edits,
-> true ffmpeg composites, wan2_7 lip-sync via IMPORTED media — P-017's mechanism
-> question CLOSED: PROVEN — vocal relay via git → raw.githubusercontent →
-> media_import_url, CI delivery via `.github/workflows/render-chorus.yml`).
-> Character bible hard rules: HIM buzz cut FULL hairline reddish stubble fit
-> lean BARE HANDS no ring; HER = his ex, oblique/reflections only; NO text in
-> any frame. Proof = user eyeball verdicts on CI-rendered mp4s (v12..v16);
-> ≤2-commit contract + formal qa/reviewer superseded by user direction
-> (accepted, recorded deviation). User verdicts on record: original hero clip
-> is THE hero (never replace); v14-style environment-mirrored reflection
-> preferred; composited v15/v16 ghost is the standard; likeness ALWAYS beats
-> scene-cohesion.
+> **The pair in one paragraph:** 21 commits `f724323..25b8b80` (base
+> `f724323` = the intro_v4 CI render; 12 authored + 9 CI). P-018 fixed the
+> intro_v4 bed setup per user feedback (insert was a DIFFERENT bedroom; bed
+> became a **DOUBLE bed** for the "her untouched side" beat). Root cause fixed
+> as PROCESS: assets had been prompted fresh instead of DERIVED from the scene
+> master, and used blind (sandbox can't see the CDN) → built the **CI
+> review-fetch path** (`scripts/fetch_review.sh` + `render-chorus.yml`;
+> `review_urls.txt` assets land in `when-it-rains/review/`, videos as 2fps
+> frame PNGs — sandbox eyes on EVERYTHING before spend/ship). New assets all
+> derived from the approved soul_2 bed master `2d080b77`: bed take kling 10s
+> `eea03072` (beats measured from frames), her-half insert nano `9924df64` →
+> `f64ef24d` → kling 5s `8bd72a9d` (first attempt caught in frame QC — whole
+> bed empty — re-derived). `render_intro_v5.sh` → `intro_v5.mp4`: "Looks great
+> except [opening shot mismatch]". P-019 matched the opening rain shot to the
+> bedroom's own window by derivation (nano `c63df6d2` → kling 8s `371791eb`,
+> frame-QC'd: locked camera, same building/road). `render_intro_v6.sh` →
+> `intro_v6.mp4` — **USER LOCKED: "Amazing"**. Docs (`25b8b80`):
+> `INTRO_SCENE_SPEC.md` LOCKED (final asset IDs, double-bed canon);
+> `PRODUCTION_PLAYBOOK.md` **law 0 "DERIVE, DON'T DESCRIBE"** + **law 0b
+> "SANDBOX EYES"**, section 6 = intro_v6 is the second reference cut.
 
-## Open work (no packet — for the orchestrator to stage next)
+## Next packet (staged for the orchestrator — open as P-020)
 
-1. **Board the remaining `STORY.md` scenes with the playbook** (one scene =
-   one packet, chorus shape as the reference): **apartment intro → V1 morning →
-   street/bus PRE1 → V3 hall glimpse → V4 mirror/drawer → PRE2 train/sky →
-   bridge waterfront flood → final.** Per scene: scene spec (CAFE_SCENE_SPEC.md
-   template) → master still (soul_2 + bible, user eyeballs likeness BEFORE
-   animation) → ONE continuous take per setup → measured cuts via
-   `video_analysis` → inserts/composites per the playbook → CI render → user
-   verdict. Credits: ~1900–2000 of 2415 remain (rough) — budget accordingly.
-2. **The full 4:34 assembly** (after the scenes land): one continuous vocal,
-   cuts on `analysis/beats.json`, hero holds on the hooks — supersedes the old
-   107-cut `data/edl.csv` section by section.
-3. **Later hygiene (optional packet):** prune the chorus v2–v15 iteration
-   scripts and the older CI mp4s (v12–v15); refresh any review docs still keyed
-   to the pre-playbook 107-cut edit.
+**P-020 — Verse 1 board (23.5–43.0s): morning-routine kitchen, the TWO MUGS
+beat.**
+
+- **Lines / timings:** "soft touch upon my skin" 23.5–31.3 · "my heart had
+  crossed the ocean" 31.3–35.2 · "where the rivers bend" 35.2–43.0.
+- **Scene:** morning-routine kitchen with the **TWO MUGS handled-action beat**
+  (the grief-in-ordinary-life grammar: his routine, her absence).
+- **Method (laws 0 + 0b BINDING):** scene spec (INTRO_SCENE_SPEC.md is the
+  template now) → kitchen scene MASTER still (soul_2 + character bible; user
+  eyeballs likeness BEFORE animation) → every take/insert DERIVED from the
+  master → queue everything through `review_urls.txt` → frame QC in
+  `when-it-rains/review/` BEFORE cutting → measured cuts from frames →
+  `render_v1_*.sh` → CI render → user verdict.
+- **Budget:** credits ~1700–1800 of 2415 remain (rough) — new generation only
+  inside this packet with go.
+- **After V1:** PRE1 → CH1 → V3/V4 → PRE2 → CH2 → BRIDGE → FINAL, then the
+  **full 4:34 assembly** (one continuous vocal, cuts on `analysis/beats.json`).
 
 ## Out of scope (explicit, until a fresh go)
 
 - Any merge / deploy / publish / secrets. (The branch **auto-mirrors to
   origin** — an environment fact; commits are fine, everything else is gated.)
-- A **history rewrite** to purge the Soul training photos from git history
-  (needed only if the repo goes public — user decision).
-- Replacing the ORIGINAL hero clip `491e39d1` — user-locked, never replace.
+- The **history rewrite** to purge the Soul training photos from PUBLIC git
+  history — **offered to the user, unanswered**; needs an explicit go.
+- Replacing locked material: hero clip `491e39d1`, chorus_v16, intro_v6 —
+  user-locked.
 - New Higgsfield generation outside a staged scene packet (credits).
 
 ## Branch base
 
 - `claude/when-it-rains-music-video-fetr0z` (no trunk; judged against branch
-  tip). HEAD at P-018 close: **`8a2e88d`** (CI `chorus_v16.mp4` render, on top
-  of the lock commit `bc9d4d7`), plus the archivist's own `build-os/` close
-  commit on top. The branch auto-mirrors to origin.
+  tip). HEAD at this close: **`25b8b80`** (intro_v6 lock: spec + playbook laws),
+  plus the archivist's own `build-os/` close commit on top. The branch
+  auto-mirrors to origin.
 
 ---
-_P-018 closed 2026-07-01 (CHORUS LOCK — trained Soul + elements + the locked
-`render_chorus_v16.sh` + `PRODUCTION_PLAYBOOK.md` canonized; wan2_7 lip-sync
-PROVEN via imported media; CI render delivery live; proof = user verdicts on
-CI-rendered mp4s, accepted process deviation). NO packet active. Next: board
-the remaining STORY.md scenes with the playbook, then the full 4:34 assembly._
+_P-018/P-019 closed 2026-07-02 (INTRO LOCKED — intro_v6 "Amazing"; double-bed
+canon; review-fetch "sandbox eyes" + laws 0/0b canonized; combined receipt
+`build-os/receipts/P-018_P-019.md`). NO packet active. Next: P-020 — Verse 1
+board (23.5–43.0s, kitchen / TWO MUGS)._

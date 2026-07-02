@@ -195,6 +195,34 @@
   the repo ever goes public, purging needs a **history rewrite** (external
   mutation → explicit user go).
 
+- **P-018/P-019 (intro) — training photos are in PUBLIC git history; purge
+  OFFERED, UNANSWERED.** Sharpens the note above: the history exposure is not
+  hypothetical — the mirrored branch history is **public**. A history-rewrite
+  purge was **explicitly offered to the user and is unanswered**. Do NOT run it
+  without an explicit go (external mutation); re-raise at a natural pause.
+- **P-018/P-019 (intro) — red storefront sign** visible rain-blurred in the
+  sync-shot background. The shot is **user-approved as-is**; a surgical nano
+  fix ("ONE change only") is available if ever requested. Not a defect.
+- **P-018/P-019 (intro) — V1 window take `2280a662`** reads as a different
+  window/room than the bedroom. **Acceptable film grammar** — flagged to the
+  user, no complaint. Leave unless the user raises it.
+- **P-018/P-019 (intro) — Higgsfield credits ~1700–1800 remaining of 2415**
+  (rough; SUPERSEDES the chorus-era ~1900–2000 estimate). Budget Verse 1 and
+  later scene packets accordingly.
+- **P-018/P-019 (intro) — github MCP dispatch is OPTIONAL now.** The standard
+  CI trigger is the **push trigger: `when-it-rains/render_request.txt` line-1
+  script name + a nonce line** (landed `2da7e93`); `fetch_review.sh` rides the
+  same workflow. Don't reintroduce a dispatch dependency.
+- **P-018/P-019 (intro) — iteration trail + repo weight.**
+  `render_intro_v1..v5.sh` + `intro_v1..v5.mp4` are history only
+  (`render_intro_v6.sh` / `intro_v6.mp4` canonical); `when-it-rains/review/`
+  frame PNGs accumulate weight. Prune both in a later hygiene packet (with the
+  chorus v2–v15 trail) if desired.
+- **P-018/P-019 (intro) — packet-id collision recorded.** "P-018" names BOTH
+  the chorus-lock era (`receipts/P-018.md`) and the intro bed-regen packet
+  (combined `receipts/P-018_P-019.md`). Disambiguate in prose; **numbering
+  resumes at P-020**.
+
 ## Known risks / debt
 
 - **The edit is reversible (two-layer chain) — neither backup overwritten.**
@@ -331,4 +359,12 @@ v2–v15 chorus scripts = iteration trail [v16 canonical], CI-committed
 chorus_v12..v16 mp4s [prune older later], 107-cut edl.csv to be superseded section
 by section by the playbook method, credits ~1900–2000/2415, Soul training photos
 out of tree but in git history [public release would need a history rewrite —
-gated])._
+gated]). P-018/P-019 (intro) note appended 2026-07-02 (INTRO LOCKED — intro_v6
+"Amazing", combined receipt `P-018_P-019.md`, id collision recorded → next id
+P-020; review-fetch "sandbox eyes" QC live [caught the `9924df64` whole-bed-empty
+continuity bug pre-ship]; playbook laws 0 "DERIVE, DON'T DESCRIBE" + 0b "SANDBOX
+EYES" canonized; double-bed canon; NEW residue: photo purge OFFERED/unanswered
+[history is PUBLIC], red storefront sign user-approved [surgical fix on request],
+V1 window take `2280a662` accepted film grammar, credits ~1700–1800/2415,
+push-trigger CI standard [MCP dispatch optional], intro v1–v5 iteration trail +
+review/ weight prunable later)._
