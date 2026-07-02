@@ -16,7 +16,7 @@ VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(
 PUNCH="crop=768:432:256:144,scale=1280:720,setsar=1"   # center-pane punch-in for the rain take
 get() { [ -s "v1sec/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v1sec/$2" "$1"; }; }
 get "$B/hf_20260702_171154_a61bf1b4-092f-457f-84fa-0e54db106137.mp4" mugs.mp4   # THE take (from locked master)
-get "$B/SYNC_URL_TBD.mp4" sync.mp4                                              # window sync line (wan2_7 + 2K)
+get "$B/hf_20260702_173441_875896d5-bef6-4217-a739-93f113f04d18.mp4" sync.mp4   # window sync line (wan2_7 + 2K aigc)
 get "$B/hf_20260702_172036_aaea0be1-b6db-4797-919d-4235466bdf03.mp4" rain.mp4   # rain-rivers on the kitchen pane
 
 seg() { # file in dur idx [vf]
