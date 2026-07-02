@@ -5,7 +5,10 @@ on:
       script:
         description: "render script to run (in when-it-rains/scripts/)"
         required: false
-        default: "render_chorus_v12.sh"
+        default: "render_chorus_v16.sh"
+  push:
+    paths:
+      - "when-it-rains/render_request.txt"
 permissions:
   contents: write
 jobs:
@@ -17,10 +20,18 @@ jobs:
           ref: claude/when-it-rains-music-video-fetr0z
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Resolve script
+        id: pick
+        run: |
+          REQ=$(cat when-it-rains/render_request.txt 2>/dev/null | tr -d '[:space:]' || true)
+          SCRIPT="${{ github.event.inputs.script }}"
+          [ -n "$REQ" ] && SCRIPT="$REQ"
+          echo "script=$SCRIPT" >> "$GITHUB_OUTPUT"
+          echo "rendering: $SCRIPT"
       - name: Render
         run: |
           cd when-it-rains
-          bash "scripts/${{ github.event.inputs.script || 'render_chorus_v12.sh' }}"
+          bash "scripts/${{ steps.pick.outputs.script }}"
           ls -la *.mp4
       - name: Commit result
         run: |
@@ -28,4 +39,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -f when-it-rains/*.mp4
           git commit -m "CI: rendered video"
+          git pull --rebase origin claude/when-it-rains-music-video-fetr0z || true
           git push
