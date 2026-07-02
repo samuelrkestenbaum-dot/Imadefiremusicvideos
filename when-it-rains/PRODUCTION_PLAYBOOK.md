@@ -58,6 +58,12 @@ copy-paste bible for building every other section: same method, different scenes
    Both layers get `setpts=PTS-STARTPTS` so nothing pops in late.
 8. **Lip-sync** (front-facing performance only): wan2_7 with BOTH inputs as
    IMPORTED MEDIA (media_import_url the still png AND the vocal — job ids fail).
+   **ROLES LAW (V1 lesson): pass roles `start_image` and `audio_references`
+   EXACTLY.** Generic roles (image/audio) silently fail to bind — wan then
+   INVENTS a different person from the prompt. Verify the job result echoes
+   the bound medias (start_image/audio with URLs); if `medias` echoes empty,
+   the inputs did not bind. Frame-QC the RAW wan output BEFORE the 2K spend —
+   the sync chain gets NO exemption from law 0b.
    Vocal relay: slice from song.mp3 → commit to `audio_relay/` → push →
    `https://raw.githubusercontent.com/<owner>/<repo>/<sha>/<path>` → media_import_url.
    In the cut, a lip-sync clip's in_point MUST equal its output-timeline position.

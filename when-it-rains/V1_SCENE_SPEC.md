@@ -1,4 +1,20 @@
-# V1 SCENE — THE KITCHEN (23.5–43.0s, boarded; user: "Go if you like it")
+# V1 SCENE — THE KITCHEN — LOCKED as v1_v1 (user: "Great", 2026-07-02)
+
+## LOCKED asset IDs (v1_v1 = render_v1_v1.sh)
+- KITCHEN MASTER (final, after surgical chain): `4709db96`
+  (chain: soul 57e06fe3 -> regen b2022139 [gaze down] -> nano db040b2e [photo
+  glare] -> c60f839f [chain off] -> d5a01047 [charcoal tee] -> 6217c762
+  [glare softened] -> b6ed61c7 [frame removed, user call] -> 4709db96
+  [text scrub: kettle label, bottle label, book spines])
+- MUG take (kling 10s; touch 0-3 / pickup 3-5.5 / carry 5.5-8 / place+close
+  8-10, frame-measured): `a61bf1b4`
+- SYNC line chain: soul still f0d7f1c7 -> nano chain-removal 7005ac53 ->
+  import f0b07269 + vocal media 3824741b -> wan2_7 `405a0f7d`
+  (roles start_image/audio_references EXACTLY) -> 2K aigc `f9fd14a7`
+- RAIN-RIVERS insert: nano 4f58453e -> kling 5s `aaea0be1` (punched-in via
+  ffmpeg crop=768:432:256:144 in the cut)
+- Audio: audio_relay/v1_bed.mp3 (23.5-43.0), v1_line3.mp3 (30.5-35.5,
+  media 3824741b)
 
 Per PRODUCTION_PLAYBOOK.md (laws 0/0b apply: derive from the master, frame-QC
 every asset). Story job: the morning continues; the absence lives in OBJECTS.
