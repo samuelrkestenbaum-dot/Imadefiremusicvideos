@@ -23,7 +23,7 @@ jobs:
       - name: Resolve script
         id: pick
         run: |
-          REQ=$(cat when-it-rains/render_request.txt 2>/dev/null | tr -d '[:space:]' || true)
+          REQ=$(head -n 1 when-it-rains/render_request.txt 2>/dev/null | tr -d '[:space:]' || true)
           SCRIPT="${{ github.event.inputs.script }}"
           [ -n "$REQ" ] && SCRIPT="$REQ"
           echo "script=$SCRIPT" >> "$GITHUB_OUTPUT"
