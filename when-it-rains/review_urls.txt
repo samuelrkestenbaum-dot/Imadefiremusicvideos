@@ -1,2 +1,4 @@
 # assets queued for sandbox review (fetched by scripts/fetch_review.sh in CI)
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260702_170616_4709db96-99d2-4b30-9398-0e1a48fda91f.png
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260702_171154_a61bf1b4-092f-457f-84fa-0e54db106137.mp4
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260702_171136_f0d7f1c7-9ec3-447a-90cd-0f030f26b875.png
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260702_171139_4f58453e-0175-45a0-a9a8-97bd24ad4a0c.png
