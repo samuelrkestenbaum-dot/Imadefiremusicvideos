@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# fetch_review.sh — CI-side asset fetcher. The dev sandbox cannot reach the
+# Higgsfield CDN, so it cannot LOOK at generated stills/clips before using
+# them. CI has full egress: this script downloads every URL listed in
+# review_urls.txt into when-it-rains/review/, the workflow commits them, and
+# the sandbox pulls + inspects them (Read renders images) before they are
+# approved into a cut.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+mkdir -p review
+: > review/.fetched
+while IFS= read -r url; do
+  url="$(echo "$url" | tr -d '[:space:]')"
+  [ -z "$url" ] && continue
+  case "$url" in \#*) continue ;; esac
+  f="review/$(basename "$url")"
+  if [ ! -s "$f" ]; then
+    echo "fetch $(basename "$url")"
+    curl -fSL --retry 4 --retry-delay 2 -o "$f" "$url"
+  fi
+  echo "$f" >> review/.fetched
+done < review_urls.txt
+ls -la review/

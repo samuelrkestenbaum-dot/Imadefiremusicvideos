@@ -37,7 +37,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f when-it-rains/*.mp4
-          git commit -m "CI: rendered video"
+          git add -f when-it-rains/*.mp4 2>/dev/null || true
+          git add -f when-it-rains/review 2>/dev/null || true
+          git commit -m "CI: rendered output" || echo "nothing to commit"
           git pull --rebase origin claude/when-it-rains-music-video-fetr0z || true
           git push
