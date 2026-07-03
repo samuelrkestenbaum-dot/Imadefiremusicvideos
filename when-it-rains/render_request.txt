@@ -1,2 +1,2 @@
-render_p022.sh
-# nonce: p022-ghost-opacity-65
+fetch_review.sh
+# nonce: p022-first70-qc-2
