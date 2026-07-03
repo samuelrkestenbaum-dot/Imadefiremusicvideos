@@ -16,7 +16,7 @@ get() { [ -s "v2sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-del
 get "$B/hf_20260703_010041_c742b889-9c29-4f0d-b214-3b70ea5b794f.mp4" door.mp4       # repaired door take
 get "$B/hf_20260703_043914_ab86a6c8-ba25-48b5-9be4-b81f5ae0e58d.mp4" sync.mp4       # awning sync 2K (realism still, continuous line)
 get "$B/hf_20260703_010458_31ccf929-5637-4a0d-a75c-ebfbaba8ca51.mp4" ghostpud.mp4   # her reflection, rippled apart
-get "$B/CURB_2K_PLACEHOLDER.mp4" curbsync.mp4                                       # 12s curb zoom sync 2K
+get "$B/hf_20260703_104358_2ad7d2e3-edcd-4672-892b-aacb908698ca.mp4" curbsync.mp4   # 12s curb zoom sync 2K
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "v2sec2/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf "v2sec2/seg_%02d.mp4" "$4")"
