@@ -52,7 +52,37 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-023 — first70 revision (mug grain, lip-sync
+- **Last closed packet:** **P-024 — PRE1 (70.3–89.8): the darkening walk —
+  CLOSED 2026-07-03, final frame-QC = SHIP, PRE1 likeness 9/10.** Delivered
+  **`pre1_v1.mp4`** (19.51s) + **`first90.mp4`** (89.79s, **frame-exact grid**,
+  **July Reverb mix** bed) on `claude/when-it-rains-handoff-l0u075`. Board
+  user-approved; masters user-gated: walk = W2 `4aaefb8b` + chain scrub →
+  `361af0a5`; turn = T3 `d1688201` → LOCAL rotate90CW + chest-up crop
+  (`turn_master_crop.png`, imported `b59d18d8`, ZERO nano passes — **user chose
+  T3 over the recommended T4**); trees derived from the scrubbed walk
+  (`b6f2262e`, law 0). Takes: walk-stop-breath kling `584f5e2b` (10s), gust
+  kling `8543a623` (5s); sync wan RETRY `97a9771e` (8s) → 2K `c6888a50` (first
+  take turned away from camera 4.5s mid-line + warped hand at exit — fixed
+  first-retry by **wan behavioral pinning**: sings DIRECTLY INTO CAMERA, never
+  turns away, exit confined to a stated final window, no hand near lens).
+  **NEW LAWS:** (1) **July Reverb mix swap** — same clock, VERIFIED by envelope
+  cross-correlation at 31.2/58.5/89.8/109.3 (all 0ms; rings to ~277s); always
+  cross-correlate anchors before slicing a new mix; (2) **FRAME-EXACT STITCH
+  LAW** — naive concat drifted ~0.3s EARLY by 70s; tpad+trim each seg to exact
+  frame counts (`render_p024.sh`: 576/456/655/468) in every future stitch;
+  (3) wan behavioral pinning (above); (4) soul_2 chest-up+facing-camera renders
+  ROTATED 90° 4/4 — salvage locally (rotate+crop), don't reroll; kling
+  `sound:"off"` must be explicit. Vocal-envelope verification used twice
+  (breath-gap check; new-mix clock check). **Mid-packet: six-lens directors
+  review → `DIRECTORS_NOTES.md`** (verdict: story works, demo → label-pitch
+  after must-fixes) — **ROADMAP back-half section clock VERIFIED WRONG** (CH1
+  really 42.9s, FINAL 16.2s; PRE1 unaffected) — re-time pending in P-025.
+  Credits at close: **1371.75** (~34 spent vs 150–200 est). Commits `80f373f`→
+  `057f739` (23: 15 relay + 8 CI) + close, base `2f791a8`; ≤2-commit contract
+  acknowledged inapplicable (media-relay precedent). Receipt
+  `build-os/receipts/P-024.md`; asset IDs + laws in `when-it-rains/HANDOFF.md`
+  (P-024 addendum).
+- **Last closed packet (prior):** **P-023 — first70 revision (mug grain, lip-sync
   timing, AI-look syncs, curb finale redesign) — CLOSED 2026-07-03, final
   frame-QC = SHIP.** Delivered **`first70.mp4` v2** (continuous 0–70.3, 70.0s)
   + recuts `v1_v2.mp4` (19.5s) / `v2_v2.mp4` (27.3s) on
@@ -389,25 +419,24 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-023 is CLOSED → the film's first 70.3 seconds are DELIVERED at
-  SHIP quality** — LOCKED intro_v6 (0–24) inside `first70.mp4` v2 (0–70.3
-  continuous), plus the LOCKED chorus_v16 (CH1 89.8–102) waiting downstream.
-  Working branch `claude/when-it-rains-handoff-l0u075`; CI relay
-  branch-agnostic; push-trigger via `render_request.txt` + nonce; sandbox eyes
-  (frame QC via a general-purpose subagent returning TEXT — main-context image
-  reads saturate in long sessions). Credits **1405.71 of 2415** (roadmap
-  estimate for everything remaining 950–1100 — comfortable). Read
-  `when-it-rains/HANDOFF.md`, `PRODUCTION_PLAYBOOK.md`, `ROADMAP.md` before any
-  new packet. Standing user law: **no bare chest, ever** (salvage via nano,
-  never reroll wardrobe).
-- **Next:** **P-024 — PRE1 (70.3–89.8s): the darkening walk** (staged in
-  `build-os/packets/active_packet.md`; note the ROADMAP.md table's id drift —
-  its "P-023 PRE1" row is now **P-024**, later rows shift by one). Board FIRST
-  (Δ + because-chain before any generation; laws 0/0b binding; likeness gated
-  vs `review/ANCHOR_BOARD.png`). Then **V3/V4 → PRE2 → CH2 → BRIDGE → FINAL**
-  toward the **full 4:34 assembly** (one continuous vocal, cuts on
-  `analysis/beats.json`).
-
+- **Now:** **P-024 is CLOSED → the film's first 89.8 seconds are DELIVERED at
+  SHIP quality** — `first90.mp4` (frame-exact, July Reverb bed) containing the
+  LOCKED intro_v6 (0–24), V1/V2, and PRE1, with the LOCKED chorus_v16 (CH1
+  89.8–102) next downstream. Working branch
+  `claude/when-it-rains-handoff-l0u075`; CI relay branch-agnostic;
+  push-trigger via `render_request.txt` + nonce; sandbox eyes for all frame QC.
+  Credits **1371.75 of 2415** (P-024 cost ~34 vs 150–200 est — well under).
+  Read `when-it-rains/HANDOFF.md` (P-024 addendum FIRST), `DIRECTORS_NOTES.md`,
+  `PRODUCTION_PLAYBOOK.md`, `ROADMAP.md` before any new packet. Standing user
+  law: **no bare chest, ever**. **The ROADMAP back-half clock is VERIFIED
+  WRONG — do NOT generate against it until P-025 re-times it.**
+- **Next:** **PAPER PACKET P-025 — re-time ROADMAP to the verified section
+  clock + write the APPARITION LEGIBILITY STANDARD + add the waterfront-photo
+  plant to V3/V4** (DIRECTORS_NOTES.md must-fix #1/#2 + STRUCTURAL; verified
+  clock table in its addendum — CH1 really 89.8–132.7, FINAL only 16.2s). Zero
+  generation. The media packet formerly numbered P-025 in the old roadmap
+  numbering shifts after it. Then the re-timed ladder: CH1-extension plan
+  (102–132.7) → V3/V4 → PRE2 → CH2 → BRIDGE → FINAL → full assembly.
 ## Stable facts (slow-changing)
 
 - **Assets generated on Higgsfield:** **42 stills + 26 animated clips** (Kling
@@ -558,3 +587,10 @@ _P-020/P-021/P-022 catch-up + P-023 close appended 2026-07-03 by the archivist
 (P-023 first70 v2 SHIP — receipt `build-os/receipts/P-023.md`; P-021 receipt
 debt recorded; branch now `claude/when-it-rains-handoff-l0u075`; credits
 1405.71; next P-024 PRE1)._
+
+_P-024 close appended 2026-07-03 by the archivist (PRE1 SHIP — pre1_v1 19.51s +
+first90 89.79s frame-exact on the July Reverb bed, likeness 9/10; new laws:
+mix-swap clock verification, frame-exact stitch, wan behavioral pinning,
+rotation salvage + explicit kling sound:off; DIRECTORS_NOTES.md committed —
+ROADMAP back-half clock verified wrong, re-time staged as PAPER PACKET P-025;
+credits 1371.75; receipt `build-os/receipts/P-024.md`)._

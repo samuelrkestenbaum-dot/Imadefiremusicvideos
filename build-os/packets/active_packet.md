@@ -4,74 +4,52 @@
 > the builder implements exactly this and nothing else; the archivist clears it
 > on close. One packet at a time.
 
-- **Status:** ACTIVE (opened 2026-07-03 on explicit user GO)
-- **Packet id:** P-024
-- **Title:** PRE1 (70.3–89.8s) — the darkening walk
+- **Status:** NONE ACTIVE — P-024 CLOSED 2026-07-03 (receipt
+  `build-os/receipts/P-024.md`; final frame-QC SHIP, PRE1 likeness 9/10;
+  `pre1_v1.mp4` 19.51s + `first90.mp4` 89.79s frame-exact on the July Reverb
+  bed). No packet is in flight; the next packet below is STAGED and needs an
+  explicit user GO to open.
 
-## Scope
+## Staged next: PAPER PACKET P-025 — re-time ROADMAP to the verified clock + apparition legibility standard + waterfront-photo plant
 
-- **Lines:** "Don't know if you still feel it / I lose my breath / the trees
-  are moving / like you never left."
-- **Scene (ROADMAP.md Part 3, rung 3 — signs without her):** he walks faster;
-  wind moves the trees like someone passing; he stops — breath fogging — turns
-  around ON the line "like you never left": empty street. **Δ: the signs are
-  now chasing HIM. He decides to go somewhere (the cafe) — giving CH1 a
-  cause.** Because-chain: BECAUSE the V2 puddle double-reflection almost
-  caught him, the dread rises here; BECAUSE he decides to go somewhere, CH1
-  (the cafe, LOCKED chorus_v16) has a cause.
-- **Id note:** ROADMAP.md Part 4 table lists PRE1 as "P-023" — that id was
-  consumed by the first70 revision. PRE1 is **P-024**; all later table rows
-  shift by one (V3/V4 → PRE2 → CH2 → BRIDGE → FINAL → full assembly).
+- **Type:** PAPER packet — docs only, **zero generation, zero credits**.
+- **Source:** `when-it-rains/DIRECTORS_NOTES.md` — must-fix **#2** (the
+  back-half clock is WRONG, VERIFIED against the beat-locked line map — see
+  the addendum table: CH1 is really 89.8–132.7 [42.9s; locked chorus_v16
+  covers only the first 12s], V3/V4 132.7–183.4, PRE2 183.4–214.6, CH2
+  214.6–238.1, BRIDGE 238.1–257.6, FINAL 257.6–273.8 [16.2s, was planned 5×
+  too long]), must-fix **#1** (the ghosts don't read — write the APPARITION
+  LEGIBILITY STANDARD: edge contrast, ONE identifying cue, minimum 1.5s hold,
+  he-sees/we-sees chart per ladder rung), and the **STRUCTURAL** section (put
+  the WATERFRONT PHOTO in the V3/V4 drawer so the BRIDGE-at-the-water has a
+  cause and PRE2 interrupts a pilgrimage).
+- **Deliverables:** ROADMAP.md Part 3/4 re-timed to the verified clock (incl.
+  a CH1 plan for 102–132.7 and a 16s FINAL); the apparition standard written
+  (new doc or ROADMAP/PLAYBOOK section); the waterfront-photo plant added to
+  the V3/V4 board spec. Mark STORY/TREATMENT superseded where changed.
+- **Id note:** the MEDIA packet formerly numbered "P-025" in the old roadmap
+  numbering **shifts after this paper packet** (as PRE1's id shifted at
+  P-023/P-024). Do not generate against the old clock before this closes.
+- **Read first:** `when-it-rains/HANDOFF.md` (P-024 addendum),
+  `DIRECTORS_NOTES.md` in full, then ROADMAP.md.
 
-## Method (ROADMAP Part 4 flow, playbook-bound)
+## Hard rules in force (standing)
 
-board → user reacts → master(s) w/ candidate batches (3–4 per pick) → user
-likeness-gates vs `review/ANCHOR_BOARD.png` → derived takes → sync stack →
-measured cut → frame QC via review-fetch (sandbox eyes, law 0b) → CI render →
-user verdict → receipt. Laws 0 (DERIVE, DON'T DESCRIBE) + 0b binding; Δ +
-because-chain stated on the board BEFORE any generation.
-
-## Budget
-
-- Roadmap estimate **~150–200 credits**; **1405.71** available at open.
-- New generation only inside this packet, with the user's GO (given 2026-07-03).
-
-## Known blocker (surface before the sync/cut stage)
-
-- **NO audio slices exist for 70.3–89.8** — `audio_relay/` has intro/v1/v2/
-  chorus slices only, and `song.mp3` (Jun-27 mix) is NOT in this container.
-  **The user must re-attach the mix before slicing PRE1 vocals** for the wan
-  sync stack. Board/master/takes stages can proceed without it.
-
-## Hard rules in force
-
-- **NO bare chest, ever** (user hard rule 2026-07-03) — delete on sight,
-  never ship; do NOT reroll wardrobe fixes — salvage best frame via nano edit.
-- Likeness law: candidate batches gated by the USER vs
-  `review/ANCHOR_BOARD.png`; max 2 nano passes on face frames.
-- wan2_7: both inputs imported media, exact roles
-  `start_image`/`audio_references`; verify "mouth stops" flags against the
-  slice's mid-band FFT energy envelope before rerolling (breath gaps are
-  correct sync).
-- Frame-QC raw before any 2K upscale; purge same-named `review/` copies
-  before re-queuing; keep `review/` under ~30MB.
-
-## Out of scope (explicit, until a fresh go)
-
-- Any merge / deploy / publish / secrets. (CI relay pushes render commits on
-  the triggering branch — established mechanism; everything else is gated.)
-- The history rewrite to purge Soul TRAINING photos from PUBLIC git history
-  (offered, unanswered).
-- Replacing locked material: hero clip `491e39d1`, chorus_v16, intro_v6
-  (incl. the intro ~19–21s chain+ring — flag before FINAL assembly only).
-- Generation outside this packet's PRE1 scope.
+- **NO bare chest, ever**; salvage wardrobe via nano/local edit, never reroll.
+- Likeness law: user gates picks vs `review/ANCHOR_BOARD.png`; max 2 nano
+  passes on face frames.
+- Laws 0 (DERIVE) + 0b (SANDBOX EYES) + frame-exact stitch law + wan
+  behavioral pinning + explicit kling `sound:"off"` (P-024 addendum).
+- Song is the **July Reverb mix** — cross-correlate anchors before slicing
+  any new mix; `song.mp3` stays gitignored.
+- No merge / deploy / publish / secrets / new generation without explicit go.
 
 ## Branch base
 
-- `claude/when-it-rains-handoff-l0u075`, HEAD at open **`2f791a8`** (P-023
-  close commit), in sync with origin (0 ahead / 0 behind). No trunk — green
+- `claude/when-it-rains-handoff-l0u075`, HEAD at P-024 close = `057f739` +
+  the archivist close commit; in sync with origin at close. No trunk — green
   is judged against the branch tip. `render-chorus.yml` is branch-agnostic.
 
 ---
-_P-024 opened 2026-07-03 by the orchestrator on explicit user GO. Prior
-packet P-023 closed 2026-07-03 (receipt `build-os/receipts/P-023.md`)._
+_P-024 closed 2026-07-03 by the archivist (receipt `build-os/receipts/P-024.md`).
+P-025 staged, awaiting explicit user GO._

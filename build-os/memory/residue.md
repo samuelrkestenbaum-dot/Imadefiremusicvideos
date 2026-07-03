@@ -265,6 +265,36 @@
   estimate for everything remaining 950–1100. Earlier credit figures
   (~1700–1800, ~1500–1600, 1451.59) are superseded.
 
+- **P-024 residue — training photos STILL in PUBLIC git history; purge STILL
+  unanswered.** Carried since P-018/P-019, re-raised at the P-023 and P-024
+  closes. Do NOT run without explicit go (history rewrite = external mutation).
+- **P-024 residue — 3 bare-chest curb rolls STILL in the HIGGSFIELD LIBRARY**
+  (`733152dc` / `8c9b80ef` / `85cb2d58`) — MCP cannot delete them; the user is
+  to delete them in the Higgsfield UI (told at P-023; still unconfirmed).
+- **P-024 residue — locked-intro chain+ring flag carried.** Thin chain + ring
+  ~19–21s inside the user-LOCKED intro_v6 (predates P-023). **Decide before
+  FINAL assembly** — fixing means reopening the lock. Record only.
+- **P-024 residue — ROADMAP back-half section clock VERIFIED WRONG (blocking
+  for generation).** Six-lens directors review (`DIRECTORS_NOTES.md`, commit
+  `acf8a2b`) + beat-locked line map: CH1 is really 89.8–132.7 (42.9s, the
+  locked chorus_v16 covers only the first 12s), FINAL only 257.6–273.8
+  (16.2s), V3/V4/PRE2/CH2 all shifted. PRE1 was unaffected. **Do NOT generate
+  against the old ROADMAP clock — the re-time is staged as PAPER PACKET
+  P-025** (with the APPARITION LEGIBILITY STANDARD + waterfront-photo plant).
+- **P-024 ops laws (canonized in HANDOFF.md P-024 addendum):** (1) the song is
+  now the **July Reverb mix** — same clock, verified by envelope
+  cross-correlation at 31.2/58.5/89.8/109.3 (all 0ms); ALWAYS cross-correlate
+  anchors before slicing any new mix; (2) **frame-exact stitch law** — tpad+
+  trim every segment to exact frame counts (naive concat drifted ~0.3s early
+  by 70s; `render_p024.sh` pattern); (3) **wan behavioral pinning** — pin
+  sings-into-camera / never-turns-away / exit-window / no-hand-near-lens in
+  every sync prompt; (4) soul_2 chest-up+facing-camera prompts render ROTATED
+  90° (4/4) — salvage via local rotate+crop, never reroll; (5) **kling
+  `sound:"off"` must be passed explicitly** (2 takes rendered sound-on;
+  harmless — segs are `-an` — but possibly costlier).
+- **P-024 residue — credits.** **1371.75 of 2415** at close (~34 spent vs the
+  150–200 roadmap estimate). The 1405.71 figure is superseded.
+
 ## Known risks / debt
 
 - **The edit is reversible (two-layer chain) — neither backup overwritten.**
@@ -418,3 +448,14 @@ user UI deletion; locked-intro jewelry flagged for pre-FINAL; audio-gap FFT
 verification + local pixel-fix methods canonized; P-021 receipt debt recorded;
 memory lag P-020→P-022 cleared; branch `claude/when-it-rains-handoff-l0u075`;
 credits 1405.71; next P-024 PRE1 — receipt `build-os/receipts/P-023.md`)._
+
+_P-024 note appended 2026-07-03 (PRE1 SHIP — pre1_v1 19.51s + first90 89.79s
+frame-exact on the July Reverb bed, likeness 9/10; board user-approved, masters
+user-gated [walk W2+scrub, turn T3 rotate/crop salvage — user's call over the
+recommended T4; trees derived]; one wan re-roll fixed by behavioral pinning;
+stitch drift bug found + fixed → frame-exact stitch law; vocal-envelope
+verification used twice; DIRECTORS_NOTES.md committed — ROADMAP back-half clock
+verified wrong → PAPER PACKET P-025 staged [re-time + apparition legibility
+standard + waterfront-photo plant]; carried: training-photo purge unanswered,
+3 bare-chest library rolls await user UI deletion, intro chain+ring pre-FINAL
+flag; credits 1371.75 — receipt `build-os/receipts/P-024.md`)._
