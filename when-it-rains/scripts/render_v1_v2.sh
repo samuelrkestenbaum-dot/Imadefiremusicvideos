@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
 [ -s audio_relay/v1_bed.mp3 ] || { echo "ERROR: audio_relay/v1_bed.mp3 missing"; exit 1; }
 B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
-GHOST_OPACITY=0.45
+GHOST_OPACITY=0.65
 mkdir -p v1sec2; : > v1sec2/concat.txt
 VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
 PUNCH="crop=768:432:256:144,scale=1280:720,setsar=1"
