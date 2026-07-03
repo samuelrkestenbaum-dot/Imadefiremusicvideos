@@ -11,8 +11,8 @@ B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 mkdir -p pre1sec; : > pre1sec/concat.txt
 VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "pre1sec/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "pre1sec/$2" "$1"; }; }
-get "$B/hf_20260703_135740_d035bb3b-e0ce-47e4-af97-06355884ca30.mp4" walk.mp4      # walk-stop-breath take (P-025 realism refit)
-get "$B/hf_20260703_114838_8543a623-7cc9-4ef5-be1a-68008df05334.mp4" trees.mp4     # gust insert
+get "$B/hf_20260703_144729_9b7abd53-7f15-4611-83c7-657af43c7055.mp4" walk.mp4      # walk-stop-breath take (P-025 realism refit)
+get "$B/hf_20260703_145658_3d0619c6-3b9c-4f10-b7f9-1f3f309c2605.mp4" trees.mp4     # gust insert
 get "$B/hf_20260703_141635_e15b36e1-d757-497d-9b70-3d5676369218.mp4" turnsync.mp4   # wan "like you never left" 2K (P-025 realism refit)
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "pre1sec/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \

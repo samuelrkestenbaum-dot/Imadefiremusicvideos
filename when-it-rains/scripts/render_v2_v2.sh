@@ -13,9 +13,9 @@ B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 mkdir -p v2sec2; : > v2sec2/concat.txt
 VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v2sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v2sec2/$2" "$1"; }; }
-get "$B/hf_20260703_010041_c742b889-9c29-4f0d-b214-3b70ea5b794f.mp4" door.mp4       # repaired door take
+get "$B/hf_20260703_145638_9015cb88-1322-4ad6-8849-524ca144423f.mp4" door.mp4       # repaired door take
 get "$B/hf_20260703_043914_ab86a6c8-ba25-48b5-9be4-b81f5ae0e58d.mp4" sync.mp4       # awning sync 2K (realism still, continuous line)
-get "$B/hf_20260703_010458_31ccf929-5637-4a0d-a75c-ebfbaba8ca51.mp4" ghostpud.mp4   # her reflection, rippled apart
+get "$B/hf_20260703_145655_4be8a2d0-a1d1-4b46-8b67-06381b6039a6.mp4" ghostpud.mp4   # her reflection, rippled apart
 get "$B/hf_20260703_104358_2ad7d2e3-edcd-4672-892b-aacb908698ca.mp4" curbsync.mp4   # 12s curb zoom sync 2K
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "v2sec2/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
