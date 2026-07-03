@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p025-first90-eyes
+# nonce: qual-topaz-test
