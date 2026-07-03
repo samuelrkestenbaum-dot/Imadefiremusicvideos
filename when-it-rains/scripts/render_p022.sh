@@ -10,7 +10,8 @@ cd "$HERE/.."
 [ -s intro_v6.mp4 ] || { echo "ERROR: intro_v6.mp4 missing"; exit 1; }
 mkdir -p first70; : > first70/concat.txt
 VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
-ffmpeg -nostdin -y -loglevel error -t 24.0 -i intro_v6.mp4 -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
+VFG="$VF,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
+ffmpeg -nostdin -y -loglevel error -t 24.0 -i intro_v6.mp4 -vf "$VFG,fps=24,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 first70/seg_00.mp4
 echo "file 'seg_00.mp4'" >> first70/concat.txt
 ffmpeg -nostdin -y -loglevel error -ss 0.5 -i v1_v2.mp4 -vf "$VF,fps=24,format=yuv420p" -r 24 -an \

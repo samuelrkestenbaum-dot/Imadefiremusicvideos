@@ -10,8 +10,8 @@ command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
 B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 GHOST_OPACITY=0.65
 mkdir -p v1sec2; : > v1sec2/concat.txt
-VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
-PUNCH="crop=768:432:256:144,scale=1280:720,setsar=1"
+VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
+PUNCH="crop=768:432:256:144,scale=1280:720,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v1sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v1sec2/$2" "$1"; }; }
 get "$B/hf_20260702_171154_a61bf1b4-092f-457f-84fa-0e54db106137.mp4" mugs.mp4
 get "$B/hf_20260702_175543_f9fd14a7-b88f-4dea-9408-90e7738a9b8c.mp4" sync.mp4
