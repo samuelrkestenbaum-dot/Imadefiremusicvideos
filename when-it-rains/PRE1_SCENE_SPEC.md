@@ -1,5 +1,10 @@
-# PRE1 SCENE SPEC — "the darkening walk" (70.3–89.8) — P-024 BOARD
-### STATUS: BOARD — awaiting user reaction. Nothing generates until reacted to.
+# PRE1 SCENE SPEC — "the darkening walk" (70.3–89.8) — P-024
+### STATUS: BOARD APPROVED (user, 2026-07-03). MASTERS GATED (user):
+### M1 walk = W2 `4aaefb8b` + chain scrub -> `361af0a5`.
+### M2 turn = T3 `d1688201` (user pick over T4) -> local rotate 90CW + chest-up
+### crop (0,320,1152,968) -> `turn_master_crop.png` (no chain/ring/text in crop;
+### lips 3-5px parted = acceptable sync start per awning precedent, no nano used).
+### Trees insert derives from scrubbed M1 (`b6f2262e`).
 
 **Δ (one sentence):** The signs stop waiting for him and start chasing HIM —
 wind moves the trees like someone passing, his breath catches, he turns on

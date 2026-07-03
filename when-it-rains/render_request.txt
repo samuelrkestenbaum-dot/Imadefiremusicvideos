@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p024-master-candidates
+# nonce: p024-scrub-and-trees
