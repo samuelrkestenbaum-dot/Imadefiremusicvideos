@@ -106,38 +106,61 @@ Format: **section (song time) — scene — what happens — WHAT CHANGES.**
   — breath fogging — turns around ON the line "like you never left": empty
   street. **Δ: the signs are now chasing HIM. He decides to go somewhere
   (the cafe) — giving CH1 a cause.**
-- **CH1 (89.8–~102) — the cafe — LOCKED (chorus_v16).** The reflection in the
-  glass case. He turns: no one. **Δ: rung 4 — the first true sighting. After
-  this he can't pretend it's nothing.**
-- **V3/V4 (~102–133) — home again, searching — TO BUILD (P-024).** BECAUSE of
-  the sighting he goes home and does what he's avoided: opens the closet
-  (her side: empty hangers + ONE dress), the drawer (her things), the hallway
-  mirror he's kept turned away — and turns it BACK. Nothing in it but him.
-  **Δ: he stops avoiding and starts confronting; we finally see EVIDENCE of
-  her reality (her things) — she was real, not a metaphor.**
-- **PRE2 (~133–152) — following — TO BUILD (P-025).** A figure with her hair
-  ahead in the rain; he follows; she turns at the crossing — a stranger's
-  face (bible: her true face still never shown; the stranger is clearly NOT
-  her). Sky churns. **Δ: the chase peaks and FAILS. The sightings cannot be
-  caught.**
-- **CH2 (~152–164) — everywhere — TO BUILD (P-026), chorus grammar reprise.**
-  The chorus method again but multiplied: her oblique in bus glass, shop
-  glass, standing water — cut on the grid, faster than CH1. **Δ: rung 7 —
-  full haunting. It cannot continue; something must break.**
-- **BRIDGE (~164–187) — the waterfront flood — TO BUILD (P-027).** Rain peaks.
-  He stands at the water (banked exterior through-glass camera idea lands
-  here or FINAL). He stops. Lets the rain hit. The reflections in the water
-  are ONLY him. **Δ: he stops chasing — and the world stops showing her.
-  The ghost was the chase.**
-- **FINAL CH (~187–273) — return + resolution — TO BUILD (P-028).** "And I
-  still wonder." Home, drier light. He takes the second mug OUT of the
-  cupboard and sets it on the counter — not out of habit this time, but as a
-  choice: the remembering is allowed now. At the window (bookending line 1)
-  he looks at the glass on purpose — just glass, just rain easing. Hold.
-  **Δ: acceptance without closure — the title argument: when it rains, he'll
-  still wonder, and he can live there.** (Payoffs: mugs plant from V1;
-  window/shape plant from INTRO; the hero performance clip carries the last
-  chorus hooks.)
+> **CLOCK CORRECTED (verified against analysis/line_map.json).** The times in
+> the beats below were re-timed after the director review caught that the
+> original ROADMAP guessed them. The authoritative section clock:
+> INTRO 0–19.6 · V1 19.6–43.0 · V2 43.0–70.3 · PRE1 70.3–89.8 ·
+> **CH1 89.8–132.7 (42.9s)** · **V3 132.7–148.3 · V4 148.3–183.4 (V3/V4 = 50.7s)** ·
+> **PRE2 183.4–214.6 (31.2s)** · **CH2 214.6–238.1 (23.4s)** ·
+> **BRIDGE 238.1–257.6 (19.5s)** · **FINAL 257.6–273.8 (16.2s)**.
+> (Packet IDs in this doc are historical and have since drifted — go by section
+> name, not P-number.) Grade every "her" beat below against APPARITION_STANDARD.md.
+
+- **CH1 (89.8–132.7, 42.9s) — the cafe — chorus_v16 covers only 89.8–~102.**
+  The reflection in the glass case. He turns: no one. **Δ: rung 4 — the first
+  true sighting.** **RE-TIME CONSEQUENCE: the locked chorus is only the first
+  ~12s; CH1 needs a PLAN for 102–132.7 (~30s more of chorus).** Cheapest: the
+  hero-performance clip returns as a motif (2–3 recuts, wider/wetter) carrying
+  the repeated hook, intercut with 1–2 fresh cafe-reflection beats. This also
+  fixes the reviewer note that CH1 "starves its own chorus."
+- **V3/V4 (132.7–183.4, 50.7s) — home again, searching.** BECAUSE of the
+  sighting he goes home and does what he's avoided: opens the closet (her side:
+  empty hangers + ONE dress), the drawer (her things), the hallway mirror he's
+  kept turned away — and turns it BACK. Nothing in it but him (rung 5,
+  audience-only per the sees-chart — he confronts, does not catch).
+  **NEW PLANT (director note): the drawer also holds a PHOTO of the waterfront
+  — the place she loved. He looks at it a beat too long. This one insert is the
+  cheapest fix in the plan: it explains WHY the BRIDGE happens at the water,
+  and it aims PRE2 (the following becomes a pilgrimage toward that place).**
+  **Δ: he stops avoiding and starts confronting; we see EVIDENCE she was real
+  (her things), and the waterfront is planted for the ending.** 50.7s is long —
+  budget it as V3 (132.7–148.3, the closet/drawer) + V4 (148.3–183.4, the
+  mirror + the "I'm trying to forget you" hold, which the reviewer suggests
+  using for him shutting it all again — and failing).
+- **PRE2 (183.4–214.6, 31.2s) — following.** A figure with her hair ahead in
+  the rain, moving toward the waterfront (the photo's payoff begins); he
+  follows; she turns at the crossing — a stranger's face (bible: her true face
+  still never shown; clearly NOT her). Sky churns. **Δ: the chase peaks and
+  FAILS.** (rung 6; the wrong-face reveal must read — hair cue present then
+  broken.)
+- **CH2 (214.6–238.1, 23.4s) — everywhere — chorus grammar reprise.** The
+  chorus method multiplied: her oblique in bus glass, shop glass, standing
+  water — cut on the grid, faster than CH1. **Give CH2 two hero-sync slots and
+  put the closet DRESS on its reflections** (director note — 23s of empty
+  surfaces at the loudest music will flatline). **Δ: rung 7 — full haunting.**
+- **BRIDGE (238.1–257.6, 19.5s) — the waterfront flood.** Rain peaks. He
+  arrives at the water (the waterfront from the drawer photo — payoff). He
+  stops. Lets the rain hit. The reflections in the water are ONLY him.
+  **Δ: he stops chasing — and the world stops showing her. The ghost was the
+  chase.** (rung 8.)
+- **FINAL CH (257.6–273.8, 16.2s) — return + resolution.** "And I still
+  wonder." **NOTE: 16s, not the ~86s the old ROADMAP assumed — this must land
+  FAST.** Home, drier light. He takes the second mug OUT of the cupboard and
+  sets it on the counter — a choice, not a habit. At the window (bookending
+  line 1) he looks at the glass on purpose — just glass, just rain easing.
+  Hold. **Δ: acceptance without closure — when it rains, he'll still wonder,
+  and he can live there.** (rung 9. Payoffs: mugs from V1; window/shape from
+  INTRO; waterfront from V3/V4; hero clip carries the last hooks.)
 
 ### Story rules (checkable, every future board)
 1. Every section states its Δ in ONE sentence before anything generates.
@@ -145,7 +168,12 @@ Format: **section (song time) — scene — what happens — WHAT CHANGES.**
 3. Her escalation only moves UP the ladder until the BRIDGE, then stops.
 4. Her face: never literal (bible). The PRE2 stranger is explicitly not-her.
 5. Objects carry memory: mugs (V1→FINAL), pillow (INTRO), mirror/dress
-   (V3/V4), water rings (V2→BRIDGE). Every plant pays off exactly once.
+   (V3/V4), water rings (V2→BRIDGE), **waterfront photo (V3/V4→PRE2→BRIDGE)**.
+   Every plant pays off exactly once.
+6. **Every "her" sighting is graded against `APPARITION_STANDARD.md` before it
+   ships** (five requirements + the he-sees/we-sees chart). The sightings are
+   the engine; if they don't read on a phone, the film is just a man in the
+   rain. This is the #1 must-fix from the director review.
 
 ---
 
@@ -168,11 +196,16 @@ Credits remaining: roughly 1300–1500 of 2415. The plan above fits with
 ~10-15% reserve. If a section runs hot, the reserve protects BRIDGE/FINAL
 (the emotional payload).
 
-### Checkpoints for the user (phone-sized)
-- After P-022: repaired v1/v2 + a stitched first 70 seconds.
-- After P-024: stitched first ~2:13 (through V3/V4).
-- After P-026: stitched first ~2:45.
-- After P-028: the full film.
+### Checkpoints for the user (phone-sized) — times corrected
+- DONE: first 90s delivered (through PRE1), 1080p, faces canonical (awning
+  pending). CH1 chorus (89.8–~102) + intro locked.
+- After V3/V4: stitched first **~3:03** (through 183.4s).
+- After CH2: stitched first **~3:58** (through 238.1s).
+- After FINAL: the full film (**4:34 / 273.8s**).
+
+> **Build-order note:** CH1 still needs its 102–132.7 extension (~30s) built
+> before the film is continuous past the locked chorus — sequence that with or
+> before V3/V4. See the CH1 beat above.
 
 ---
 
