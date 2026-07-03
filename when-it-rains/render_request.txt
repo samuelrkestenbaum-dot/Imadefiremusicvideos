@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p023-scrub-and-curb-rerolls
+# nonce: p023-raw-wans-and-curb-salvage

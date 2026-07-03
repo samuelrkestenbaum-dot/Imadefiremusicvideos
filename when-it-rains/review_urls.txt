@@ -1,6 +1,4 @@
 # assets queued for sandbox review (fetched by scripts/fetch_review.sh in CI)
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_035659_d52d9aeb-205e-4351-8fa0-88b95fde2daa.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_035701_a919b037-8e98-473c-bc44-3be6f6ffe5b7.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_035707_733152dc-957f-4d27-89c9-9390c8b43d86.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_035707_8c9b80ef-0176-47ae-9b53-aa819340c5a0.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_035708_85cb2d58-3d1a-4517-a143-05a45eb2ed6f.png
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_042105_552f47fe-63f6-46bf-9dd4-d56ebc344ea9.mp4
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_042119_3397e6b4-2148-41c7-88f2-10b45a621492.mp4
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_042449_bcf30501-eb9a-4a6e-a685-a84f3005554c.png
