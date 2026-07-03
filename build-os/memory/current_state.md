@@ -52,7 +52,39 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-025 — PRE1 REALISM REPAIR — CLOSED 2026-07-03,
+- **Last closed packet:** **P-026 — first90 QUALITY PASS (resolution + face
+  consistency) — CLOSED 2026-07-03, frame reads = SHIP.** User-directed after
+  feedback that the delivered first90 looked **"extremely like AI / degraded."**
+  TWO parts. (1) **RESOLUTION:** the whole render pipeline was 1280×720 and
+  **downscaled even the high-res takes to 720p** (root cause of the "degraded"
+  look — e.g. the kitchen cabinet shot); all 4 scripts converted to **1920×1080**
+  (`render_p024`/`render_pre1`/`render_v1_v2`/`render_v2_v2` — scale/pad + PUNCH
+  crop + curb `zoompan s=`). Source findings: the 4 sync takes + mugs were
+  **natively 1440p** (bytedance "2K" really ~1440p — an earlier 720p read was a
+  MISREAD; kept native), the 6 kling takes (walk/door/rain/ghostwin/ghostpud/
+  trees) were **~716p → Topaz prob-4 upscaled to 1080p** (Topaz beats bytedance
+  for real detail). Delivered 1080p `first90.mp4` (89.79s) — "degraded body"
+  fixed, verified by frame reads. (2) **FACE CONSISTENCY:** element-refit the
+  remaining AI-looking sync faces with `wir-him`, user-gated: **KITCHEN** refit
+  `b4afd0c6` → wan `68b54a2a` → Topaz-1080p `a608a76d`; **CURB** needed a tighter
+  re-refit (1st round widened pose + added pedestrians; **2nd round `ac4c68dc`
+  held composition**) → wan `55a4ddff` → Topaz-1080p `a3b89b9b`; **AWNING kept at
+  1080p per explicit user choice** (older face — the one remaining non-canonical
+  shot, flagged with a refit offer); walk+turn already canonical from P-025. Both
+  re-syncs frame-QC'd **in the main loop, NO subagents** (per the user "stop using
+  usage credits / use Opus 4.8" directive): canonical brown-eyed face, correct
+  lip-sync incl breath gaps, world-rushing intact. Phone encode **37MB crf24
+  1080p** (delivers fine; >50MB silent-fail law held). **NEW LAWS:** render at
+  1080p never downscale; **Topaz not bytedance** for sub-1080p; nano
+  element-refit **reimagines composition ~half the time — lock the pose
+  explicitly**; 37MB fine / >50MB silent-fail. Credits **1371.75 — unchanged all
+  pass** (enhanced account appears to absorb the gen cost — **flagged, verify in
+  UI**; continues the P-025 identical-balance oddity). Commits `ed07272`→`fb26aad`
+  (16: 10 relay + 6 CI) + close, base `8ab4d8d`; ≤2-commit contract acknowledged
+  inapplicable — many small CI-relay + Topaz iterations (media-workflow
+  precedent P-020..P-025). Receipt `build-os/receipts/P-026.md`; laws in
+  `when-it-rains/HANDOFF.md` (QUALITY PASS addendum, top / authoritative).
+- **Last closed packet (prior):** **P-025 — PRE1 REALISM REPAIR — CLOSED 2026-07-03,
   final frame-QC = SHIP ("would the AI-look complainer be satisfied? Yes").**
   User rejected the P-024 PRE1 faces as AI-looking; the repair kept the CUT
   SHAPE (same scenes / choreography / timings) and pulled the faces to
@@ -444,29 +476,35 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-025 is CLOSED → the film's first 89.8 seconds are DELIVERED
-  at SHIP quality WITH the realism repair** — the repaired `first90.mp4`
-  (frame-exact, July Reverb bed; PRE1 faces element-refit to canonical, the
-  AI-look complaint answered YES in the final pass) containing the LOCKED
-  intro_v6 (0–24), V1/V2, and the repaired PRE1, with the LOCKED chorus_v16
-  (CH1 89.8–102) next downstream. Working branch
+- **Now:** **P-026 is CLOSED → the film's first 89.8 seconds are DELIVERED at
+  1080p SHIP quality** — the "extremely AI / degraded" feedback resolved on both
+  axes: (1) the whole render pipeline is now **1920×1080** (root cause: it had
+  DOWNSCALED even the 1440p takes to 720p; the 716p kling takes were Topaz-1080p
+  upscaled), and (2) the remaining AI-looking faces (KITCHEN, CURB) were
+  element-refit to canonical and re-synced; **AWNING keeps its older face at
+  1080p per the user's explicit choice** — the one non-canonical shot left
+  (refit offered). The 1080p `first90.mp4` (89.79s) contains the LOCKED intro_v6
+  (0–24), V1/V2, the repaired PRE1, with the LOCKED chorus_v16 (CH1 89.8–102)
+  next downstream. Delivered as a 37MB crf24 1080p phone encode. Working branch
   `claude/when-it-rains-handoff-l0u075` (clean at close, 0 ahead / 0 behind
   origin); CI relay branch-agnostic; push-trigger via `render_request.txt` +
-  nonce; sandbox eyes for all frame QC. Credits **1371.75 of 2415** at last
-  check (P-025 ~25–35 spent; identical pre/post balance reads flagged as an
-  oddity, not overclaimed). Read `when-it-rains/HANDOFF.md` (P-025 addendum
-  FIRST), `DIRECTORS_NOTES.md`, `PRODUCTION_PLAYBOOK.md`, `ROADMAP.md`
-  before any new packet. Standing user law: **no bare chest, ever**. **The
-  ROADMAP back-half clock is VERIFIED WRONG — do NOT generate against it
-  until P-026 re-times it.**
-- **Next:** **PAPER PACKET P-026 — re-time ROADMAP to the verified section
+  nonce; QC this pass ran **in the main loop, NO subagents** (user "stop using
+  usage credits / use Opus 4.8" directive). Credits **1371.75 of 2415, unchanged
+  all pass** (enhanced account appears to absorb the gen cost — **flagged,
+  VERIFY IN UI**). Read `when-it-rains/HANDOFF.md` (**QUALITY PASS addendum FIRST
+  / authoritative**, then P-025/P-024), `DIRECTORS_NOTES.md`,
+  `PRODUCTION_PLAYBOOK.md`, `ROADMAP.md` before any new packet. Standing user
+  laws: **no bare chest, ever**; **render 1080p never downscale**; **Topaz not
+  bytedance for sub-1080p**. **The ROADMAP back-half clock is VERIFIED WRONG —
+  do NOT generate against it until the paper packet (P-027) re-times it.**
+- **Next:** **PAPER PACKET P-027 — re-time ROADMAP to the verified section
   clock + write the APPARITION LEGIBILITY STANDARD + add the waterfront-photo
   plant to V3/V4** (DIRECTORS_NOTES.md must-fix #1/#2 + STRUCTURAL; verified
   clock table in its addendum — CH1 really 89.8–132.7, FINAL only 16.2s).
-  Zero generation. (Renumbered from the old "P-025" paper staging when the
-  realism-repair packet took the P-025 id.) Then the re-timed ladder:
-  CH1-extension plan (102–132.7) → V3/V4 → PRE2 → CH2 → BRIDGE → FINAL →
-  full assembly.
+  Zero generation. (**Renumbered P-026 → P-027** when the QUALITY PASS took the
+  P-026 id — itself renumbered from the original "P-025" staging.) Then the
+  re-timed ladder: CH1-extension plan (102–132.7) → V3/V4 → PRE2 → CH2 →
+  BRIDGE → FINAL → full assembly.
 ## Stable facts (slow-changing)
 
 - **Assets generated on Higgsfield:** **42 stills + 26 animated clips** (Kling
@@ -634,3 +672,18 @@ passed first try]; repaired pre1_v1 + first90 89.79s delivered, phone encode
 uuid-confirmed; credits 1371.75 at last check [~25–35 spent, identical
 balance reads flagged as an oddity]; paper packet renumbered → P-026; receipt
 `build-os/receipts/P-025.md`)._
+
+_P-026 close appended 2026-07-03 by the archivist (first90 QUALITY PASS SHIP —
+resolution + face consistency; whole render pipeline 1280×720 → 1920×1080 [root
+cause: it downscaled even 1440p takes to 720p], 6 kling takes Topaz prob-4
+→1080p [bytedance "2K" was ~1440p, an earlier 720p read was a MISREAD]; KITCHEN
+`b4afd0c6`→wan `68b54a2a`→Topaz `a608a76d` + CURB tighter re-refit `ac4c68dc`→
+wan `55a4ddff`→Topaz `a3b89b9b`, both re-synced faces refit to canonical; AWNING
+kept older face at 1080p per user [only non-canonical shot, refit offered];
+delivered 1080p first90 89.79s as 37MB crf24 phone encode; QC main-loop NO
+subagents per user credit directive; NEW LAWS render-1080p-never-downscale /
+Topaz-not-bytedance / lock-the-refit-pose / 37MB-fine->50MB-silent; credits
+1371.75 unchanged all pass [enhanced account absorbing gen cost — verify in UI];
+commits `ed07272`→`fb26aad` [16: 10 relay + 6 CI], base `8ab4d8d`; residue
+carried + NEW minor AWNING non-canonical-face flag; paper packet renumbered
+P-026 → P-027 — receipt `build-os/receipts/P-026.md`)._

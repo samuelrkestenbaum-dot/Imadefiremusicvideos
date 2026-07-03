@@ -329,6 +329,47 @@
   accounting; treat 1371.75 as best-known and **re-read the balance at the
   next spend** before budgeting.
 
+- **P-026 residue — training photos STILL in PUBLIC git history; purge STILL
+  unanswered.** Carried unchanged (since P-018/P-019; re-raised at every close).
+  Do NOT run without explicit go (history rewrite = external mutation).
+- **P-026 residue — 3 bare-chest curb rolls STILL in the HIGGSFIELD LIBRARY**
+  (`733152dc` / `8c9b80ef` / `85cb2d58`) — carried unchanged; the user is to
+  delete them in the Higgsfield UI (still unconfirmed).
+- **P-026 residue — locked-intro chain+ring flag carried unchanged.** Thin
+  chain + ring ~19–21s inside the user-LOCKED intro_v6. **Decide before FINAL
+  assembly** — fixing means reopening the lock. Record only.
+- **P-026 residue — NEW: AWNING non-canonical face (minor).** The awning sync
+  keeps the OLDER face at 1080p per the user's explicit choice — the one
+  remaining non-canonical face in the first90. A refit was offered; leave it
+  unless the user raises it. All other faces (kitchen, curb, walk, turn) are
+  canonical.
+- **P-026 residue — ROADMAP back-half clock still VERIFIED WRONG (blocking for
+  generation); the re-time paper packet is RENUMBERED P-026 → P-027** (the
+  QUALITY PASS took the P-026 id). Do NOT generate against the old clock until
+  P-027 lands. Content unchanged: re-time + APPARITION LEGIBILITY STANDARD +
+  waterfront-photo plant (`DIRECTORS_NOTES.md`).
+- **P-026 ops laws (canonized in HANDOFF.md QUALITY PASS addendum, top /
+  authoritative):** (1) **render at 1080p, never downscale high-res takes to
+  720p** — the whole pipeline was 1280×720 and downscaled even 1440p takes, the
+  root cause of the "degraded" look; (2) **Topaz prob-4, NOT bytedance, for real
+  detail on sub-1080p takes** — bytedance "2K" is ~1440p (an earlier 720p read
+  was a MISREAD), useless for a 716p source; kept 1440p sources native,
+  Topaz-upscaled the 6 ~716p kling takes to 1080p; (3) **nano element-refit
+  REIMAGINES composition ~half the time** (widens pose / reframes / adds people)
+  — lock the pose explicitly ("arms straight down at sides, do NOT widen/
+  reframe, NO other people") and expect a reroll (the curb refit needed a
+  tighter 2nd round `ac4c68dc`); (4) **delivery: a 37MB crf24 1080p encode sends
+  fine; >50MB fails silently** (confirms the P-024 delivery-size law at 1080p).
+- **P-026 residue — QC RAN MAIN-LOOP, NO SUBAGENTS** per the user directive
+  "stop using usage credits / use Opus 4.8." Both re-syncs frame-QC'd in the
+  main loop (canonical brown-eyed face, correct lip-sync incl breath gaps,
+  world-rushing intact). Recorded as the accepted QC mode for this pass.
+- **P-026 residue — credits ODDITY (do not overclaim), continued.** Balance read
+  **1371.75 unchanged across the whole pass** while it plainly spent on Topaz +
+  refits + re-syncs. The user's **enhanced Higgsfield account appears to absorb
+  the generation cost** — flagged; **VERIFY IN THE UI**. Treat 1371.75 as
+  best-known and re-read at the next spend.
+
 ## Known risks / debt
 
 - **The edit is reversible (two-layer chain) — neither backup overwritten.**
@@ -503,3 +544,18 @@ phone encode uuid-confirmed; residue carried UNCHANGED [photo purge, 3
 library rolls, intro chain+ring]; paper packet renumbered → P-026; credits
 1371.75 at last check with the identical-balance oddity flagged — receipt
 `build-os/receipts/P-025.md`)._
+
+_P-026 note appended 2026-07-03 (first90 QUALITY PASS SHIP — resolution + face
+consistency; whole render pipeline 1280×720 → 1920×1080 [root cause: it
+downscaled even the 1440p takes to 720p], 6 ~716p kling takes Topaz prob-4
+→1080p [bytedance "2K" was ~1440p — earlier 720p read a MISREAD]; KITCHEN +
+CURB faces element-refit to canonical + re-synced [curb needed a tighter 2nd
+refit `ac4c68dc` — refit reimagines composition ~half the time, lock the pose];
+AWNING kept older face at 1080p per user = the only non-canonical shot left,
+refit offered [NEW minor residue]; delivered 1080p first90 89.79s as a 37MB
+crf24 phone encode; QC main-loop NO subagents per the user credit directive; new
+laws render-1080p-never-downscale / Topaz-not-bytedance / lock-the-refit-pose /
+37MB-fine->50MB-silent; credits 1371.75 unchanged all pass [enhanced account
+absorbing gen cost — VERIFY IN UI]; carried residue unchanged [photo purge, 3
+library rolls, intro chain+ring]; paper packet renumbered P-026 → P-027 —
+receipt `build-os/receipts/P-026.md`)._
