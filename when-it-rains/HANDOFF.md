@@ -1,4 +1,40 @@
-# HANDOFF — session state (2026-07-03, P-023 CLOSED)
+# HANDOFF — session state (2026-07-03, P-024 CLOSED)
+
+## P-024 addendum (PRE1 delivered — read with the P-023 notes below)
+- DELIVERED: pre1_v1.mp4 (19.51s) + first90.mp4 (89.79s, frame-exact grid,
+  July Reverb mix bed). Final QC: SHIP, PRE1 likeness 9/10.
+- Masters (user-gated): walk = W2 4aaefb8b + chain scrub -> 361af0a5; turn =
+  T3 d1688201 -> LOCAL rotate90CW + chest-up crop (turn_master_crop.png,
+  imported b59d18d8, ZERO nano passes on this face); trees derived from
+  scrubbed walk (b6f2262e). Takes: walk-stop-breath kling 584f5e2b (10s),
+  gust kling 8543a623 (5s). Sync: wan RETRY 97a9771e (8s) -> 2K c6888a50.
+- NEW LAWS/LEARNINGS (P-024):
+  1. AUDIO MIX SWAP: song is now the JULY REVERB mix (300s file, same clock —
+     verified by envelope cross-correlation at 31.2/58.5/89.8/109.3, all 0ms
+     offset; music rings to ~277s vs old 273.8). ALWAYS cross-correlate
+     anchors before slicing any new mix. song.mp3 gitignored as ever.
+  2. FRAME-EXACT STITCH LAW: section video streams run a few frames short of
+     their audio; naive concat accumulates EARLY drift (~0.3s by 70s). All
+     stitch wrappers must tpad+trim each seg to exact frame counts
+     (render_p024.sh pattern: 576/456/655/468). Apply to every future stitch.
+  3. WAN BEHAVIORAL PINNING: wan may invent staging that breaks lip-sync
+     (turned his back to camera for 4.5s mid-line). Pin performance
+     explicitly: "sings DIRECTLY INTO THE CAMERA... NEVER turns away, NEVER
+     shows the back of his head" + exit choreography confined to a stated
+     final window + "no hand near the lens" (first take had a warped hand
+     smear at exit). Retry with pins worked first time (9/10).
+  4. soul_2 chest-up+facing-camera prompts rendered ROTATED 90 degrees 4/4;
+     salvage = local rotate+crop (deterministic, no face passes) beats
+     rerolling. kling sound:"off" must be passed explicitly (2 takes rendered
+     sound-on; harmless, segs are -an, but it may cost more).
+- DIRECTORS_NOTES.md exists (six-lens review, verdict: story works, demo
+  level -> label-pitch after must-fixes). NEXT PAPER PACKET before P-025:
+  re-time ROADMAP to the real section clock (CH1 is 43s! FINAL is 16s! —
+  verified table at the bottom of DIRECTORS_NOTES.md), write the APPARITION
+  LEGIBILITY STANDARD, add the waterfront-photo plant to V3/V4.
+- Credits at P-024 close: 1371.75 (packet cost ~34 vs 150-200 est).
+
+# P-023 notes (previous close, still-valid ops reference)
 
 Read PRODUCTION_PLAYBOOK.md (method + laws), ROADMAP.md (story ladder +
 likeness lock), INTRO_SCENE_SPEC.md / V1_SCENE_SPEC.md (locked), then this.
