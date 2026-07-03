@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p024-scrub-and-trees
+# nonce: p024-takes-qc
