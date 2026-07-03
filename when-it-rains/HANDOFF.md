@@ -33,6 +33,9 @@
   verified table at the bottom of DIRECTORS_NOTES.md), write the APPARITION
   LEGIBILITY STANDARD, add the waterfront-photo plant to V3/V4.
 - Credits at P-024 close: 1371.75 (packet cost ~34 vs 150-200 est).
+- DELIVERY LAW: chat file sends >~50MB FAIL SILENTLY (no file_uuid in the
+  receipt). Always check the uuid; for big cuts send a phone encode
+  (crf 23 ~= 22MB for 90s) — the full-quality master stays in the repo.
 
 # P-023 notes (previous close, still-valid ops reference)
 
