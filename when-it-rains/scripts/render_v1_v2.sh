@@ -13,8 +13,8 @@ mkdir -p v1sec2; : > v1sec2/concat.txt
 VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 PUNCH="crop=768:432:256:144,scale=1280:720,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v1sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v1sec2/$2" "$1"; }; }
-get "$B/hf_20260702_171154_a61bf1b4-092f-457f-84fa-0e54db106137.mp4" mugs.mp4
-get "$B/hf_20260702_175543_f9fd14a7-b88f-4dea-9408-90e7738a9b8c.mp4" sync.mp4
+get "$B/hf_20260703_014921_82720c7f-c1e5-4e93-811e-f18a25dfb81c.mp4" mugs.mp4   # 2K-enhanced take
+get "$B/KITCHEN_2K_PLACEHOLDER.mp4" sync.mp4   # new kitchen 2K lip-sync (job c3cddeb8)
 get "$B/hf_20260702_172036_aaea0be1-b6db-4797-919d-4235466bdf03.mp4" rain.mp4
 get "$B/hf_20260703_010455_28668737-f90e-4310-8e20-dee577ee519f.mp4" ghostwin.mp4
 
@@ -24,7 +24,7 @@ seg() { local vf="${5:-$VF}"
   echo "file '$(printf "seg_%02d.mp4" "$4")'" >> v1sec2/concat.txt; }
 
 seg mugs.mp4 0.70 7.80 0            # 0-7.8    the two mugs: touch -> pickup -> carry
-seg sync.mp4 0.80 3.90 1            # 7.8-11.7 SYNC "my heart had crossed the ocean"
+seg sync.mp4 0.10 3.90 1            # 7.8-11.7 SYNC "my heart had crossed the ocean" (slice 31.2; seg at song 31.3)
 seg rain.mp4 0.60 3.00 2 "$PUNCH"   # 11.7-14.7 rivers on the glass (plain)
 seg mugs.mp4 8.40 1.60 3            # 14.7-16.3 the mug goes back, door closes
 
