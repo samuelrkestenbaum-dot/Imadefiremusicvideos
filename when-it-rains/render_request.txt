@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p022-ghost-stills-qc
+# nonce: p022-four-takes-qc
