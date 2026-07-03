@@ -1,2 +1,2 @@
-render_p022.sh
-# nonce: p023-final-restitch
+fetch_review.sh
+# nonce: p023-first70-final-eyes
