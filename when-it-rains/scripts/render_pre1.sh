@@ -9,7 +9,7 @@ command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
 [ -s audio_relay/pre1_bed.mp3 ] || { echo "ERROR: audio_relay/pre1_bed.mp3 missing (needs song.mp3 slice 70.3-89.8)"; exit 1; }
 B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 mkdir -p pre1sec; : > pre1sec/concat.txt
-VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
+VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "pre1sec/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "pre1sec/$2" "$1"; }; }
 get "$B/hf_20260703_135740_d035bb3b-e0ce-47e4-af97-06355884ca30.mp4" walk.mp4      # walk-stop-breath take (P-025 realism refit)
 get "$B/hf_20260703_114838_8543a623-7cc9-4ef5-be1a-68008df05334.mp4" trees.mp4     # gust insert

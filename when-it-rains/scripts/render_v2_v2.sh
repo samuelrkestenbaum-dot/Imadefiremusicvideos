@@ -11,7 +11,7 @@ command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
 [ -s audio_relay/v2_bed.mp3 ] || { echo "ERROR: audio_relay/v2_bed.mp3 missing"; exit 1; }
 B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 mkdir -p v2sec2; : > v2sec2/concat.txt
-VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
+VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v2sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v2sec2/$2" "$1"; }; }
 get "$B/hf_20260703_010041_c742b889-9c29-4f0d-b214-3b70ea5b794f.mp4" door.mp4       # repaired door take
 get "$B/hf_20260703_043914_ab86a6c8-ba25-48b5-9be4-b81f5ae0e58d.mp4" sync.mp4       # awning sync 2K (realism still, continuous line)
@@ -30,8 +30,8 @@ seg sync.mp4     0.10 3.90 2   # 54.7-58.6 SYNC "the sky still holds your whispe
 # accelerating push-in on his face, vignette, slow desaturation ramp.
 # Lip sync law: seg in = song_time_at_slot_start - slice_start = 58.6 - 58.5 = 0.10.
 ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 11.70 -i v2sec2/curbsync.mp4 -vf "\
-scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
-zoompan=z='1+1.1*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih/3-(ih/zoom/3)':s=1280x720:fps=24,\
+scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
+zoompan=z='1+1.1*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih/3-(ih/zoom/3)':s=1920x1080:fps=24,\
 vignette=PI/5,hue=s='max(0.35,1-0.055*t)',\
 noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_03.mp4

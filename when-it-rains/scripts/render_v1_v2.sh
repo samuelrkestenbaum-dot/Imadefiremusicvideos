@@ -10,8 +10,8 @@ command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
 B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 GHOST_OPACITY=0.65
 mkdir -p v1sec2; : > v1sec2/concat.txt
-VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
-PUNCH="crop=768:432:256:144,scale=1280:720,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
+VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
+PUNCH="crop=768:432:256:144,scale=1920:1080,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v1sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v1sec2/$2" "$1"; }; }
 get "$B/hf_20260703_014921_82720c7f-c1e5-4e93-811e-f18a25dfb81c.mp4" mugs.mp4   # 2K-enhanced take
 get "$B/hf_20260703_043220_c3cddeb8-178a-445c-ae62-16a067042fd5.mp4" sync.mp4   # new kitchen 2K lip-sync

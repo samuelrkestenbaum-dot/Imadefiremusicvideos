@@ -11,7 +11,7 @@ cd "$HERE/.."
 [ -s v1_v2.mp4 ] || { echo "ERROR: v1_v2.mp4 missing (checkout includes it)"; exit 1; }
 [ -s v2_v2.mp4 ] || { echo "ERROR: v2_v2.mp4 missing"; exit 1; }
 mkdir -p first90; : > first90/concat.txt
-VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
+VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1"
 VFG="$VF,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 ffmpeg -nostdin -y -loglevel error -t 25.0 -i intro_v6.mp4 -vf "$VFG,fps=24,tpad=stop_mode=clone:stop_duration=1.0,trim=end_frame=576,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 first90/seg_00.mp4
