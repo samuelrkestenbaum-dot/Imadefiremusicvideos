@@ -25,7 +25,7 @@ while IFS= read -r url; do
       d="review/$(basename "$f" .mp4)_frames"
       if [ ! -d "$d" ] && command -v ffmpeg >/dev/null 2>&1; then
         mkdir -p "$d"
-        ffmpeg -nostdin -y -loglevel error -i "$f" -vf "fps=2,scale=640:-2" "$d/f_%03d.png"
+        ffmpeg -nostdin -y -loglevel error -i "$f" -vf "fps=2,scale=640:-2" -q:v 4 "$d/f_%03d.jpg"
       fi
       ;;
   esac
