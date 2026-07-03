@@ -1,2 +1,2 @@
-render_p024.sh
-# nonce: p024-final-framegrid
+fetch_review.sh
+# nonce: p024-first90-eyes
