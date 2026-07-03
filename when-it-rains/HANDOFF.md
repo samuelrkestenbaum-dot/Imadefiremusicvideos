@@ -1,93 +1,77 @@
-# HANDOFF — resume context for a new session
+# HANDOFF — session state (2026-07-03, mid P-023)
 
-Read this first, then `FOOTAGE_AUDIT.md` (newest, most important) → `README.md` →
-`REVIEW.md` → `EDIT_MAP.md` → `data/assets.json`.
+Read PRODUCTION_PLAYBOOK.md (method + laws), ROADMAP.md (story ladder +
+likeness lock), INTRO_SCENE_SPEC.md / V1_SCENE_SPEC.md (locked), then this.
 
-> **Branch note:** active work is now on `claude/when-it-rains-music-video-fetr0z`
-> (a fresh clone may land on a different default branch — check `git branch`).
+## Where the film stands
+- LOCKED: chorus_v16.mp4 (CH1 89.8-102), intro_v6.mp4 (0-24), v1_v2.mp4 /
+  v2_v2.mp4 (delivered in first70.mp4, now under P-023 revision).
+- IN FLIGHT — P-023 (user notes on first70): mug take grain, lip-sync timing,
+  AI-look on sung shots, curb finale redesign. Details below.
+- NEXT PACKETS (roadmap): P-024 PRE1 (70.3-89.8 darkening walk) -> V3/V4 ->
+  PRE2 -> CH2 -> BRIDGE -> FINAL -> full assembly. Credits est. ~950-1100 left.
 
-## ⭐ Newest result — band coverage added, edit re-timed to 86 cuts / 274s
-The mid-song **section times are CONFIRMED and applied** (P-004 section-sync), and
-a **band-coverage batch was generated and inserted** (C25–C34) to fix the
-post-section-sync drag in PRE2/CH1.
+## P-023 remaining pipeline (exact)
+1. QC these 5 stills (SUBAGENT vision only — see Ops notes):
+   - kitchen pick K3 scrubbed: job d52d9aeb (chain+ring removed) — verify.
+   - awning pick A3 scrubbed: job a919b037 (chain+corner text) — verify.
+   - curb REROLLS (chest MUST be covered; old C1/C2 disqualified for open
+     jacket/bare chest + 90-degree rotation): 733152dc / 8c9b80ef / 85cb2d58 —
+     pick best vs review/ANCHOR_BOARD.png; user gates the curb pick (file).
+2. media_import_url the 3 final stills (wan needs IMPORTED ids).
+3. wan2_7 (roles EXACTLY start_image + audio_references):
+   - kitchen: audio media d68483dc (v1_line3_tight = song 31.2+4.3s), dur 5
+   - awning:  audio media 5158896a (v2_line7_tight = song 54.6+4.3s), dur 5
+   - curb:    audio media 979f0f26 (v2_line8 = song 58.5+11.9s), dur 12,
+     prompt includes world rushing in fast motion behind him.
+   (Superseded wan outputs from the AI-look stills: b5754247/c3fb9eca/87d14424
+   — do not reuse.)
+4. Subagent frame-QC raw wans (mouth onset <=0.3s, likeness, chest covered),
+   then bytedance 2K aigc upscales (source 1344x768, fps 24).
+5. Recut scripts (grain finish already in their VF):
+   - render_v1_v2.sh: mugs.mp4 -> ENHANCED take
+     hf_20260703_014921_82720c7f-c1e5-4e93-811e-f18a25dfb81c.mp4 (in-points
+     unchanged); sync.mp4 -> new kitchen 2K; sync seg in-point becomes 0.10
+     (slice starts 31.2; seg at song 31.3).
+   - render_v2_v2.sh: sync.mp4 -> new awning 2K, seg in 0.10 (slice 54.6, seg
+     at 54.7); the 50.8-54.7 slot becomes the GHOST puddle (31ccf929, in 0.40
+     — figure visible then rippled apart); 58.6-70.3 becomes the CURB ZOOM
+     SYNC: new 12s curb 2K at in 0.10 with ACCELERATING push-in + faded
+     background, e.g. filter: zoompan=z='1+1.1*pow(in/281,2)':d=1:
+     x='iw/2-(iw/zoom/2)':y='ih/3-(ih/zoom/3)':s=1280x720 plus
+     vignette and a slow hue=s desaturation ramp. Lip sync law: seg in-point
+     = song_time_at_slot_start - slice_start.
+   - render_p022.sh (wrapper): point at the new cuts, restitch first70
+     (intro gets grain via VFG; sections pass plain), deliver first70 + close
+     P-023 receipt (main-loop fallback OK).
 
-- **Assets now on Higgsfield:** **59 source stills + 36 animated clips** (was
-  42 + 26). The 10 new clips are band/performance coverage **C25–C34** (drummer,
-  bassist, keys, guitar hands, two singer-facing shots).
-- **Edit:** `data/edl.csv` is now **86 cuts = 4:34 / 274.0s** (was 76 cuts / 4:36).
-  PRE2 and CH1 were **re-balanced** with the new band coverage to kill the drag
-  that section-sync exposed (P-005 plan → P-006 generate → P-007 insert).
-- **On-model verification (real result):** the 2 singer-facing new clips were
-  checked via Higgsfield `video_analysis` and **BOTH read ON-MODEL**:
-  - **C27** (PRE2, profile): "late-30s, fair complexion, very short thinning
-    reddish hair, light beard".
-  - **C33** (CH1, chorus CU): "mid-30s, freckles, short ginger hair, trimmed
-    ginger beard".
-  i.e. short reddish/ginger hair + beard, **NOT bald** — the bald root-cause fix
-  (reference-anchoring the man-stills) held through this batch too.
-
-### Earlier result — audit AND regeneration (prior session)
-All clips were inspected via Higgsfield server-side `video_analysis` (free,
-~16s each, bypasses the CDN block — no download). It found the lead rendered
-**bald/shaved** in many cool story clips + content failures (C06, C07, C22, C23)
-+ an auburn woman (C16). **Root cause:** the man-stills were generated with **no
-reference image attached** (pure text), so he drifted bald. All flagged clips
-were then **REGENERATED** reference-anchored (`5cc8239a` man / `1143614b` woman) →
-re-animated → re-analyzed to verify. `data/clips.csv` points at the FIXED clips
-(originals in `data/clips_original_backup.csv`). Full breakdown in
-`FOOTAGE_AUDIT.md` §8 + `data/footage_findings.json`.
-
-**Caveat:** verification was automated re-analysis, not a human eye (CDN is
-egress-blocked here). A real render is the final confidence check. For a perfect
-face-lock, train a Soul from the selfies + best frames and regen from it.
-
-## Where the project stands
-- **Concept/edit locked.** 1970s rain drama: warm band-performance world intercut
-  with a cool blue-grey breakup-memory story; one brunette woman only, as
-  memory/reflection. Target runtime **4:34** (this Jun-27 mix; music resolves ~4:33.8).
-- **Assets generated on Higgsfield:** **59 stills + 36 animated clips** (Kling v3.0,
-  silent 5s, start-frame, one motion each) covering every section, including the
-  C25–C34 band coverage. IDs + CDN URLs are in `data/clips.csv`, `data/stills.csv`,
-  `data/assets.json`.
-- **Assembly kit built:** `data/edl.csv` (**86 cuts = 4:34 / 274.0s**),
-  `scripts/fetch_assets.sh`, `scripts/assemble_rough_cut.sh`. The user renders the
-  rough cut on their Mac (the cloud session can't: Higgsfield CDN is egress-blocked,
-  no system ffmpeg).
-- **Backup chain (history):** `data/edl_original_backup.csv` (pre-section-sync),
-  `data/edl_pre_bandcoverage_backup.csv` (pre-band-coverage),
-  `data/clips_original_backup.csv` (pre-regen).
-- **Song analyzed:** `analysis/` — file 4:44.4, music ends ~4:33.8, ~61.5 BPM,
-  climaxes ~1:22–1:40 / 2:43–3:04 / 3:48–end.
-
-## NOT in git (will not survive into a new session)
-- **The song MP3** (gitignored, lives only in this session's uploads dir). If audio
-  work is needed again, the user must re-attach `When_It_Rains__Jun_27_mix.mp3`.
-- **Downloaded clips/stills** (gitignored). Re-create locally with `fetch_assets.sh`;
-  the source of truth is the Higgsfield account.
-
-## Open threads (next actions, in order)
-1. **User's render-review (the remaining open item).** Render on the Mac via
-   `scripts/fetch_assets.sh` → `scripts/assemble_rough_cut.sh`, walking
-   `RENDER_REVIEW.md`, for overall pacing/aesthetic sign-off — including a human
-   eye on the C25–C34 band coverage and the re-timed PRE2/CH1. (The on-model check
-   on C27/C33 was automated analysis; the render is the final confidence check.)
-2. **DONE — mid-song section-time confirmation** (V2/PRE1/CH1, V4/PRE2): confirmed
-   and applied as the P-004 section-sync; `data/edl.csv` now snaps to that grid and
-   targets 274s (no more hard end-truncation).
-3. **DONE — band-coverage batch** (REVIEW.md §7): C25–C34 generated (P-006) and
-   inserted with PRE2/CH1 re-balanced (P-007). On-model verified (C27, C33).
-4. **Optional later:** sub-beat quantization of cuts to the beat grid.
-5. **Do LAST:** upscale (only after the cut is emotionally locked and signed off).
-
-## Higgsfield working context (for regeneration)
-- Account: private workspace, ultra plan; check remaining credits via the MCP.
-- Still recipe: `nano_banana_2`, 16:9, 1k. Clip recipe: `generate_video` model
-  `kling3_0`, `mode:"std"`, `sound:"off"`, `duration:5`, role `start_image`.
-- Dark/rain prompts trigger the "IN THE DARK" preset intercept — pass
-  `declined_preset_id:"24bae836-2c4a-48e0-89b6-49fcc0b21612"` to generate literally.
-- Man's reference selfies (uploaded media IDs): `fd3902a2-34d6-41a8-92c4-cb1082cb633d`,
-  `81d923ee-cc81-41ea-9dc0-39d40b3d8cd4`, `bb1fa35c-6c75-42ad-93f5-48de485e35b6`.
-  On-model likeness = short cropped red-blonde/ginger hair, receding hairline,
-  reddish beard, NOT bald (earlier "buzzed" stills 22e02845/b0f3fd47/26443c5f/
-  ff3797c3 are off-model and unused).
-- Re-list past generations anytime via Higgsfield MCP `show_generations`.
+## Ops notes (hard-won, do not relearn)
+- CI relay: push render_request.txt (line1 = script in when-it-rains/scripts/,
+  line2 = "# nonce: ..." to force the path trigger) -> workflow renders/fetches
+  -> commits results -> git pull. fetch_review.sh downloads review_urls.txt
+  into when-it-rains/review/ (mp4s get 2fps JPEG frames).
+- fetch_review SKIPS existing filenames: purge review copies before re-queuing
+  the same basename.
+- MAIN-CONTEXT IMAGE READS SATURATE in long sessions ("Request is too
+  large"): do visual QC via a general-purpose subagent that Reads files and
+  returns TEXT; deliver anything user-facing via SendUserFile. Keep review
+  artifacts small (JPEG, purge often; review/ kept under ~30MB).
+- wan2_7: BOTH inputs imported media; roles start_image/audio_references
+  EXACTLY (generic roles silently unbind -> invents a different person);
+  verify medias echo in the job result; frame-QC raw before 2K.
+- Soul bias: a gold chain necklace appears in nearly every soul_2 still
+  (learned from training photos) — zoom-check EVERY still; nano one-pass
+  removal is proven. Never say "open" in wardrobe prompts (renders bare
+  chest); say "jacket closed/zipped, chest completely covered".
+- Likeness law: candidate batches (count 3-4) -> compare vs
+  review/ANCHOR_BOARD.png -> user gates picks. Max 2 nano passes on frames
+  with his face. kling recipe: duration 5|8|10, sound "off",
+  declined_preset_id 24bae836-2c4a-48e0-89b6-49fcc0b21612.
+- Audio: song.mp3 (gitignored, 4:44) lives in when-it-rains/ locally; slice
+  with the imageio-ffmpeg static binary (pip install imageio-ffmpeg); commit
+  slices to audio_relay/ and import via raw.githubusercontent URLs pinned to
+  a commit sha. NEVER commit song.mp3 (public repo).
+- Residue: training photos remain in PUBLIC git history (purge offered,
+  unanswered); archivist subagent may hit usage-credit walls (main-loop
+  receipt fallback used for P-020/P-022); rain-blurred red storefront in the
+  intro sync bg is user-accepted.
