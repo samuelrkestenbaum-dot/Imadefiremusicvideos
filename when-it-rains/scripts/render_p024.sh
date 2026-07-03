@@ -13,16 +13,16 @@ cd "$HERE/.."
 mkdir -p first90; : > first90/concat.txt
 VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
 VFG="$VF,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
-ffmpeg -nostdin -y -loglevel error -t 24.0 -i intro_v6.mp4 -vf "$VFG,fps=24,format=yuv420p" -r 24 -an \
+ffmpeg -nostdin -y -loglevel error -t 25.0 -i intro_v6.mp4 -vf "$VFG,fps=24,tpad=stop_mode=clone:stop_duration=1.0,trim=end_frame=576,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 first90/seg_00.mp4
 echo "file 'seg_00.mp4'" >> first90/concat.txt
-ffmpeg -nostdin -y -loglevel error -ss 0.5 -i v1_v2.mp4 -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
+ffmpeg -nostdin -y -loglevel error -ss 0.5 -i v1_v2.mp4 -vf "$VF,fps=24,tpad=stop_mode=clone:stop_duration=1.0,trim=end_frame=456,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 first90/seg_01.mp4
 echo "file 'seg_01.mp4'" >> first90/concat.txt
-ffmpeg -nostdin -y -loglevel error -i v2_v2.mp4 -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
+ffmpeg -nostdin -y -loglevel error -i v2_v2.mp4 -vf "$VF,fps=24,tpad=stop_mode=clone:stop_duration=1.0,trim=end_frame=655,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 first90/seg_02.mp4
 echo "file 'seg_02.mp4'" >> first90/concat.txt
-ffmpeg -nostdin -y -loglevel error -i pre1_v1.mp4 -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
+ffmpeg -nostdin -y -loglevel error -i pre1_v1.mp4 -vf "$VF,fps=24,tpad=stop_mode=clone:stop_duration=1.0,trim=end_frame=468,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 first90/seg_03.mp4
 echo "file 'seg_03.mp4'" >> first90/concat.txt
 ( cd first90 && ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i concat.txt -c copy silent.mp4 )
