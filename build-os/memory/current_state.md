@@ -52,7 +52,32 @@
 
 ## Where we are
 
-- **Last closed packet:** **P-024 — PRE1 (70.3–89.8): the darkening walk —
+- **Last closed packet:** **P-025 — PRE1 REALISM REPAIR — CLOSED 2026-07-03,
+  final frame-QC = SHIP ("would the AI-look complainer be satisfied? Yes").**
+  User rejected the P-024 PRE1 faces as AI-looking; the repair kept the CUT
+  SHAPE (same scenes / choreography / timings) and pulled the faces to
+  canonical via **nano ELEMENT-REFIT with wir-him (`1b581c11`) embedded**
+  (element BOUND — verify `reference_elements` in the job echo). Realism
+  deltas at delivery res: turn **4.5→9/10**, walk **5→8/10**; refits QC'd
+  against the originals with explicit deltas; user gated **WC** (walk, +
+  local chain paint-out **v2** — one-sided luminance lift + row-local
+  skin-chroma adoption, after v1 FAILED QC as an orange line) / **TA**
+  (turn). Failures → new QC checklist items: one nano refit failed
+  server-side (`66db1de3`); **eye-color drift in 2/5 refits** (grey-green —
+  check brown eyes explicitly); ~1/6 refits add a chain. Re-animation: walk
+  kling `d035bb3b` (sound off; slots A 0.00 / B 5.50 remeasured), turn wan
+  `7db11194` (P-024 pinned-behavior brief reused, passed **FIRST TRY**) → 2K
+  `e15b36e1`. Delivered repaired `pre1_v1.mp4` + `first90.mp4` (89.79s);
+  phone encode uuid-confirmed. Realism SURVIVED kling/wan animation + the
+  2K+grain+compression pipeline — verify at delivery res anyway. Credits:
+  1371.75 → **1371.75 at last check** (~25–35 spent; the identical pre/post
+  balance reads are recorded as an ODDITY — possibly enhanced-account credit
+  accounting; not overclaimed). Commits `6409a53`→`e68afe3` (12: 8 relay +
+  4 CI) + close, base `414b235`; ≤2-commit contract acknowledged
+  inapplicable (media-relay precedent). Receipt
+  `build-os/receipts/P-025.md`; laws in `when-it-rains/HANDOFF.md` (P-025
+  addendum).
+- **Last closed packet (prior):** **P-024 — PRE1 (70.3–89.8): the darkening walk —
   CLOSED 2026-07-03, final frame-QC = SHIP, PRE1 likeness 9/10.** Delivered
   **`pre1_v1.mp4`** (19.51s) + **`first90.mp4`** (89.79s, **frame-exact grid**,
   **July Reverb mix** bed) on `claude/when-it-rains-handoff-l0u075`. Board
@@ -419,24 +444,29 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-024 is CLOSED → the film's first 89.8 seconds are DELIVERED at
-  SHIP quality** — `first90.mp4` (frame-exact, July Reverb bed) containing the
-  LOCKED intro_v6 (0–24), V1/V2, and PRE1, with the LOCKED chorus_v16 (CH1
-  89.8–102) next downstream. Working branch
-  `claude/when-it-rains-handoff-l0u075`; CI relay branch-agnostic;
-  push-trigger via `render_request.txt` + nonce; sandbox eyes for all frame QC.
-  Credits **1371.75 of 2415** (P-024 cost ~34 vs 150–200 est — well under).
-  Read `when-it-rains/HANDOFF.md` (P-024 addendum FIRST), `DIRECTORS_NOTES.md`,
-  `PRODUCTION_PLAYBOOK.md`, `ROADMAP.md` before any new packet. Standing user
-  law: **no bare chest, ever**. **The ROADMAP back-half clock is VERIFIED
-  WRONG — do NOT generate against it until P-025 re-times it.**
-- **Next:** **PAPER PACKET P-025 — re-time ROADMAP to the verified section
+- **Now:** **P-025 is CLOSED → the film's first 89.8 seconds are DELIVERED
+  at SHIP quality WITH the realism repair** — the repaired `first90.mp4`
+  (frame-exact, July Reverb bed; PRE1 faces element-refit to canonical, the
+  AI-look complaint answered YES in the final pass) containing the LOCKED
+  intro_v6 (0–24), V1/V2, and the repaired PRE1, with the LOCKED chorus_v16
+  (CH1 89.8–102) next downstream. Working branch
+  `claude/when-it-rains-handoff-l0u075` (clean at close, 0 ahead / 0 behind
+  origin); CI relay branch-agnostic; push-trigger via `render_request.txt` +
+  nonce; sandbox eyes for all frame QC. Credits **1371.75 of 2415** at last
+  check (P-025 ~25–35 spent; identical pre/post balance reads flagged as an
+  oddity, not overclaimed). Read `when-it-rains/HANDOFF.md` (P-025 addendum
+  FIRST), `DIRECTORS_NOTES.md`, `PRODUCTION_PLAYBOOK.md`, `ROADMAP.md`
+  before any new packet. Standing user law: **no bare chest, ever**. **The
+  ROADMAP back-half clock is VERIFIED WRONG — do NOT generate against it
+  until P-026 re-times it.**
+- **Next:** **PAPER PACKET P-026 — re-time ROADMAP to the verified section
   clock + write the APPARITION LEGIBILITY STANDARD + add the waterfront-photo
   plant to V3/V4** (DIRECTORS_NOTES.md must-fix #1/#2 + STRUCTURAL; verified
-  clock table in its addendum — CH1 really 89.8–132.7, FINAL only 16.2s). Zero
-  generation. The media packet formerly numbered P-025 in the old roadmap
-  numbering shifts after it. Then the re-timed ladder: CH1-extension plan
-  (102–132.7) → V3/V4 → PRE2 → CH2 → BRIDGE → FINAL → full assembly.
+  clock table in its addendum — CH1 really 89.8–132.7, FINAL only 16.2s).
+  Zero generation. (Renumbered from the old "P-025" paper staging when the
+  realism-repair packet took the P-025 id.) Then the re-timed ladder:
+  CH1-extension plan (102–132.7) → V3/V4 → PRE2 → CH2 → BRIDGE → FINAL →
+  full assembly.
 ## Stable facts (slow-changing)
 
 - **Assets generated on Higgsfield:** **42 stills + 26 animated clips** (Kling
@@ -594,3 +624,13 @@ mix-swap clock verification, frame-exact stitch, wan behavioral pinning,
 rotation salvage + explicit kling sound:off; DIRECTORS_NOTES.md committed —
 ROADMAP back-half clock verified wrong, re-time staged as PAPER PACKET P-025;
 credits 1371.75; receipt `build-os/receipts/P-024.md`)._
+
+_P-025 close appended 2026-07-03 by the archivist (PRE1 realism repair SHIP —
+faces element-refit to canonical with wir-him embedded [turn 4.5→9, walk 5→8
+at delivery res]; user gated WC+paint-out-v2/TA; NEW QC checks: eye-color
+drift [2/5 grey-green], ~1/6 refit chain bias, one server-side refit failure
+66db1de3; walk kling d035bb3b + turn wan 7db11194→2K e15b36e1 [pinned brief
+passed first try]; repaired pre1_v1 + first90 89.79s delivered, phone encode
+uuid-confirmed; credits 1371.75 at last check [~25–35 spent, identical
+balance reads flagged as an oddity]; paper packet renumbered → P-026; receipt
+`build-os/receipts/P-025.md`)._

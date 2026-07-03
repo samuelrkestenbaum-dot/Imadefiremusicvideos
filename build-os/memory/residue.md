@@ -295,6 +295,40 @@
 - **P-024 residue — credits.** **1371.75 of 2415** at close (~34 spent vs the
   150–200 roadmap estimate). The 1405.71 figure is superseded.
 
+- **P-025 residue — training photos STILL in PUBLIC git history; purge STILL
+  unanswered.** Carried unchanged (since P-018/P-019; re-raised at every
+  close). Do NOT run without explicit go (history rewrite = external
+  mutation).
+- **P-025 residue — 3 bare-chest curb rolls STILL in the HIGGSFIELD LIBRARY**
+  (`733152dc` / `8c9b80ef` / `85cb2d58`) — carried unchanged; the user is to
+  delete them in the Higgsfield UI (still unconfirmed).
+- **P-025 residue — locked-intro chain+ring flag carried unchanged.** Thin
+  chain + ring ~19–21s inside the user-LOCKED intro_v6. **Decide before FINAL
+  assembly** — fixing means reopening the lock. Record only.
+- **P-025 residue — ROADMAP back-half clock still VERIFIED WRONG (blocking
+  for generation); the re-time paper packet is RENUMBERED P-025 → P-026**
+  (the realism-repair packet took the P-025 id). Do NOT generate against the
+  old clock until P-026 lands. Content unchanged: re-time + APPARITION
+  LEGIBILITY STANDARD + waterfront-photo plant (`DIRECTORS_NOTES.md`).
+- **P-025 ops laws (canonized in HANDOFF.md P-025 addendum):** (1) **nano
+  ELEMENT-REFIT is THE fix for AI-look faces** — edit the existing scene
+  master with `wir-him` embedded (`<<<uuid>>>`, verify element BOUND via
+  `reference_elements` in the job echo); same scene, face pulled to
+  canonical (turn 4.5→9, walk 5→8 at delivery res); (2) refit QC must check
+  **brown eyes explicitly** — 2/5 refits drifted eye color to grey-green —
+  and expect **~1/6 refits to add a chain**; (3) chain paint-out on DARK
+  chains = one-sided luminance LIFT + **row-local skin-chroma adoption**
+  (keeping original chroma at lifted luma reads as an orange line, fails
+  QC); (4) refit realism SURVIVES kling/wan animation and the
+  2K+grain+compression pipeline — still verify at delivery res in the final
+  pass; (5) one nano refit failed server-side (`66db1de3`) — retry, no
+  pattern established.
+- **P-025 residue — credits ODDITY (do not overclaim).** Balance read
+  **1371.75 both before and after** the packet, while the packet plainly
+  spent ~25–35 (refits, kling, wan, 2K). Possibly enhanced-account credit
+  accounting; treat 1371.75 as best-known and **re-read the balance at the
+  next spend** before budgeting.
+
 ## Known risks / debt
 
 - **The edit is reversible (two-layer chain) — neither backup overwritten.**
@@ -459,3 +493,13 @@ verified wrong → PAPER PACKET P-025 staged [re-time + apparition legibility
 standard + waterfront-photo plant]; carried: training-photo purge unanswered,
 3 bare-chest library rolls await user UI deletion, intro chain+ring pre-FINAL
 flag; credits 1371.75 — receipt `build-os/receipts/P-024.md`)._
+
+_P-025 note appended 2026-07-03 (PRE1 realism repair SHIP — element-refit
+method validated [wir-him embedded, turn 4.5→9 / walk 5→8], user gated
+WC+chain-paint-out-v2/TA, new QC checks [eye-color drift, refit chain bias,
+skin-chroma paint-out law], walk kling d035bb3b / turn wan 7db11194→2K
+e15b36e1 first-try on the pinned brief; repaired pre1_v1 + first90 delivered,
+phone encode uuid-confirmed; residue carried UNCHANGED [photo purge, 3
+library rolls, intro chain+ring]; paper packet renumbered → P-026; credits
+1371.75 at last check with the identical-balance oddity flagged — receipt
+`build-os/receipts/P-025.md`)._
