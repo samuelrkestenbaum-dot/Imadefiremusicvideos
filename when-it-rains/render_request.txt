@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p022-scrubbed-picks-qc
+# nonce: p022-ghost-stills-qc
