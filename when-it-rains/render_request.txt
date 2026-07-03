@@ -1,2 +1,2 @@
-fetch_review.sh
-# nonce: qual-facesync-qc
+render_p024.sh
+# nonce: qual-faces-final
