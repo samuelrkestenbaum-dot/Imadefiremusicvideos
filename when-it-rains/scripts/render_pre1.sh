@@ -13,7 +13,7 @@ VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(
 get() { [ -s "pre1sec/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "pre1sec/$2" "$1"; }; }
 get "$B/hf_20260703_114835_584f5e2b-931a-4c6b-b903-1416c4deb97b.mp4" walk.mp4      # walk-stop-breath take
 get "$B/hf_20260703_114838_8543a623-7cc9-4ef5-be1a-68008df05334.mp4" trees.mp4     # gust insert
-get "$B/TURN_SYNC_2K_PLACEHOLDER.mp4" turnsync.mp4                                  # wan "like you never left" 2K (BLOCKED on song)
+get "$B/hf_20260703_130622_c6888a50-e111-4f3a-84f6-9261a45a4965.mp4" turnsync.mp4   # wan "like you never left" 2K
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "pre1sec/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf "pre1sec/seg_%02d.mp4" "$4")"
