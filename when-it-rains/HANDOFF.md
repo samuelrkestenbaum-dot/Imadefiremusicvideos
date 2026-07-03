@@ -1,77 +1,92 @@
-# HANDOFF — session state (2026-07-03, mid P-023)
+# HANDOFF — session state (2026-07-03, P-023 CLOSED)
 
 Read PRODUCTION_PLAYBOOK.md (method + laws), ROADMAP.md (story ladder +
 likeness lock), INTRO_SCENE_SPEC.md / V1_SCENE_SPEC.md (locked), then this.
 
 ## Where the film stands
-- LOCKED: chorus_v16.mp4 (CH1 89.8-102), intro_v6.mp4 (0-24), v1_v2.mp4 /
-  v2_v2.mp4 (delivered in first70.mp4, now under P-023 revision).
-- IN FLIGHT — P-023 (user notes on first70): mug take grain, lip-sync timing,
-  AI-look on sung shots, curb finale redesign. Details below.
+- LOCKED: chorus_v16.mp4 (CH1 89.8-102), intro_v6.mp4 (0-24).
+- DELIVERED (P-023, final frame-QC = SHIP): first70.mp4 v2 — the continuous
+  0-70.3 with the enhanced mugs take, tight kitchen + awning lip-syncs
+  (onset on the first beat), and the CURB ZOOM FINALE (58.6-70.3: 12s sync,
+  world rushing behind him, accelerating push-in + vignette + desat ramp).
+  Section cuts: v1_v2.mp4 (19.5s), v2_v2.mp4 (27.3s). Receipt:
+  build-os/receipts/P-023.md.
 - NEXT PACKETS (roadmap): P-024 PRE1 (70.3-89.8 darkening walk) -> V3/V4 ->
-  PRE2 -> CH2 -> BRIDGE -> FINAL -> full assembly. Credits est. ~950-1100 left.
+  PRE2 -> CH2 -> BRIDGE -> FINAL -> full assembly.
+- Credits at close: 1405.71 (P-023 finish cost ~46 this session; roadmap
+  estimate for everything remaining was 950-1100 — comfortable).
 
-## P-023 remaining pipeline (exact)
-1. QC these 5 stills (SUBAGENT vision only — see Ops notes):
-   - kitchen pick K3 scrubbed: job d52d9aeb (chain+ring removed) — verify.
-   - awning pick A3 scrubbed: job a919b037 (chain+corner text) — verify.
-   - curb REROLLS (chest MUST be covered; old C1/C2 disqualified for open
-     jacket/bare chest + 90-degree rotation): 733152dc / 8c9b80ef / 85cb2d58 —
-     pick best vs review/ANCHOR_BOARD.png; user gates the curb pick (file).
-2. media_import_url the 3 final stills (wan needs IMPORTED ids).
-3. wan2_7 (roles EXACTLY start_image + audio_references):
-   - kitchen: audio media d68483dc (v1_line3_tight = song 31.2+4.3s), dur 5
-   - awning:  audio media 5158896a (v2_line7_tight = song 54.6+4.3s), dur 5
-   - curb:    audio media 979f0f26 (v2_line8 = song 58.5+11.9s), dur 12,
-     prompt includes world rushing in fast motion behind him.
-   (Superseded wan outputs from the AI-look stills: b5754247/c3fb9eca/87d14424
-   — do not reuse.)
-4. Subagent frame-QC raw wans (mouth onset <=0.3s, likeness, chest covered),
-   then bytedance 2K aigc upscales (source 1344x768, fps 24).
-5. Recut scripts (grain finish already in their VF):
-   - render_v1_v2.sh: mugs.mp4 -> ENHANCED take
-     hf_20260703_014921_82720c7f-c1e5-4e93-811e-f18a25dfb81c.mp4 (in-points
-     unchanged); sync.mp4 -> new kitchen 2K; sync seg in-point becomes 0.10
-     (slice starts 31.2; seg at song 31.3).
-   - render_v2_v2.sh: sync.mp4 -> new awning 2K, seg in 0.10 (slice 54.6, seg
-     at 54.7); the 50.8-54.7 slot becomes the GHOST puddle (31ccf929, in 0.40
-     — figure visible then rippled apart); 58.6-70.3 becomes the CURB ZOOM
-     SYNC: new 12s curb 2K at in 0.10 with ACCELERATING push-in + faded
-     background, e.g. filter: zoompan=z='1+1.1*pow(in/281,2)':d=1:
-     x='iw/2-(iw/zoom/2)':y='ih/3-(ih/zoom/3)':s=1280x720 plus
-     vignette and a slow hue=s desaturation ramp. Lip sync law: seg in-point
-     = song_time_at_slot_start - slice_start.
-   - render_p022.sh (wrapper): point at the new cuts, restitch first70
-     (intro gets grain via VFG; sections pass plain), deliver first70 + close
-     P-023 receipt (main-loop fallback OK).
+## Final asset IDs from P-023 (all QC'd, all bound-verified)
+- Kitchen sync 2K: job c3cddeb8 (wan 552f47fe from imported still 08515f10 =
+  scrubbed pick d52d9aeb; audio d68483dc v1_line3_tight, song 31.2+4.3s).
+- Awning sync 2K: job ab86a6c8 (wan ee8d1c61 RETRY — first wan 3397e6b4 went
+  static after 2.5s; retry prompt demands CONTINUOUS singing; from imported
+  still 4953e937 = scrubbed pick a919b037; audio 5158896a v2_line7_tight,
+  song 54.6+4.3s).
+- Curb finale 2K: job 2ad7d2e3 (12s wan da598028 from imported media eac51105
+  = review/curb_final.png; audio 979f0f26 v2_line8, song 58.5+11.9s).
+- curb_final.png provenance: soul_2 roll 85cb2d58 (C5) -> nano pass 1
+  bcf30501 (zip jacket, remove chain/ring/sign) -> nano pass 2 12d07ba3
+  (zip to collar, hand glints, USER-approved 3rd-pass exception... face held
+  9/10 all passes) -> LOCAL deterministic paint-out of 2 residual hand glints
+  (one-sided luminance compression, 168 px, face byte-identical; script
+  pattern in session scratchpad, approach documented in receipt).
+- Enhanced mugs take: hf_20260703_014921_82720c7f-...mp4 (in render_v1_v2.sh).
 
-## Ops notes (hard-won, do not relearn)
+## Ops notes (hard-won, do not relearn) — additions in P-023 marked NEW
 - CI relay: push render_request.txt (line1 = script in when-it-rains/scripts/,
   line2 = "# nonce: ..." to force the path trigger) -> workflow renders/fetches
   -> commits results -> git pull. fetch_review.sh downloads review_urls.txt
   into when-it-rains/review/ (mp4s get 2fps JPEG frames).
+- NEW: render-chorus.yml now checks out/pushes ${{ github.ref_name }} — the
+  relay follows whatever branch triggered it. Current branch:
+  claude/when-it-rains-handoff-l0u075 (supersedes ...-fetr0z, same history).
 - fetch_review SKIPS existing filenames: purge review copies before re-queuing
-  the same basename.
-- MAIN-CONTEXT IMAGE READS SATURATE in long sessions ("Request is too
-  large"): do visual QC via a general-purpose subagent that Reads files and
-  returns TEXT; deliver anything user-facing via SendUserFile. Keep review
-  artifacts small (JPEG, purge often; review/ kept under ~30MB).
+  the same basename. Keep review/ under ~30MB (purge after every QC pass).
+- MAIN-CONTEXT IMAGE READS SATURATE in long sessions: do visual QC via a
+  general-purpose subagent that Reads files and returns TEXT; deliver
+  user-facing media via SendUserFile.
 - wan2_7: BOTH inputs imported media; roles start_image/audio_references
-  EXACTLY (generic roles silently unbind -> invents a different person);
-  verify medias echo in the job result; frame-QC raw before 2K.
-- Soul bias: a gold chain necklace appears in nearly every soul_2 still
-  (learned from training photos) — zoom-check EVERY still; nano one-pass
-  removal is proven. Never say "open" in wardrobe prompts (renders bare
-  chest); say "jacket closed/zipped, chest completely covered".
-- Likeness law: candidate batches (count 3-4) -> compare vs
-  review/ANCHOR_BOARD.png -> user gates picks. Max 2 nano passes on frames
-  with his face. kling recipe: duration 5|8|10, sound "off",
-  declined_preset_id 24bae836-2c4a-48e0-89b6-49fcc0b21612.
-- Audio: song.mp3 (gitignored, 4:44) lives in when-it-rains/ locally; slice
-  with the imageio-ffmpeg static binary (pip install imageio-ffmpeg); commit
-  slices to audio_relay/ and import via raw.githubusercontent URLs pinned to
-  a commit sha. NEVER commit song.mp3 (public repo).
-- Residue: training photos remain in PUBLIC git history (purge offered,
-  unanswered); archivist subagent may hit usage-credit walls (main-loop
-  receipt fallback used for P-020/P-022); rain-blurred red storefront in the
-  intro sync bg is user-accepted.
+  EXACTLY; verify medias echo in job_display (the immediate generate_video
+  response shows only "reference_images" — that is normal, check job_display).
+  Frame-QC raw before 2K. NEW: wan honors breath gaps in the vocal — before
+  failing a take for "mouth stops moving", check the slice's vocal-band
+  energy envelope (mid-band FFT per 100ms, imageio-ffmpeg decode); closed
+  mouth on an energy dip is CORRECT sync, not a defect.
+- NEW HARD RULE (user, 2026-07-03): NO bare chest, ever. Any generation
+  showing bare chest gets deleted immediately (repo copies purged from git
+  HISTORY via commit rewrite, not just tip). soul_2 ignored "closed and
+  zipped" wardrobe locks 3 rolls in a row (plus 90-degree rotations on 2) —
+  do NOT reroll wardrobe fixes; salvage the best frame via nano edit instead.
+  MCP cannot delete Higgsfield-library generations — the 3 bare-chest curb
+  rolls (733152dc, 8c9b80ef, 85cb2d58) still exist in the account; user was
+  told to delete them in the Higgsfield UI.
+- NEW: tiny deterministic pixel fixes (jewelry glints etc.) are better done
+  LOCALLY (numpy/PIL one-sided luminance suppression: compress only
+  above-local-median luma, multiplicative per-pixel, no synthetic noise —
+  synthetic per-channel noise FAILS QC as chroma confetti) than by another
+  nano pass; commit the png and media_import_url the raw.githubusercontent
+  URL pinned to the commit sha.
+- Soul bias: gold chain in nearly every soul_2 still — zoom-check EVERY still.
+- Likeness law: candidate batches -> compare vs review/ANCHOR_BOARD.png ->
+  user gates picks. Max 2 nano passes on frames with his face (a 3rd needs
+  explicit user go — granted once in P-023, face held; do not make it habit).
+  kling recipe: duration 5|8|10, sound "off", declined_preset_id
+  24bae836-2c4a-48e0-89b6-49fcc0b21612 (wan dark/rain prompts ALSO trigger
+  the IN THE DARK intercept — same declined_preset_id works).
+- Audio: song.mp3 (gitignored, 4:44) is NOT in this container — re-attach if
+  new slices are needed. Existing slices live in audio_relay/ (committed);
+  import via raw.githubusercontent URLs pinned to a commit sha. NEVER commit
+  song.mp3 (public repo). imageio-ffmpeg (pip) provides the local ffmpeg.
+- nano model id: catalog name is nano_banana_2 (server may echo/route
+  nano_banana_flash — same thing; "nano_banana_flash" as a request id fails).
+
+## Residue / open items
+- Training photos remain in PUBLIC git history (purge offered, unanswered —
+  re-raised at P-023 close).
+- QC flagged (record only, LOCKED section): intro window sync ~f19-21s shows
+  a thin chain + ring — predates P-023, inside user-locked intro_v6. Flag to
+  user before FINAL assembly; fixing means reopening the lock.
+- The 3 bare-chest curb generations still in the Higgsfield library (above).
+- Archivist subagent may hit usage-credit walls; main-loop receipt fallback
+  is accepted (used for P-020/P-022).
