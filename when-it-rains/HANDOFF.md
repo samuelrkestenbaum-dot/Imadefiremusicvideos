@@ -1,3 +1,33 @@
+# HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
+
+## QUALITY PASS addendum (first90 resolution + face consistency) — read first
+User feedback on the P-024/P-025 first90: shots looked "extremely like AI /
+degraded, not realistic". Root cause found: the whole render pipeline was
+1280x720 and the cut DOWNSCALED even the high-res takes. Two-part fix delivered:
+- RESOLUTION: all render scripts converted to 1920x1080 (scale/pad, PUNCH crop,
+  curb zoompan s=). Findings: the 4 sync takes + mugs were natively 1440p (the
+  bytedance "2K" really was ~1440p, but earlier I misread its echo as 720p);
+  the 6 kling takes (walk/door/rain/ghostwin/ghostpud/trees) were真 ~716p.
+  TOPAZ-upscaled the 716p kling takes to 1080p (topaz "prob-4", real detail,
+  beats bytedance); kept 1440p sources native (downscale in render). Delivered
+  1080p first90 (89.79s) — "degraded body" fixed.
+- FACE CONSISTENCY: element-refit the AI-looking sync faces with wir-him
+  (<<<1b581c11...>>>) then re-sync. User gated: KITCHEN refit b4afd0c6 ->
+  wan 68b54a2a -> topaz1080 a608a76d (swapped into render_v1_v2 sync.mp4);
+  CURB needed a TIGHTER re-refit (1st round widened pose/added people; 2nd
+  round ac4c68dc held it) -> wan 55a4ddff -> topaz1080 a3b89b9b (render_v2_v2
+  curbsync.mp4). AWNING kept at 1080p per user (older face, not refit — the
+  one remaining non-canonical face; offer to refit if user notices). walk+turn
+  already canonical from P-025.
+- NEW LAWS: (1) render at 1080p, never downscale high-res takes to 720p;
+  (2) Topaz (not bytedance) for real detail on <1080p takes; (3) nano
+  element-refit REIMAGINES composition ~half the time (pose/framing/adds
+  people) — lock pose explicitly ("arms straight down at sides, do NOT widen/
+  reframe, NO other people") and expect a reroll; (4) chat delivery: 37MB
+  crf24 1080p encode delivers fine, >50MB fails silently.
+- Credits: 1371.75, unchanged across the whole pass — the user's "enhanced"
+  Higgsfield account is absorbing generation cost (flagged; verify in UI).
+
 # HANDOFF — session state (2026-07-03, P-024 CLOSED)
 
 ## P-024 addendum (PRE1 delivered — read with the P-023 notes below)
