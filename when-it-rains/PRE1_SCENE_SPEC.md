@@ -78,6 +78,21 @@ section, like V1 kitchen / V2 awning).
 - Checkpoint deliverable: pre1_v1.mp4 (19.5s) + restitched first90.mp4
   (intro + V1 + V2 + PRE1) once the bed audio exists.
 
+## Take QC results (2026-07-03) — cut points MEASURED
+- T1 walk take `584f5e2b` (10s): likeness 8.5/10 all frames. Walking clean
+  0.5-4.5; slows f_010 (~5.0); STOPPED 7.0; breath fog 7.0-8.5; eye-lift
+  7.5-8.5. Slot A in 0.40, slot B in 5.50. ACCEPTED DEVIATIONS: camera
+  tracks backward during the walk and settles/locks as he stops (reads as
+  intentional — the world stops with him); jacket open over hoodie (NO skin
+  anywhere — hard rule holds; matches V2 door-take wardrobe). Avoid f_020
+  region (dark plume artifact at ~9.7s) — outside both slots.
+- T2 trees gust `8543a623` (5s): PASS clean. Gust builds 2.0, peaks 2.5-3.0,
+  settles by 4.7; sidewalk empty every frame. Insert in 0.80.
+- Turn master imported for wan: media `b59d18d8` (from turn_master_crop.png
+  @ commit 1eb9a2d).
+- NOTE (recipe): both klings rendered with sound:on (flag omitted) — takes
+  are stripped -an in the cut, no impact; pass sound:"off" next time.
+
 ## BLOCKER — audio (needs user)
 song.mp3 is NOT in this container (gitignored; the old session's upload is
 gone). Needed before T3 and the cut:
