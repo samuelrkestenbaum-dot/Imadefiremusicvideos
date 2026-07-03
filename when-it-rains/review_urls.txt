@@ -1,9 +1,3 @@
 # assets queued for sandbox review (fetched by scripts/fetch_review.sh in CI)
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003607_c5f26caa-a5ec-44e4-9f57-2dc10f44838a.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003607_af00e0df-1e9e-4ba6-9718-1beb42da2e18.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003608_14976025-fd2f-446b-be0d-b10ebecf1f71.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003608_d01482ef-13dc-4763-887b-402807993ee6.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003610_b4a70e44-565f-4288-88e0-68dffd65eb83.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003610_cff47c44-46ce-4958-a343-689055e40beb.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003611_4c67c1b4-56ad-4d37-9dd6-50aff4d59815.png
-https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_003610_fe51c067-0951-4445-81b0-2fe2b32b5838.png
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_005509_97bf512d-db94-470d-8309-9a3bba30aa59.png
+https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR/hf_20260703_005510_afe502ae-7c63-4e77-8c2f-11133cceb8a4.png
