@@ -37,6 +37,24 @@
   receipt). Always check the uuid; for big cuts send a phone encode
   (crf 23 ~= 22MB for 90s) — the full-quality master stays in the repo.
 
+## P-025 addendum (PRE1 realism repair — CLOSED)
+- User rejected P-024 PRE1 faces as AI-looking. Repair: nano ELEMENT-REFIT of
+  the two masters with wir-him (1b581c11) embedded <<<uuid>>> — element BOUND
+  (verify reference_elements in job echo). Realism: turn 4.5->9/10 at
+  delivery res, walk 5->8/10. User gated WC(+chain paint-out)/TA.
+- Final assets: walk take kling d035bb3b (from walk_final.png = WC d19e7262
+  + local chain paint-out; imported d6142bc8; slots A in 0.00 / B in 5.50);
+  turn sync wan 7db11194 (from TA 557974ad imported c7a5e1c1; behavioral-pin
+  prompt reused, passed first try) -> 2K e15b36e1. Delivered repaired
+  pre1_v1.mp4 + first90.mp4 (89.79), final QC SHIP, phone encode uuid-checked.
+- LEARNINGS: (1) element-refit is THE fix for AI-look faces — same scene,
+  face pulled to canonical; expect ~1/6 refits to add a chain and ~1/3 to
+  drift EYE COLOR (check brown eyes explicitly in QC). (2) chain paint-out
+  on DARK chains: one-sided luminance LIFT + adopt row-local SKIN CHROMA
+  (keeping original chroma at lifted luma = orange line, fails QC).
+  (3) realism survives kling/wan animation and the 2K+grain+compression
+  pipeline — verify at delivery res in the final pass anyway.
+
 # P-023 notes (previous close, still-valid ops reference)
 
 Read PRODUCTION_PLAYBOOK.md (method + laws), ROADMAP.md (story ladder +
