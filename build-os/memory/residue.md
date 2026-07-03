@@ -223,6 +223,48 @@
   (combined `receipts/P-018_P-019.md`). Disambiguate in prose; **numbering
   resumes at P-020**.
 
+- **P-023 residue — training photos STILL in PUBLIC git history; purge STILL
+  unanswered.** Re-raised at the P-023 close (carried since P-018/P-019). The
+  bare-chest purge (below) proves the history-rewrite mechanism works when the
+  user orders it; the TRAINING-photo purge remains offered + unanswered — do
+  NOT run without explicit go.
+- **P-023 residue — NEW HARD RULE (user, 2026-07-03): NO bare chest, ever.**
+  Any generation showing bare chest is deleted immediately; repo copies get
+  purged from git HISTORY (commit rewrite — user-ordered at P-023), not just
+  the tip. soul_2 ignored "closed and zipped" wardrobe locks 3 rolls in a row
+  (+ 90° rotations ×2): **do NOT reroll wardrobe fixes — salvage the best
+  frame via nano edit** instead.
+- **P-023 residue — 3 bare-chest curb rolls remain in the HIGGSFIELD LIBRARY**
+  (`733152dc` / `8c9b80ef` / `85cb2d58`) — MCP cannot delete library
+  generations; the **user must delete them in the Higgsfield UI** (told at
+  P-023; unconfirmed).
+- **P-023 residue — locked-intro jewelry flag (record only).** first70 final
+  QC flagged a thin chain + ring ~19–21s inside the user-LOCKED intro_v6
+  (predates P-023). **Flag to the user before FINAL assembly** — fixing means
+  reopening the lock. Non-blocking.
+- **P-023 residue — nano pass-3 was a ONE-TIME user exception.** The curb
+  frame got a user-approved 3rd nano pass (face held 9/10); the max-2-passes
+  likeness law stands — do not make the exception habit.
+- **P-023 ops (canonized in HANDOFF.md, candidates for the playbook):**
+  audio-gap verification — wan honors vocal breath gaps; check "mouth stops"
+  QC flags against the slice's mid-band FFT energy envelope before rerolling
+  (both flagged stretches in the 12s curb take were real energy dips — take
+  correct). Tiny deterministic pixel fixes (glints) are better done LOCALLY
+  (one-sided luminance suppression; synthetic noise FAILS QC) than by another
+  nano pass. Purge same-named `review/` copies before re-queuing; keep
+  `review/` under ~30MB.
+- **P-023 residue — P-021 closed UNRECEIPTED** (V2 board → `v2_v1.mp4`,
+  commits `def07ba`..`ecc9bc9`); debt acknowledged in the P-023 receipt Notes,
+  work superseded by the P-022/P-023 recuts. Memory lag P-020→P-022 (archivist
+  usage-credit walls, main-loop fallback receipts) is CLEARED as of the P-023
+  close — memory/ is back in sync.
+- **P-023 residue — branch + credits.** Working branch is now
+  **`claude/when-it-rains-handoff-l0u075`** (supersedes the fetr0z-era
+  branches, same history; `render-chorus.yml` branch-agnostic). Credits
+  **1405.71 of 2415** at close (~46 spent in the P-023 finish); roadmap
+  estimate for everything remaining 950–1100. Earlier credit figures
+  (~1700–1800, ~1500–1600, 1451.59) are superseded.
+
 ## Known risks / debt
 
 - **The edit is reversible (two-layer chain) — neither backup overwritten.**
@@ -368,3 +410,11 @@ EYES" canonized; double-bed canon; NEW residue: photo purge OFFERED/unanswered
 V1 window take `2280a662` accepted film grammar, credits ~1700–1800/2415,
 push-trigger CI standard [MCP dispatch optional], intro v1–v5 iteration trail +
 review/ weight prunable later)._
+
+_P-023 note appended 2026-07-03 (first70 v2 SHIP — four v1 notes resolved, curb
+zoom finale delivered; NEW HARD RULE no-bare-chest + salvage-don't-reroll;
+bare-chest repo copies history-purged on user order, 3 library copies await
+user UI deletion; locked-intro jewelry flagged for pre-FINAL; audio-gap FFT
+verification + local pixel-fix methods canonized; P-021 receipt debt recorded;
+memory lag P-020→P-022 cleared; branch `claude/when-it-rains-handoff-l0u075`;
+credits 1405.71; next P-024 PRE1 — receipt `build-os/receipts/P-023.md`)._

@@ -8,72 +8,63 @@
 - **Packet id:** —
 - **Title:** —
 
-> **P-018/P-019 (intro pair — bed regen v5 + opening match v6) are CLOSED. THE
-> INTRO IS LOCKED. NO packet is active.** Combined receipt:
-> `build-os/receipts/P-018_P-019.md`. (Numbering note: "P-018" also names the
-> earlier chorus-lock receipt `P-018.md` — an id collision, recorded; **the
-> next packet is P-020**.)
+> **P-023 (first70 revision — mug grain, lip-sync timing, AI-look syncs, curb
+> finale redesign) is CLOSED (2026-07-03). NO packet is active.** Receipt:
+> `build-os/receipts/P-023.md`. Delivered `first70.mp4` v2 (70.0s, final
+> frame-QC = **SHIP**) + `v1_v2.mp4` (19.5s) + `v2_v2.mp4` (27.3s) on
+> `claude/when-it-rains-handoff-l0u075`. All four user notes on v1 resolved;
+> curb zoom finale live. Read `when-it-rains/HANDOFF.md` for final asset IDs +
+> ops learnings (incl. the NEW HARD RULE: no bare chest ever;
+> salvage-don't-reroll wardrobe fixes; and the audio-gap verification method).
 >
-> **The pair in one paragraph:** 21 commits `f724323..25b8b80` (base
-> `f724323` = the intro_v4 CI render; 12 authored + 9 CI). P-018 fixed the
-> intro_v4 bed setup per user feedback (insert was a DIFFERENT bedroom; bed
-> became a **DOUBLE bed** for the "her untouched side" beat). Root cause fixed
-> as PROCESS: assets had been prompted fresh instead of DERIVED from the scene
-> master, and used blind (sandbox can't see the CDN) → built the **CI
-> review-fetch path** (`scripts/fetch_review.sh` + `render-chorus.yml`;
-> `review_urls.txt` assets land in `when-it-rains/review/`, videos as 2fps
-> frame PNGs — sandbox eyes on EVERYTHING before spend/ship). New assets all
-> derived from the approved soul_2 bed master `2d080b77`: bed take kling 10s
-> `eea03072` (beats measured from frames), her-half insert nano `9924df64` →
-> `f64ef24d` → kling 5s `8bd72a9d` (first attempt caught in frame QC — whole
-> bed empty — re-derived). `render_intro_v5.sh` → `intro_v5.mp4`: "Looks great
-> except [opening shot mismatch]". P-019 matched the opening rain shot to the
-> bedroom's own window by derivation (nano `c63df6d2` → kling 8s `371791eb`,
-> frame-QC'd: locked camera, same building/road). `render_intro_v6.sh` →
-> `intro_v6.mp4` — **USER LOCKED: "Amazing"**. Docs (`25b8b80`):
-> `INTRO_SCENE_SPEC.md` LOCKED (final asset IDs, double-bed canon);
-> `PRODUCTION_PLAYBOOK.md` **law 0 "DERIVE, DON'T DESCRIBE"** + **law 0b
-> "SANDBOX EYES"**, section 6 = intro_v6 is the second reference cut.
+> (Memory catch-up recorded at this close: P-020 locked V1 "Great", P-021 [V2
+> board] closed UNRECEIPTED, P-022 delivered first70 v1 — see the P-023 receipt
+> Notes.)
 
-## Next packet (staged for the orchestrator — open as P-020)
+## Next packet (staged for the orchestrator — open as P-024)
 
-**P-020 — Verse 1 board (23.5–43.0s): morning-routine kitchen, the TWO MUGS
-beat.**
+**P-024 — PRE1 (70.3–89.8s): the darkening walk.**
 
-- **Lines / timings:** "soft touch upon my skin" 23.5–31.3 · "my heart had
-  crossed the ocean" 31.3–35.2 · "where the rivers bend" 35.2–43.0.
-- **Scene:** morning-routine kitchen with the **TWO MUGS handled-action beat**
-  (the grief-in-ordinary-life grammar: his routine, her absence).
-- **Method (laws 0 + 0b BINDING):** scene spec (INTRO_SCENE_SPEC.md is the
-  template now) → kitchen scene MASTER still (soul_2 + character bible; user
-  eyeballs likeness BEFORE animation) → every take/insert DERIVED from the
-  master → queue everything through `review_urls.txt` → frame QC in
-  `when-it-rains/review/` BEFORE cutting → measured cuts from frames →
-  `render_v1_*.sh` → CI render → user verdict.
-- **Budget:** credits ~1700–1800 of 2415 remain (rough) — new generation only
-  inside this packet with go.
-- **After V1:** PRE1 → CH1 → V3/V4 → PRE2 → CH2 → BRIDGE → FINAL, then the
-  **full 4:34 assembly** (one continuous vocal, cuts on `analysis/beats.json`).
+- **Lines:** "Don't know if you still feel it / I lose my breath / the trees
+  are moving / like you never left."
+- **Scene (ROADMAP.md, rung 3 — signs without her):** he walks faster; wind
+  moves the trees like someone passing; he stops — breath fogging — turns
+  around ON the line "like you never left": empty street. **Δ: the signs are
+  now chasing HIM. He decides to go somewhere (the cafe) — giving CH1 a
+  cause.**
+- **Method:** board FIRST per the roadmap story rules (Δ + because-chain stated
+  before any generation); playbook laws 0/0b binding; scene spec → master still
+  (user gates likeness vs `review/ANCHOR_BOARD.png`) → derived takes → frame QC
+  via review-fetch → measured cuts → CI render → user verdict.
+- **Budget:** roadmap estimate ~150–200 credits; 1405.71 remaining at P-023
+  close. New generation only inside this packet with go.
+- **Id note:** the ROADMAP.md packet table lists PRE1 as "P-023", but P-023 was
+  consumed by the first70 revision — PRE1 is **P-024**; later sections shift by
+  one (V3/V4 → PRE2 → CH2 → BRIDGE → FINAL → full assembly).
 
 ## Out of scope (explicit, until a fresh go)
 
-- Any merge / deploy / publish / secrets. (The branch **auto-mirrors to
-  origin** — an environment fact; commits are fine, everything else is gated.)
-- The **history rewrite** to purge the Soul training photos from PUBLIC git
-  history — **offered to the user, unanswered**; needs an explicit go.
-- Replacing locked material: hero clip `491e39d1`, chorus_v16, intro_v6 —
-  user-locked.
+- Any merge / deploy / publish / secrets. (CI relay pushes render commits on
+  the triggering branch — established mechanism; everything else is gated.)
+- The **history rewrite** to purge the Soul TRAINING photos from PUBLIC git
+  history — offered to the user, still unanswered; needs an explicit go. (The
+  bare-chest purge was a separate, user-ORDERED rewrite, already done.)
+- Replacing locked material: hero clip `491e39d1`, chorus_v16, intro_v6
+  (incl. the intro's ~19–21s chain+ring — flag before FINAL assembly, do not
+  fix without reopening the lock).
 - New Higgsfield generation outside a staged scene packet (credits).
+- Anything showing bare chest — NEW HARD RULE: delete immediately, never ship,
+  never reroll wardrobe fixes (salvage via nano edit instead).
 
 ## Branch base
 
-- `claude/when-it-rains-music-video-fetr0z` (no trunk; judged against branch
-  tip). HEAD at this close: **`25b8b80`** (intro_v6 lock: spec + playbook laws),
-  plus the archivist's own `build-os/` close commit on top. The branch
-  auto-mirrors to origin.
+- `claude/when-it-rains-handoff-l0u075` (supersedes the fetr0z-era branches,
+  same history; no trunk — judged against the branch tip). HEAD at this close:
+  **`9992e95`** (P-023 QC purge + HANDOFF refresh), plus the archivist's own
+  `build-os/` close commit on top. `render-chorus.yml` is branch-agnostic
+  (follows `${{ github.ref_name }}`).
 
 ---
-_P-018/P-019 closed 2026-07-02 (INTRO LOCKED — intro_v6 "Amazing"; double-bed
-canon; review-fetch "sandbox eyes" + laws 0/0b canonized; combined receipt
-`build-os/receipts/P-018_P-019.md`). NO packet active. Next: P-020 — Verse 1
-board (23.5–43.0s, kitchen / TWO MUGS)._
+_P-023 closed 2026-07-03 (first70 v2 SHIP — enhanced mugs, onset-tight syncs,
+realism stills, curb zoom finale; receipt `build-os/receipts/P-023.md`). NO
+packet active. Next: P-024 — PRE1 (70.3–89.8, the darkening walk)._

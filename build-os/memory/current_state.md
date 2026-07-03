@@ -31,8 +31,11 @@
   sandbox inspects EVERY asset before spend/ship). Both laws bind every future
   scene packet. Combined receipt `build-os/receipts/P-018_P-019.md` (note: the
   id P-018 collides with the chorus-lock receipt — numbering resumes at P-020).
-- **Primary branch / base:** `claude/when-it-rains-music-video-fetr0z` (this repo
-  has **no trunk** — no `origin/main`; "green" is judged against the branch tip).
+- **Primary branch / base:** **`claude/when-it-rains-handoff-l0u075`** (P-023;
+  supersedes the fetr0z-era branches — same history; this repo has **no trunk**
+  — no `origin/main`; "green" is judged against the branch tip). The CI relay
+  workflow `render-chorus.yml` is **branch-agnostic** (follows
+  `${{ github.ref_name }}`).
 - **Build/test command:** _there is no software test suite._ The deliverable is a
   rendered rough cut, and **it must be rendered on the USER'S Mac** via
   `when-it-rains/scripts/fetch_assets.sh` then
@@ -49,6 +52,40 @@
 
 ## Where we are
 
+- **Last closed packet:** **P-023 — first70 revision (mug grain, lip-sync
+  timing, AI-look syncs, curb finale redesign) — CLOSED 2026-07-03, final
+  frame-QC = SHIP.** Delivered **`first70.mp4` v2** (continuous 0–70.3, 70.0s)
+  + recuts `v1_v2.mp4` (19.5s) / `v2_v2.mp4` (27.3s) on
+  `claude/when-it-rains-handoff-l0u075`. The user's four notes on v1 ALL
+  resolved: (1) grainy mugs → 2K-enhanced take `82720c7f`; (2) late lip-sync
+  onset → onset-tight slices + new wan syncs (kitchen `552f47fe`→2K `c3cddeb8`,
+  awning retry `ee8d1c61`→2K `ab86a6c8`; first awning wan `3397e6b4` rejected
+  in frame-QC); (3) AI-look sung shots → realism stills `d52d9aeb`/`a919b037`
+  (likeness 8.5/7.5); (4) curb finale → **12s CURB ZOOM SYNC** (wan
+  `da598028`→2K `2ad7d2e3`, accelerating zoompan + vignette + desat ramp in
+  `render_v2_v2.sh`). Curb frame saga → **NEW HARD RULE: no bare chest, ever**
+  (delete on sight, history-purge repo copies, salvage-don't-reroll wardrobe
+  fixes; 3 bare-chest rolls remain in the Higgsfield library for the USER to
+  delete in the UI). New QC method: verify "mouth stops" flags against the
+  slice's mid-band FFT energy envelope — wan honors breath gaps. Proof =
+  frame-QC by vision subagent before every spend + final 140-frame SHIP pass
+  (3 non-blocking caveats recorded). Credits at close: **1405.71**. Commits
+  `c1e1efa`→`9992e95` (18: 11 relay + 7 CI) + close; ≤2-commit contract
+  acknowledged inapplicable to the CI-relay media workflow (P-020/P-022
+  precedent). Receipt `build-os/receipts/P-023.md`; full asset IDs + ops
+  learnings in `when-it-rains/HANDOFF.md`.
+- **Memory catch-up (P-020 → P-022 — memory/ had lagged at P-018/P-019 because
+  the archivist hit usage-credit walls; receipts were main-loop fallback):**
+  **P-020** — Verse 1 kitchen (23.5–43.0), `v1_v1.mp4` **USER LOCKED "Great"**
+  + `first43.mp4`; ROLES LAW (wan2_7 needs exact roles
+  `start_image`/`audio_references`); local ffmpeg via `imageio-ffmpeg`; receipt
+  `P-020.md`. **P-021** — V2 board (43.0–70.3, street/look-back) → `v2_v1.mp4`,
+  commits `def07ba`..`ecc9bc9` — **closed UNRECEIPTED** (receipt debt
+  acknowledged in the P-023 receipt; superseded by the P-022 recut). **P-022**
+  — likeness repair + `review/ANCHOR_BOARD.png` (permanent likeness reference)
+  + ladder inserts; delivered **`first70.mp4` v1** + `v1_v2`/`v2_v2` recuts;
+  receipt `P-022.md`. Also LOCKED since: `V1_SCENE_SPEC.md`. Story/plan canon:
+  **`when-it-rains/ROADMAP.md`** (story ladder + likeness lock + packet plan).
 - **Last closed packet:** **P-018/P-019 (intro pair) — INTRO LOCKED** —
   media-production pair (user-directed, playbook-driven), **21 commits**
   `f724323..25b8b80` (12 authored + 9 CI render commits; base **`f724323`** =
@@ -352,28 +389,24 @@
   section-sync; **P-003** — SECTION_TIMES.md; **P-002** — RENDER_REVIEW.md; **P-001**
   — Install Build OS. P-004's confirmed times stand: CH1 = 1:29 (89.25s),
   PRE1 = 1:09.75, V2 = 41.25, V4 = 144.5, PRE2 = 173.)
-- **Now:** **P-018/P-019 are CLOSED → TWO sections are LOCKED: the CHORUS
-  (`render_chorus_v16.sh` → `chorus_v16.mp4`) and the INTRO
-  (`render_intro_v6.sh` → `intro_v6.mp4`, user: "Amazing").** The method canon
-  now includes **law 0 "DERIVE, DON'T DESCRIBE"** and **law 0b "SANDBOX EYES"**
-  — the CI review-fetch loop (`scripts/fetch_review.sh` → `when-it-rains/
-  review/`, videos as 2fps frame PNGs) means the sandbox SEES every asset
-  before spend/ship; assets-used-blind is retired as a failure mode. The CI
-  delivery loop is **push-triggered via `render_request.txt` line-1 + nonce**
-  (github MCP dispatch optional). The branch **auto-mirrors to origin**
-  (environment fact; standing boundary unchanged: no merge / deploy / publish /
-  secrets without explicit go). Higgsfield credits ~**1700–1800 of 2415**
-  remaining (rough; supersedes the chorus-era ~1900–2000 figure).
-- **Next:** **Verse 1 board (23.5–43.0s)** — lines: "soft touch upon my skin"
-  23.5–31.3, "my heart had crossed the ocean" 31.3–35.2, "where the rivers
-  bend" 35.2–43.0; the **morning-routine kitchen scene with the TWO MUGS
-  handled-action beat**. Per the playbook (laws 0/0b binding): scene spec →
-  master still (user eyeballs BEFORE animation) → derived takes → frame QC via
-  review-fetch → measured cuts → CI render → user verdict. Then **PRE1, CH1,
-  V3/V4, PRE2, CH2, BRIDGE, FINAL** toward the **full 4:34 assembly** (one
-  continuous vocal, cuts on `analysis/beats.json`; the old 107-cut
-  `data/edl.csv` superseded section by section). **Number the next packet
-  P-020** (P-018/P-019 ids are exhausted twice over — see the collision note).
+- **Now:** **P-023 is CLOSED → the film's first 70.3 seconds are DELIVERED at
+  SHIP quality** — LOCKED intro_v6 (0–24) inside `first70.mp4` v2 (0–70.3
+  continuous), plus the LOCKED chorus_v16 (CH1 89.8–102) waiting downstream.
+  Working branch `claude/when-it-rains-handoff-l0u075`; CI relay
+  branch-agnostic; push-trigger via `render_request.txt` + nonce; sandbox eyes
+  (frame QC via a general-purpose subagent returning TEXT — main-context image
+  reads saturate in long sessions). Credits **1405.71 of 2415** (roadmap
+  estimate for everything remaining 950–1100 — comfortable). Read
+  `when-it-rains/HANDOFF.md`, `PRODUCTION_PLAYBOOK.md`, `ROADMAP.md` before any
+  new packet. Standing user law: **no bare chest, ever** (salvage via nano,
+  never reroll wardrobe).
+- **Next:** **P-024 — PRE1 (70.3–89.8s): the darkening walk** (staged in
+  `build-os/packets/active_packet.md`; note the ROADMAP.md table's id drift —
+  its "P-023 PRE1" row is now **P-024**, later rows shift by one). Board FIRST
+  (Δ + because-chain before any generation; laws 0/0b binding; likeness gated
+  vs `review/ANCHOR_BOARD.png`). Then **V3/V4 → PRE2 → CH2 → BRIDGE → FINAL**
+  toward the **full 4:34 assembly** (one continuous vocal, cuts on
+  `analysis/beats.json`).
 
 ## Stable facts (slow-changing)
 
@@ -520,3 +553,8 @@ origin — the "local-only / awaiting push go" framing above is superseded).
 with the chorus-lock P-018 recorded, numbering resumes at P-020; review-fetch
 "sandbox eyes" QC path live + playbook laws 0/0b canonized; double-bed canon;
 credits ~1700–1800/2415; next: Verse 1 board 23.5–43.0s, kitchen / TWO MUGS)._
+
+_P-020/P-021/P-022 catch-up + P-023 close appended 2026-07-03 by the archivist
+(P-023 first70 v2 SHIP — receipt `build-os/receipts/P-023.md`; P-021 receipt
+debt recorded; branch now `claude/when-it-rains-handoff-l0u075`; credits
+1405.71; next P-024 PRE1)._
