@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p022-first70-qc-2
+# nonce: p023-four-assets-qc
