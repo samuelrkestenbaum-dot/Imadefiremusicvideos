@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: claude/when-it-rains-music-video-fetr0z
+          ref: ${{ github.ref_name }}
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Resolve script
@@ -40,5 +40,5 @@ jobs:
           git add -f when-it-rains/*.mp4 2>/dev/null || true
           git add -f when-it-rains/review 2>/dev/null || true
           git commit -m "CI: rendered output" || echo "nothing to commit"
-          git pull --rebase origin claude/when-it-rains-music-video-fetr0z || true
+          git pull --rebase origin ${{ github.ref_name }} || true
           git push
