@@ -14,7 +14,7 @@ VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(
 PUNCH="crop=768:432:256:144,scale=1280:720,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v1sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v1sec2/$2" "$1"; }; }
 get "$B/hf_20260703_014921_82720c7f-c1e5-4e93-811e-f18a25dfb81c.mp4" mugs.mp4   # 2K-enhanced take
-get "$B/KITCHEN_2K_PLACEHOLDER.mp4" sync.mp4   # new kitchen 2K lip-sync (job c3cddeb8)
+get "$B/hf_20260703_043220_c3cddeb8-178a-445c-ae62-16a067042fd5.mp4" sync.mp4   # new kitchen 2K lip-sync
 get "$B/hf_20260702_172036_aaea0be1-b6db-4797-919d-4235466bdf03.mp4" rain.mp4
 get "$B/hf_20260703_010455_28668737-f90e-4310-8e20-dee577ee519f.mp4" ghostwin.mp4
 

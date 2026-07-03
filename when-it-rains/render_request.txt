@@ -1,2 +1,2 @@
 fetch_review.sh
-# nonce: p023-awning-retry-and-curb-pass2
+# nonce: p023-curb-pass3-hand-fix
