@@ -10,7 +10,7 @@ B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 mkdir -p turncmp
 get() { [ -s "turncmp/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "turncmp/$2" "$1"; }; }
 get "$B/hf_20260704_124957_62f4313d-efcf-431e-a071-5bab3f99fbec.mp4" wan.mp4
-get "$B/SEEDANCE_TURN_PLACEHOLDER.mp4" seedance.mp4
+get "$B/hf_20260704_125453_38054380-ad4f-4a34-afe8-c4d58935abb3.mp4" seedance.mp4
 
 mux() { # $1 src  $2 out-label
   ffmpeg -nostdin -y -loglevel error -i "turncmp/$1" -i audio_relay/pre1_line12.mp3 \

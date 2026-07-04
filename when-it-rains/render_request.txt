@@ -1,2 +1,2 @@
-fetch_review.sh
-# nonce: turn-reface-candidates
+render_turn_compare.sh
+# nonce: turn-lipsync-ab
