@@ -26,20 +26,31 @@ seg door.mp4     1.20 7.80 0   # 43.0-50.8 one take: out -> walk -> LOOK (4.0-6.
 seg ghostpud.mp4 0.40 3.90 1   # 50.8-54.7 GHOST: her reflection in the puddle - a drop hits - rippled apart
 seg sync.mp4     0.10 3.90 2   # 54.7-58.6 SYNC "the sky still holds your whisper" (slice 54.6; seg at song 54.7)
 
-# seg 3 — CURB ZOOM SYNC (58.6-70.3): 12s lip-sync hold while the world rushes;
-# accelerating push-in on his face, vignette, slow desaturation ramp.
-# Lip sync law: seg in = song_time_at_slot_start - slice_start = 58.6 - 58.5 = 0.10.
-# curbsync is now a 4K (2160p) Topaz upscale — zoom WITHIN the 4K so the
-# pushed-in crop stays sharp (down-samples to 1080 out). Gentler max zoom
-# (~1.65x vs old 2.1x) + TOP-anchored crop (y clamps to 0) so his head is
-# never cropped as the camera pushes into his face.
-ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 11.70 -i v2sec2/curbsync.mp4 -vf "\
+# seg 3/4/5 — CURB ZOOM SYNC (58.6-70.3), now BROKEN by a 1.3s apparition flash so
+# the pre-chorus has rhythm instead of one 12s single-composition hold. The
+# accelerating push-in, vignette and desaturation ramp CONTINUE across the cut
+# (zoom 'in' and hue 't' are offset in piece 2 so it resumes where it left off),
+# so the emotional build isn't lost — it just breathes once.
+#   piece 1  58.6-64.0 (5.40s, zoom frames 0-129)
+#   cutaway  64.0-65.3 (1.30s, her puddle reflection — seeds the 1:33 payoff)
+#   piece 2  65.3-70.3 (5.00s, zoom continues from frame ~161)
+# Lip-sync law: curbsync in = song - slice_start(58.5); piece2 in = 0.10 + (65.3-58.6) = 6.80.
+CURBZOOM_TAIL="vignette=PI/5,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03,format=yuv420p"
+ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 5.40 -i v2sec2/curbsync.mp4 -vf "\
 scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
 zoompan=z='1+0.65*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
-vignette=PI/5,hue=s='max(0.35,1-0.055*t)',\
-noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03,format=yuv420p" -r 24 -an \
+hue=s='max(0.35,1-0.055*t)',${CURBZOOM_TAIL}" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_03.mp4
 echo "file 'seg_03.mp4'" >> v2sec2/concat.txt
+# cutaway: her reflection flickers in the puddle (apparition motif, pre-chorus)
+seg ghostpud.mp4 2.50 1.30 4
+# piece 2: zoom + desaturation resume (offsets: in+161 frames, t+6.70s)
+ffmpeg -nostdin -y -loglevel error -ss 6.80 -t 5.00 -i v2sec2/curbsync.mp4 -vf "\
+scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
+zoompan=z='1+0.65*pow((in+161)/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
+hue=s='max(0.35,1-0.055*(t+6.70))',${CURBZOOM_TAIL}" -r 24 -an \
+  -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_05.mp4
+echo "file 'seg_05.mp4'" >> v2sec2/concat.txt
 
 ( cd v2sec2 && ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i concat.txt -c copy silent.mp4 )
 ffmpeg -nostdin -y -loglevel error -i v2sec2/silent.mp4 -i audio_relay/v2_bed.mp3 \

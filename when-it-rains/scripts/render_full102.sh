@@ -5,6 +5,8 @@
 # frame-exact grid (576/456/655/468) with two appended segs (storm 37f, chorus 252f).
 set -euo pipefail
 HERE="$(dirname "$0")"
+bash "$HERE/render_intro_v6.sh"      # rebuilds intro_v6.mp4 with the cold-open push-in (recut pass)
+bash "$HERE/render_v2_v2.sh"         # rebuilds v2_v2.mp4 with the curb apparition cutaway (recut pass)
 bash "$HERE/render_pre1.sh"          # rebuilds pre1_v1.mp4 with the no-turn street turnsync
 cd "$HERE/.."
 command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
