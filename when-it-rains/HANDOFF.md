@@ -1,5 +1,7 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> LIP-SYNC MODEL (2026-07-04): user A/B'd wan2_7 vs seedance_2_0 on the turn (same face db667b65 + vocal) — WAN WON, seedance worse. wan2_7 is the lip-sync model; sync is approximate (AI mouth-from-still, tech ceiling) and the user accepts it. Do NOT re-sync with seedance. Higgsfield has no dedicated phoneme-accurate lip-sync engine (models_explore: seedance/kling/wan/grok all general).
+
 ## QUALITY PASS addendum (first90 resolution + face consistency) — read first
 User feedback on the P-024/P-025 first90: shots looked "extremely like AI /
 degraded, not realistic". Root cause found: the whole render pipeline was
