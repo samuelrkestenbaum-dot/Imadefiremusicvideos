@@ -18,7 +18,7 @@ VFP="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:
 get() { [ -s "flowdemo2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "flowdemo2/$2" "$1"; }; }
 
 # --- the extended street take (wan 1cfafdb2, 1080p, 12s: 81.92-93.92) ---
-get "$B/__TAKE__" take.mp4
+get "$B/hf_20260704_141409_1cfafdb2-4f10-463a-8c46-1780e25492fa.mp4" take.mp4
 
 # street video: in 0.10 (=82.02) for 11.75s -> to 93.77 (past the 93.72 cut)
 ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 11.75 -i flowdemo2/take.mp4 \
@@ -41,3 +41,12 @@ ffmpeg -nostdin -y -loglevel error \
   -c:a aac -b:a 160k -ac 2 -ar 44100 -movflags +faststart flow_demo2.mp4
 dur=$(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 flow_demo2.mp4 2>/dev/null || echo "?")
 echo "wrote flow_demo2.mp4 (${dur}s)"
+
+# --- QC frames for the sandbox to inspect after pull (CDN is egress-blocked there) ---
+mkdir -p review/flowdemo2_take_frames review/flowdemo2_final_frames
+# raw take at 2fps so I can verify: canonical face, faces-camera-throughout,
+# no turn/exit, no bare chest, mouth moving
+ffmpeg -nostdin -y -loglevel error -i flowdemo2/take.mp4 -vf "fps=2,scale=640:-2" -q:v 4 review/flowdemo2_take_frames/f_%03d.jpg
+# final demo at 3fps to eyeball the dissolve landing
+ffmpeg -nostdin -y -loglevel error -i flow_demo2.mp4 -vf "fps=3,scale=640:-2" -q:v 4 review/flowdemo2_final_frames/f_%03d.jpg
+echo "wrote QC frames"
