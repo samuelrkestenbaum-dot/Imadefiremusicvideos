@@ -13,18 +13,18 @@ mkdir -p flowdemo; : > flowdemo/concat.txt
 VFG="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 VFP="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
 get() { [ -s "flowdemo/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "flowdemo/$2" "$1"; }; }
-get "$B/hf_20260704_130632_fc47fa23-c0b0-4439-b446-5a368ce954c7.mp4" turn.mp4
-# turn seg 82.0-89.8 (in 0.10, 7.80s) — grain to match the film
-ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 7.80 -i flowdemo/turn.mp4 -vf "$VFG,fps=24,format=yuv420p" -r 24 -an \
-  -c:v libx264 -preset medium -crf 20 -video_track_timescale 12800 flowdemo/seg_00.mp4
+get "$B/NOTURN_TURN_PLACEHOLDER.mp4" turn.mp4
+# turn seg 82.0-89.8 (in 0.10, 7.80s) — grain + the matching vocal slice
+ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 7.80 -i flowdemo/turn.mp4 -ss 0.18 -t 7.80 -i audio_relay/pre1_line12.mp3 \
+  -map 0:v:0 -map 1:a:0 -vf "$VFG,fps=24,format=yuv420p" -r 24 \
+  -c:v libx264 -preset medium -crf 20 -video_track_timescale 12800 -c:a aac -b:a 160k -ac 2 -ar 44100 flowdemo/seg_00.mp4
 echo "file 'seg_00.mp4'" >> flowdemo/concat.txt
-# locked chorus (already graded/grained) — plain scale, video only
-ffmpeg -nostdin -y -loglevel error -i chorus_v16.mp4 -vf "$VFP,fps=24,format=yuv420p" -r 24 -an \
-  -c:v libx264 -preset medium -crf 20 -video_track_timescale 12800 flowdemo/seg_01.mp4
+# locked chorus WITH ITS OWN NATIVE AUDIO (exactly as it plays in the film — no bed, no smear)
+ffmpeg -nostdin -y -loglevel error -i chorus_v16.mp4 -vf "$VFP,fps=24,format=yuv420p" -r 24 \
+  -c:v libx264 -preset medium -crf 20 -video_track_timescale 12800 -c:a aac -b:a 160k -ac 2 -ar 44100 flowdemo/seg_01.mp4
 echo "file 'seg_01.mp4'" >> flowdemo/concat.txt
-( cd flowdemo && ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i concat.txt -c copy silent.mp4 )
-ffmpeg -nostdin -y -loglevel error -i flowdemo/silent.mp4 -i audio_relay/flow_demo_bed.mp3 \
-  -map 0:v:0 -map 1:a:0 -c:v libx264 -profile:v main -level 3.1 -preset medium -crf 24 -pix_fmt yuv420p \
-  -c:a aac -b:a 160k -ac 2 -ar 44100 -movflags +faststart -shortest flow_demo.mp4
+( cd flowdemo && ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i concat.txt \
+  -c:v libx264 -preset medium -crf 24 -pix_fmt yuv420p -profile:v main -level 3.1 \
+  -c:a aac -b:a 160k -ac 2 -ar 44100 -movflags +faststart ../flow_demo.mp4 )
 dur=$(ffprobe -v error -show_entries format=duration -of default=nk=1:nw=1 flow_demo.mp4 2>/dev/null || echo "?")
 echo "wrote flow_demo.mp4 (${dur}s)"
