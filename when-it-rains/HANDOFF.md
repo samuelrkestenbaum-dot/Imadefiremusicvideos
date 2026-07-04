@@ -24,7 +24,11 @@ degraded, not realistic". Root cause found: the whole render pipeline was
   element-refit REIMAGINES composition ~half the time (pose/framing/adds
   people) — lock pose explicitly ("arms straight down at sides, do NOT widen/
   reframe, NO other people") and expect a reroll; (4) chat delivery: 37MB
-  crf24 1080p encode delivers fine, >50MB fails silently.
+  the real silent-fail threshold is ~25MB (22MB delivered fine w/ file_uuid;
+  35-37MB came back with NO file_uuid = failed). DELIVER SMALL: 720p crf26
+  faststart = ~12MB for 90s, opens reliably. ALWAYS -movflags +faststart
+  (moov at front, else phones can't start playback) and check the SendUserFile
+  result prints "-> file_uuid:" (no uuid line = it did NOT deliver).
 - Credits: 1371.75, unchanged across the whole pass — the user's "enhanced"
   Higgsfield account is absorbing generation cost (flagged; verify in UI).
 
