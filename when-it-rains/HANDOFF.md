@@ -1,5 +1,24 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> STREET->CHORUS TRANSITION rework (2026-07-04) — AWAITING APPROVAL of flow_demo3.mp4.
+> User intent (final, after 2 misreads): keep chorus_v16's montage in its ORIGINAL
+> order (mic->puddle->mic->cafe); ONLY trim the dead FRONT of the mic clip and drop a
+> connective beat in front of it. DO NOT regenerate the street take — a fresh wan gen
+> (1cfafdb2, the "extended street sings the hook" idea) CHANGED HIS HAIR and was
+> rejected. flow_demo2.mp4 (extended-street + puddle-first) = REJECTED/superseded.
+> CORRECT build = scripts/render_flow_demo3.sh:
+>   seg0 original street take 84b73e44 (8.0s src) "like you never left" 82.02-89.82
+>   seg1 storm insert trees 3d0619c6, in 2.80 t 1.50 -> covers 89.82-91.32
+>   seg2 chorus_v16 from in 1.50 (== FRAME 7 @ 4fps sheet == native song 91.32, so
+>        mic lip-sync stays perfect) to end -> mic->puddle->mic->cafe intact
+>   bed audio_relay/flow_demo_bed.mp3 (song 82.02 +20s) continuous -> all synced.
+> KEY LAW: trimming the front of a lip-synced clip only stays in-sync if you place it
+> at its NATIVE song position and fill the freed gap with an insert (don't slide the
+> synced clip under different audio). Assets probed live: street src=8.0s (can't
+> stretch), trees=outdoor storm (good connective), rain 41b05e2e=indoor window (mismatch).
+> IF APPROVED: fold seg pattern into the full first90 re-render alongside the staged
+> 4K curb-zoom fix (render_v2_v2.sh, task #19).
+
 > LIP-SYNC MODEL (2026-07-04): user A/B'd wan2_7 vs seedance_2_0 on the turn (same face db667b65 + vocal) — WAN WON, seedance worse. wan2_7 is the lip-sync model; sync is approximate (AI mouth-from-still, tech ceiling) and the user accepts it. Do NOT re-sync with seedance. Higgsfield has no dedicated phoneme-accurate lip-sync engine (models_explore: seedance/kling/wan/grok all general).
 
 ## QUALITY PASS addendum (first90 resolution + face consistency) — read first
