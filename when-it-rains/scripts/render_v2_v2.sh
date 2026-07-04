@@ -29,9 +29,13 @@ seg sync.mp4     0.10 3.90 2   # 54.7-58.6 SYNC "the sky still holds your whispe
 # seg 3 — CURB ZOOM SYNC (58.6-70.3): 12s lip-sync hold while the world rushes;
 # accelerating push-in on his face, vignette, slow desaturation ramp.
 # Lip sync law: seg in = song_time_at_slot_start - slice_start = 58.6 - 58.5 = 0.10.
+# curbsync is now a 4K (2160p) Topaz upscale — zoom WITHIN the 4K so the
+# pushed-in crop stays sharp (down-samples to 1080 out). Gentler max zoom
+# (~1.65x vs old 2.1x) + TOP-anchored crop (y clamps to 0) so his head is
+# never cropped as the camera pushes into his face.
 ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 11.70 -i v2sec2/curbsync.mp4 -vf "\
-scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
-zoompan=z='1+1.1*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih/3-(ih/zoom/3)':s=1920x1080:fps=24,\
+scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
+zoompan=z='1+0.65*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
 vignette=PI/5,hue=s='max(0.35,1-0.055*t)',\
 noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_03.mp4

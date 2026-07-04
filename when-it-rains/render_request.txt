@@ -1,2 +1,2 @@
-render_p024.sh
-# nonce: qual-faces-final
+fetch_review.sh
+# nonce: turn-reface-candidates
