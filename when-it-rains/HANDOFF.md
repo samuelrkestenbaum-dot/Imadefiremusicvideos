@@ -1,5 +1,26 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> DIRECTOR/FACE REVIEW + RECUT PASS v1 (2026-07-04). Ran an 8-agent review (editor/
+> mv-director/story/dp lenses + 2 face-QC + synthesis) over 2fps sheets of full102.
+> VERDICT: flow = MIXED (flat front half, strong finish). Dead spots: curb 58.6-70.3
+> (11.7s single hold) was the real one; intro window is ~6s (review over-stated it as
+> 13s — always ground-truth durations from the section scripts, contact-sheet cells of a
+> static shot inflate perceived seconds). FACE MISSES ranked: (1) MIC 1:31-1:36 sev5 =
+> the ONE true identity break (bald crown + heavy DARK beard + harder jaw = reads as a
+> different man, on the chorus money shot; original hero 491e39d1, never refit to
+> canonical); (2) CURB sev4 waxy/plasticky at push-in, stubble drifts dark; (3) AWNING
+> 0:56 sev3 older non-refit; (4) CAFE sev2 soft/720; (5) STREET sev2 soft-but-on-model.
+> Identity nuance: intro/V1/cafe "bald" reads are mostly the ginger crop vanishing at
+> distance/low-light (0:20 window CU confirms crop intact) — NOT true breaks; only MIC is.
+> Skin tone + brown eyes consistent, no eye drift. Full report: workflow wf_40d8e17b-068.
+> RECUT PASS v1 DELIVERED (flow, no regen): intro cold-open push-in (render_intro_v6.sh
+> seg0 PUSHWIN zoompan) + curb split by a 1.3s ghostpud apparition flash with zoom/hue
+> continuing across the cut (render_v2_v2.sh seg_03/04/05; piece2 offsets in+161, t+6.70).
+> render_full102.sh now rebuilds intro+v2+pre1. Duration unchanged 101.87s.
+> STILL PENDING (user-deferred tracks): (A) deeper V1 kitchen trim; (B) FACE-FIX pass —
+> refit/regen MIC to canonical ginger FIRST, then curb/awning refits, cafe/street
+> re-upscale; (C) motif seeding (her face in early reflections) + two-mugs insert.
+
 > FULL ~102s CUT DELIVERED (2026-07-04) — full102.mp4 (720/13.7MB) + full102_master.mp4
 > (1080/101.87s). Built by scripts/render_full102.sh. Folds BOTH approved fixes:
 > (1) 4K curb-zoom (render_v2_v2.sh, 17d2a03f 4K + zoom-within-4K, no head-crop — VERIFIED);
