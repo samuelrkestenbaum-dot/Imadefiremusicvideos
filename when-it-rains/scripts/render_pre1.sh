@@ -13,7 +13,7 @@ VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2
 get() { [ -s "pre1sec/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "pre1sec/$2" "$1"; }; }
 get "$B/hf_20260703_144729_9b7abd53-7f15-4611-83c7-657af43c7055.mp4" walk.mp4      # walk-stop-breath take (P-025 realism refit)
 get "$B/hf_20260703_145658_3d0619c6-3b9c-4f10-b7f9-1f3f309c2605.mp4" trees.mp4     # gust insert
-get "$B/hf_20260703_141635_e15b36e1-d757-497d-9b70-3d5676369218.mp4" turnsync.mp4   # wan "like you never left" 2K (P-025 realism refit)
+get "$B/hf_20260704_150931_d07ecfa1-f03e-4f13-8be2-c9c49b9a52aa.mp4" turnsync.mp4   # no-turn street "like you never left" (84b73e44) Topaz 1080 — user-approved (flow_demo3)
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "pre1sec/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf "pre1sec/seg_%02d.mp4" "$4")"
