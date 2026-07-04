@@ -1,6 +1,16 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
-> STREET->CHORUS TRANSITION rework (2026-07-04) — AWAITING APPROVAL of flow_demo3.mp4.
+> FULL ~102s CUT DELIVERED (2026-07-04) — full102.mp4 (720/13.7MB) + full102_master.mp4
+> (1080/101.87s). Built by scripts/render_full102.sh. Folds BOTH approved fixes:
+> (1) 4K curb-zoom (render_v2_v2.sh, 17d2a03f 4K + zoom-within-4K, no head-crop — VERIFIED);
+> (2) street->chorus transition (flow_demo3, APPROVED "good enough"). PRE1 turnsync now =
+> no-turn street 84b73e44 Topaz'd to 1080 (d07ecfa1) — replaces old exit-turn e15b36e1.
+> Grid = 576/456/655/468 + storm 37f (trees 3d0619c6 in 2.80) + chorus_v16 from in 1.50
+> (frame 7) 252f. Bed = audio_relay/first102.mp3 (song 0-102). OPEN: chorus tail
+> (cafe/mic 89.8-101.8) is 720-native upscaled to 1080 = soft; offered dedicated upscale
+> pass if user flags it. flow_demo2 (extended-street, hair change) = DEAD, do not use.
+>
+> STREET->CHORUS TRANSITION rework (2026-07-04) — flow_demo3.mp4 APPROVED ("good enough").
 > User intent (final, after 2 misreads): keep chorus_v16's montage in its ORIGINAL
 > order (mic->puddle->mic->cafe); ONLY trim the dead FRONT of the mic clip and drop a
 > connective beat in front of it. DO NOT regenerate the street take — a fresh wan gen
