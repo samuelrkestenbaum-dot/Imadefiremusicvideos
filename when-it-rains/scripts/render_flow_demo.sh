@@ -13,7 +13,7 @@ mkdir -p flowdemo; : > flowdemo/concat.txt
 VFG="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 VFP="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
 get() { [ -s "flowdemo/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "flowdemo/$2" "$1"; }; }
-get "$B/NOTURN_TURN_PLACEHOLDER.mp4" turn.mp4
+get "$B/hf_20260704_133740_84b73e44-5859-4ff0-9278-6440159aed27.mp4" turn.mp4
 # turn seg 82.0-89.8 (in 0.10, 7.80s) — grain + the matching vocal slice
 ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 7.80 -i flowdemo/turn.mp4 -ss 0.18 -t 7.80 -i audio_relay/pre1_line12.mp3 \
   -map 0:v:0 -map 1:a:0 -vf "$VFG,fps=24,format=yuv420p" -r 24 \
