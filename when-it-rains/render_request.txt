@@ -1,2 +1,2 @@
-render_chorus_v17.sh
-# nonce: chorus-v17-canonical-mic
+render_full102.sh
+# nonce: full102-canonical-mic-v2
