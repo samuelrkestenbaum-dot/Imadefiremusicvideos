@@ -1,2 +1,2 @@
 render_full102.sh
-# nonce: full102-fix-intro-inflation
+# nonce: full102-fix-intro-nomaster

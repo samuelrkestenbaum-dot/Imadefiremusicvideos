@@ -52,3 +52,7 @@ echo "wrote full102_master.mp4 (${mdur}s) + full102.mp4 (720 delivery)"
 mkdir -p review/full102_frames
 ffmpeg -nostdin -y -loglevel error -i full102_master.mp4 -vf "fps=1,scale=480:-2" -q:v 4 review/full102_frames/f_%03d.jpg
 echo "wrote QC frames"
+# The 1080p master exceeds GitHub's 100MB push limit; it is only needed here to
+# derive the delivery + QC frames (both already written). Drop it so CI can push.
+rm -f full102_master.mp4
+echo "removed full102_master.mp4 (>100MB, not committed; delivery = full102.mp4)"
