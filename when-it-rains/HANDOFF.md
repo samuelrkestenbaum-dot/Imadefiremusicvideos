@@ -1,5 +1,22 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> MIC REVERTED + CURB DE-ZOOMED (2026-07-05, from user snapshots IMG_2933/34/35).
+> LIKENESS LAW (important): the user is the ONLY ground truth on his own face. He said
+> the ORIGINAL chorus mic (bald/shaved + darker beard, hero 491e39d1) "looked exactly
+> like me" — my ginger element-refit (chorus_v17, wir-him 1b581c11) was WRONG and is
+> REVERTED. full102 uses chorus_v16 (original mic) again. DO NOT refit the mic. Do NOT
+> assume the ginger wir-him element = his true look; he validates the bald/beard mic.
+> The review's "off-model mic" call was a MISTAKE to act on (only the user can judge likeness).
+> CURB (1:00-1:10): user confirmed it "degrades as it zooms in" (waxy/plastic at ~1:09).
+> Root cause = 716p source magnified by the push-in. FIX (no regen — avoid another wrong
+> face): reduced curb zoom 1.65x -> 1.10x and dropped the 4K intermediate to 1080
+> (render_v2_v2.sh seg_03/seg_05 z='1+0.10*pow(...)'), so the face holds the sharp wide
+> framing and never enlarges into plastic. Curb likeness UNCHANGED (kept ginger-buzzed).
+> render_full102 rebuilds intro+v2 (v2 fast now, no 4K), reuses committed pre1+chorus_v16.
+> OPEN (offered): if "not canonical" curb meant a likeness change (e.g. match the bald
+> mic look), that's a separate regeneration the user must green-light. chorus_v17 +
+> refit assets (02659799/a05621d2/8f3bd7ea) stay in repo but are UNUSED.
+
 > TWO BUGS FIXED (2026-07-05, after user "all messed up, no changing in scenes"):
 > (1) INTRO ZOOMPAN BALLOON: the cold-open push-in (render_intro_v6.sh seg0 PUSHWIN
 >     zoompan) ballooned intro_v6.mp4 to 51 MINUTES (zoompan is a stills/Ken-Burns
