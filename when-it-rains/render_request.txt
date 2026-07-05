@@ -1,2 +1,2 @@
-render_probe_streetcu.sh
-# nonce: probe-streetcu-frames
+render_probe_scurefit.sh
+# nonce: probe-scurefit-compare
