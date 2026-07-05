@@ -36,7 +36,7 @@ seg take.mp4   1.00 1.95 3    # beat 1: in line, gaze drifts down to the case
 # curved glass, not an opaque pasted face. A real glass reflection is additive,
 # soft and dimmer than the scene: SCREEN blend (light adds) + gaussian softening
 # + a dim/desat, so the pastries read THROUGH her and she reads as a reflection.
-REFL_OP=0.30
+REFL_OP=0.42
 ffmpeg -nostdin -y -loglevel error \
   -loop 1 -t 1.95 -i chorus18/empty.png \
   -ss 1.30 -t 1.95 -i chorus18/insert.mp4 \

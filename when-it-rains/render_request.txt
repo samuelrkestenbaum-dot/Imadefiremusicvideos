@@ -1,2 +1,2 @@
-render_chorus_v18.sh
-# nonce: chorus18-reflection-faint-overlay
+render_probe_faces.sh
+# nonce: probe-awn-curb-faces
