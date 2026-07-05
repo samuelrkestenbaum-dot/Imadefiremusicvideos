@@ -1,5 +1,24 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> TWO BUGS FIXED (2026-07-05, after user "all messed up, no changing in scenes"):
+> (1) INTRO ZOOMPAN BALLOON: the cold-open push-in (render_intro_v6.sh seg0 PUSHWIN
+>     zoompan) ballooned intro_v6.mp4 to 51 MINUTES (zoompan is a stills/Ken-Burns
+>     filter; on video with d=1 it multiplied frames). full102 took the first 24s =
+>     one frozen window, and the bed/wake/sing beats were trimmed off. FIX: reverted
+>     seg0 to plain VF. LAW: never zoompan a video clip for a push; use a time-based
+>     crop (crop=w='iw/(1+k*min(t,T)/T)':...) which is frame-count-safe. This bug was
+>     ALSO latent in "recut pass v1" (only 0-7s was QC'd) — ALWAYS map the FULL
+>     timeline of a delivery (fps=1/2 tile), not just sampled regions.
+> (2) MASTER >100MB PUSH REJECT: full102_master.mp4 hit 100.16MB > GitHub's 100MB
+>     hard limit -> CI push rejected (render succeeded, push failed). FIX: render_full102
+>     now `rm -f full102_master.mp4` after deriving the delivery + QC frames; only the
+>     720p delivery (full102.mp4 ~13MB) + review frames are committed. git-rm'd the old
+>     tracked master. QC locally from the committed 720p delivery, not the master.
+> Also: render_full102 no longer rebuilds v2_v2/pre1 (reuses committed correct copies) —
+> saves the slow double-4K curb re-render; only intro is rebuilt.
+> CURRENT GOOD DELIVERY: full102.mp4 (13.5MB, 101.88s) — fixed intro + canonical mic +
+> curb cutaway + street transition, full-timeline verified.
+
 > MIC FACE FIX DELIVERED (2026-07-05) — the #1 likeness miss (chorus mic, was bald/dark-beard
 > off-model) is now CANONICAL ginger. Chain: probe hero frame (491e39d1 -> hero_02) ->
 > nano element-refit with wir-him 1b581c11 (2 cands, picked 02659799 = full ginger hairline)
