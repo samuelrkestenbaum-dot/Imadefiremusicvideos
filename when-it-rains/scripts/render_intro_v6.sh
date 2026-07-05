@@ -12,9 +12,10 @@ B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
 GHOST_OPACITY=0.30
 mkdir -p intro6; : > intro6/concat.txt
 VF="scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1"
-# slow push-in for the cold-open window so shot 1 isn't a locked-off frozen frame
-# (scale up first so the zoom crop stays sharp, zoom within, output 1280x720)
-PUSHWIN="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,zoompan=z='min(1.15,1+0.15*in/143)':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1280x720:fps=24"
+# NOTE: a zoompan push-in on the cold-open window ballooned the clip to 51 min
+# (zoompan is a stills/Ken-Burns filter; on video with d=1 it multiplied frames).
+# Reverted to the plain (known-good) window. A frame-safe push would use a
+# time-based crop (crop=w='iw/(1+0.15*min(t,6)/6)':...), not zoompan.
 get() { [ -s "intro6/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "intro6/$2" "$1"; }; }
 get "$B/hf_20260702_140435_371791eb-362a-4d16-8510-5af28934f31d.mp4" rain.mp4    # bedroom's own window (derived from master)
 get "$B/hf_20260702_131248_eea03072-8e77-486f-9cac-289f6382decc.mp4" bed.mp4      # NEW double-bed take (from approved master)
@@ -27,7 +28,7 @@ seg() { local vf="${5:-$VF}"; ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf "intro6/seg_%02d.mp4" "$4")"
   echo "file '$(printf "seg_%02d.mp4" "$4")'" >> intro6/concat.txt; }
 
-seg rain.mp4    0.50 6.00 0 "$PUSHWIN"   # 0-6      the first breath (slow push-in, no longer locked-off)
+seg rain.mp4    0.50 6.00 0   # 0-6      the first breath (plain, known-good)
 seg bed.mp4     1.70 5.80 1   # 6-11.8   lying still; head turn lands 6.5-7.5 (measured)
 seg herhalf.mp4 0.60 3.90 2   # 11.8-15.7 his eyeline: her untouched pillow
 seg bed.mp4     7.60 2.30 3   # 15.7-18  back into the take: he rises (7.6-9.9 measured)
