@@ -37,8 +37,8 @@ seg sync.mp4     0.10 3.90 2   # 54.7-58.6 SYNC "the sky still holds your whispe
 # Lip-sync law: curbsync in = song - slice_start(58.5); piece2 in = 0.10 + (65.3-58.6) = 6.80.
 CURBZOOM_TAIL="vignette=PI/5,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03,format=yuv420p"
 ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 5.40 -i v2sec2/curbsync.mp4 -vf "\
-scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
-zoompan=z='1+0.65*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
+scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
+zoompan=z='1+0.10*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
 hue=s='max(0.35,1-0.055*t)',${CURBZOOM_TAIL}" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_03.mp4
 echo "file 'seg_03.mp4'" >> v2sec2/concat.txt
@@ -46,8 +46,8 @@ echo "file 'seg_03.mp4'" >> v2sec2/concat.txt
 seg ghostpud.mp4 2.50 1.30 4
 # piece 2: zoom + desaturation resume (offsets: in+161 frames, t+6.70s)
 ffmpeg -nostdin -y -loglevel error -ss 6.80 -t 5.00 -i v2sec2/curbsync.mp4 -vf "\
-scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
-zoompan=z='1+0.65*pow((in+161)/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
+scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
+zoompan=z='1+0.10*pow((in+161)/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
 hue=s='max(0.35,1-0.055*(t+6.70))',${CURBZOOM_TAIL}" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_05.mp4
 echo "file 'seg_05.mp4'" >> v2sec2/concat.txt
