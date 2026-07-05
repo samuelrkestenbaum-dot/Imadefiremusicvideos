@@ -1,2 +1,2 @@
-render_probe_refit.sh
-# nonce: probe-mic-refit-compare
+render_chorus_v17.sh
+# nonce: chorus-v17-canonical-mic
