@@ -36,11 +36,11 @@ seg take.mp4   1.00 1.95 3    # beat 1: in line, gaze drifts down to the case
 # curved glass, not an opaque pasted face. A real glass reflection is additive,
 # soft and dimmer than the scene: SCREEN blend (light adds) + gaussian softening
 # + a dim/desat, so the pastries read THROUGH her and she reads as a reflection.
-REFL_OP=0.45
+REFL_OP=0.30
 ffmpeg -nostdin -y -loglevel error \
   -loop 1 -t 1.95 -i chorus18/empty.png \
   -ss 1.30 -t 1.95 -i chorus18/insert.mp4 \
-  -filter_complex "[0:v]${VF},setpts=PTS-STARTPTS[bg];[1:v]${VF},setpts=PTS-STARTPTS,gblur=sigma=4,eq=brightness=-0.06:contrast=1.04:saturation=0.7[fg];[bg][fg]blend=all_mode=screen:all_opacity=${REFL_OP},fps=24,format=yuv420p" \
+  -filter_complex "[0:v]${VF},setpts=PTS-STARTPTS[bg];[1:v]${VF},setpts=PTS-STARTPTS,gblur=sigma=3,format=yuva420p,colorchannelmixer=aa=${REFL_OP}[fg];[bg][fg]overlay=shortest=1,fps=24,format=yuv420p" \
   -an -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 chorus18/seg_04.mp4
 echo "file 'seg_04.mp4'" >> chorus18/concat.txt
 

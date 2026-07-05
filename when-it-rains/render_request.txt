@@ -1,2 +1,2 @@
 render_chorus_v18.sh
-# nonce: chorus18-reflection-screen
+# nonce: chorus18-reflection-faint-overlay
