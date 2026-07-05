@@ -1,2 +1,2 @@
-render_probe_hero.sh
-# nonce: probe-hero-mic-frames
+render_probe_refit.sh
+# nonce: probe-mic-refit-compare
