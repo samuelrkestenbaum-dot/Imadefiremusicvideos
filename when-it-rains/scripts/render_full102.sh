@@ -7,12 +7,13 @@ set -euo pipefail
 HERE="$(dirname "$0")"
 bash "$HERE/render_intro_v6.sh"      # rebuilds intro_v6.mp4 (push-in reverted -> known-good intro)
 bash "$HERE/render_v2_v2.sh"         # rebuilds v2_v2.mp4 with the GENTLE curb zoom (1.10x, no waxy magnify)
-# pre1_v1.mp4 (no-turn street) + chorus_v16.mp4 (ORIGINAL mic, refit reverted) are
+bash "$HERE/render_chorus_v18.sh"   # rebuilds chorus_v18.mp4 (ORIGINAL mic + reflection 0.42)
+# pre1_v1.mp4 (no-turn street) is
 # committed and correct — reuse them.
 cd "$HERE/.."
 command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
 [ -s audio_relay/first102.mp3 ] || { echo "ERROR: audio_relay/first102.mp3 missing"; exit 1; }
-for f in intro_v6.mp4 v1_v2.mp4 v2_v2.mp4 pre1_v1.mp4 chorus_v16.mp4; do
+for f in intro_v6.mp4 v1_v2.mp4 v2_v2.mp4 pre1_v1.mp4 chorus_v18.mp4; do
   [ -s "$f" ] || { echo "ERROR: $f missing"; exit 1; }
 done
 B="https://d8j0ntlcm91z4.cloudfront.net/user_3FjIki1qP1YKJkNjWdqvy8pFZnR"
@@ -36,7 +37,7 @@ ffmpeg -nostdin -y -loglevel error -i pre1_v1.mp4 -vf "$VF,fps=24,tpad=stop_mode
 ffmpeg -nostdin -y -loglevel error -ss 2.80 -i full102/trees.mp4 -vf "$VFG,fps=24,trim=end_frame=37,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 full102/seg_04.mp4; emit seg_04.mp4
 # --- chorus_v16 from FRAME 7 (in 1.50 = native song 91.32), mic->puddle->mic->cafe, 252 frames ---
-ffmpeg -nostdin -y -loglevel error -ss 1.50 -i chorus_v16.mp4 -vf "$VF,fps=24,trim=end_frame=252,format=yuv420p" -r 24 -an \
+ffmpeg -nostdin -y -loglevel error -ss 1.50 -i chorus_v18.mp4 -vf "$VF,fps=24,trim=end_frame=252,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 full102/seg_05.mp4; emit seg_05.mp4
 
 ( cd full102 && ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i concat.txt -c copy silent.mp4 )
