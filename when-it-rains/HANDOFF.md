@@ -1,5 +1,17 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> MIC FACE FIX DELIVERED (2026-07-05) — the #1 likeness miss (chorus mic, was bald/dark-beard
+> off-model) is now CANONICAL ginger. Chain: probe hero frame (491e39d1 -> hero_02) ->
+> nano element-refit with wir-him 1b581c11 (2 cands, picked 02659799 = full ginger hairline)
+> -> imported a05621d2 -> wan2_7 lip-sync to chorus_couplet.mp3 (a2393356) = mic hero
+> 8f3bd7ea (1080p, 8s, faces mic, no turn) -> render_chorus_v17.sh (v16 with hero.mp4 swapped)
+> = chorus_v17.mp4 -> render_full102.sh now uses chorus_v17. QC: canonical ginger across all
+> frames, montage intact. Delivered full102.mp4 (12.7MB) + master (101.87s). Sync unchanged.
+> REMAINING face items (deferred, lower pri): curb sev4 + awning sev3 skin refits (same
+> refit->wan chain), cafe sev2 bald/soft (incidental profile — re-upscale + optional hair refit).
+> NOTE: render_full102 rebuilds intro+v2+pre1 each run (~10-12min CI due to the curb's DOUBLE
+> 4K zoompan since the recut split); chorus_v17 is committed so it's not rebuilt.
+
 > DIRECTOR/FACE REVIEW + RECUT PASS v1 (2026-07-04). Ran an 8-agent review (editor/
 > mv-director/story/dp lenses + 2 face-QC + synthesis) over 2fps sheets of full102.
 > VERDICT: flow = MIXED (flat front half, strong finish). Dead spots: curb 58.6-70.3
