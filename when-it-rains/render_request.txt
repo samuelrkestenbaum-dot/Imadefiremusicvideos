@@ -1,2 +1,2 @@
-render_probe_faces.sh
-# nonce: probe-awn-curb-faces
+render_probe_curbrefit.sh
+# nonce: probe-curbrefit-compare
