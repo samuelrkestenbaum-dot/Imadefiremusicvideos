@@ -1,5 +1,24 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> CANONICAL LIKENESS = BALD/SHAVED + LIGHT GINGER STUBBLE (2026-07-05, user-validated
+> from snapshots): the user confirmed the ORIGINAL MIC (bald+beard), the AWNING (0:58,
+> IMG_2938), and the CAFE (1:39) all "look like me"; he REJECTED the curb's fuller-beard-
+> +-buzzed-hair look and my ginger-HAIR refit. So his true look is bald/shaved head, LIGHT
+> thin ginger stubble, freckled — NOT the fuller-hair wir-him element. Use the AWNING frame
+> (awn_02, ab86a6c8) as the likeness reference for any future face fix, NOT wir-him.
+> CURB REGEN (delivered): curb face was refit to the awning look — nano_banana with
+> [curb_00 base ae8bd038 + awn_02 ref f2fa436c] -> refit still 2a836342 (imported c303a963)
+> -> wan lip-sync to curb_vocal.mp3 (song 58.5+, imported 56ff79be) = new curb 8237e4ae
+> (NATIVE 1080p, so sharp + gentle 1.10x zoom = no waxy degrade). render_v2_v2 curbsync
+> now = 8237e4ae. Old curbsync 17d2a03f (Topaz-716) RETIRED.
+> REFLECTION (delivered): cafe glass reveal reworked from opaque overlay (0.55) to a faint
+> softened overlay; user said "split the difference" -> REFL_OP=0.42 + gblur=3 in
+> render_chorus_v18.sh seg4 (screen-blend attempt FAILED = magenta wash, reverted). chorus_v18
+> = v16 (ORIGINAL mic) + reflection fix; full102 uses chorus_v18.
+> OPEN: the "like you never left" street CU (pre1 turnsync d07ecfa1) still has hair+beard;
+> user approved it earlier but flagged it might want the same bald refit — OFFERED, awaiting.
+> CURRENT DELIVERY: full102.mp4 (13.2MB, 101.88s), full-timeline verified.
+
 > MIC REVERTED + CURB DE-ZOOMED (2026-07-05, from user snapshots IMG_2933/34/35).
 > LIKENESS LAW (important): the user is the ONLY ground truth on his own face. He said
 > the ORIGINAL chorus mic (bald/shaved + darker beard, hero 491e39d1) "looked exactly
