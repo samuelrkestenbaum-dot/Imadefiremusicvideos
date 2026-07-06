@@ -1,2 +1,2 @@
-render_full102.sh
-# nonce: full102-kitchen-enhance-awning-curb-resync-20260706
+render_probe_wide.sh
+# nonce: probe-wide-0055-replacement-20260706
