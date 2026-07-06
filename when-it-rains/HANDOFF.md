@@ -1,5 +1,14 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> AWNING + CURB MATCHED TO STREET-CU LIKENESS — DELIVERED (2026-07-06). User confirmed the
+> refit stills ("yes"). Re-animated: awning refit bc3bb964 -> wan 35130cd5 (5s, awning_vocal
+> 61a0fdd8); curb refit ffcd446e -> wan ee08fc3a (12s, curb_vocal 56ff79be) native 1080p +
+> gentle 1.10x zoom. render_v2_v2 sync.mp4=35130cd5, curbsync.mp4=ee08fc3a. full102 delivered
+> (13.1MB, 101.88s) — awning/curb now = short ginger hair + fuller beard (match street CU +
+> each other). Street CU (d07ecfa1) + MIC (original bald, user-validated) + all else UNTOUCHED.
+> Consistency note: mic/cafe/intro remain balder — user explicitly kept the original bald mic;
+> only awning+curb were asked to change. All wan syncs are faces-camera/no-turn.
+
 > LIKENESS DIRECTION CORRECTED (2026-07-06): the user's TRUE canonical is the STREET CU
 > "like you never left" (d07ecfa1, 1:22-1:30) look = SHORT GINGER HAIR (receding hairline,
 > NOT bald) + FULLER ginger beard + freckles. My earlier "bald is canonical" read was WRONG
