@@ -1,2 +1,2 @@
-render_probe_scurefit.sh
-# nonce: probe-scurefit-compare
+render_probe_matchscu.sh
+# nonce: probe-matchscu
