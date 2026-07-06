@@ -1,5 +1,19 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> CURB 0:59-1:10 BROKEN INTO BURSTS — DELIVERED (2026-07-06, full102 head 9398a0c, file_uuid
+> f8258286). User (3rd flag): "lip syncing is still off for that 0:59-1:10" after the fresh
+> re-sync AND after the 0:55 wide. ROOT CAUSE = wan AI-lip-sync-from-still CANNOT hold clean sync
+> across a 12s tight close-up (tool ceiling, HANDOFF line ~167). Regen won't fix it. FIX = stop
+> holding on the mouth: render_v2_v2 curb section rewritten via cz() helper into 4 close-up bursts
+> (A 58.6-60.9 / B 62.0-64.3 / C 65.4-67.7 / D 68.8-70.3, each <=2.3s) interleaved with 3x 1.1s
+> her-puddle (ghostpud) reflection flashes. Push-in + hue ramp are song-time-continuous across
+> bursts (zoom off=(Ts-58.6)*24 frames, ends 1.10x), so build to "I need my world to stop" is kept
+> and the zoom jumps hide behind the cutaways. Same 11.7s total => v2_v2 still 655f, full102 grid
+> intact. Curb source unchanged (e6b78790). NOTE: puddle now recurs 4x in the street section (once
+> at 50.8 + 3 here) — motif-consistent (reflections are the thesis) but if user finds it repetitive,
+> vary surfaces (shop-window/car-glass ghost). Awaiting user reaction. If it lands, ~1:42 section
+> is done -> move to back half of song.
+
 > 0:55 AWNING -> WIDE ESTABLISHING SHOT — DELIVERED (2026-07-06, full102 head 4158fa9, file_uuid
 > aaee1e48). User: "0:55-1:10 is the weakest, lip syncing is off and they're basically the same
 > two scenes together, replacing the first one wouldn't be the worst thing." + "use your
