@@ -14,9 +14,9 @@ mkdir -p v2sec2; : > v2sec2/concat.txt
 VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v2sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v2sec2/$2" "$1"; }; }
 get "$B/hf_20260703_145638_9015cb88-1322-4ad6-8849-524ca144423f.mp4" door.mp4       # repaired door take
-get "$B/hf_20260706_003546_35130cd5-c0bc-4695-b667-8c7caad8bf82.mp4" sync.mp4       # awning refit to street-CU likeness (bc3bb964) -> wan 35130cd5
+get "$B/hf_20260706_005551_efd2278f-1f03-4bec-9545-9df8421c6077.mp4" sync.mp4       # awning refit to street-CU likeness (bc3bb964) -> wan 35130cd5 -> Topaz 2160 efd2278f
 get "$B/hf_20260703_145655_4be8a2d0-a1d1-4b46-8b67-06381b6039a6.mp4" ghostpud.mp4   # her reflection, rippled apart
-get "$B/hf_20260706_003556_ee08fc3a-5bb7-4de5-9709-eb4bd7309774.mp4" curbsync.mp4   # curb refit to street-CU likeness (ffcd446e) -> wan ee08fc3a, native 1080p
+get "$B/hf_20260706_005559_af59e755-06b4-46c1-bf3b-81bfb7c83686.mp4" curbsync.mp4   # curb refit to street-CU likeness (ffcd446e) -> wan ee08fc3a -> Topaz 2160 af59e755
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "v2sec2/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf "v2sec2/seg_%02d.mp4" "$4")"
@@ -37,7 +37,7 @@ seg sync.mp4     0.10 3.90 2   # 54.7-58.6 SYNC "the sky still holds your whispe
 # Lip-sync law: curbsync in = song - slice_start(58.5); piece2 in = 0.10 + (65.3-58.6) = 6.80.
 CURBZOOM_TAIL="vignette=PI/5,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03,format=yuv420p"
 ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 5.40 -i v2sec2/curbsync.mp4 -vf "\
-scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
+scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
 zoompan=z='1+0.10*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
 hue=s='max(0.35,1-0.055*t)',${CURBZOOM_TAIL}" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_03.mp4
@@ -46,7 +46,7 @@ echo "file 'seg_03.mp4'" >> v2sec2/concat.txt
 seg ghostpud.mp4 2.50 1.30 4
 # piece 2: zoom + desaturation resume (offsets: in+161 frames, t+6.70s)
 ffmpeg -nostdin -y -loglevel error -ss 6.80 -t 5.00 -i v2sec2/curbsync.mp4 -vf "\
-scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
+scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
 zoompan=z='1+0.10*pow((in+161)/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
 hue=s='max(0.35,1-0.055*(t+6.70))',${CURBZOOM_TAIL}" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_05.mp4
