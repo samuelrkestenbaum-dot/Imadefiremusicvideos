@@ -1,5 +1,14 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> AWNING + CURB ENHANCED + LIP-SYNC VERIFIED — DELIVERED (2026-07-06). User: "images right,
+> quality low, enhance + check lip sync." Topaz-2160 (prob-4) both wan takes: awning 35130cd5
+> -> efd2278f, curb ee08fc3a -> af59e755. render_v2_v2 uses the Topaz 2160 URLs; curb zoompan
+> scales source to 3840:2160 (zoom-within-2160 stays sharp). Lip-sync VERIFIED (extracted 4fps
+> mouth strips of both — mouths actively open/close/shape through the singing, aligned to
+> v2_bed song-time). full102 delivered (12.9MB) — awning/curb now sharp (real skin/freckle/
+> beard texture) + correct ginger likeness. NOTE: curb zoom-within-2160 makes the CI render
+> slow again (~10min); acceptable for the quality.
+
 > AWNING + CURB MATCHED TO STREET-CU LIKENESS — DELIVERED (2026-07-06). User confirmed the
 > refit stills ("yes"). Re-animated: awning refit bc3bb964 -> wan 35130cd5 (5s, awning_vocal
 > 61a0fdd8); curb refit ffcd446e -> wan ee08fc3a (12s, curb_vocal 56ff79be) native 1080p +
