@@ -14,9 +14,9 @@ mkdir -p v2sec2; : > v2sec2/concat.txt
 VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v2sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v2sec2/$2" "$1"; }; }
 get "$B/hf_20260703_145638_9015cb88-1322-4ad6-8849-524ca144423f.mp4" door.mp4       # repaired door take
-get "$B/hf_20260703_043914_ab86a6c8-ba25-48b5-9be4-b81f5ae0e58d.mp4" sync.mp4       # awning sync 2K (realism still, continuous line)
+get "$B/hf_20260706_003546_35130cd5-c0bc-4695-b667-8c7caad8bf82.mp4" sync.mp4       # awning refit to street-CU likeness (bc3bb964) -> wan 35130cd5
 get "$B/hf_20260703_145655_4be8a2d0-a1d1-4b46-8b67-06381b6039a6.mp4" ghostpud.mp4   # her reflection, rippled apart
-get "$B/hf_20260705_232854_8237e4ae-93b2-4f54-87a8-f9e8caefe6c3.mp4" curbsync.mp4   # NEW curb: refit to awning likeness (2a836342) -> wan 8237e4ae, native 1080p
+get "$B/hf_20260706_003556_ee08fc3a-5bb7-4de5-9709-eb4bd7309774.mp4" curbsync.mp4   # curb refit to street-CU likeness (ffcd446e) -> wan ee08fc3a, native 1080p
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "v2sec2/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf "v2sec2/seg_%02d.mp4" "$4")"
