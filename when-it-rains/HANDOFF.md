@@ -1,5 +1,19 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> PENDING USER CONFIRM (2026-07-06): user wants "the two" fuller-beard PRE1 shots swapped to
+> the BALD awning likeness. Candidates = PRE1 WALK (9b7abd53, 1:10-1:18) + STREET CU
+> (d07ecfa1, "like you never left", 1:22-1:30). Street CU BALD refit ALREADY DONE:
+> nano [scu_03 8d875aea + awn_02 f2fa436c] -> 2a3e04f2 (imported 7d943b72) -> wan lip-sync to
+> pre1_line12.mp3 (947892ef) = 85306975 (native 1080p, bald, no-turn) — READY to wire into
+> render_pre1 turnsync IF confirmed. WALK not yet done (it's a walking-motion shot -> needs
+> kling/seedance re-animate from a bald refit still, harder than the static CU). CAUTION:
+> user gave contradictory signals ("the shot you're redoing was good" then sent IMG_2943 street
+> CU as a replace-target) -> I sent a 4-up face compare (faces_focus.jpg) asking them to confirm
+> the exact two before regenerating. DO NOT edit render_pre1/full102 until confirmed.
+> Current GOOD delivery = full102.mp4 (925a8181-era): fixed intro + new bald curb + reflection
+> 0.42 + ORIGINAL mic + (unchanged) d07ecfa1 street CU. render_pre1 UNCHANGED (turnsync still
+> d07ecfa1; my swap attempt was user-rejected). No half-edits pending.
+
 > CANONICAL LIKENESS = BALD/SHAVED + LIGHT GINGER STUBBLE (2026-07-05, user-validated
 > from snapshots): the user confirmed the ORIGINAL MIC (bald+beard), the AWNING (0:58,
 > IMG_2938), and the CAFE (1:39) all "look like me"; he REJECTED the curb's fuller-beard-
