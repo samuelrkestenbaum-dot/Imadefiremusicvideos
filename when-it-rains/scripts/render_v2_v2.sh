@@ -26,31 +26,31 @@ seg door.mp4     1.20 7.80 0   # 43.0-50.8 one take: out -> walk -> LOOK (4.0-6.
 seg ghostpud.mp4 0.40 3.90 1   # 50.8-54.7 GHOST: her reflection in the puddle - a drop hits - rippled apart
 seg wide.mp4     0.60 3.90 2   # 54.7-58.6 WIDE establishing "the sky still holds your whisper" — lone man, rushing rainy city (replaces awning close-up; breaks the two-close-ups + kills lip-sync exposure, sets up the curb push-in)
 
-# seg 3/4/5 — CURB ZOOM SYNC (58.6-70.3), now BROKEN by a 1.3s apparition flash so
-# the pre-chorus has rhythm instead of one 12s single-composition hold. The
-# accelerating push-in, vignette and desaturation ramp CONTINUE across the cut
-# (zoom 'in' and hue 't' are offset in piece 2 so it resumes where it left off),
-# so the emotional build isn't lost — it just breathes once.
-#   piece 1  58.6-64.0 (5.40s, zoom frames 0-129)
-#   cutaway  64.0-65.3 (1.30s, her puddle reflection — seeds the 1:33 payoff)
-#   piece 2  65.3-70.3 (5.00s, zoom continues from frame ~161)
-# Lip-sync law: curbsync in = song - slice_start(58.5); piece2 in = 0.10 + (65.3-58.6) = 6.80.
+# CURB ZOOM SYNC (58.6-70.3, 11.7s) — the wan close-up lip-sync can't hold across a
+# 12s tight face (AI-from-still ceiling), so we NEVER stay on the mouth for more than
+# ~2.3s: FOUR close-up bursts (A/B/C/D) interleaved with THREE 1.1s her-puddle
+# reflection flashes. The accelerating push-in + vignette + desaturation ramp run
+# CONTINUOUSLY across the whole beat (each burst's zoom 'in' and hue 't' are offset by
+# its song-time position), so the emotional build to "I need my world to stop" is
+# preserved — the mouth just isn't on screen long enough for the sync to read as off.
+# Lip-sync law: curbsync in = song - slice_start(58.5). Zoom off = (Ts-58.6)*24 frames.
+#   A 58.60-60.90 (2.30) | cut 60.90-62.00 | B 62.00-64.30 (2.30) | cut 64.30-65.40 |
+#   C 65.40-67.70 (2.30) | cut 67.70-68.80 | D 68.80-70.30 (1.50)
 CURBZOOM_TAIL="vignette=PI/5,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03,format=yuv420p"
-ffmpeg -nostdin -y -loglevel error -ss 0.10 -t 5.40 -i v2sec2/curbsync.mp4 -vf "\
+cz() { # $1=curbsync -ss(in)  $2=dur  $3=zoom-off frames  $4=hue-off sec  $5=seg index
+  ffmpeg -nostdin -y -loglevel error -ss "$1" -t "$2" -i v2sec2/curbsync.mp4 -vf "\
 scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
-zoompan=z='1+0.10*pow(in/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
-hue=s='max(0.35,1-0.055*t)',${CURBZOOM_TAIL}" -r 24 -an \
-  -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_03.mp4
-echo "file 'seg_03.mp4'" >> v2sec2/concat.txt
-# cutaway: her reflection flickers in the puddle (apparition motif, pre-chorus)
-seg ghostpud.mp4 2.50 1.30 4
-# piece 2: zoom + desaturation resume (offsets: in+161 frames, t+6.70s)
-ffmpeg -nostdin -y -loglevel error -ss 6.80 -t 5.00 -i v2sec2/curbsync.mp4 -vf "\
-scale=3840:2160:force_original_aspect_ratio=decrease,pad=3840:2160:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,\
-zoompan=z='1+0.10*pow((in+161)/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
-hue=s='max(0.35,1-0.055*(t+6.70))',${CURBZOOM_TAIL}" -r 24 -an \
-  -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 v2sec2/seg_05.mp4
-echo "file 'seg_05.mp4'" >> v2sec2/concat.txt
+zoompan=z='1+0.10*pow((in+$3)/281,2)':d=1:x='iw/2-(iw/zoom/2)':y='ih*0.22-(ih/zoom/2)':s=1920x1080:fps=24,\
+hue=s='max(0.35,1-0.055*(t+$4))',${CURBZOOM_TAIL}" -r 24 -an \
+    -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf 'v2sec2/seg_%02d.mp4' "$5")"
+  echo "file '$(printf 'seg_%02d.mp4' "$5")'" >> v2sec2/concat.txt; }
+cz 0.10  2.30 0   0.00  3   # A  58.60-60.90
+seg ghostpud.mp4 0.40 1.10 4   # cut1 her puddle
+cz 3.50  2.30 82  3.40  5   # B  62.00-64.30  (in 3.50, off 82f, hue +3.40)
+seg ghostpud.mp4 1.60 1.10 6   # cut2 her puddle (later ripple)
+cz 6.90  2.30 163 6.80  7   # C  65.40-67.70  (in 6.90, off 163f, hue +6.80)
+seg ghostpud.mp4 2.80 1.10 8   # cut3 her puddle
+cz 10.30 1.50 245 10.20 9   # D  68.80-70.30  (in 10.30, off 245f, hue +10.20) — tightest, ends at 1.10x
 
 ( cd v2sec2 && ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i concat.txt -c copy silent.mp4 )
 ffmpeg -nostdin -y -loglevel error -i v2sec2/silent.mp4 -i audio_relay/v2_bed.mp3 \

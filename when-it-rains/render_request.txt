@@ -1,2 +1,2 @@
 render_full102.sh
-# nonce: full102-wide-replaces-awning-20260706
+# nonce: full102-curb-broken-into-bursts-20260706
