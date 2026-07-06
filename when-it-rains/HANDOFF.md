@@ -1,5 +1,19 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> 0:55 AWNING -> WIDE ESTABLISHING SHOT — DELIVERED (2026-07-06, full102 head 4158fa9, file_uuid
+> aaee1e48). User: "0:55-1:10 is the weakest, lip syncing is off and they're basically the same
+> two scenes together, replacing the first one wouldn't be the worst thing." + "use your
+> directorial hat... fit the story and progress it" + curb "leave as same amount of time."
+> DIRECTOR MOVE: replaced the awning singing close-up (0:55-58.6) with a WIDE establishing shot —
+> lone ginger man dead-center in a rainy avenue, head up to the sky, city (umbrellas/cars/rain)
+> rushing past his stillness. Solves (a) two-near-identical-close-ups redundancy, (b) AI lip-sync
+> ceiling (unreadable at wide), (c) story: opens frame outward, isolation, sets up curb push-in
+> "I need my world to stop." Arc now: puddle reflection (her, rippled) -> WIDE (he STOPS, alone in
+> world) -> curb close-up push-in. Chain: nano_banana_2 wide still [ref curb still df5cdd82] ->
+> picked B 7219b256 -> kling3_0 anim d8608711 (5s, world moves/he still) -> Topaz 2160 b515ffe6.
+> render_v2_v2 seg2 now `seg wide.mp4 0.60 3.90 2` (was awning sync). Curb UNCHANGED (e6b78790,
+> full length). Kitchen enhance + curb fresh-sync from prior round still in place. Awaiting user.
+
 > KITCHEN ENHANCE + AWNING/CURB FRESH LIP-SYNC — DELIVERED (2026-07-06, full102 head 18af7f8,
 > file_uuid 2c439393). User: "enhance images/clips at 0:24, 0:32; update lip sync for whole
 > clips at 0:55, 0:59. otherwise we're right there." Did: (1) Topaz-2160 kitchen mugs 82720c7f
