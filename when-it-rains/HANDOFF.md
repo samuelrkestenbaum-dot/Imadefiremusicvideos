@@ -1,5 +1,20 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> LIKENESS DIRECTION CORRECTED (2026-07-06): the user's TRUE canonical is the STREET CU
+> "like you never left" (d07ecfa1, 1:22-1:30) look = SHORT GINGER HAIR (receding hairline,
+> NOT bald) + FULLER ginger beard + freckles. My earlier "bald is canonical" read was WRONG
+> (I over-corrected toward bald all session). User (IMG_2945/2947/2949): "replace the first
+> two [AWNING 0:58 + CURB 1:01] with likeness of the 3rd [STREET CU 1:25]." So the STREET CU
+> stays untouched (it's the reference — that's why he stopped the bald re-do), and the AWNING
+> + CURB get refit TO the street-CU face. REFIT STILLS DONE (awaiting confirm at still stage):
+> nano [awn_02 f2fa436c + scu_03 ref 8d875aea] -> awning refit bc3bb964; nano [curb_00 ae8bd038
+> + scu_03] -> curb refit ffcd446e. Both added short ginger hair + fuller beard = match. Sent
+> matchscu_compare.png for a yes. IF CONFIRMED: re-animate awning (wan, awning vocal) + curb
+> (wan, curb_vocal 56ff79be) + gentle zoom -> swap into render_v2_v2 -> full102. The prior
+> "bald" refits (curb 8237e4ae, street-CU-to-bald 85306975/2a3e04f2) are now DEAD/WRONG-direction.
+> DO NOT go bald. NOTE: user may be viewing a version where the curb still looks fuller-beard
+> (old 17d2a03f) — the current committed curb is my bald 8237e4ae which is now being replaced.
+
 > PENDING USER CONFIRM (2026-07-06): user wants "the two" fuller-beard PRE1 shots swapped to
 > the BALD awning likeness. Candidates = PRE1 WALK (9b7abd53, 1:10-1:18) + STREET CU
 > (d07ecfa1, "like you never left", 1:22-1:30). Street CU BALD refit ALREADY DONE:
