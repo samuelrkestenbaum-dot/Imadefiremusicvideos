@@ -1,2 +1,2 @@
-render_probe_wide.sh
-# nonce: probe-wide-0055-replacement-20260706
+render_full102.sh
+# nonce: full102-wide-replaces-awning-20260706

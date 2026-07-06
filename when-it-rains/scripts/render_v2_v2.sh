@@ -14,7 +14,7 @@ mkdir -p v2sec2; : > v2sec2/concat.txt
 VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v2sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v2sec2/$2" "$1"; }; }
 get "$B/hf_20260703_145638_9015cb88-1322-4ad6-8849-524ca144423f.mp4" door.mp4       # repaired door take
-get "$B/hf_20260706_013609_8c119ef1-f4c6-4b0a-b14c-b65028c0f6d6.mp4" sync.mp4       # awning refit (bc3bb964) -> FRESH audio-driven wan re-sync 9910f6d1 -> Topaz 2160 8c119ef1 [0:55 lip-sync redo]
+get "$B/hf_20260706_130438_b515ffe6-3a91-4f35-84b4-a756b9450637.mp4" wide.mp4       # WIDE establishing (still B 7219b256 -> kling3_0 d8608711 -> Topaz 2160 b515ffe6): lone man, rushing rainy city, NO lip-sync [0:55 awning replaced per director note]
 get "$B/hf_20260703_145655_4be8a2d0-a1d1-4b46-8b67-06381b6039a6.mp4" ghostpud.mp4   # her reflection, rippled apart
 get "$B/hf_20260706_013652_e6b78790-8bc3-4163-983e-111ab4d3a6d7.mp4" curbsync.mp4   # curb refit (ffcd446e) -> FRESH audio-driven wan re-sync 821739da -> Topaz 2160 e6b78790 [0:59 lip-sync redo]
 
@@ -24,7 +24,7 @@ seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "v2sec2/$1" -vf "
 
 seg door.mp4     1.20 7.80 0   # 43.0-50.8 one take: out -> walk -> LOOK (4.0-6.5 -> song 45.8-48.3) -> walk on
 seg ghostpud.mp4 0.40 3.90 1   # 50.8-54.7 GHOST: her reflection in the puddle - a drop hits - rippled apart
-seg sync.mp4     0.10 3.90 2   # 54.7-58.6 SYNC "the sky still holds your whisper" (slice 54.6; seg at song 54.7)
+seg wide.mp4     0.60 3.90 2   # 54.7-58.6 WIDE establishing "the sky still holds your whisper" — lone man, rushing rainy city (replaces awning close-up; breaks the two-close-ups + kills lip-sync exposure, sets up the curb push-in)
 
 # seg 3/4/5 — CURB ZOOM SYNC (58.6-70.3), now BROKEN by a 1.3s apparition flash so
 # the pre-chorus has rhythm instead of one 12s single-composition hold. The
