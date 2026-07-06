@@ -6,10 +6,11 @@
 set -euo pipefail
 HERE="$(dirname "$0")"
 bash "$HERE/render_intro_v6.sh"      # rebuilds intro_v6.mp4 (push-in reverted -> known-good intro)
-bash "$HERE/render_v2_v2.sh"         # rebuilds v2_v2.mp4 with the GENTLE curb zoom (1.10x, no waxy magnify)
+bash "$HERE/render_v1_v2.sh"         # rebuilds v1_v2.mp4 with Topaz-2160 kitchen mugs + window-sync [0:24/0:32 enhance]
+bash "$HERE/render_v2_v2.sh"         # rebuilds v2_v2.mp4 with FRESH awning+curb lip-sync (Topaz 2160) + gentle curb zoom
 bash "$HERE/render_chorus_v18.sh"   # rebuilds chorus_v18.mp4 (ORIGINAL mic + reflection 0.42)
 # pre1_v1.mp4 (no-turn street) is
-# committed and correct — reuse them.
+# committed and correct — reuse it.
 cd "$HERE/.."
 command -v ffmpeg >/dev/null 2>&1 || { echo "ERROR: install ffmpeg"; exit 1; }
 [ -s audio_relay/first102.mp3 ] || { echo "ERROR: audio_relay/first102.mp3 missing"; exit 1; }

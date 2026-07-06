@@ -14,9 +14,9 @@ mkdir -p v2sec2; : > v2sec2/concat.txt
 VF="scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,noise=alls=5:allf=t+u,eq=saturation=0.93:contrast=1.03"
 get() { [ -s "v2sec2/$2" ] || { echo "  get $2"; curl -fSL --retry 4 --retry-delay 2 -o "v2sec2/$2" "$1"; }; }
 get "$B/hf_20260703_145638_9015cb88-1322-4ad6-8849-524ca144423f.mp4" door.mp4       # repaired door take
-get "$B/hf_20260706_005551_efd2278f-1f03-4bec-9545-9df8421c6077.mp4" sync.mp4       # awning refit to street-CU likeness (bc3bb964) -> wan 35130cd5 -> Topaz 2160 efd2278f
+get "$B/hf_20260706_013609_8c119ef1-f4c6-4b0a-b14c-b65028c0f6d6.mp4" sync.mp4       # awning refit (bc3bb964) -> FRESH audio-driven wan re-sync 9910f6d1 -> Topaz 2160 8c119ef1 [0:55 lip-sync redo]
 get "$B/hf_20260703_145655_4be8a2d0-a1d1-4b46-8b67-06381b6039a6.mp4" ghostpud.mp4   # her reflection, rippled apart
-get "$B/hf_20260706_005559_af59e755-06b4-46c1-bf3b-81bfb7c83686.mp4" curbsync.mp4   # curb refit to street-CU likeness (ffcd446e) -> wan ee08fc3a -> Topaz 2160 af59e755
+get "$B/hf_20260706_013652_e6b78790-8bc3-4163-983e-111ab4d3a6d7.mp4" curbsync.mp4   # curb refit (ffcd446e) -> FRESH audio-driven wan re-sync 821739da -> Topaz 2160 e6b78790 [0:59 lip-sync redo]
 
 seg() { ffmpeg -nostdin -y -loglevel error -ss "$2" -t "$3" -i "v2sec2/$1" -vf "$VF,fps=24,format=yuv420p" -r 24 -an \
   -c:v libx264 -preset medium -crf 18 -video_track_timescale 12800 "$(printf "v2sec2/seg_%02d.mp4" "$4")"

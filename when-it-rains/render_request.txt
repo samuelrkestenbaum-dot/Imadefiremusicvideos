@@ -1,2 +1,2 @@
 render_full102.sh
-# nonce: full102-awning-curb-topaz2160
+# nonce: full102-kitchen-enhance-awning-curb-resync-20260706
