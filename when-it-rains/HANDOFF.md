@@ -1,5 +1,20 @@
 # HANDOFF — session state (2026-07-03, QUALITY PASS delivered)
 
+> KITCHEN ENHANCE + AWNING/CURB FRESH LIP-SYNC — DELIVERED (2026-07-06, full102 head 18af7f8,
+> file_uuid 2c439393). User: "enhance images/clips at 0:24, 0:32; update lip sync for whole
+> clips at 0:55, 0:59. otherwise we're right there." Did: (1) Topaz-2160 kitchen mugs 82720c7f
+> -> a622fd88 [0:24] + kitchen window-sync a608a76d -> a4c39648 [0:32], swapped into render_v1_v2.
+> (2) FRESH audio-driven wan re-sync (not re-upscale) for awning + curb — the prior Topaz pass
+> had softened articulation. Awning: still bc3bb964 (imported 3554a134) + awning_vocal (imported
+> a663d8a0) -> wan 9910f6d1 (5s,1080p) -> Topaz 2160 8c119ef1. Curb: still ffcd446e (imported
+> df5cdd82) + curb_vocal (imported 63db6c14) -> wan 821739da (12s,1080p) -> Topaz 2160 e6b78790.
+> Same approved ginger-hair likeness stills + same vocals => zoom/cutaway offsets in render_v2_v2
+> unchanged and still aligned. render_full102 now ALSO runs render_v1_v2 (it didn't before, so
+> kitchen swaps take effect). QC'd all four: kitchen sharp, awning + both curb push-in pieces
+> articulate full-length. Awaiting user reaction. NOTE: re-import vocals via raw.githubusercontent
+> pinned to a commit SHA (private repo raw works for Higgsfield's importer); short media-id stubs
+> in old notes (61a0fdd8/56ff79be) are NOT full UUIDs — always full-UUID or re-import.
+
 > AWNING + CURB ENHANCED + LIP-SYNC VERIFIED — DELIVERED (2026-07-06). User: "images right,
 > quality low, enhance + check lip sync." Topaz-2160 (prob-4) both wan takes: awning 35130cd5
 > -> efd2278f, curb ee08fc3a -> af59e755. render_v2_v2 uses the Topaz 2160 URLs; curb zoompan
